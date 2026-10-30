@@ -38,13 +38,15 @@ export default function SettingsModal({
     setStatusMessage({ type: 'success', text: 'Arquivo .M3U gerado e baixado com sucesso!' });
   };
 
-  const handleClearCache = () => {
+  const handleClearCache = async () => {
     if (confirm('Deseja restaurar as configurações padrão e limpar o cache local?')) {
       localStorage.removeItem('langos_cached_channels');
       localStorage.removeItem('langos_custom_channels_url');
-      setCustomUrl('https://canais-saimo.pages.dev/catalogo.txt');
-      onChannelsUpdated(CatalogService.getChannels());
-      setStatusMessage({ type: 'success', text: 'Cache limpo e dados restaurados para o padrão.' });
+      if ('caches' in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map(k => caches.delete(k)));
+      }
+      window.location.reload();
     }
   };
 
