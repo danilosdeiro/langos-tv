@@ -2,387 +2,133 @@
   {
     "id": "s-1",
     "titulo": "Breaking Bad",
+    "letra": "B",
+    "pedaco": "3",
     "ano": "2008 - 2013",
     "categoria": "Drama / Crime",
     "capa": "https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
     "sinopse": "Um professor de química do ensino médio com câncer terminal se associa a um ex-aluno para fabricar metanfetamina e garantir o futuro da família.",
-    "temporadas": 5,
-    "dublado": [
-      {
-        "nome": "T1:E1 Piloto (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      },
-      {
-        "nome": "T1:E2 O Gato Está no Saco (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 Pilot (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      },
-      {
-        "nome": "T1:E2 Cat's in the Bag (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ]
+    "isDynamic": true
   },
   {
     "id": "s-2",
-    "titulo": "Stranger Things",
-    "ano": "2016 - 2025",
-    "categoria": "Ficção / Mistério",
-    "capa": "https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
-    "sinopse": "Quando um jovem garoto desaparece, uma pequena cidade desvenda um mistério envolvendo experimentos secretos, forças sobrenaturais e uma garota estranha.",
-    "temporadas": 4,
-    "dublado": [
-      {
-        "nome": "T1:E1 O Desaparecimento (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 The Vanishing (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ]
-  },
-  {
-    "id": "s-3",
     "titulo": "Game of Thrones",
+    "letra": "G",
+    "pedaco": "0",
     "ano": "2011 - 2019",
     "categoria": "Fantasia / Épico",
     "capa": "https://image.tmdb.org/t/p/w500/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
     "sinopse": "Em uma terra onde os verões podem durar vários anos e os invernos uma vida inteira, nove famílias nobres lutam pelo controle do Trono de Ferro.",
-    "temporadas": 8,
-    "dublado": [
-      {
-        "nome": "T1:E1 O Inverno Está Chegando (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 Winter Is Coming (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ]
+    "isDynamic": true
+  },
+  {
+    "id": "s-3",
+    "titulo": "Stranger Things",
+    "letra": "S",
+    "pedaco": "5",
+    "ano": "2016 - 2025",
+    "categoria": "Ficção / Mistério",
+    "capa": "https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
+    "sinopse": "Quando um jovem garoto desaparece, uma pequena cidade desvenda um mistério envolvendo experimentos secretos, forças sobrenaturais e uma garota estranha.",
+    "isDynamic": true
   },
   {
     "id": "s-4",
     "titulo": "The Last of Us",
+    "letra": "T",
+    "pedaco": "3",
     "ano": "2023 - 2025",
     "categoria": "Drama / Sobrevivência",
     "capa": "https://image.tmdb.org/t/p/w500/uKvVjK1qBt2v9Zf7QcTz2kO80V9.jpg",
     "sinopse": "20 anos após uma praga dizimar a humanidade, os sobreviventes se agarram à vida em zonas de quarentena severas.",
-    "temporadas": 2,
-    "dublado": [
-      {
-        "nome": "T1:E1 Quando Perdido na Escuridão (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 When You're Lost (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ]
+    "isDynamic": true
   },
   {
     "id": "s-5",
+    "titulo": "The Boys",
+    "letra": "T",
+    "pedaco": "1",
+    "ano": "2019 - 2026",
+    "categoria": "Ação / Ficção Científica",
+    "capa": "https://image.tmdb.org/t/p/w500/mshkJrM622aKqj2xN2d29N5G7c6.jpg",
+    "sinopse": "Um grupo de vigilantes se propõe a derrubar super-heróis corruptos que abusam de seus superpoderes.",
+    "isDynamic": true
+  },
+  {
+    "id": "s-6",
+    "titulo": "One Piece",
+    "letra": "O",
+    "pedaco": "5",
+    "ano": "1999 - Presente",
+    "categoria": "Animação / Aventura",
+    "capa": "https://image.tmdb.org/t/p/w500/cMD9Ygz11yjEZzbEi5AOE1e9IRb.jpg",
+    "sinopse": "Monkey D. Luffy navega pelos mares com sua tripulação em busca do lendário tesouro One Piece para se tornar o Rei dos Piratas.",
+    "isDynamic": true
+  },
+  {
+    "id": "s-7",
     "titulo": "A Casa do Dragão",
+    "letra": "A",
+    "pedaco": "0",
     "ano": "2022 - 2026",
     "categoria": "Fantasia / Drama",
     "capa": "https://image.tmdb.org/t/p/w500/7QMsOTMUswlwxJP0rTTZfmz2tX2.jpg",
     "sinopse": "A história da família Targaryen, 200 anos antes dos eventos de Game of Thrones, marcada por intrigas e disputas pelo trono.",
-    "temporadas": 2,
-    "dublado": [
-      {
-        "nome": "T1:E1 Os Herdeiros do Dragão (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 The Heirs of the Dragon (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ]
-  },
-  {
-    "id": "s-6",
-    "titulo": "The Boys",
-    "ano": "2019 - 2026",
-    "categoria": "Ação / Super-heróis",
-    "capa": "https://image.tmdb.org/t/p/w500/7Ns6tO3aYjppI5LoNOFvjOHqCgL.jpg",
-    "sinopse": "Um grupo de vigilantes busca derrubar super-heróis corruptos que abusam de seus superpoderes sob a gestão de uma megacorporação.",
-    "temporadas": 4,
-    "dublado": [
-      {
-        "nome": "T1:E1 As Regras do Jogo (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 The Name of the Game (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ]
-  },
-  {
-    "id": "s-7",
-    "titulo": "Ruptura (Severance)",
-    "ano": "2022 - 2025",
-    "categoria": "Suspense / Ficção",
-    "capa": "https://image.tmdb.org/t/p/w500/b02y5e2q5o6i2t2x7h8v0d3p.jpg",
-    "sinopse": "Mark lidera uma equipe de funcionários de escritório cujas memórias foram divididas cirurgicamente entre trabalho e vida pessoal.",
-    "temporadas": 2,
-    "dublado": [
-      {
-        "nome": "T1:E1 Boas Notícias Sobre o Inferno (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 Good News About Hell (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ]
+    "isDynamic": true
   },
   {
     "id": "s-8",
-    "titulo": "Fallout",
-    "ano": "2024 - 2026",
-    "categoria": "Ficção / Pós-Apocalíptico",
-    "capa": "https://image.tmdb.org/t/p/w500/AnsZuLp7v5Y348c6883jR33p48b.jpg",
-    "sinopse": "Em um futuro pós-apocalíptico em Los Angeles, os cidadãos devem viver em abrigos subterrâneos para se proteger de radiação e mutantes.",
-    "temporadas": 1,
-    "dublado": [
-      {
-        "nome": "T1:E1 O Fim (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 The End (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ]
-  },
-  {
-    "id": "s-9",
-    "titulo": "Xógun: A Gloriosa Saga do Japão",
-    "ano": "2024",
-    "categoria": "Histórico / Drama",
-    "capa": "https://image.tmdb.org/t/p/w500/z71hE3ZJ46r93o3s8f75j3x0p.jpg",
-    "sinopse": "No Japão feudal do século XVII, Lord Yoshii Toranaga luta por sua vida enquanto seus inimigos se unem contra ele.",
-    "temporadas": 1,
-    "dublado": [
-      {
-        "nome": "T1:E1 Anjin (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 Anjin (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ]
-  },
-  {
-    "id": "s-10",
-    "titulo": "O Urso (The Bear)",
-    "ano": "2022 - 2025",
-    "categoria": "Comédia / Drama",
-    "capa": "https://image.tmdb.org/t/p/w500/n77jF9j82387c6b54j8k3p90.jpg",
-    "sinopse": "Um jovem chef do mundo da alta gastronomia volta para Chicago para administrar a lanchonete de sua família.",
-    "temporadas": 3,
-    "dublado": [
-      {
-        "nome": "T1:E1 Sistema (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 System (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ]
-  },
-  {
-    "id": "s-11",
-    "titulo": "Peaky Blinders: Sangue, Apostas e Navalhas",
+    "titulo": "Peaky Blinders",
+    "letra": "P",
+    "pedaco": "0",
     "ano": "2013 - 2022",
     "categoria": "Crime / Drama",
     "capa": "https://image.tmdb.org/t/p/w500/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
-    "sinopse": "Uma notória gangue da Inglaterra de 1919 é liderada pelo feroz Tommy Shelby, um chefe do crime determinado a subir no mundo.",
-    "temporadas": 6,
-    "dublado": [
-      {
-        "nome": "T1:E1 Episódio 1 (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 Episode 1 (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ]
+    "sinopse": "Uma notória gangue na Inglaterra de 1919 é liderada pelo implacável Tommy Shelby, um chefe do crime decidido a subir no mundo a qualquer custo.",
+    "isDynamic": true
   },
   {
-    "id": "s-12",
+    "id": "s-9",
     "titulo": "Vikings",
+    "letra": "V",
+    "pedaco": "1",
     "ano": "2013 - 2020",
-    "categoria": "Ação / Aventura",
-    "capa": "https://image.tmdb.org/t/p/w500/bQLrHIRNEkE3PdIWQrZH9Q0vY.jpg",
-    "sinopse": "As aventuras de Ragnar Lothbrok, o maior herói de sua época, enquanto ele expande o domínio nórdico.",
-    "temporadas": 6,
-    "dublado": [
-      {
-        "nome": "T1:E1 Ritos de Passagem (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 Rites of Passage (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ]
+    "categoria": "Ação / Histórico",
+    "capa": "https://image.tmdb.org/t/p/w500/bQLrHIRNEkE3PdIWQrZH9Q0vY9Q.jpg",
+    "sinopse": "As aventuras de Ragnar Lothbrok, o maior herói da sua época, enquanto ele amplia os horizontes nórdicos ao desafiar um líder sem visão.",
+    "isDynamic": true
   },
   {
-    "id": "s-13",
+    "id": "s-10",
     "titulo": "Dark",
+    "letra": "D",
+    "pedaco": "0",
     "ano": "2017 - 2020",
     "categoria": "Ficção / Mistério",
     "capa": "https://image.tmdb.org/t/p/w500/apbrbWs8M9lyOpJYU5WXrpFbk1Z.jpg",
-    "sinopse": "O desaparecimento de duas crianças em uma cidade alemã expõe os segredos e as vidas duplas de quatro famílias.",
-    "temporadas": 3,
-    "dublado": [
-      {
-        "nome": "T1:E1 Segredos (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 Secrets (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ]
+    "sinopse": "O desaparecimento de duas crianças em uma cidade alemã expõe os relacionamentos fraturados entre quatro famílias.",
+    "isDynamic": true
   },
   {
-    "id": "s-14",
-    "titulo": "Chernobyl",
-    "ano": "2019",
-    "categoria": "Drama / Histórico",
-    "capa": "https://image.tmdb.org/t/p/w500/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg",
-    "sinopse": "A dramatização da verdadeira história de uma das piores catástrofes provocadas pelo homem na história moderna.",
-    "temporadas": 1,
-    "dublado": [
-      {
-        "nome": "T1:E1 1:23:45 (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 1:23:45 (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ]
+    "id": "s-11",
+    "titulo": "The Walking Dead",
+    "letra": "T",
+    "pedaco": "4",
+    "ano": "2010 - 2022",
+    "categoria": "Terror / Sobrevivência",
+    "capa": "https://image.tmdb.org/t/p/w500/xf9wuDcqlUPWABZNeDKPbZUjWx0.jpg",
+    "sinopse": "O xerife Rick Grimes lidera um grupo de sobreviventes em um mundo pós-apocalíptico infestado por zumbis.",
+    "isDynamic": true
   },
   {
-    "id": "s-15",
-    "titulo": "Arcane",
-    "ano": "2021 - 2024",
-    "categoria": "Animação / Ficção",
-    "capa": "https://image.tmdb.org/t/p/w500/fqldf2t8ztc9aiwn397r1G25a.jpg",
-    "sinopse": "Em meio ao conflito entre as cidades-gêmeas de Piltover e Zaun, duas irmãs lutam em lados opostos de uma guerra.",
-    "temporadas": 2,
-    "dublado": [
-      {
-        "nome": "T1:E1 Entrando na Briga (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 Welcome to the Playground (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ]
-  },
-  {
-    "id": "s-16",
-    "titulo": "Sobrenatural (Supernatural)",
-    "ano": "2005 - 2020",
-    "categoria": "Fantasia / Mistério",
-    "capa": "https://image.tmdb.org/t/p/w500/KoYWKbLJH0AcADTMheeG22xL65.jpg",
-    "sinopse": "Dois irmãos seguem os passos do pai como caçadores, lutando contra seres sobrenaturais perversos.",
-    "temporadas": 15,
-    "dublado": [
-      {
-        "nome": "T1:E1 Piloto (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 Pilot (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
-      }
-    ]
-  },
-  {
-    "id": "s-17",
-    "titulo": "Prison Break",
-    "ano": "2005 - 2017",
-    "categoria": "Ação / Suspense",
-    "capa": "https://image.tmdb.org/t/p/w500/5E1BhkCfdW6w7iG8oK3g0i1l.jpg",
-    "sinopse": "Um engenheiro se infiltra em uma prisão de segurança máxima para libertar seu irmão injustamente condenado à morte.",
-    "temporadas": 5,
-    "dublado": [
-      {
-        "nome": "T1:E1 Fuga (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 Escape (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
-      }
-    ]
-  },
-  {
-    "id": "s-18",
-    "titulo": "Suits: Homens de Terno",
-    "ano": "2011 - 2019",
-    "categoria": "Drama / Jurídico",
-    "capa": "https://image.tmdb.org/t/p/w500/vQirMwoxstpkZtMEdWfq4QY452.jpg",
-    "sinopse": "Em fuga de um esquema de drogas que deu errado, um jovem brilhante sem diploma consegue um emprego com um dos melhores advogados de Nova York.",
-    "temporadas": 9,
-    "dublado": [
-      {
-        "nome": "T1:E1 Piloto (Dub)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ],
-    "legendado": [
-      {
-        "nome": "T1:E1 Pilot (Leg)",
-        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
-      }
-    ]
+    "id": "s-12",
+    "titulo": "Wandinha",
+    "letra": "W",
+    "pedaco": "0",
+    "ano": "2022 - Presente",
+    "categoria": "Comédia / Mistério",
+    "capa": "https://image.tmdb.org/t/p/w500/9PFonBhy4cQy7Jz20NpMygczOkv.jpg",
+    "sinopse": "Wandinha Addams investiga uma onda de assassinatos enquanto faz novos amigos na Academia Nunca Mais.",
+    "isDynamic": true
   }
 ]

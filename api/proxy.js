@@ -30,10 +30,15 @@ export default async function handler(req, res) {
       headers['Range'] = req.headers.range;
     }
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
     const response = await fetch(targetUrl, { 
       headers,
-      redirect: 'follow'
+      redirect: 'follow',
+      signal: controller.signal
     });
+    clearTimeout(timeoutId);
 
     if (!response.ok && response.status !== 206) {
       return res.status(response.status).json({ 

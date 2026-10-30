@@ -6,24 +6,19 @@
     "logo": "https://img.faz-o-eli.online/globo.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 4"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 3"
       }
     ]
   },
@@ -141,18 +136,18 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/band.png",
     "fontes": [
       {
-        "url": "http://138.204.86.4:8080/BAND_HD/index.m3u8",
+        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1"
       },
       {
-        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/index.m3u8",
-        "qualidade": "HD · 1280x720",
+        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/720p/index.m3u8",
+        "qualidade": "Auto",
         "nome": "Fonte 2"
       },
       {
-        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/720p/index.m3u8",
-        "qualidade": "Auto",
+        "url": "http://138.204.86.4:8080/BAND_HD/index.m3u8",
+        "qualidade": "HD · 1280x720",
         "nome": "Fonte 3"
       },
       {
@@ -212,22 +207,22 @@
     "logo": "https://img.faz-o-eli.online/cnnbrasil.png",
     "fontes": [
       {
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/cnnbrasil/cnnbrasil.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 1"
+      },
+      {
         "url": "https://amg01391-sbtinfast-amg01391c4-lg-br-4597.playouts.now.amagi.tv/playlist/amg01391-addigital-cnnbrasil-lgbr/playlist.m3u8",
         "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "nome": "Fonte 2"
       },
       {
         "url": "https://amg01391-sbtinfast-amg01391c4-lg-br-4597.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg01391-addigital-cnnbrasil-lgbr/cb573e1e7b6c608d84c83f60cef24282967b3dcb0e6c886470af4a9765d97800dbe8ae84ae5b910c4c9e1fc061017d360439cd1dd56c49c1da63b820743c4b21fdcde00080dd0d0cb1df11292ca36265299a7369cc350f7bd2ec5a2f803ebe764c53cb017c593f88f258a8744cc59e0a957f39e8fc8b307b24455a9c5a43e6a64ed6abb64244dd6ebfb102488b2f57f38117ced415e9d48746cf128627ec159cc4f196da11d7d28c32f85ee7360d5b762e988421a12e3cdcabf2e3842f1052243c67a4c5b1ec4f268f4b3124929df89e15319753eb5fec5338ae14900fa53d8f79a30aa69b3ec8577e6c23335083d15a7332acedaf99b9415b2cba49c39bbf404ce39f277948895dd9372737da9aa171d49445c6e671c2dc036c70de7d9c9094e523964cde88487292e054d24c634366160b855ceda96cd416ed79bdc21c1bfb2c2eb0b75ade8fd552312d1ac8d01e9c2412b7df8494cc4e15fe204a0aa630821b3265c2623827a535afce752ca8361a89300afe5a1e8956b3ed7fa2e988b346739ef6f36fd323afb903d9f3428e683f520dfab20f57574370d5a137586237930bb49d9aa1440806ede5c4b195006f496a4112298fe5a821cedc8e7953468f0354151e7a209f0ad266c81309517ebb79fd984925d5487157a9cd5670536f84c7a28e81c2b82d9876d0ddf22a203d4d19d31601216b93fbcd6ef4364f716d4ec2684046ae0c4e4dfa9faab4c0d78eaf7b923c8c04fe968932a6a54d2d6641655a4e274dd8/197/1920x1080_7582265/index.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 2"
-      },
-      {
-        "url": "https://d25usgadhphvwi.cloudfront.net/hls/stv-plus1920x1080/playlist.m3u8",
-        "qualidade": "HD · 1280x720",
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/cnnbrasil/cnnbrasil.m3u8",
+        "url": "https://d25usgadhphvwi.cloudfront.net/hls/stv-plus1920x1080/playlist.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 4"
       },
@@ -334,8 +329,8 @@
     "logo": "https://img.faz-o-eli.online/globonews.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globonews/globonews.m3u8",
+        "qualidade": "HD · 1280x720",
         "nome": "Fonte 1"
       },
       {
@@ -349,29 +344,24 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globonews/globonews.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       },
       {
         "url": "http://45.185.11.126:8000/play/a08d/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324385.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 7"
+        "nome": "Fonte 6"
       },
       {
         "url": "http://79.127.238.228:14093",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 8"
+        "nome": "Fonte 7"
       }
     ]
   },
@@ -382,8 +372,8 @@
     "logo": "https://img.faz-o-eli.online/globonovelas.prev.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globonovelas/globonovelas.m3u8",
+        "qualidade": "Qualidade não informada",
         "nome": "Fonte 1"
       },
       {
@@ -397,39 +387,34 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globonovelas/globonovelas.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324400.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518595.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 7"
+        "nome": "Fonte 6"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518596.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 8"
+        "nome": "Fonte 7"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518597.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 9"
+        "nome": "Fonte 8"
       },
       {
         "url": "http://79.127.238.228:14455",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 10"
+        "nome": "Fonte 9"
       }
     ]
   },
@@ -857,12 +842,12 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/sbt.png",
     "fontes": [
       {
-        "url": "http://138.204.86.4:8080/SBT_HD/index.m3u8",
+        "url": "https://aovivo.maissbt.com/indexMobile.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1"
       },
       {
-        "url": "https://aovivo.maissbt.com/indexMobile.m3u8",
+        "url": "http://138.204.86.4:8080/SBT_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 2"
       },
@@ -900,13 +885,13 @@
         "nome": "Fonte 2"
       },
       {
-        "url": "http://45.185.11.126:8000/play/a0a7/index.m3u8",
-        "qualidade": "FHD · 1920x1080",
+        "url": "https://sbtnews.maissbt.com/3.m3u8",
+        "qualidade": "Auto",
         "nome": "Fonte 3"
       },
       {
-        "url": "https://sbtnews.maissbt.com/3.m3u8",
-        "qualidade": "Auto",
+        "url": "http://45.185.11.126:8000/play/a0a7/index.m3u8",
+        "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 4"
       }
     ]
@@ -1207,8 +1192,8 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globosp/globosp.m3u8",
+        "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1"
       },
       {
@@ -1222,19 +1207,14 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globosp/globosp.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324386.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5"
       }
     ]
   },
@@ -1809,13 +1789,13 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/record-tv.png",
     "fontes": [
       {
-        "url": "http://138.204.86.4:8080/RECORD/index.m3u8",
-        "qualidade": "FHD · 1920x1080",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
+        "qualidade": "HD · 1280x720",
         "nome": "Fonte 1"
       },
       {
-        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
-        "qualidade": "HD · 1280x720",
+        "url": "http://138.204.86.4:8080/RECORD/index.m3u8",
+        "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 2"
       },
       {
@@ -1896,13 +1876,13 @@
         "nome": "Fonte 1"
       },
       {
-        "url": "http://45.185.11.126:8000/play/a0af/index.m3u8",
-        "qualidade": "FHD · 1920x1080",
+        "url": "https://getcdn.clarocdn.com.br/Content/Channel/SPOUNVHD/dsc3/manifest.mpd",
+        "qualidade": "Qualidade não informada",
         "nome": "Fonte 2"
       },
       {
-        "url": "https://getcdn.clarocdn.com.br/Content/Channel/SPOUNVHD/dsc3/manifest.mpd",
-        "qualidade": "Qualidade não informada",
+        "url": "http://45.185.11.126:8000/play/a0af/index.m3u8",
+        "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 3"
       },
       {
@@ -2069,29 +2049,24 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/globo.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 4"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 3"
       },
       {
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4"
       }
     ]
   },
@@ -2601,17 +2576,17 @@
     "logo": "https://img.faz-o-eli.online/redevida.png",
     "fontes": [
       {
-        "url": "https://d12e4o88jd8gex.cloudfront.net/out/v1/cea3de0b76ac4e82ab8ee0fd3f17ce12/index.m3u8",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/redevida/redevida.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1"
       },
       {
-        "url": "https://d12e4o88jd8gex.cloudfront.net/out/v1/cea3de0b76ac4e82ab8ee0fd3f17ce12/index_1.m3u8",
+        "url": "https://d12e4o88jd8gex.cloudfront.net/out/v1/cea3de0b76ac4e82ab8ee0fd3f17ce12/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 2"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/redevida/redevida.m3u8",
+        "url": "https://d12e4o88jd8gex.cloudfront.net/out/v1/cea3de0b76ac4e82ab8ee0fd3f17ce12/index_1.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 3"
       },
@@ -3589,13 +3564,13 @@
     "logo": "https://images.pluto.tv/channels/6077045b6031bd00078de127/colorLogoPNG_1785430539950.png",
     "fontes": [
       {
-        "url": "https://amg00627-amg00627c9-runtime-latam-2613.playouts.now.amagi.tv/ts-us-w2-n1/playlist/amg00627-banijayfast-masterchefbrazil-runtimelatam/cb543d167c6c618784cb3760cef342a0f94b1fde1d6988693eb5518975d1073edce2a59caa08ff16388f1ede7f0a66413a3e951fda77118fd87eb141453c5728cfffe729a2c05616b7db083429b56a062a866a68ac39437ed0e21f48a238b6720a5aa82a66443d80b846ac7352db80148b61299bce8c37683f03409a5e5afba358b38ab50a5ad969a1af1c56953145f59647c0dd4ebdd4d20883448e7fa7099c93a68ace42d381c77efc02b036510f7a2fc98528cbfbb5d7b0eb01b321c2493c7c77d4e1f5dc5c3d9c4e4f2e8095a98c448fdd4a1447fb0d04b4158c47c411876eb800a4e034d1c52c03f0204bcef7f8a228e0d5a19ff73a71c90e6a7e5bbc011eaac66e1174c86298122a2d9cf28173eea645c7e673d5e62e7559b158362bb90a43b810f4f8fc9ba8aec6bf9d083f4209079454a19b22e828d24798cf062d5377e3ccf048e989c3573c6e4ec9d5108453538ed28587d019288a4e2f1ab930970b5e2cfb3d622ab176b9826a38c0662b952531fe6f308269f5ac63a0f48cab556df596ec6acb42c3f94adeff09ac2d1b5c01b8fd651f66446fdfe36342612c930bb49d9aaf274933edf1ccecc91c6d546e59015acbc7e377d4df957953468f03683006657dfc33df67db0f5e136e984ea1cb2740c5577163b6dd703733419fcba38e94d9cc50c716fec6fe2b20285665a9496b036ad4b3cd14bd0f42707e52971c262499024949fe9ad9effad13a9b7c05109ca8a6054b0f3f8d3f8d662d6d5d57dc5c82626e/145/1920x1080_6046040/index.m3u8",
-        "qualidade": "Auto",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/masterchef/masterchef.m3u8",
+        "qualidade": "Qualidade não informada",
         "nome": "Fonte 1"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/masterchef/masterchef.m3u8",
-        "qualidade": "Qualidade não informada",
+        "url": "https://amg00627-amg00627c9-runtime-latam-2613.playouts.now.amagi.tv/ts-us-w2-n1/playlist/amg00627-banijayfast-masterchefbrazil-runtimelatam/cb543d167c6c618784cb3760cef342a0f94b1fde1d6988693eb5518975d1073edce2a59caa08ff16388f1ede7f0a66413a3e951fda77118fd87eb141453c5728cfffe729a2c05616b7db083429b56a062a866a68ac39437ed0e21f48a238b6720a5aa82a66443d80b846ac7352db80148b61299bce8c37683f03409a5e5afba358b38ab50a5ad969a1af1c56953145f59647c0dd4ebdd4d20883448e7fa7099c93a68ace42d381c77efc02b036510f7a2fc98528cbfbb5d7b0eb01b321c2493c7c77d4e1f5dc5c3d9c4e4f2e8095a98c448fdd4a1447fb0d04b4158c47c411876eb800a4e034d1c52c03f0204bcef7f8a228e0d5a19ff73a71c90e6a7e5bbc011eaac66e1174c86298122a2d9cf28173eea645c7e673d5e62e7559b158362bb90a43b810f4f8fc9ba8aec6bf9d083f4209079454a19b22e828d24798cf062d5377e3ccf048e989c3573c6e4ec9d5108453538ed28587d019288a4e2f1ab930970b5e2cfb3d622ab176b9826a38c0662b952531fe6f308269f5ac63a0f48cab556df596ec6acb42c3f94adeff09ac2d1b5c01b8fd651f66446fdfe36342612c930bb49d9aaf274933edf1ccecc91c6d546e59015acbc7e377d4df957953468f03683006657dfc33df67db0f5e136e984ea1cb2740c5577163b6dd703733419fcba38e94d9cc50c716fec6fe2b20285665a9496b036ad4b3cd14bd0f42707e52971c262499024949fe9ad9effad13a9b7c05109ca8a6054b0f3f8d3f8d662d6d5d57dc5c82626e/145/1920x1080_6046040/index.m3u8",
+        "qualidade": "Auto",
         "nome": "Fonte 2"
       }
     ]
@@ -4888,8 +4863,8 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoam/globoam.m3u8",
+        "qualidade": "Qualidade não informada",
         "nome": "Fonte 1"
       },
       {
@@ -4903,14 +4878,9 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoam/globoam.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       }
     ]
   },
@@ -4921,8 +4891,8 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoce/globoce.m3u8",
+        "qualidade": "Qualidade não informada",
         "nome": "Fonte 1"
       },
       {
@@ -4936,14 +4906,9 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoce/globoce.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       }
     ]
   },
@@ -4954,8 +4919,8 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoes/globoes.m3u8",
+        "qualidade": "HD · 1280x720",
         "nome": "Fonte 1"
       },
       {
@@ -4969,14 +4934,9 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoes/globoes.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       }
     ]
   },
@@ -4987,8 +4947,8 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globogo/globogo.m3u8",
+        "qualidade": "Qualidade não informada",
         "nome": "Fonte 1"
       },
       {
@@ -5002,14 +4962,9 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globogo/globogo.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       }
     ]
   },
@@ -5020,8 +4975,8 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globopb/globopb.m3u8",
+        "qualidade": "Qualidade não informada",
         "nome": "Fonte 1"
       },
       {
@@ -5035,14 +4990,9 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globopb/globopb.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       }
     ]
   },
@@ -5053,8 +5003,8 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globope/globope.m3u8",
+        "qualidade": "Qualidade não informada",
         "nome": "Fonte 1"
       },
       {
@@ -5068,14 +5018,9 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globope/globope.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       }
     ]
   },
@@ -5086,8 +5031,8 @@
     "logo": "https://img.faz-o-eli.online/globorj.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globorj/globorj.m3u8",
+        "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1"
       },
       {
@@ -5101,14 +5046,9 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globorj/globorj.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       }
     ]
   },
@@ -5119,8 +5059,8 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globors/globors.m3u8",
+        "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1"
       },
       {
@@ -5134,14 +5074,9 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globors/globors.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       }
     ]
   },
@@ -5295,8 +5230,8 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globodf/globodf.m3u8",
+        "qualidade": "HD · 1280x720",
         "nome": "Fonte 1"
       },
       {
@@ -5310,14 +5245,9 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globodf/globodf.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       }
     ]
   },
@@ -5328,8 +5258,8 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://saimo-tv.pages.dev/api/proxy?url=http%3A%2F%2Fhls1.sua.tv%2Flive%2Fglobotvbahiafhdbr2%2Fs.m3u8",
-        "qualidade": "FHD · CDN Edge",
+        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globomg/globomg.m3u8",
+        "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1"
       },
       {
@@ -5343,14 +5273,9 @@
         "nome": "Fonte 3"
       },
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globomg/globomg.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
-      },
-      {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · 1080p",
-        "nome": "Fonte 5"
+        "qualidade": "FHD · CDN Edge",
+        "nome": "Fonte 4"
       }
     ]
   },

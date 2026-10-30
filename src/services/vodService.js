@@ -1,4 +1,4 @@
-// VOD Service — Catálogo Dinâmico de Séries e Episódios (Mais de 7.000 títulos atualizados diariamente com capas TMDB)
+// VOD Service — Catálogo Dinâmico de Séries e Episódios (Mais de 7.000 títulos atualizados com capas TMDB e múltiplas temporadas)
 
 const SERIES_CACHE = {};
 const EPISODES_CACHE = {};
@@ -18,7 +18,10 @@ const DEAD_HOSTS = [
   '16-5-0-235.sslip.io',
   's25-cloudfront-net.lat',
   's23-cloudfront-net.lat',
-  'aws.s13-s1001604.lat'
+  'aws.s13-s1001604.lat',
+  'koyeb.app',
+  'governosptx.org',
+  'r2.dev'
 ];
 
 function normalizeTitle(t) {
@@ -86,10 +89,56 @@ async function getFichasMap() {
   return FICHAS_PROMISE;
 }
 
+// Catálogo fixo de séries consagradas para a aba Destaques
+const FEATURED_SERIES_CONFIG = [
+  { titulo: 'Breaking Bad', letra: 'B', pedaco: '3', ano: '2008' },
+  { titulo: 'Game of Thrones', letra: 'G', pedaco: '0', ano: '2011' },
+  { titulo: 'Stranger Things', letra: 'S', pedaco: '5', ano: '2016' },
+  { titulo: 'The Last of Us', letra: 'T', pedaco: '3', ano: '2023' },
+  { titulo: 'The Boys', letra: 'T', pedaco: '1', ano: '2019' },
+  { titulo: 'One Piece', letra: 'O', pedaco: '5', ano: '1999' },
+  { titulo: 'ONE PIECE: A Série', letra: 'O', pedaco: '5', ano: '2023' },
+  { titulo: 'A Casa do Dragão', letra: 'A', pedaco: '0', ano: '2022' },
+  { titulo: 'The Walking Dead', letra: 'T', pedaco: '4', ano: '2010' },
+  { titulo: 'Peaky Blinders', letra: 'P', pedaco: '0', ano: '2013' },
+  { titulo: 'Vikings', letra: 'V', pedaco: '1', ano: '2013' },
+  { titulo: 'Dark', letra: 'D', pedaco: '0', ano: '2017' },
+  { titulo: 'Wandinha', letra: 'W', pedaco: '0', ano: '2022' },
+  { titulo: 'Round 6', letra: 'R', pedaco: '2', ano: '2021' },
+  { titulo: 'Chernobyl', letra: 'C', pedaco: '2', ano: '2019' },
+  { titulo: 'Prison Break', letra: 'P', pedaco: '3', ano: '2005' },
+  { titulo: 'Euphoria', letra: 'E', pedaco: '2', ano: '2019' },
+  { titulo: 'Dexter', letra: 'D', pedaco: '2', ano: '2006' },
+  { titulo: 'Lupin', letra: 'L', pedaco: '2', ano: '2021' },
+  { titulo: 'Diários de uma Apotecária', letra: 'D', pedaco: '3', ano: '2023' },
+  { titulo: 'Cyberpunk: Mercenários', letra: 'C', pedaco: '6', ano: '2022' }
+];
+
 export const VodService = {
   // Pré-aquecer carregamento de pôsteres em segundo plano
   preloadFichas() {
     getFichasMap().catch(() => {});
+  },
+
+  // Obter séries em destaque com dados reais TMDB e dinâmicas
+  async fetchFeaturedSeries() {
+    const fichas = await getFichasMap();
+    return FEATURED_SERIES_CONFIG.map((cfg, idx) => {
+      const normKey = normalizeTitle(cfg.titulo);
+      const capa = fichas.posters.get(`s|${normKey}`) || fichas.posters.get(normKey) || '';
+      const categoria = fichas.genres.get(`s|${normKey}`) || fichas.genres.get(normKey) || 'Série';
+
+      return {
+        id: `destaque-${cfg.letra}-${idx}`,
+        letra: cfg.letra,
+        pedaco: cfg.pedaco,
+        titulo: cfg.titulo,
+        ano: cfg.ano,
+        categoria: categoria,
+        capa: capa,
+        isDynamic: true
+      };
+    });
   },
 
   // Buscar catálogo de séries por letra (A-Z) com capas e gêneros TMDB integrados
@@ -151,12 +200,26 @@ export const VodService = {
 
   // Buscar temporadas e episódios de uma série específica
   async fetchEpisodes(letter, pedaco, seriesTitle) {
-    const cacheKey = `${letter}-${pedaco}`;
+    let pieceToUse = pedaco;
+
+    // Se pedaco não veio definido ou for '0', resolver o pedaço real pelo índice da letra
+    if (!pieceToUse || pieceToUse === '0') {
+      try {
+        const letterList = await this.fetchSeriesByLetter(letter);
+        const normTarget = normalizeTitle(seriesTitle);
+        const match = letterList.find(s => normalizeTitle(s.titulo) === normTarget);
+        if (match && match.pedaco) {
+          pieceToUse = match.pedaco;
+        }
+      } catch {}
+    }
+
+    const cacheKey = `${letter}-${pieceToUse || '0'}`;
     let text = EPISODES_CACHE[cacheKey];
 
     if (!text) {
       try {
-        const url = `https://filmes-saimo.pages.dev/series-${letter}-${pedaco}.txt`;
+        const url = `https://filmes-saimo.pages.dev/series-${letter}-${pieceToUse || '0'}.txt`;
         const res = await fetch(url);
         if (!res.ok) throw new Error(`Status ${res.status}`);
         text = await res.text();
@@ -176,12 +239,17 @@ export const VodService = {
     for (let line of lines) {
       const trimmed = line.trim();
       if (trimmed.startsWith('@')) {
-        const currentTitle = normalizeTitle(trimmed.slice(1));
         if (targetFound) {
           // Chegou na próxima série
           break;
         }
-        if (currentTitle === normTarget || currentTitle.includes(normTarget) || normTarget.includes(currentTitle)) {
+
+        const headerTitlePart = trimmed.slice(1).split('\t')[0];
+        const currentTitle = normalizeTitle(headerTitlePart);
+
+        // Correspondência exata primeiro (evita que One Piece caia em "One Piece Extra")
+        if (currentTitle === normTarget || 
+            currentTitle.replace(/\d{4}$/, '').trim() === normTarget.replace(/\d{4}$/, '').trim()) {
           targetFound = true;
           continue;
         }
@@ -210,10 +278,14 @@ export const VodService = {
           // Remover duplicatas
           const uniqueUrls = [...new Set(validUrls)];
 
-          // Ordenar fontes priorizando HLS estáveis e MP4 direto
+          // Ordenar fontes priorizando HTTPS e domínios rápidos
           uniqueUrls.sort((a, b) => {
-            const scoreA = (a.startsWith('https') ? 2 : 0) + (a.includes('embedplayer2') || a.includes('maximaimg') || a.includes('.m3u8') ? 3 : 1);
-            const scoreB = (b.startsWith('https') ? 2 : 0) + (b.includes('embedplayer2') || b.includes('maximaimg') || b.includes('.m3u8') ? 3 : 1);
+            const scoreA = (a.startsWith('https') ? 4 : 0) + 
+              (a.includes('embedplayer2') || a.includes('maximaimg') || a.includes('apiflix') ? 3 : 0) +
+              (a.includes('.m3u8') ? 2 : 1);
+            const scoreB = (b.startsWith('https') ? 4 : 0) + 
+              (b.includes('embedplayer2') || b.includes('maximaimg') || b.includes('apiflix') ? 3 : 0) +
+              (b.includes('.m3u8') ? 2 : 1);
             return scoreB - scoreA;
           });
 

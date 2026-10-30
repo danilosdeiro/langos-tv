@@ -47,8 +47,15 @@ export default function App() {
   useEffect(() => {
     setChannels(CatalogService.getChannels());
     setMovies(CatalogService.getMovies());
-    setFeaturedSeries(CatalogService.getSeries());
     setFavorites(CatalogService.getFavorites());
+
+    // Carregar séries consagradas dinâmicas (com todas as temporadas e episódios da nuvem)
+    VodService.fetchFeaturedSeries()
+      .then(featured => setFeaturedSeries(featured))
+      .catch(err => {
+        console.warn('Erro ao carregar destaques de séries:', err);
+        setFeaturedSeries(CatalogService.getSeries());
+      });
   }, []);
 
   // Carregar séries da nuvem quando selecionar letra do alfabeto

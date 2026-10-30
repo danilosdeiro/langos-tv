@@ -89,14 +89,35 @@ export default function VideoPlayer({
     return rawUrl;
   }, [currentSource]);
 
-  // Resetar índice e tempos ao trocar de conteúdo ou áudio
+  // Gerenciamento de troca de conteúdo e retenção de posição ao alternar áudio (Dub/Leg)
+  const savedTimeRef = useRef(0);
+  const prevItemIdRef = useRef(item?.id);
+  const prevAudioVersionRef = useRef(audioVersion);
+
   useEffect(() => {
-    setActiveSourceIndex(0);
-    setErrorMessage(null);
-    setFallbackNotice(null);
-    setCurrentTime(0);
-    setDuration(0);
-    setBufferedEnd(0);
+    const isDifferentItem = prevItemIdRef.current !== item?.id;
+    const isDifferentAudio = prevAudioVersionRef.current !== audioVersion;
+
+    if (isDifferentItem) {
+      setActiveSourceIndex(0);
+      setErrorMessage(null);
+      setFallbackNotice(null);
+      setCurrentTime(0);
+      setDuration(0);
+      setBufferedEnd(0);
+      savedTimeRef.current = 0;
+    } else if (isDifferentAudio) {
+      // Mesma série/filme, apenas trocando idioma do áudio: reter posição atual
+      if (videoRef.current && videoRef.current.currentTime > 0) {
+        savedTimeRef.current = videoRef.current.currentTime;
+      }
+      setActiveSourceIndex(0);
+      setErrorMessage(null);
+      setFallbackNotice(null);
+    }
+
+    prevItemIdRef.current = item?.id;
+    prevAudioVersionRef.current = audioVersion;
   }, [item?.id, audioVersion]);
 
   // Monitorar tempo e duração do vídeo (VOD)
@@ -207,6 +228,10 @@ export default function VideoPlayer({
         isLoadedRef.current = true;
         setLoading(false);
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        if (savedTimeRef.current > 0) {
+          try { video.currentTime = savedTimeRef.current; } catch {}
+          savedTimeRef.current = 0;
+        }
         video.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
       });
 
@@ -240,6 +265,10 @@ export default function VideoPlayer({
         isLoadedRef.current = true;
         setLoading(false);
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        if (savedTimeRef.current > 0) {
+          try { video.currentTime = savedTimeRef.current; } catch {}
+          savedTimeRef.current = 0;
+        }
         video.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
       };
 
@@ -468,25 +497,33 @@ export default function VideoPlayer({
         </div>
 
         <div className="flex items-center gap-1.5">
-          {isVOD && onAudioVersionChange && (
+          {isVOD && onAudioVersionChange && (item?.dublado?.length > 0 || item?.legendado?.length > 0) && (
             <div className="bg-zinc-900/90 border border-white/10 p-0.5 rounded-xl flex items-center gap-1 shadow-lg">
               <button
                 onClick={() => onAudioVersionChange('dublado')}
+                disabled={!item?.dublado?.length}
                 className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition flex items-center gap-1 ${
-                  audioVersion === 'dublado'
-                    ? 'bg-indigo-600 text-white shadow-md'
-                    : 'text-zinc-400 hover:text-white'
+                  !item?.dublado?.length 
+                    ? 'opacity-40 cursor-not-allowed text-zinc-500' 
+                    : audioVersion === 'dublado'
+                      ? 'bg-indigo-600 text-white shadow-md'
+                      : 'text-zinc-400 hover:text-white'
                 }`}
+                title={item?.dublado?.length ? "Áudio Dublado" : "Áudio Dublado Indisponível"}
               >
                 🔊 Dub
               </button>
               <button
                 onClick={() => onAudioVersionChange('legendado')}
+                disabled={!item?.legendado?.length}
                 className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition flex items-center gap-1 ${
-                  audioVersion === 'legendado'
-                    ? 'bg-indigo-600 text-white shadow-md'
-                    : 'text-zinc-400 hover:text-white'
+                  !item?.legendado?.length 
+                    ? 'opacity-40 cursor-not-allowed text-zinc-500' 
+                    : audioVersion === 'legendado'
+                      ? 'bg-indigo-600 text-white shadow-md'
+                      : 'text-zinc-400 hover:text-white'
                 }`}
+                title={item?.legendado?.length ? "Áudio Legendado" : "Áudio Legendado Indisponível"}
               >
                 💬 Leg
               </button>

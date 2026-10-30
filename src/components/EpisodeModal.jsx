@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Play, Layers, Clapperboard, Loader2 } from 'lucide-react';
+import { X, Play, Layers, Clapperboard, Loader2, Volume2, MessageSquare } from 'lucide-react';
 import { VodService } from '../services/vodService';
 
 export default function EpisodeModal({ 
@@ -16,37 +16,43 @@ export default function EpisodeModal({
   useEffect(() => {
     if (!series || !isOpen) return;
 
-    // Se a série já tiver episódios embutidos (catálogo local)
-    if (!series.isDynamic) {
-      const dubEps = (series.dublado || []).map((e, idx) => ({
-        season: 1,
-        episode: idx + 1,
-        audio: 'dublado',
-        url: e.url,
-        nome: e.nome
-      }));
-      const legEps = (series.legendado || []).map((e, idx) => ({
-        season: 1,
-        episode: idx + 1,
-        audio: 'legendado',
-        url: e.url,
-        nome: e.nome
-      }));
-      setEpisodes([...dubEps, ...legEps]);
-      return;
-    }
-
-    // Série dinâmica: buscar da nuvem pelo arquivo de pedaço
     setLoading(true);
+    setEpisodes([]);
+
+    // Buscar episódios da série na nuvem
     VodService.fetchEpisodes(series.letra, series.pedaco, series.titulo)
       .then(eps => {
+        // Se a busca dinâmica não encontrar ou série for local, usar catálogo embutido como fallback
+        if (eps.length === 0 && !series.isDynamic) {
+          const dubEps = (series.dublado || []).map((e, idx) => ({
+            season: 1,
+            episode: idx + 1,
+            audio: 'dublado',
+            url: e.url,
+            allUrls: [e.url],
+            nome: e.nome
+          }));
+          const legEps = (series.legendado || []).map((e, idx) => ({
+            season: 1,
+            episode: idx + 1,
+            audio: 'legendado',
+            url: e.url,
+            allUrls: [e.url],
+            nome: e.nome
+          }));
+          eps = [...dubEps, ...legEps];
+        }
+
         setEpisodes(eps);
         if (eps.length > 0) {
           setSelectedSeason(eps[0].season);
-          // Preferir dublado se existir
           const hasDub = eps.some(e => e.audio === 'dublado');
           setSelectedAudio(hasDub ? 'dublado' : 'legendado');
         }
+      })
+      .catch(err => {
+        console.error('Erro ao carregar episódios:', err);
+        setEpisodes([]);
       })
       .finally(() => setLoading(false));
   }, [series, isOpen]);
@@ -55,9 +61,67 @@ export default function EpisodeModal({
 
   // Temporadas disponíveis
   const seasons = Array.from(new Set(episodes.map(e => e.season))).sort((a, b) => a - b);
-  const currentSeasonEps = episodes.filter(
+  
+  // Áudios disponíveis no acervo desta série
+  const hasDublado = episodes.some(e => e.audio === 'dublado');
+  const hasLegendado = episodes.some(e => e.audio === 'legendado');
+
+  // Episódios filtrados da temporada atual
+  let currentSeasonEps = episodes.filter(
     e => e.season === selectedSeason && e.audio === selectedAudio
   );
+
+  // Se a temporada não tiver episódios para o áudio selecionado, usar os disponíveis
+  if (currentSeasonEps.length === 0 && episodes.length > 0) {
+    currentSeasonEps = episodes.filter(e => e.season === selectedSeason);
+  }
+
+  // Ordenar episódios numericamente
+  currentSeasonEps.sort((a, b) => a.episode - b.episode);
+
+  // Manipular clique no episódio
+  const handleEpisodeClick = (ep) => {
+    // Buscar fontes Dublado e Legendado para este mesmo episódio (S/E)
+    const dubEp = episodes.find(e => e.season === ep.season && e.episode === ep.episode && e.audio === 'dublado');
+    const legEp = episodes.find(e => e.season === ep.season && e.episode === ep.episode && e.audio === 'legendado');
+
+    const dubUrls = dubEp ? ((dubEp.allUrls && dubEp.allUrls.length > 0) ? dubEp.allUrls : [dubEp.url]) : [];
+    const legUrls = legEp ? ((legEp.allUrls && legEp.allUrls.length > 0) ? legEp.allUrls : [legEp.url]) : [];
+
+    const dubSources = dubUrls.map((u, i) => ({
+      nome: `Dublado - Fonte ${i + 1} (${u.includes('.mp4') ? 'MP4 FHD' : 'HLS Auto'})`,
+      url: u,
+      qualidade: u.includes('.mp4') ? 'FHD' : 'Auto',
+      audio: 'dublado'
+    }));
+
+    const legSources = legUrls.map((u, i) => ({
+      nome: `Legendado - Fonte ${i + 1} (${u.includes('.mp4') ? 'MP4 FHD' : 'HLS Auto'})`,
+      url: u,
+      qualidade: u.includes('.mp4') ? 'FHD' : 'Auto',
+      audio: 'legendado'
+    }));
+
+    // Determinar áudio preferencial baseado na seleção do usuário no modal
+    const chosenAudio = (selectedAudio === 'legendado' && legSources.length > 0)
+      ? 'legendado'
+      : (dubSources.length > 0 ? 'dublado' : (legSources.length > 0 ? 'legendado' : ep.audio));
+
+    const activeSources = chosenAudio === 'legendado' ? legSources : dubSources;
+    const fallbackSources = activeSources.length > 0 ? activeSources : [...dubSources, ...legSources];
+
+    onPlayEpisode({
+      id: `ep-${series.id}-${ep.season}-${ep.episode}`,
+      titulo: `${series.titulo} — T${ep.season}:E${ep.episode}`,
+      categoria: series.categoria || 'Série',
+      capa: series.capa || '',
+      fontes: fallbackSources,
+      dublado: dubSources,
+      legendado: legSources
+    }, chosenAudio);
+
+    onClose();
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
@@ -83,7 +147,7 @@ export default function EpisodeModal({
             <div>
               <h2 className="text-white font-extrabold text-base md:text-lg line-clamp-1">{series.titulo}</h2>
               <p className="text-zinc-400 text-xs">
-                {series.ano} • {series.categoria || 'Série'} • {episodes.length} episódios catalogados
+                {series.ano} • {series.categoria || 'Série'} • {loading ? 'Carregando...' : `${episodes.length} episódios catalogados`}
               </p>
             </div>
           </div>
@@ -100,36 +164,38 @@ export default function EpisodeModal({
           
           {/* Seletor de Áudio (Dublado / Legendado) */}
           <div className="flex items-center justify-between bg-zinc-950 p-2 rounded-2xl border border-white/5">
-            <span className="text-xs font-bold text-zinc-400 px-2">Áudio:</span>
+            <span className="text-xs font-bold text-zinc-400 px-2">Áudio da Série:</span>
             <div className="flex gap-1.5">
               <button
                 onClick={() => setSelectedAudio('dublado')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
                   selectedAudio === 'dublado'
                     ? 'bg-emerald-600 text-white shadow-md'
                     : 'text-zinc-400 hover:text-white'
                 }`}
               >
-                🔊 Dublado
+                <Volume2 size={13} />
+                Dublado
               </button>
               <button
                 onClick={() => setSelectedAudio('legendado')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
                   selectedAudio === 'legendado'
                     ? 'bg-sky-600 text-white shadow-md'
                     : 'text-zinc-400 hover:text-white'
                 }`}
               >
-                💬 Legendado
+                <MessageSquare size={13} />
+                Legendado
               </button>
             </div>
           </div>
 
-          {/* Seletor de Temporadas */}
+          {/* Seletor de Temporadas (Aparece se houver mais de 1 temporada) */}
           {seasons.length > 1 && (
             <div>
               <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block mb-2">
-                Temporadas:
+                Temporadas ({seasons.length} disponíveis):
               </span>
               <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
                 {seasons.map(s => (
@@ -153,7 +219,7 @@ export default function EpisodeModal({
           {loading ? (
             <div className="py-12 flex flex-col items-center justify-center text-zinc-400">
               <Loader2 size={32} className="animate-spin text-purple-500 mb-2" />
-              <span className="text-xs font-medium">Buscando episódios na nuvem...</span>
+              <span className="text-xs font-medium">Buscando catálogo completo de episódios na nuvem...</span>
             </div>
           ) : currentSeasonEps.length > 0 ? (
             <div>
@@ -164,25 +230,7 @@ export default function EpisodeModal({
                 {currentSeasonEps.map((ep, idx) => (
                   <button
                     key={idx}
-                    onClick={() => {
-                      const allLinks = (ep.allUrls && ep.allUrls.length > 0) ? ep.allUrls : [ep.url];
-                      const episodeSources = allLinks.map((u, i) => ({
-                        nome: `Fonte ${i + 1} (${u.includes('.mp4') ? 'MP4 FHD' : 'HLS Auto'})`,
-                        url: u,
-                        qualidade: u.includes('.mp4') ? 'FHD' : 'Auto'
-                      }));
-
-                      onPlayEpisode({
-                        id: `ep-${series.id}-${ep.season}-${ep.episode}`,
-                        titulo: `${series.titulo} — T${ep.season}:E${ep.episode}`,
-                        categoria: series.categoria || 'Série',
-                        capa: series.capa || '',
-                        fontes: episodeSources,
-                        dublado: ep.audio === 'dublado' ? episodeSources : [],
-                        legendado: ep.audio === 'legendado' ? episodeSources : []
-                      }, ep.audio);
-                      onClose();
-                    }}
+                    onClick={() => handleEpisodeClick(ep)}
                     className="p-3 bg-zinc-800/80 hover:bg-purple-600 border border-white/5 hover:border-purple-400 rounded-xl text-left transition flex items-center justify-between group shadow-sm"
                   >
                     <div>
