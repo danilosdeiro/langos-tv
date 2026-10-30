@@ -8,17 +8,17 @@
       {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -29,24 +29,19 @@
     "logo": "https://img.faz-o-eli.online/ae.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/ae/ae.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/518547.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518548.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518549.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -57,24 +52,19 @@
     "logo": "https://img.faz-o-eli.online/adultswim.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/adultswim/adultswim.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a06m/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518592.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518594.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -85,14 +75,9 @@
     "logo": "https://img.faz-o-eli.online/amc.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/amc/amc.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a06s/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -103,29 +88,24 @@
     "logo": "https://img.faz-o-eli.online/animalplanet.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/animalplanet/animalplanet.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/296619.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/296620.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/296621.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324374.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -138,32 +118,32 @@
       {
         "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/720p/index.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://138.204.86.4:8080/BAND_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324357.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324358.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 5 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324376.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 6"
+        "nome": "Fonte 6 (Live FHD)"
       }
     ]
   },
@@ -174,29 +154,24 @@
     "logo": "https://img.faz-o-eli.online/cartoonnetwork.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/cartoonnetwork/cartoonnetwork.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/CARTOON_NETWORK/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882622.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882623.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882624.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -207,34 +182,29 @@
     "logo": "https://img.faz-o-eli.online/cnnbrasil.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/cnnbrasil/cnnbrasil.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg01391-sbtinfast-amg01391c4-lg-br-4597.playouts.now.amagi.tv/playlist/amg01391-addigital-cnnbrasil-lgbr/playlist.m3u8",
         "qualidade": "Qualidade não informada",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://amg01391-sbtinfast-amg01391c4-lg-br-4597.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg01391-addigital-cnnbrasil-lgbr/cb573e1e7b6c608d84c83f60cef24282967b3dcb0e6c886470af4a9765d97800dbe8ae84ae5b910c4c9e1fc061017d360439cd1dd56c49c1da63b820743c4b21fdcde00080dd0d0cb1df11292ca36265299a7369cc350f7bd2ec5a2f803ebe764c53cb017c593f88f258a8744cc59e0a957f39e8fc8b307b24455a9c5a43e6a64ed6abb64244dd6ebfb102488b2f57f38117ced415e9d48746cf128627ec159cc4f196da11d7d28c32f85ee7360d5b762e988421a12e3cdcabf2e3842f1052243c67a4c5b1ec4f268f4b3124929df89e15319753eb5fec5338ae14900fa53d8f79a30aa69b3ec8577e6c23335083d15a7332acedaf99b9415b2cba49c39bbf404ce39f277948895dd9372737da9aa171d49445c6e671c2dc036c70de7d9c9094e523964cde88487292e054d24c634366160b855ceda96cd416ed79bdc21c1bfb2c2eb0b75ade8fd552312d1ac8d01e9c2412b7df8494cc4e15fe204a0aa630821b3265c2623827a535afce752ca8361a89300afe5a1e8956b3ed7fa2e988b346739ef6f36fd323afb903d9f3428e683f520dfab20f57574370d5a137586237930bb49d9aa1440806ede5c4b195006f496a4112298fe5a821cedc8e7953468f0354151e7a209f0ad266c81309517ebb79fd984925d5487157a9cd5670536f84c7a28e81c2b82d9876d0ddf22a203d4d19d31601216b93fbcd6ef4364f716d4ec2684046ae0c4e4dfa9faab4c0d78eaf7b923c8c04fe968932a6a54d2d6641655a4e274dd8/197/1920x1080_7582265/index.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "https://d25usgadhphvwi.cloudfront.net/hls/stv-plus1920x1080/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (SSL Edge)"
       },
       {
         "url": "http://45.162.64.114/CNN_BRASIL/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324379.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5 (Live FHD)"
       }
     ]
   },
@@ -247,7 +217,7 @@
       {
         "url": "https://amg01391-amg01391c57-amgplt0026.playout.now3.amagi.tv/playlist/amg01391-amg01391c57-amgplt0026/playlist.m3u8",
         "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -260,22 +230,22 @@
       {
         "url": "https://video49.mais.uol.com.br/live/4503.mpd",
         "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518559.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518560.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518561.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -288,37 +258,37 @@
       {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist1080p.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (SSL Edge)"
       },
       {
         "url": "http://45.185.11.126:8000/play/a08v/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460155.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 5 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460156.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 6"
+        "nome": "Fonte 6 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460157.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 7"
+        "nome": "Fonte 7 (Live FHD)"
       }
     ]
   },
@@ -329,39 +299,34 @@
     "logo": "https://img.faz-o-eli.online/globonews.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globonews/globonews.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://45.185.11.126:8000/play/a08d/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 5"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/324385.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 6"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://79.127.238.228:14093",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 7"
+        "nome": "Fonte 5 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/324385.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 6 (Live FHD)"
       }
     ]
   },
@@ -372,49 +337,44 @@
     "logo": "https://img.faz-o-eli.online/globonovelas.prev.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globonovelas/globonovelas.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/324400.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/518595.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 6"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/518596.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 7"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/518597.m3u8",
-        "qualidade": "SD · 960x540",
-        "nome": "Fonte 8"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://79.127.238.228:14455",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 9"
+        "nome": "Fonte 4 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/324400.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 5 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/518595.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 6 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/518596.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 7 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/518597.m3u8",
+        "qualidade": "SD · 960x540",
+        "nome": "Fonte 8 (Live FHD)"
       }
     ]
   },
@@ -425,39 +385,34 @@
     "logo": "https://img.faz-o-eli.online/gnt.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/gnt/gnt.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a079/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/324387.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/518568.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/518569.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/518570.m3u8",
-        "qualidade": "SD · 960x540",
-        "nome": "Fonte 6"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://79.127.238.228:14402",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 7"
+        "nome": "Fonte 2 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/324387.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 3 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/518568.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 4 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/518569.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 5 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/518570.m3u8",
+        "qualidade": "SD · 960x540",
+        "nome": "Fonte 6 (Live FHD)"
       }
     ]
   },
@@ -468,49 +423,44 @@
     "logo": "https://img.faz-o-eli.online/history.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/history/history.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/HISTORY_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.185.11.126:8000/play/a0al/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://45.177.114.114/HISTORY/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/HISTORY/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/296613.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 6"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/296614.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 7"
-      },
-      {
-        "url": "http://64.31.23.207:80/59471019/60849037/296615.m3u8",
-        "qualidade": "SD · 768x432",
-        "nome": "Fonte 8"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://46.151.196.223:14410",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 9"
+        "nome": "Fonte 5 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/296613.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 6 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/296614.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 7 (Live FHD)"
+      },
+      {
+        "url": "http://64.31.23.207:80/59471019/60849037/296615.m3u8",
+        "qualidade": "SD · 768x432",
+        "nome": "Fonte 8 (Live FHD)"
       }
     ]
   },
@@ -521,19 +471,14 @@
     "logo": "https://img.faz-o-eli.online/history2.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/history2/history2.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/296617.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/296618.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -546,27 +491,27 @@
       {
         "url": "https://amg01391-sbtinfast-amg01391c3-lg-us-8995.playouts.now.amagi.tv/playlist/amg01391-addigital-jovempan-lgus/playlist.m3u8",
         "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://amg01391-amg01391c3-tcl-spain-5038.playouts.now.amagi.tv/playlist1080-p.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://170.83.49.66:8083/JOVEMPANNEWSHD/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://186.219.52.187/jp_news/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324388.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 5 (Live FHD)"
       }
     ]
   },
@@ -577,19 +522,14 @@
     "logo": "https://img.faz-o-eli.online/megapix.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/megapix/megapix.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a057/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://79.127.238.228:14592",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -600,24 +540,19 @@
     "logo": "https://img.faz-o-eli.online/multishow.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/multishow/multishow.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/518580.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518581.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518582.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -628,24 +563,14 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/premiere2/premiere2.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/premiere/premiere.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 2"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/3460212.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460213.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -656,19 +581,14 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/premiere3/premiere3.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/3460215.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460217.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -679,14 +599,9 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/premiere4/premiere4.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/3460218.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -697,14 +612,9 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/premiere5/premiere5.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/3460221.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -715,29 +625,24 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/premiere.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/premiere6/premiere6.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a05j/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460224.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460225.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460226.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -748,29 +653,24 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/premiere7/premiere7.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a05k/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460227.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460228.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460229.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -781,29 +681,24 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/premiere.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/premiere8/premiere8.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a05l/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460230.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460231.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460232.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -816,22 +711,22 @@
       {
         "url": "http://45.185.11.126:8000/play/a06g/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324401.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460210.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460211.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -844,27 +739,27 @@
       {
         "url": "https://aovivo.maissbt.com/indexMobile.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "http://138.204.86.4:8080/SBT_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324290.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324292.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324390.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 5"
+        "nome": "Fonte 5 (Live FHD)"
       }
     ]
   },
@@ -877,22 +772,22 @@
       {
         "url": "https://sbtnews.maissbt.com/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
-        "url": "https://dai.google.com/linear/hls/event/1XSOdtQ0SH2G8OEmEfGgjQ/master.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://sbtnews.maissbt.com/3.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://45.185.11.126:8000/play/a0a7/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
+      },
+      {
+        "url": "https://dai.google.com/linear/hls/event/1XSOdtQ0SH2G8OEmEfGgjQ/master.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 4 (SSL Edge)"
       }
     ]
   },
@@ -903,14 +798,9 @@
     "logo": "https://img.faz-o-eli.online/sonychannel.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/sonychannel/sonychannel.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://170.83.16.50/SONY_CHANNEL/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -921,24 +811,19 @@
     "logo": "https://img.faz-o-eli.online/sportv.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/sportv/sportv.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/324391.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460200.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460202.m3u8",
         "qualidade": "Qualidade não informada",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -949,24 +834,19 @@
     "logo": "https://img.faz-o-eli.online/sportv2.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/sportv2/sportv2.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a05f/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460203.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460204.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -977,24 +857,19 @@
     "logo": "https://img.faz-o-eli.online/sportv3.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/sportv3/sportv3.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a06v/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460206.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460207.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1005,29 +880,24 @@
     "logo": "https://img.faz-o-eli.online/off.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/off/off.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a07t/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518583.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518584.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518585.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -1038,19 +908,14 @@
     "logo": "https://img.faz-o-eli.online/telecineaction.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/telecineaction/telecineaction.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a058/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324393.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -1061,19 +926,14 @@
     "logo": "https://img.faz-o-eli.online/telecinepipoca.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/telecinepipoca/telecinepipoca.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a08g/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324396.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -1084,14 +944,9 @@
     "logo": "https://img.faz-o-eli.online/telecinepremium.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/telecinepremium/telecinepremium.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/324397.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -1102,19 +957,19 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/tv-brasil.png",
     "fontes": [
       {
-        "url": "https://tvbrasil-stream.ebc.com.br/index.m3u8",
-        "qualidade": "SD · 576x324",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/TV_BRASIL/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
+        "url": "https://tvbrasil-stream.ebc.com.br/index.m3u8",
+        "qualidade": "SD · 576x324",
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://45.177.114.115/TV_BRASIL/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1127,7 +982,7 @@
       {
         "url": "http://45.185.11.126:8000/play/a08m/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -1140,22 +995,22 @@
       {
         "url": "http://45.185.11.126:8000/play/a08c/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518601.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518602.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518603.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -1164,13 +1019,7 @@
     "nome": "Warner",
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/warnerchannel.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/warnerchannel/warnerchannel.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-41",
@@ -1181,7 +1030,7 @@
       {
         "url": "https://igrejamundial.nuvemplay.live/hls/stream.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -1192,29 +1041,24 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globosp/globosp.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324386.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -1225,29 +1069,24 @@
     "logo": "https://img.faz-o-eli.online/cartoonito.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/cartoonito/cartoonito.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a0ae/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882631.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882632.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882633.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -1258,19 +1097,14 @@
     "logo": "https://img.faz-o-eli.online/cinemax.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/cinemax/cinemax.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/CINEMAX/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.185.11.126:8000/play/a081/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -1281,34 +1115,29 @@
     "logo": "https://img.faz-o-eli.online/discoverychannel.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/discoverychannel/discoverychannel.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/DISCOVERY_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297936.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297937.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297938.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324381.m3u8",
         "qualidade": "SD · 852x480",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5 (Live FHD)"
       }
     ]
   },
@@ -1319,24 +1148,19 @@
     "logo": "https://img.faz-o-eli.online/discoverykids.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/discoverykids/discoverykids.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/DISCOVERY_KIDS_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.185.11.126:8000/play/a0ad/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297946.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1347,29 +1171,24 @@
     "logo": "https://img.faz-o-eli.online/discoverytheater.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/discoverytheather/discoverytheather.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/DISCOVERY_THEATER_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.185.11.126:8000/play/a085/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297954.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297956.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -1380,39 +1199,34 @@
     "logo": "https://img.faz-o-eli.online/espn.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/espn/espn.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/ESPN_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.162.64.114/ESPN_BRASIL/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://181.78.197.59:8000/play/a07z/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460182.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460183.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460184.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 7"
+        "nome": "Fonte 6 (Live FHD)"
       }
     ]
   },
@@ -1423,29 +1237,24 @@
     "logo": "https://img.faz-o-eli.online/espn2.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/espn2/espn2.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/ESPN2_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460185.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460186.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460187.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -1456,44 +1265,39 @@
     "logo": "https://img.faz-o-eli.online/espn4.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/espn4/espn4.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/ESPN4_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.185.11.126:8000/play/a05m/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://45.162.64.114/ESPN_4/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://181.78.197.59:8000/play/a07n/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460191.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460192.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 7"
+        "nome": "Fonte 6 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460193.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 8"
+        "nome": "Fonte 7 (Live FHD)"
       }
     ]
   },
@@ -1504,24 +1308,19 @@
     "logo": "https://img.faz-o-eli.online/espn5.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/espn5/espn5.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a05n/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460194.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460195.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1532,24 +1331,19 @@
     "logo": "https://img.faz-o-eli.online/espn6.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/espn6/espn6.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a084/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460197.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460198.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1560,24 +1354,19 @@
     "logo": "https://img.faz-o-eli.online/hbo.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/hbo/hbo.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/HBO/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514107.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514108.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1588,29 +1377,24 @@
     "logo": "https://img.faz-o-eli.online/hbo2.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/hbo2/hbo2.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/HBO2/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.185.11.126:8000/play/a08o/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514110.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514111.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -1621,24 +1405,19 @@
     "logo": "https://img.faz-o-eli.online/hbofamily.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/hbofamily/hbofamily.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/HBO_FAMILY/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514113.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514114.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1649,24 +1428,19 @@
     "logo": "https://img.faz-o-eli.online/hbomundi.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/hbomundi/hbomundi.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/HBO_MUNDI_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514116.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514117.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1677,24 +1451,19 @@
     "logo": "https://img.faz-o-eli.online/hboplus.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/hboplus/hboplus.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/HBO_PLUS/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514119.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514120.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1705,29 +1474,24 @@
     "logo": "https://img.faz-o-eli.online/hbopop.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/hbopop/hbopop.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/HBO_POP_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.185.11.126:8000/play/a08s/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514122.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514123.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -1740,17 +1504,17 @@
       {
         "url": "http://138.204.86.4:8080/HBO_SIGNATURE/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514125.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514126.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1761,24 +1525,19 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/hbo-xtreme.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/hboxtreme/hboxtreme.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a083/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514128.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514129.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1789,19 +1548,19 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/record-tv.png",
     "fontes": [
       {
-        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/RECORD/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://79.127.238.228:14057",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1812,19 +1571,14 @@
     "logo": "https://img.faz-o-eli.online/space.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/space/space.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/SPACE_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.162.64.114/SPACE/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -1835,19 +1589,14 @@
     "logo": "https://img.faz-o-eli.online/tnt.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/tnt/tnt.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/TNT_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.162.64.114/TNT/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -1856,13 +1605,7 @@
     "nome": "TNT Séries",
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/tntseries.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/tntseries/tntseries.m3u8",
-        "qualidade": "SD · 1024x576",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-65",
@@ -1871,24 +1614,19 @@
     "logo": "https://img.faz-o-eli.online/universaltv.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/universaltv/universaltv.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "url": "http://45.185.11.126:8000/play/a0af/index.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "https://getcdn.clarocdn.com.br/Content/Channel/SPOUNVHD/dsc3/manifest.mpd",
         "qualidade": "Qualidade não informada",
-        "nome": "Fonte 2"
-      },
-      {
-        "url": "http://45.185.11.126:8000/play/a0af/index.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324399.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -1899,59 +1637,54 @@
     "logo": "https://img.faz-o-eli.online/discoveryturbo.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/discoveryturbo/discoveryturbo.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/DISCOVERY_TURBO_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.185.11.126:8000/play/a07z/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://45.162.64.114/DISCOVERY_TURBO/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297942.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297943.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297944.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 7"
+        "nome": "Fonte 6 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324383.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 8"
+        "nome": "Fonte 7 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518556.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 9"
+        "nome": "Fonte 8 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518557.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 10"
+        "nome": "Fonte 9 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518558.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 11"
+        "nome": "Fonte 10 (Live FHD)"
       }
     ]
   },
@@ -1962,19 +1695,14 @@
     "logo": "https://img.faz-o-eli.online/telecinefun.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/telecinefun/telecinefun.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a059/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324395.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -1985,19 +1713,14 @@
     "logo": "https://img.faz-o-eli.online/telecinecult.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/telecinecult/telecinecult.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a05a/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324394.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -2008,14 +1731,9 @@
     "logo": "https://img.faz-o-eli.online/telecinetouch.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/telecinetouch/telecinetouch.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/324398.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -2028,17 +1746,17 @@
       {
         "url": "http://45.162.64.114/SONY_MOVIES/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.177.114.115/SONY_MOVIES/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/SONY_MOVIES/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2051,22 +1769,22 @@
       {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -2079,22 +1797,22 @@
       {
         "url": "http://170.83.16.50:80/TOONCAST/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882638.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882639.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882640.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -2105,29 +1823,24 @@
     "logo": "https://img.faz-o-eli.online/tlc.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/tlc/tlc.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://79.127.238.228:14433",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518586.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518587.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518588.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 4"
-      },
-      {
-        "url": "http://79.127.238.228:14433",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -2140,17 +1853,17 @@
       {
         "url": "http://45.162.64.114/ARTE1/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.177.114.115/ARTE1/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/ARTE1/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2159,13 +1872,7 @@
     "nome": "TNT Novelas",
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/tntnovelas.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/tntnovelas/tntnovelas.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-77",
@@ -2174,19 +1881,14 @@
     "logo": "https://img.faz-o-eli.online/discoveryscience.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/discoveryscience/discoveryscience.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/DISCOVERY_SCIENCE_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297951.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -2197,24 +1899,19 @@
     "logo": "https://img.faz-o-eli.online/axn.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/axn/axn.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/AXN_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/AXN/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://170.83.49.66:8083/AXNHD/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2223,13 +1920,7 @@
     "nome": "TCM",
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/tcm.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/tcm/tcm.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-80",
@@ -2238,24 +1929,19 @@
     "logo": "https://img.faz-o-eli.online/bandnews.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/bandnews/bandnews.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/BAND_NEWS/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.177.114.115/BAND_NEWS/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/BAND_NEWS/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2266,44 +1952,39 @@
     "logo": "https://img.faz-o-eli.online/bandsports.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/bandsports/bandsports.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/BAND_SPORTS/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/BAND_SPORTS/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://170.83.49.66:8083/BANDSPORTSHD/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324377.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460152.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460153.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 7"
+        "nome": "Fonte 6 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460154.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 8"
+        "nome": "Fonte 7 (Live FHD)"
       }
     ]
   },
@@ -2314,24 +1995,24 @@
     "logo": "https://www.tvlogo.org/brazil/rede-tv-br.png",
     "fontes": [
       {
-        "url": "https://tv01.zas.media:1936/redetvparana/redetvparana/chunklist_w1074634538.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/REDE_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
+        "url": "https://tv01.zas.media:1936/redetvparana/redetvparana/chunklist_w1074634538.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://168.197.104.22/REDE_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/REDE_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -2342,14 +2023,9 @@
     "logo": "https://img.faz-o-eli.online/cultura.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/cultura/cultura.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://player-tvcultura.stream.uol.com.br/live/tvcultura.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -2360,19 +2036,19 @@
     "logo": "https://www.tvlogo.org/brazil/terraviva-br.png",
     "fontes": [
       {
-        "url": "https://9ada494d.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctYnJfVXBseW5rLU5ld2NvX0hMUw/playlist.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/TERRAVIVA/index.m3u8",
         "qualidade": "HD · 1080x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
+        "url": "https://9ada494d.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctYnJfVXBseW5rLU5ld2NvX0hMUw/playlist.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://45.177.114.115/TERRAVIVA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2385,17 +2061,17 @@
       {
         "url": "http://45.162.64.114/WOOHOO/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/WOOHOO/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/WOOHOO/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2406,29 +2082,24 @@
     "logo": "https://img.faz-o-eli.online/espn3.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/espn3/espn3.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/ESPN3_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://181.78.197.59:8000/play/a081/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460189.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460190.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -2439,24 +2110,24 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/tv-gazeta.png",
     "fontes": [
       {
-        "url": "https://video08.logicahost.com.br/tvc21/tvc21/chunklist_w930922724.m3u8",
-        "qualidade": "Auto",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/GAZETA/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.162.64.114/TV_GAZETA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
+      },
+      {
+        "url": "https://video08.logicahost.com.br/tvc21/tvc21/chunklist_w930922724.m3u8",
+        "qualidade": "Auto",
+        "nome": "Fonte 3 (SSL Edge)"
       },
       {
         "url": "http://168.197.104.22/GAZETA/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -2467,39 +2138,39 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/recordnews.png",
     "fontes": [
       {
+        "url": "http://45.162.64.114/RECORD_NEWS/index.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
         "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=5431",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 3 (SSL Edge)"
       },
       {
         "url": "https://rnw-rn.otteravision.com/rnw/rn/rnw_rn.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 4 (SSL Edge)"
       },
       {
         "url": "https://rnw-rn-soultv.otteravision.com/rnw/rn/rnw_rn.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 5 (SSL Edge)"
       },
       {
         "url": "https://run-rnw-rn.otteravision.com/rnw/rn/rnw_rn_720p_high.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 5"
-      },
-      {
-        "url": "http://45.162.64.114/RECORD_NEWS/index.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 6"
+        "nome": "Fonte 6 (SSL Edge)"
       },
       {
         "url": "http://45.177.114.115/RECORD_NEWS/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 7"
+        "nome": "Fonte 7 (Live FHD)"
       }
     ]
   },
@@ -2510,24 +2181,19 @@
     "logo": "https://img.faz-o-eli.online/cancaonova.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/cancaonova/cancaonova.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/CANCAO_NOVA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/CANCAO_NOVA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://46.151.196.223:14225",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2538,34 +2204,29 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/tv-aparecida.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/aparecida/aparecida.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://45.162.64.114/TV_APARECIDA/index.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "https://cdn.live.br1.jmvstream.com/w/LVW-9716/LVW9716_HbtQtezcaw/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "https://cdn.jmvstream.com/w/LVW-9716/LVW9716_HbtQtezcaw/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
-      },
-      {
-        "url": "http://45.162.64.114/TV_APARECIDA/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (SSL Edge)"
       },
       {
         "url": "http://45.177.114.115/TV_APARECIDA_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/TV_APARECIDA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5 (Live FHD)"
       }
     ]
   },
@@ -2576,34 +2237,29 @@
     "logo": "https://img.faz-o-eli.online/redevida.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/redevida/redevida.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://d12e4o88jd8gex.cloudfront.net/out/v1/cea3de0b76ac4e82ab8ee0fd3f17ce12/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://d12e4o88jd8gex.cloudfront.net/out/v1/cea3de0b76ac4e82ab8ee0fd3f17ce12/index_1.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://168.197.104.22/REDE_VIDA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://186.219.52.187/rede_vida/index.m3u8",
         "qualidade": "SD · 720x576",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://46.151.196.223:14244",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5 (Live FHD)"
       }
     ]
   },
@@ -2614,29 +2270,24 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/investigacao-discovery.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/discoveryid/discoveryid.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/ID_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.162.64.114/DISCOVERY_ID/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297949.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297950.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -2649,17 +2300,17 @@
       {
         "url": "http://45.162.64.114/FISH_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/FISH_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/FISH_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2672,7 +2323,7 @@
       {
         "url": "http://170.83.49.66:8083/BOXKIDSHD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -2683,19 +2334,14 @@
     "logo": "https://img.faz-o-eli.online/xsports.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/xsports/xsports.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/3460262.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460263.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -2708,22 +2354,22 @@
       {
         "url": "https://ogc-nsprt-tcl-roku-syndication.otteravision.com/ogc/nsprt/nsprt.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://ogc-nsprt-tcl-roku-syndication.otteravision.com/ogc/nsprt/nsprt_720p.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460165.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460166.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -2736,12 +2382,12 @@
       {
         "url": "http://168.197.104.22/MUSIC/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://170.83.49.66:8083/MUSICBOXBRASILHD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -2752,19 +2398,14 @@
     "logo": "https://img.faz-o-eli.online/band.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/bandsp/bandsp.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/324371.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324372.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -2777,7 +2418,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324368.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -2788,19 +2429,14 @@
     "logo": "https://img.faz-o-eli.online/sbt.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/sbtsp/sbtsp.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/324307.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324308.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -2811,14 +2447,9 @@
     "logo": "https://img.faz-o-eli.online/record.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/recordsp/recordsp.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/324389.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -2831,12 +2462,12 @@
       {
         "url": "http://170.83.49.66:8083/CANALRURALHD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://186.219.52.187/canal_rural/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -2849,17 +2480,17 @@
       {
         "url": "http://45.162.64.114/AGROMAIS/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.177.114.115/agromais/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://45.177.114.115/AGROMAIS_HD/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2872,17 +2503,17 @@
       {
         "url": "http://45.162.64.114/CNT/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/CNT/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://170.83.49.66:8083/REDECNTHD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2893,29 +2524,24 @@
     "logo": "https://img.faz-o-eli.online/tvpaieterno.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/tvpaieterno/tvpaieterno.m3u8",
+        "url": "http://45.162.64.114/TV_PAI_ETERNO/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "https://video09.logicahost.com.br/paieterno/paieterno/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "https://video09.logicahost.com.br/paieterno/paieterno/chunklist_w1610240856.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
-      },
-      {
-        "url": "http://45.162.64.114/TV_PAI_ETERNO/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (SSL Edge)"
       },
       {
         "url": "http://168.197.104.22/TV_PAI_ETERNO/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -2926,19 +2552,19 @@
     "logo": "https://i.imgur.com/Ikrj3lk.png",
     "fontes": [
       {
-        "url": "https://isaocorp.cloudecast.com/playtv/index.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/PLAY_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
+        "url": "https://isaocorp.cloudecast.com/playtv/index.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://45.177.114.115/PLAY_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2951,12 +2577,12 @@
       {
         "url": "https://redebrasil.nuvemplay.live/hls/stream.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://video09.logicahost.com.br/redebrasiloficial/redebrasiloficial/playlist.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       }
     ]
   },
@@ -2969,17 +2595,17 @@
       {
         "url": "https://cdn.live.br1.jmvstream.com/w/LVW-8719/LVW8719_AcLVAxWy5J/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://redegospel-aovivo.nuvemplay.live/hls/stream.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://45.177.114.115/REDE_GOSPEL/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -2992,12 +2618,12 @@
       {
         "url": "https://amg01131-tracetv-tracebrazuca-xiaomi-vvr19.amagi.tv/playlist/amg01131-tracetv-tracebrazuca-xiaomi/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01131-tracetv-tracebrazuca-samsungbr/playlist.m3u8",
         "qualidade": "Qualidade não informada",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       }
     ]
   },
@@ -3008,19 +2634,19 @@
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/tv-camara-br.png",
     "fontes": [
       {
-        "url": "https://stream3.camara.gov.br/tv1/manifest.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/TV_CAMARA/index.m3u8",
         "qualidade": "SD · 718x480",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
+        "url": "https://stream3.camara.gov.br/tv1/manifest.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://168.197.104.22/TV_CAMARA/index.m3u8",
         "qualidade": "SD · 718x480",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -3033,17 +2659,17 @@
       {
         "url": "http://45.162.64.114/EVANGELIZAR/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/EVANGELIZAR/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/TV_EVANGELIZAR/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -3056,17 +2682,17 @@
       {
         "url": "http://45.162.64.114/TV_JUSTICA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/TV_JUSTICA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/TV_JUSTICA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -3077,24 +2703,24 @@
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/novo-tempo-br.png",
     "fontes": [
       {
-        "url": "https://streamtv.novotempo.com/CDN-TV-PT/smil:tvnovotempo.smil/playlist.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/NOVO_TEMPO/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
+        "url": "https://streamtv.novotempo.com/CDN-TV-PT/smil:tvnovotempo.smil/playlist.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://168.197.104.22/NOVO_TEMPO/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://186.219.52.187/novo_tempo/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -3107,17 +2733,17 @@
       {
         "url": "http://45.162.64.114/TV_SENADO/index.m3u8",
         "qualidade": "SD · 718x480",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/TV_SENADO/index.m3u8",
         "qualidade": "SD · 718x480",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/TV_SENADO/index.m3u8",
         "qualidade": "HD · 1310x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -3130,22 +2756,22 @@
       {
         "url": "https://acesso.ecast.site:3648/live/ritlive.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://stream.ecast.com.br/rit-tv/tracks-v1a1/mono.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://45.177.114.115/RIT_TV/index.m3u8",
         "qualidade": "HD · 1080x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://170.83.49.66:8083/RITHD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -3156,49 +2782,44 @@
     "logo": "https://img.faz-o-eli.online/discoveryhh.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/discoveryhh/discoveryhh.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/DISCOVERY_H_H/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297939.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297940.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297941.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 5"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324382.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 6"
+        "nome": "Fonte 5 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518553.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 7"
+        "nome": "Fonte 6 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518554.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 8"
+        "nome": "Fonte 7 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518555.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 9"
+        "nome": "Fonte 8 (Live FHD)"
       }
     ]
   },
@@ -3209,19 +2830,19 @@
     "logo": "",
     "fontes": [
       {
-        "url": "https://aovivo.equipea.com.br:5443/aovivort/streams/pshRLrnv6isXq7RG4747567774043229.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/AGRO_CANAL/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
+        "url": "https://aovivo.equipea.com.br:5443/aovivort/streams/pshRLrnv6isXq7RG4747567774043229.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://168.197.104.22/AGRO_CANAL/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -3234,7 +2855,7 @@
       {
         "url": "https://stmv1.transmissaodigital.com/blitstv/blitstv/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3247,12 +2868,12 @@
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/NewCo/New_Brasil_BR/New_Brasil.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://br5093.streamingdevideo.com.br/abc/abc/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       }
     ]
   },
@@ -3265,17 +2886,17 @@
       {
         "url": "http://45.162.64.114/SESC_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://170.83.49.66:8083/SESCTVHD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://186.219.52.187/sesc_tv/index.m3u8",
         "qualidade": "SD · 720x576",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -3288,12 +2909,12 @@
       {
         "url": "https://video01.logicahost.com.br/tvideonews/tvideonews/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://video01.logicahost.com.br/tvideonews/tvideonews/chunklist_w1659802033.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       }
     ]
   },
@@ -3306,7 +2927,7 @@
       {
         "url": "https://jmp2.uk/plu-620d1512c7986a0007220213.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3319,7 +2940,7 @@
       {
         "url": "https://jmp2.uk/plu-62545c0b002f4b0007688b61.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3332,7 +2953,7 @@
       {
         "url": "https://jmp2.uk/plu-656f389c3944b60008e5bdab.m3u8",
         "qualidade": "SD · 1216x684",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3343,19 +2964,19 @@
     "logo": "https://i.imgur.com/OOB7nrS.png",
     "fontes": [
       {
-        "url": "https://canaleducacao-stream.ebc.com.br/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.162.64.114/CANAL_EDUCACAO/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
+        "url": "https://canaleducacao-stream.ebc.com.br/index.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://45.177.114.115/CANAL_EDUCACAO/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -3368,17 +2989,17 @@
       {
         "url": "http://45.162.64.114/FUTURA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/FUTURA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://186.219.52.187/futura/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -3391,17 +3012,17 @@
       {
         "url": "https://canalgov-stream.ebc.com.br/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "http://45.177.114.115/TV_BRASIL_2/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/TV_BRASIL_2/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -3412,14 +3033,14 @@
     "logo": "https://conteudo.imguol.com.br/c/play/logo_canaluol_2024.svg",
     "fontes": [
       {
-        "url": "https://video24.mais.uol.com.br/live/6146.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a0a4/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
+        "url": "https://video24.mais.uol.com.br/live/6146.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 2 (SSL Edge)"
       }
     ]
   },
@@ -3432,17 +3053,17 @@
       {
         "url": "http://45.162.64.114/CANAL_DO_BOI/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/CANAL_DO_BOI/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/CANAL_DO_BOI/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -3455,7 +3076,7 @@
       {
         "url": "http://168.197.104.22/CHEF_TV/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3468,7 +3089,7 @@
       {
         "url": "https://fpa-gateway.tvcultura.com.br:8181/memfs/606caef0-a290-413d-9f1f-8fcdb3a73831.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3481,22 +3102,22 @@
       {
         "url": "http://45.185.11.126:8000/play/a078/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.162.64.114/ZOOMOO_KIDS/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://168.197.104.22/ZOOMOO/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       },
       {
         "url": "http://186.219.52.187/zoomoo/index.m3u8",
         "qualidade": "SD · 720x576",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       }
     ]
   },
@@ -3509,12 +3130,12 @@
       {
         "url": "http://168.197.104.22/FUTURA/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://170.83.49.66:8083/FUTURAHD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -3527,7 +3148,7 @@
       {
         "url": "https://giatv.bozztv.com/giatv/giatv-kpoptvplay/kpoptvplay/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3540,7 +3161,7 @@
       {
         "url": "https://jmp2.uk/plu-6047fbdbbb776a0007e7f2ff.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3553,7 +3174,7 @@
       {
         "url": "https://jmp2.uk/plu-66a01e07d2d50d0008100d6a.m3u8",
         "qualidade": "SD · 1216x684",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3564,14 +3185,9 @@
     "logo": "https://images.pluto.tv/channels/6077045b6031bd00078de127/colorLogoPNG_1785430539950.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/masterchef/masterchef.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00627-amg00627c9-runtime-latam-2613.playouts.now.amagi.tv/ts-us-w2-n1/playlist/amg00627-banijayfast-masterchefbrazil-runtimelatam/cb543d167c6c618784cb3760cef342a0f94b1fde1d6988693eb5518975d1073edce2a59caa08ff16388f1ede7f0a66413a3e951fda77118fd87eb141453c5728cfffe729a2c05616b7db083429b56a062a866a68ac39437ed0e21f48a238b6720a5aa82a66443d80b846ac7352db80148b61299bce8c37683f03409a5e5afba358b38ab50a5ad969a1af1c56953145f59647c0dd4ebdd4d20883448e7fa7099c93a68ace42d381c77efc02b036510f7a2fc98528cbfbb5d7b0eb01b321c2493c7c77d4e1f5dc5c3d9c4e4f2e8095a98c448fdd4a1447fb0d04b4158c47c411876eb800a4e034d1c52c03f0204bcef7f8a228e0d5a19ff73a71c90e6a7e5bbc011eaac66e1174c86298122a2d9cf28173eea645c7e673d5e62e7559b158362bb90a43b810f4f8fc9ba8aec6bf9d083f4209079454a19b22e828d24798cf062d5377e3ccf048e989c3573c6e4ec9d5108453538ed28587d019288a4e2f1ab930970b5e2cfb3d622ab176b9826a38c0662b952531fe6f308269f5ac63a0f48cab556df596ec6acb42c3f94adeff09ac2d1b5c01b8fd651f66446fdfe36342612c930bb49d9aaf274933edf1ccecc91c6d546e59015acbc7e377d4df957953468f03683006657dfc33df67db0f5e136e984ea1cb2740c5577163b6dd703733419fcba38e94d9cc50c716fec6fe2b20285665a9496b036ad4b3cd14bd0f42707e52971c262499024949fe9ad9effad13a9b7c05109ca8a6054b0f3f8d3f8d662d6d5d57dc5c82626e/145/1920x1080_6046040/index.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3584,7 +3200,7 @@
       {
         "url": "https://appletree-mytime-samsungbrazil.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3597,12 +3213,12 @@
       {
         "url": "https://x1colegal.com/hls/stream.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://x1colegal.com/hls/0/stream.m3u8",
         "qualidade": "Auto",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       }
     ]
   },
@@ -3615,7 +3231,7 @@
       {
         "url": "https://stmv2.srvif.com/nicktoons/nicktoons/playlist.m3u8",
         "qualidade": "SD · 854x480",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3628,7 +3244,7 @@
       {
         "url": "https://stmv2.srvif.com/gafeab/gafeab/playlist.m3u8",
         "qualidade": "SD · 854x480",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3641,7 +3257,7 @@
       {
         "url": "https://jmp2.uk/plu-620ff46e0a576e0007dc2f89.m3u8",
         "qualidade": "SD · 1216x684",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3654,7 +3270,7 @@
       {
         "url": "https://jmp2.uk/plu-5f12136385bccc00070142ed.m3u8",
         "qualidade": "SD · 1216x684",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3665,29 +3281,29 @@
     "logo": "https://i.imgur.com/ZJgD38F.png",
     "fontes": [
       {
+        "url": "http://45.162.64.114/REDE_TV/index.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 1 (Live FHD)"
+      },
+      {
         "url": "https://tv01.zas.media:1936/redetvparana/redetvparana/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "https://tv01.zas.media:1936/redetvparana/redetvparana/chunklist_w1074634538.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
-      },
-      {
-        "url": "http://45.162.64.114/REDE_TV/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (SSL Edge)"
       },
       {
         "url": "http://168.197.104.22/REDE_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4"
+        "nome": "Fonte 4 (Live FHD)"
       },
       {
         "url": "http://170.83.16.50/REDE_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5"
+        "nome": "Fonte 5 (Live FHD)"
       }
     ]
   },
@@ -3700,7 +3316,7 @@
       {
         "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=2153",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3713,7 +3329,7 @@
       {
         "url": "https://jmp2.uk/plu-6298bd10d88ef000073f16b7.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -3726,12 +3342,12 @@
       {
         "url": "http://168.197.104.22/TRAVEL_BOX_BRASIL/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://170.83.49.66:8083/TRAVELBOXHD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -3744,7 +3360,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/2945300.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3757,7 +3373,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/2945301.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3768,14 +3384,9 @@
     "logo": "https://img.faz-o-eli.online/primevideo.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/primevideo/primevideo.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/3460179.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3786,14 +3397,9 @@
     "logo": "https://img.faz-o-eli.online/primevideo.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/primevideo2/primevideo2.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/3460180.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3806,7 +3412,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460181.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3819,7 +3425,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460243.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3832,7 +3438,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460244.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3845,7 +3451,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460245.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3856,24 +3462,19 @@
     "logo": "https://img.faz-o-eli.online/combate.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/combate/combate.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/297542.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297543.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297544.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -3886,7 +3487,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460239.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3899,7 +3500,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460242.m3u8",
         "qualidade": "SD · 640x360",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3912,7 +3513,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/514097.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3925,7 +3526,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460254.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3938,7 +3539,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460273.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3951,7 +3552,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460172.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3964,7 +3565,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460173.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3977,7 +3578,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460278.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -3990,12 +3591,12 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460158.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/3460269.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4008,12 +3609,12 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297545.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297548.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4026,12 +3627,12 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297547.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/297550.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4044,17 +3645,17 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518571.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518572.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518573.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -4065,14 +3666,9 @@
     "logo": "http://www.fontedecanais.gs/logos/canais/max.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/max1/max1.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/3460233.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4083,14 +3679,9 @@
     "logo": "http://www.fontedecanais.gs/logos/canais/max.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/max2/max2.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/3460234.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4101,14 +3692,9 @@
     "logo": "https://img.faz-o-eli.online/studiouniversal.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/studiouniversal/studiouniversal.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/324392.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4119,24 +3705,19 @@
     "logo": "https://img.faz-o-eli.online/gloob.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/gloob/gloob.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/1882625.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882626.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882627.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -4149,17 +3730,17 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882628.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882629.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882630.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -4172,17 +3753,17 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882634.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882635.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/1882636.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -4195,12 +3776,12 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324352.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324353.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4213,12 +3794,12 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324354.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324355.m3u8",
         "qualidade": "SD · 854x480",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4231,12 +3812,12 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324359.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324361.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4249,7 +3830,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324362.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4262,12 +3843,12 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324364.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324365.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4278,14 +3859,9 @@
     "logo": "https://img.faz-o-eli.online/band.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/bandrj/bandrj.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/324366.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4298,7 +3874,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324367.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4311,7 +3887,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324370.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4324,7 +3900,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324287.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4337,12 +3913,12 @@
       {
         "url": "https://cdn.live.br1.jmvstream.com/w/LVW-9359/LVW9359_XSyReL0QVf/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324288.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4355,7 +3931,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324291.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4368,7 +3944,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324312.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4381,7 +3957,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324311.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4394,12 +3970,12 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324296.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324310.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4412,7 +3988,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324309.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4425,7 +4001,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324301.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4436,19 +4012,14 @@
     "logo": "https://img.faz-o-eli.online/sbt.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/sbtrj/sbtrj.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://64.31.23.207:80/59471019/60849037/324302.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324303.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4461,7 +4032,7 @@
       {
         "url": "http://streaming.procergs.com.br:1935/tve/stve/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4474,7 +4045,7 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/324373.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       }
     ]
   },
@@ -4487,17 +4058,17 @@
       {
         "url": "http://45.185.11.126:8000/play/a07w/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518551.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518552.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 3"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -4508,24 +4079,19 @@
     "logo": "https://img.faz-o-eli.online/foodnetwork.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/foodnetwork/foodnetwork.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a06j/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518566.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518567.m3u8",
         "qualidade": "SD · 768x432",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -4538,12 +4104,12 @@
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518575.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://64.31.23.207:80/59471019/60849037/518576.m3u8",
         "qualidade": "SD · 960x540",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4552,91 +4118,49 @@
     "nome": "24H Chaves",
     "categoria": "24 Horas",
     "logo": "https://img.faz-o-eli.online/24h.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/24h_chaves/24h_chaves.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-207",
     "nome": "24H Dragon Ball Z",
     "categoria": "24 Horas",
     "logo": "https://img.faz-o-eli.online/24h.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/24h_dragonball/24h_dragonball.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-208",
     "nome": "24H Naruto Clássico",
     "categoria": "24 Horas",
     "logo": "https://img.faz-o-eli.online/24h.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/24h_naruto/24h_naruto.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-209",
     "nome": "24H Os Simpsons",
     "categoria": "24 Horas",
     "logo": "https://img.faz-o-eli.online/24h.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/24h_simpsons/24h_simpsons.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-210",
     "nome": "24H Pica Pau",
     "categoria": "24 Horas",
     "logo": "https://img.faz-o-eli.online/24h.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/24h_picapau/24h_picapau.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-211",
     "nome": "24H Todo Mundo Odeia o Cris",
     "categoria": "24 Horas",
     "logo": "https://img.faz-o-eli.online/24h.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/24h_odeiachris/24h_odeiachris.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-212",
     "nome": "24H Friends",
     "categoria": "24 Horas",
     "logo": "https://img.faz-o-eli.online/24h.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/24h_friends/24h_friends.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-213",
@@ -4645,19 +4169,14 @@
     "logo": "https://img.faz-o-eli.online/discoveryworld.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/discoveryworld/discoveryworld.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "http://138.204.86.4:8080/DISCOVERY_WORLD_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (Live FHD)"
       },
       {
         "url": "http://45.162.64.114/DISCOVERY_WORLD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (Live FHD)"
       }
     ]
   },
@@ -4666,195 +4185,105 @@
     "nome": "CazeTV 1",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/cazetv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/caze1/caze1.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-215",
     "nome": "CazeTV 2",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/cazetv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/caze2/caze2.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-216",
     "nome": "PT - A Bola",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/pt_abola.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_abola/pt_abola.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-217",
     "nome": "PT - Benfica TV",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/pt_benficatv.prev.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_benficatv/pt_benficatv.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-218",
     "nome": "PT - Canal 11",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/pt_canal11.prev.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_canal11/pt_canal11.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-219",
     "nome": "PT - Eleven 1",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/pt_eleven1.prev.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_eleven1/pt_eleven1.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-220",
     "nome": "PT - Eleven 2",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/pt_eleven2.prev.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_eleven2/pt_eleven2.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-221",
     "nome": "PT - Eleven 3",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/pt_eleven3.prev.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_eleven3/pt_eleven3.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-222",
     "nome": "PT - Sporttv 1",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/sportv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_sportv1/pt_sportv1.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-223",
     "nome": "PT - Sporttv 2",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/sportv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_sportv2/pt_sportv2.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-224",
     "nome": "PT - Sporttv 3",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/sportv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_sportv3/pt_sportv3.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-225",
     "nome": "PT - Sporttv 4",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/sportv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_sportv4/pt_sportv4.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-226",
     "nome": "PT - Sporttv 5",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/sportv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_sportv5/pt_sportv5.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-227",
     "nome": "PT - Sporttv 6",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/sportv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_sportv6/pt_sportv6.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-228",
     "nome": "PT - Sporttv 7",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/sportv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/pt_sportv7/pt_sportv7.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-232",
@@ -4863,24 +4292,19 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoam/globoam.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -4891,24 +4315,19 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoce/globoce.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -4919,24 +4338,19 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoes/globoes.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -4947,24 +4361,19 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globogo/globogo.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -4975,24 +4384,19 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globopb/globopb.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -5003,24 +4407,19 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globope/globope.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -5031,24 +4430,19 @@
     "logo": "https://img.faz-o-eli.online/globorj.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globorj/globorj.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -5059,24 +4453,19 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globors/globors.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -5085,143 +4474,77 @@
     "nome": "Record GO",
     "categoria": "TV Aberta",
     "logo": "https://img.faz-o-eli.online/record.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/recordgo/recordgo.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-241",
     "nome": "Record MG",
     "categoria": "TV Aberta",
     "logo": "https://img.faz-o-eli.online/record.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/recordmg/recordmg.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-242",
     "nome": "Record RJ",
     "categoria": "TV Aberta",
     "logo": "https://img.faz-o-eli.online/record.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/recordrj/recordrj.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-243",
     "nome": "HGTV",
     "categoria": "Variedades",
     "logo": "https://img.faz-o-eli.online/hgtv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/hgtv/hgtv.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-244",
     "nome": "MTV",
     "categoria": "Variedades",
     "logo": "https://img.faz-o-eli.online/mtv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/mtv/mtv.m3u8",
-        "qualidade": "FHD · 1536x1024",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-245",
     "nome": "A Fazenda 18 1",
     "categoria": "PPV",
     "logo": "https://img.faz-o-eli.online/afazenda2.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/afazenda/afazenda.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-246",
     "nome": "A Fazenda 18 2",
     "categoria": "PPV",
     "logo": "https://img.faz-o-eli.online/afazenda2.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/afazenda2/afazenda2.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-247",
     "nome": "A Fazenda 18 3",
     "categoria": "PPV",
     "logo": "https://img.faz-o-eli.online/afazenda2.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/afazenda3/afazenda3.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-248",
     "nome": "A Fazenda 18 4",
     "categoria": "PPV",
     "logo": "https://img.faz-o-eli.online/afazenda2.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/afazenda4/afazenda4.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-249",
     "nome": "A Fazenda 18 5",
     "categoria": "PPV",
     "logo": "https://img.faz-o-eli.online/afazenda2.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/afazenda5/afazenda5.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-250",
     "nome": "CazeTV 3",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/cazetv.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/caze3/caze3.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-251",
@@ -5230,24 +4553,19 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globodf/globodf.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -5258,24 +4576,19 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globomg/globomg.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      },
-      {
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 2"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
         "qualidade": "HD · 720p",
-        "nome": "Fonte 3"
+        "nome": "Fonte 2 (SSL Edge)"
       },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 4"
+        "nome": "Fonte 3 (Live FHD)"
       }
     ]
   },
@@ -5284,156 +4597,84 @@
     "nome": "MAX 03",
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/max.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/max3/max3.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-254",
     "nome": "Amazon Prime Video 04",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/primevideo.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/primevideo4/primevideo4.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-255",
     "nome": "SporTV 4",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/sportv4.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/sportv4/sportv4.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-256",
     "nome": "Star Channel",
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/starchannel.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/starchannel/starchannel.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-269",
     "nome": "SportyNet",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/sportynet.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/sportynetplus3/sportynetplus3.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-274",
     "nome": "UFC Fight Pass",
     "categoria": "PPV",
     "logo": "https://img.faz-o-eli.online/ufcfightpass.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/ufcfightpass/ufcfightpass.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-318",
     "nome": "Disney Plus 1",
     "categoria": "Filmes e Séries",
     "logo": "https://vipcanais.net/images/disneyplus.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/disneyplus1/disneyplus1.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-319",
     "nome": "Disney Plus 2",
     "categoria": "Filmes e Séries",
     "logo": "https://vipcanais.net/images/disneyplus.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/disneyplus2/disneyplus2.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-320",
     "nome": "Disney Plus 3",
     "categoria": "Filmes e Séries",
     "logo": "https://vipcanais.net/images/disneyplus.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/disneyplus3/disneyplus3.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-321",
     "nome": "Paramount Plus 1",
     "categoria": "Filmes e Séries",
     "logo": "https://vipcanais.net/images/paramountplus.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/paramountplus/paramountplus.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-322",
     "nome": "Paramount Plus 2",
     "categoria": "Filmes e Séries",
     "logo": "https://vipcanais.net/images/paramountplus.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/paramountplus2/paramountplus2.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-323",
     "nome": "Prime Video 3",
     "categoria": "Filmes e Séries",
     "logo": "https://vipcanais.net/images/amazonprimevideo.png",
-    "fontes": [
-      {
-        "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/primevideo3/primevideo3.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
-      }
-    ]
+    "fontes": []
   },
   {
     "id": "ch-324",
@@ -5444,7 +4685,7 @@
       {
         "url": "https://stmv2.painelvideocast.com.br/animetv/animetv/playlist.m3u8",
         "qualidade": "SD · 640x360",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5457,7 +4698,7 @@
       {
         "url": "https://stmv1.srvif.com/anime/anime/playlist.m3u8",
         "qualidade": "SD · 1024x576",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5470,7 +4711,7 @@
       {
         "url": "https://stream.ichibansys.com:3764/hybrid/play.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5483,7 +4724,7 @@
       {
         "url": "https://stmv4.voxtvhd.com.br/bnxkids/bnxkids/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5496,7 +4737,7 @@
       {
         "url": "https://video01.brascast.com/rede1220/rede1220/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5509,7 +4750,7 @@
       {
         "url": "https://video08.logicahost.com.br/kanucatv/kanucatv/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5522,7 +4763,7 @@
       {
         "url": "https://w2.manasat.com/kkids/smil:kkids.smil/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5535,7 +4776,7 @@
       {
         "url": "https://stmv1.srvif.com/gospelcartoon/gospelcartoon/playlist.m3u8",
         "qualidade": "SD · 640x360",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5548,7 +4789,7 @@
       {
         "url": "https://stmv1.srvif.com/jetsontv/jetsontv/playlist.m3u8",
         "qualidade": "SD · 640x480",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5561,7 +4802,7 @@
       {
         "url": "https://d144py1prrd7ns.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-affg2ev32s0dq/smrfe.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5574,7 +4815,7 @@
       {
         "url": "https://video01.brascast.com/bdctv/bdctv/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5587,12 +4828,12 @@
       {
         "url": "https://c2657533.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UGxleC1icl9GSUZBUGx1c1BvcnR1Z3Vlc2VfSExT/playlist.m3u8",
         "qualidade": "SD · 384x216",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       },
       {
         "url": "https://e3be9ac5.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctYnJfRklGQVBsdXNQb3J0dWd1ZXNlX0hMUw/playlist.m3u8",
         "qualidade": "SD",
-        "nome": "Fonte 2"
+        "nome": "Fonte 2 (SSL Edge)"
       }
     ]
   },
@@ -5605,7 +4846,7 @@
       {
         "url": "https://run-rt-ra.otteravision.com/run/rt_ra/rt_ra_720.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5618,7 +4859,7 @@
       {
         "url": "https://isaocorp.cloudecast.com/toptv/index.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5631,7 +4872,7 @@
       {
         "url": "https://amg00353-amg00353c29-plex-us-3205.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg00353-lionsgatetvfast-moviespherebrazil-plexus/playlist.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5644,7 +4885,7 @@
       {
         "url": "https://amg01076-lightningintern-traceurban-xiaomi-m78n3.amagi.tv/playlist/amg01076-lightningintern-traceurban-xiaomi/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5657,7 +4898,7 @@
       {
         "url": "https://spt-sonyoneclassicas-1-br.samsung.wurl.tv/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5670,7 +4911,7 @@
       {
         "url": "https://amogonetworx-grjngo-1-eu.plex.wurl.tv/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5683,7 +4924,7 @@
       {
         "url": "https://stmv1.srvif.com/loadingtv/loadingtv/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5696,7 +4937,7 @@
       {
         "url": "https://newstream.mediawork.cz/retrotv/smil:retrotv_new.smil/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5709,7 +4950,7 @@
       {
         "url": "https://lightning-now90s-rakuten.amagi.tv/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   },
@@ -5722,7 +4963,7 @@
       {
         "url": "https://stmv2.painelvideocast.com.br/multicanais/multicanais/playlist.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "nome": "Fonte 1 (SSL Edge)"
       }
     ]
   }

@@ -57,15 +57,50 @@ export default async function handler(req, res) {
       targetUrl.includes('.txt');
 
     if (isPlaylist) {
-      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
       const text = await response.text();
+      const trimmedText = text.trim();
+
+      // Se o servidor remoto retornou página HTML (erro 404/bloqueio mascarado de 200)
+      if (
+        trimmedText.startsWith('<!DOCTYPE') || 
+        trimmedText.startsWith('<html') || 
+        trimmedText.includes('XUI.one - Debug Mode') ||
+        trimmedText.includes('<title>nexustvplay')
+      ) {
+        return res.status(502).json({ 
+          error: 'Remote stream returned HTML webpage instead of video playlist',
+          url: targetUrl 
+        });
+      }
+
+      res.setHeader('Content-Type', 'application/vnd.apple.mpegurl');
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
       const baseUrl = new URL(targetUrl);
 
       const lines = text.split('\n');
       const rewritten = lines.map(line => {
         const trimmed = line.trim();
-        if (!trimmed || trimmed.startsWith('#')) return line;
+        if (!trimmed) return line;
 
+        // Se for linha de tag que contém URI (ex: chaves AES-128, mapas de inicialização, áudios alternativos)
+        if (trimmed.startsWith('#')) {
+          if (trimmed.includes('URI="')) {
+            return trimmed.replace(/URI="([^"]+)"/g, (_, uri) => {
+              let absUri;
+              try {
+                absUri = new URL(uri, baseUrl).toString();
+              } catch {
+                absUri = uri;
+              }
+              const refParam = referer ? `&referer=${encodeURIComponent(referer)}` : '';
+              const uaParam = ua ? `&ua=${encodeURIComponent(ua)}` : '';
+              return `URI="/api/proxy?url=${encodeURIComponent(absUri)}${refParam}${uaParam}"`;
+            });
+          }
+          return line;
+        }
+
+        // Linhas de segmentos (.ts, .m3u8, .m4s)
         let absoluteUrl;
         try {
           absoluteUrl = new URL(trimmed, baseUrl).toString();

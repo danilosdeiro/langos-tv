@@ -206,12 +206,12 @@ export default function VideoPlayer({
       clearTimeout(timeoutRef.current);
     }
 
-    // Timeout de conexão generoso (12 segundos)
+    // Timeout de conexão rápido (6.5 segundos para fallback ágil)
     timeoutRef.current = setTimeout(() => {
       if (!isLoadedRef.current && sourcesRef.current.length > 1 && activeSourceIndexRef.current < sourcesRef.current.length - 1) {
         handleFallback("Tempo limite de resposta");
       }
-    }, 12000);
+    }, 6500);
 
     // Detectar se o vídeo é MP4 ou HLS baseado na URL real da fonte
     const rawTarget = (currentSource?.url || '').toLowerCase();
@@ -231,10 +231,10 @@ export default function VideoPlayer({
         enableWorker: true,
         lowLatencyMode: true,
         backBufferLength: 60,
-        manifestLoadingTimeOut: 10000,
-        manifestLoadingMaxRetry: 2,
-        fragLoadingTimeOut: 12000,
-        fragLoadingMaxRetry: 2,
+        manifestLoadingTimeOut: 6000,
+        manifestLoadingMaxRetry: 1,
+        fragLoadingTimeOut: 8000,
+        fragLoadingMaxRetry: 1,
       });
       hlsRef.current = hls;
 
