@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import Hls from 'hls.js';
 import { 
   Play, Pause, Volume2, VolumeX, Maximize2, Minimize2, 
-  RotateCcw, AlertTriangle, Layers, X
+  RotateCcw, AlertTriangle, Layers, X, Clock
 } from 'lucide-react';
+import { EpgService } from '../services/epgService';
 
 export default function VideoPlayer({ 
   item, 
@@ -47,6 +48,12 @@ export default function VideoPlayer({
   sourcesRef.current = sources;
 
   const currentSource = sources[activeSourceIndex] || sources[0];
+
+  // EPG para canais ao vivo
+  const epg = useMemo(() => {
+    if (isVOD || !item?.nome) return null;
+    return EpgService.getProgramForChannel(item.nome, item.categoria);
+  }, [item?.nome, item?.categoria, isVOD]);
 
   // Resolver URL: Se for HTTP em HTTPS ou exigir referer, passar pelo /api/proxy
   const resolvedStreamUrl = React.useMemo(() => {
@@ -340,9 +347,23 @@ export default function VideoPlayer({
                 {item?.nome || item?.titulo}
               </h2>
             </div>
-            <p className="text-zinc-400 text-xs">
-              {item?.categoria} {item?.ano ? `• ${item.ano}` : ''} • Fonte {activeSourceIndex + 1} de {sources.length}
-            </p>
+            
+            {/* Linha EPG ou Subtítulo */}
+            {epg ? (
+              <div className="flex items-center gap-2 mt-0.5 text-xs">
+                <span className="text-indigo-400 font-semibold flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  {epg.title} ({epg.start} - {epg.end})
+                </span>
+                <span className="text-zinc-500 text-[11px] hidden sm:inline">
+                  • A seguir: {epg.nextTitle}
+                </span>
+              </div>
+            ) : (
+              <p className="text-zinc-400 text-xs">
+                {item?.categoria} {item?.ano ? `• ${item.ano}` : ''} • Fonte {activeSourceIndex + 1} de {sources.length}
+              </p>
+            )}
           </div>
         </div>
 

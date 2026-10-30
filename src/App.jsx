@@ -4,12 +4,16 @@ import VideoPlayer from './components/VideoPlayer';
 import ChannelCard from './components/ChannelCard';
 import MovieCard from './components/MovieCard';
 import SeriesCard from './components/SeriesCard';
+import EpisodeModal from './components/EpisodeModal';
 import SettingsModal from './components/SettingsModal';
 import { CatalogService } from './services/catalogService';
+import { VodService } from './services/vodService';
 import { 
   Tv, Film, Clapperboard, Star, Sparkles, Filter, 
-  Volume2, Globe, Heart, Play, Layers, AlertCircle 
+  Volume2, Play, AlertCircle, Compass, Loader2 
 } from 'lucide-react';
+
+const ALPHABET = ['Destaques', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('canais'); // 'canais', 'filmes', 'series', 'favoritos'
@@ -19,11 +23,19 @@ export default function App() {
   const [vodAudioFilter, setVodAudioFilter] = useState('todos'); // 'todos', 'dublado', 'legendado'
   const [preferredAudio, setPreferredAudio] = useState('dublado'); // para reprodução
 
-  // Conteúdos
+  // Conteúdos base
   const [channels, setChannels] = useState([]);
   const [movies, setMovies] = useState([]);
-  const [series, setSeries] = useState([]);
+  const [featuredSeries, setFeaturedSeries] = useState([]);
   const [favorites, setFavorites] = useState([]);
+
+  // Estado para Séries Dinâmicas (A-Z atualizado diariamente)
+  const [selectedSeriesLetter, setSelectedSeriesLetter] = useState('Destaques');
+  const [dynamicSeries, setDynamicSeries] = useState([]);
+  const [loadingDynamicSeries, setLoadingDynamicSeries] = useState(false);
+
+  // Modal de Episódios
+  const [selectedSeriesForEpisodes, setSelectedSeriesForEpisodes] = useState(null);
 
   // Estado do Player
   const [activeItem, setActiveItem] = useState(null);
@@ -35,9 +47,22 @@ export default function App() {
   useEffect(() => {
     setChannels(CatalogService.getChannels());
     setMovies(CatalogService.getMovies());
-    setSeries(CatalogService.getSeries());
+    setFeaturedSeries(CatalogService.getSeries());
     setFavorites(CatalogService.getFavorites());
   }, []);
+
+  // Carregar séries da nuvem quando selecionar letra do alfabeto
+  useEffect(() => {
+    if (selectedSeriesLetter === 'Destaques') {
+      setDynamicSeries([]);
+      return;
+    }
+
+    setLoadingDynamicSeries(true);
+    VodService.fetchSeriesByLetter(selectedSeriesLetter)
+      .then(list => setDynamicSeries(list))
+      .finally(() => setLoadingDynamicSeries(false));
+  }, [selectedSeriesLetter]);
 
   // Alternar favorito
   const handleToggleFavorite = (id) => {
@@ -45,14 +70,18 @@ export default function App() {
     setFavorites(updated);
   };
 
-  // Selecionar item para assistir
+  // Selecionar canal ou filme para assistir
   const handleSelectItem = (item, audio = 'dublado') => {
     setActiveItem(item);
     setPreferredAudio(audio);
-    // Rolagem suave até o player
     setTimeout(() => {
       playerSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
+  };
+
+  // Clicar em uma série (abre o seletor de episódios)
+  const handleSelectSeries = (seriesItem) => {
+    setSelectedSeriesForEpisodes(seriesItem);
   };
 
   // Categorias únicas de canais
@@ -94,23 +123,24 @@ export default function App() {
     });
   }, [movies, searchQuery, selectedVodGenre, vodAudioFilter]);
 
-  // Séries filtradas
-  const filteredSeries = useMemo(() => {
-    return series.filter(s => {
+  // Séries a exibir (Destaques ou Dinâmicas da letra)
+  const displayedSeries = useMemo(() => {
+    const list = selectedSeriesLetter === 'Destaques' ? featuredSeries : dynamicSeries;
+
+    return list.filter(s => {
       const matchesSearch = searchQuery === '' || 
         s.titulo.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        s.categoria.toLowerCase().includes(searchQuery.toLowerCase());
-
-      const matchesGenre = selectedVodGenre === 'Todos' || s.categoria.includes(selectedVodGenre);
+        (s.categoria && s.categoria.toLowerCase().includes(searchQuery.toLowerCase()));
 
       const matchesAudio = 
         vodAudioFilter === 'todos' ||
+        s.isDynamic || // Séries dinâmicas contêm tanto dublado quanto legendado
         (vodAudioFilter === 'dublado' && s.dublado && s.dublado.length > 0) ||
         (vodAudioFilter === 'legendado' && s.legendado && s.legendado.length > 0);
 
-      return matchesSearch && matchesGenre && matchesAudio;
+      return matchesSearch && matchesAudio;
     });
-  }, [series, searchQuery, selectedVodGenre, vodAudioFilter]);
+  }, [selectedSeriesLetter, featuredSeries, dynamicSeries, searchQuery, vodAudioFilter]);
 
   // Itens favoritos
   const favoriteChannels = useMemo(() => {
@@ -122,8 +152,8 @@ export default function App() {
   }, [movies, favorites]);
 
   const favoriteSeries = useMemo(() => {
-    return series.filter(s => favorites.includes(s.id));
-  }, [series, favorites]);
+    return featuredSeries.filter(s => favorites.includes(s.id));
+  }, [featuredSeries, favorites]);
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
@@ -141,7 +171,7 @@ export default function App() {
       {/* Área Central */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 md:px-8 py-6 space-y-8">
 
-        {/* Player de Vídeo em Destaque (quando ativo) */}
+        {/* Player de Vídeo em Destaque */}
         {activeItem && (
           <section ref={playerSectionRef} className="animate-fadeIn">
             <div className="bg-zinc-900/40 p-2 md:p-3 rounded-3xl border border-white/10 shadow-2xl">
@@ -155,18 +185,18 @@ export default function App() {
           </section>
         )}
 
-        {/* Banner de Boas-Vindas Hero (quando nenhum vídeo está tocando e sem busca) */}
+        {/* Banner Hero */}
         {!activeItem && !searchQuery && activeTab === 'canais' && (
           <div className="relative rounded-3xl p-6 md:p-10 bg-gradient-to-r from-indigo-950/70 via-purple-950/40 to-zinc-900 border border-indigo-500/20 overflow-hidden shadow-2xl">
             <div className="relative z-10 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold border border-indigo-500/30 mb-4">
-                <Sparkles size={14} /> Totalmente Livre & Ilimitado
+                <Sparkles size={14} /> Mais de 350 Canais com Grade EPG & 7.000 Séries
               </div>
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
                 Bem-vindo ao <span className="text-indigo-400">Lango's TV</span>
               </h1>
               <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-6 font-normal">
-                Assista a mais de 350 canais abertos e fechados, além de filmes e séries dublados e legendados direto no navegador. Sem assinaturas, sem cobranças e com sistema inteligente de backup.
+                Assista a canais ao vivo com grade de programação em tempo real, além de um acervo com milhares de séries e filmes dublados e legendados atualizados diariamente.
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <button
@@ -179,17 +209,17 @@ export default function App() {
                   <Play size={16} fill="currentColor" /> Assistir TV Aberta
                 </button>
                 <button
-                  onClick={() => setActiveTab('filmes')}
-                  className="px-5 py-3 bg-zinc-800/80 hover:bg-zinc-700 text-zinc-200 rounded-xl text-xs md:text-sm font-bold flex items-center gap-2 transition border border-white/10"
+                  onClick={() => setActiveTab('series')}
+                  className="px-5 py-3 bg-purple-600/80 hover:bg-purple-600 text-white rounded-xl text-xs md:text-sm font-bold flex items-center gap-2 transition border border-white/10"
                 >
-                  <Film size={16} /> Ver Catálogo de Filmes
+                  <Clapperboard size={16} /> Ver Catálogo de Séries (+7.000)
                 </button>
               </div>
             </div>
           </div>
         )}
 
-        {/* ---------------- ABA: CANAIS AO VIVO ---------------- */}
+        {/* ---------------- ABA: CANAIS AO VIVO COM EPG ---------------- */}
         {activeTab === 'canais' && (
           <div className="space-y-6">
             
@@ -213,7 +243,7 @@ export default function App() {
               ))}
             </div>
 
-            {/* Cabeçalho da Seção */}
+            {/* Cabeçalho da Seção com Badge EPG */}
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-white font-extrabold text-xl flex items-center gap-2">
@@ -221,7 +251,7 @@ export default function App() {
                   {selectedChannelCategory === 'Todos' ? 'Todos os Canais' : selectedChannelCategory}
                 </h2>
                 <p className="text-zinc-400 text-xs mt-0.5">
-                  Exibindo {filteredChannels.length} canais com múltiplas fontes
+                  Exibindo {filteredChannels.length} canais com grade EPG ao vivo e múltiplas fontes
                 </p>
               </div>
             </div>
@@ -254,9 +284,8 @@ export default function App() {
         {activeTab === 'filmes' && (
           <div className="space-y-6">
             
-            {/* Barra de Controles de Áudio (Dublado / Legendado) */}
+            {/* Barra de Áudio */}
             <div className="flex flex-wrap items-center justify-between gap-4 bg-zinc-900/60 p-4 rounded-2xl border border-white/5">
-              
               <div className="flex items-center gap-2">
                 <span className="text-zinc-400 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 mr-2">
                   <Volume2 size={15} className="text-indigo-400" /> Preferência de Áudio:
@@ -316,69 +345,56 @@ export default function App() {
               <div className="text-center py-16 bg-zinc-900/30 rounded-3xl border border-white/5 p-8">
                 <Film size={40} className="mx-auto text-zinc-500 mb-3" />
                 <h3 className="text-white font-bold text-base mb-1">Nenhum filme encontrado</h3>
-                <p className="text-zinc-400 text-xs">Tente alterar os filtros de dublagem ou termo de busca.</p>
               </div>
             )}
           </div>
         )}
 
-        {/* ---------------- ABA: SÉRIES ---------------- */}
+        {/* ---------------- ABA: SÉRIES (+7.000 TÍTULOS COM A-Z DIÁRIO) ---------------- */}
         {activeTab === 'series' && (
           <div className="space-y-6">
             
-            {/* Barra de Áudio para Séries */}
-            <div className="flex flex-wrap items-center justify-between gap-4 bg-zinc-900/60 p-4 rounded-2xl border border-white/5">
-              <div className="flex items-center gap-2">
-                <span className="text-zinc-400 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 mr-2">
-                  <Volume2 size={15} className="text-purple-400" /> Áudio das Séries:
+            {/* Barra de Letras A-Z para Navegação no Acervo de 7.000 Séries */}
+            <div className="space-y-2.5">
+              <div className="flex items-center justify-between text-xs text-zinc-400">
+                <span className="font-bold uppercase tracking-wider flex items-center gap-1.5 text-purple-400">
+                  <Compass size={14} /> Explorar Catálogo Completo (Atualizado Diariamente):
                 </span>
-                <button
-                  onClick={() => setVodAudioFilter('todos')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
-                    vodAudioFilter === 'todos'
-                      ? 'bg-purple-600 text-white'
-                      : 'bg-zinc-800 text-zinc-400 hover:text-white'
-                  }`}
-                >
-                  Todos
-                </button>
-                <button
-                  onClick={() => setVodAudioFilter('dublado')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
-                    vodAudioFilter === 'dublado'
-                      ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
-                      : 'bg-zinc-800 text-zinc-400 hover:text-white'
-                  }`}
-                >
-                  🔊 Somente Dubladas
-                </button>
-                <button
-                  onClick={() => setVodAudioFilter('legendado')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
-                    vodAudioFilter === 'legendado'
-                      ? 'bg-sky-600 text-white shadow-lg shadow-sky-600/30'
-                      : 'bg-zinc-800 text-zinc-400 hover:text-white'
-                  }`}
-                >
-                  💬 Somente Legendadas
-                </button>
+                <span>{displayedSeries.length} séries listadas</span>
               </div>
 
-              <div className="text-xs text-zinc-400">
-                {filteredSeries.length} séries disponíveis
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
+                {ALPHABET.map(letter => (
+                  <button
+                    key={letter}
+                    onClick={() => setSelectedSeriesLetter(letter)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition shrink-0 ${
+                      selectedSeriesLetter === letter
+                        ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/30 scale-105'
+                        : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-white/5'
+                    }`}
+                  >
+                    {letter}
+                  </button>
+                ))}
               </div>
             </div>
 
             {/* Grade de Séries */}
-            {filteredSeries.length > 0 ? (
+            {loadingDynamicSeries ? (
+              <div className="py-20 flex flex-col items-center justify-center text-zinc-400 bg-zinc-900/30 rounded-3xl border border-white/5">
+                <Loader2 size={36} className="animate-spin text-purple-500 mb-3" />
+                <span className="text-sm font-semibold">Carregando séries da letra {selectedSeriesLetter} da nuvem...</span>
+              </div>
+            ) : displayedSeries.length > 0 ? (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                {filteredSeries.map(s => (
+                {displayedSeries.map(s => (
                   <SeriesCard
                     key={s.id}
                     series={s}
                     isFavorite={favorites.includes(s.id)}
                     onToggleFavorite={handleToggleFavorite}
-                    onSelect={(item, audio) => handleSelectItem(item, audio)}
+                    onSelect={(item) => handleSelectSeries(item)}
                     preferredAudio={preferredAudio}
                   />
                 ))}
@@ -387,7 +403,6 @@ export default function App() {
               <div className="text-center py-16 bg-zinc-900/30 rounded-3xl border border-white/5 p-8">
                 <Clapperboard size={40} className="mx-auto text-zinc-500 mb-3" />
                 <h3 className="text-white font-bold text-base mb-1">Nenhuma série encontrada</h3>
-                <p className="text-zinc-400 text-xs">Tente alterar os termos de busca ou filtros.</p>
               </div>
             )}
           </div>
@@ -410,7 +425,7 @@ export default function App() {
                 <Star size={48} className="mx-auto text-zinc-600 mb-4" />
                 <h3 className="text-white font-bold text-lg mb-2">Sua lista de favoritos está vazia</h3>
                 <p className="text-zinc-400 text-sm max-w-sm mx-auto mb-6">
-                  Clique no ícone de estrela nos cards de canais, filmes ou séries para salvá-los aqui.
+                  Clique na estrela dos cards para salvá-los aqui.
                 </p>
                 <button
                   onClick={() => setActiveTab('canais')}
@@ -421,7 +436,6 @@ export default function App() {
               </div>
             ) : (
               <div className="space-y-8">
-                {/* Canais Favoritos */}
                 {favoriteChannels.length > 0 && (
                   <div className="space-y-4">
                     <h3 className="text-zinc-300 font-bold text-base flex items-center gap-2">
@@ -442,7 +456,6 @@ export default function App() {
                   </div>
                 )}
 
-                {/* Filmes Favoritos */}
                 {favoriteMovies.length > 0 && (
                   <div className="space-y-4">
                     <h3 className="text-zinc-300 font-bold text-base flex items-center gap-2">
@@ -462,7 +475,6 @@ export default function App() {
                   </div>
                 )}
 
-                {/* Séries Favoritas */}
                 {favoriteSeries.length > 0 && (
                   <div className="space-y-4">
                     <h3 className="text-zinc-300 font-bold text-base flex items-center gap-2">
@@ -475,7 +487,7 @@ export default function App() {
                           series={s}
                           isFavorite={true}
                           onToggleFavorite={handleToggleFavorite}
-                          onSelect={(item, audio) => handleSelectItem(item, audio)}
+                          onSelect={(item) => handleSelectSeries(item)}
                         />
                       ))}
                     </div>
@@ -488,15 +500,13 @@ export default function App() {
 
       </main>
 
-      {/* Rodapé Moderno */}
-      <footer className="border-t border-white/5 bg-zinc-950/80 px-4 py-6 text-center text-xs text-zinc-500 mt-12">
-        <p className="font-semibold text-zinc-400">
-          Lango's TV — Criado para você nunca ficar dependente de serviços pagos.
-        </p>
-        <p className="mt-1 text-[11px] text-zinc-600">
-          Player Web PWA com suporte a HLS, DASH, VOD Dublado/Legendado e exportação de listas M3U.
-        </p>
-      </footer>
+      {/* Modal de Seleção de Episódios e Temporadas */}
+      <EpisodeModal
+        series={selectedSeriesForEpisodes}
+        isOpen={!!selectedSeriesForEpisodes}
+        onClose={() => setSelectedSeriesForEpisodes(null)}
+        onPlayEpisode={(epItem, audio) => handleSelectItem(epItem, audio)}
+      />
 
       {/* Modal de Configurações */}
       <SettingsModal
@@ -505,6 +515,15 @@ export default function App() {
         channels={channels}
         onChannelsUpdated={(updated) => setChannels(updated)}
       />
+
+      <footer className="border-t border-white/5 bg-zinc-950/80 px-4 py-6 text-center text-xs text-zinc-500 mt-12">
+        <p className="font-semibold text-zinc-400">
+          Lango's TV — Criado para você nunca ficar dependente de serviços pagos.
+        </p>
+        <p className="mt-1 text-[11px] text-zinc-600">
+          Grade EPG ao vivo • Mais de 7.000 Séries Atualizadas Diariamente • PWA Multiplataforma
+        </p>
+      </footer>
 
     </div>
   );
