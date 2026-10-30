@@ -122,7 +122,18 @@ export default function VideoPlayer({
       }
     }, 12000);
 
-    const isHlsStream = streamUrl.includes('.m3u8') || streamUrl.includes('master') || streamUrl.includes('/hls/') || streamUrl.includes('/api/proxy');
+    // Detectar se o vídeo é MP4 ou HLS baseado na URL real da fonte
+    const rawTarget = (currentSource?.url || '').toLowerCase();
+    const isMp4 = rawTarget.includes('.mp4') || rawTarget.includes('.mkv') || rawTarget.includes('.webm');
+    const isHlsStream = !isMp4 && (
+      rawTarget.includes('.m3u8') || 
+      rawTarget.includes('master') || 
+      rawTarget.includes('/hls/') || 
+      rawTarget.includes('.txt') ||
+      rawTarget.includes('live') ||
+      rawTarget.includes('stream') ||
+      (!rawTarget.includes('.') && streamUrl.includes('/api/proxy'))
+    );
 
     if (isHlsStream && Hls.isSupported()) {
       const hls = new Hls({
@@ -172,6 +183,7 @@ export default function VideoPlayer({
       video.load();
 
       const onCanPlay = () => {
+        isLoadedRef.current = true;
         setLoading(false);
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
         video.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
@@ -182,10 +194,12 @@ export default function VideoPlayer({
       };
 
       video.addEventListener('canplay', onCanPlay);
+      video.addEventListener('loadedmetadata', onCanPlay);
       video.addEventListener('error', onError);
 
       return () => {
         video.removeEventListener('canplay', onCanPlay);
+        video.removeEventListener('loadedmetadata', onCanPlay);
         video.removeEventListener('error', onError);
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
       };

@@ -65,14 +65,25 @@ export default function EpisodeModal({
         
         {/* Cabeçalho do Modal */}
         <div className="p-5 border-b border-white/10 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center">
-              <Clapperboard size={20} />
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-16 rounded-xl overflow-hidden bg-zinc-800 shrink-0 border border-white/10 shadow-md">
+              {series.capa ? (
+                <img 
+                  src={series.capa} 
+                  alt={series.titulo} 
+                  className="w-full h-full object-cover" 
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-purple-400">
+                  <Clapperboard size={20} />
+                </div>
+              )}
             </div>
             <div>
               <h2 className="text-white font-extrabold text-base md:text-lg line-clamp-1">{series.titulo}</h2>
               <p className="text-zinc-400 text-xs">
-                {series.ano} • {episodes.length} episódios catalogados
+                {series.ano} • {series.categoria || 'Série'} • {episodes.length} episódios catalogados
               </p>
             </div>
           </div>
@@ -154,12 +165,21 @@ export default function EpisodeModal({
                   <button
                     key={idx}
                     onClick={() => {
+                      const allLinks = (ep.allUrls && ep.allUrls.length > 0) ? ep.allUrls : [ep.url];
+                      const episodeSources = allLinks.map((u, i) => ({
+                        nome: `Fonte ${i + 1} (${u.includes('.mp4') ? 'MP4 FHD' : 'HLS Auto'})`,
+                        url: u,
+                        qualidade: u.includes('.mp4') ? 'FHD' : 'Auto'
+                      }));
+
                       onPlayEpisode({
                         id: `ep-${series.id}-${ep.season}-${ep.episode}`,
                         titulo: `${series.titulo} — T${ep.season}:E${ep.episode}`,
                         categoria: series.categoria || 'Série',
-                        dublado: ep.audio === 'dublado' ? [{ nome: ep.nome, url: ep.url }] : [],
-                        legendado: ep.audio === 'legendado' ? [{ nome: ep.nome, url: ep.url }] : []
+                        capa: series.capa || '',
+                        fontes: episodeSources,
+                        dublado: ep.audio === 'dublado' ? episodeSources : [],
+                        legendado: ep.audio === 'legendado' ? episodeSources : []
                       }, ep.audio);
                       onClose();
                     }}

@@ -16,7 +16,7 @@ export default function SeriesCard({
       onClick={() => onSelect(series, preferredAudio)}
       className="group relative bg-zinc-900/60 hover:bg-zinc-850 border border-white/5 hover:border-purple-500/40 rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 shadow-lg hover:shadow-purple-500/15 hover:-translate-y-1.5"
     >
-      {/* Poster */}
+      {/* Poster Oficial */}
       <div className="relative aspect-[2/3] w-full bg-zinc-950 overflow-hidden">
         {series.capa ? (
           <img
@@ -26,14 +26,23 @@ export default function SeriesCard({
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             onError={(e) => {
               e.target.style.display = 'none';
+              if (e.target.nextSibling) {
+                e.target.nextSibling.style.display = 'flex';
+              }
             }}
           />
-        ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-900 text-zinc-600 p-4 text-center">
-            <Clapperboard size={32} className="mb-2" />
-            <span className="text-xs font-semibold">{series.titulo}</span>
+        ) : null}
+        
+        <div 
+          className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-zinc-900 to-zinc-950 text-zinc-500 p-4 text-center border-b border-white/5"
+          style={{ display: series.capa ? 'none' : 'flex' }}
+        >
+          <div className="w-12 h-12 rounded-2xl bg-purple-600/15 text-purple-400 flex items-center justify-center mb-2 shadow-inner">
+            <Clapperboard size={24} />
           </div>
-        )}
+          <span className="text-xs font-bold text-zinc-300 line-clamp-2">{series.titulo}</span>
+          <span className="text-[10px] text-zinc-500 mt-1">{series.ano}</span>
+        </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/60 pointer-events-none"></div>
 
@@ -80,7 +89,7 @@ export default function SeriesCard({
             {series.ano}
           </span>
           <span className="bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-md border border-white/10 flex items-center gap-1">
-            <Layers size={11} /> {series.temporadas} {series.temporadas === 1 ? 'temporada' : 'temporadas'}
+            <Layers size={11} /> {series.temporadas ? `${series.temporadas} ${series.temporadas === 1 ? 'temporada' : 'temporadas'}` : (series.totalEps ? `${series.totalEps} eps` : 'Série')}
           </span>
         </div>
       </div>

@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', '*');
-  res.setHeader('Access-Control-Expose-Headers', '*');
+  res.setHeader('Access-Control-Expose-Headers', 'Content-Range, Accept-Ranges, Content-Length, Content-Type');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -25,13 +25,17 @@ export default async function handler(req, res) {
     if (referer) {
       headers['Referer'] = decodeURIComponent(referer);
     }
+    // Encaminhar cabeçalho Range (essencial para vídeos MP4/MKV e busca em players HTML5)
+    if (req.headers.range) {
+      headers['Range'] = req.headers.range;
+    }
 
     const response = await fetch(targetUrl, { 
       headers,
       redirect: 'follow'
     });
 
-    if (!response.ok) {
+    if (!response.ok && response.status !== 206) {
       return res.status(response.status).json({ 
         error: `Remote server responded with ${response.status}`,
         url: targetUrl 
@@ -66,21 +70,34 @@ export default async function handler(req, res) {
 
         const refParam = referer ? `&referer=${encodeURIComponent(referer)}` : '';
         const uaParam = ua ? `&ua=${encodeURIComponent(ua)}` : '';
-        // Retorna caminho relativo /api/proxy para manter sempre na mesma origem do cliente
         return `/api/proxy?url=${encodeURIComponent(absoluteUrl)}${refParam}${uaParam}`;
       }).join('\n');
 
       return res.status(200).send(rewritten);
     }
 
-    // Para arquivos binários (.ts, .mp4, etc.): stream imediato de alto desempenho
-    res.setHeader('Cache-Control', 'public, max-age=1800');
+    // Para arquivos de vídeo binários (.ts, .mp4, etc.):
+    res.status(response.status); // 200 ou 206
+    if (response.headers.get('content-range')) {
+      res.setHeader('Content-Range', response.headers.get('content-range'));
+    }
+    if (response.headers.get('accept-ranges')) {
+      res.setHeader('Accept-Ranges', response.headers.get('accept-ranges'));
+    } else {
+      res.setHeader('Accept-Ranges', 'bytes');
+    }
+    if (response.headers.get('content-length')) {
+      res.setHeader('Content-Length', response.headers.get('content-length'));
+    }
+
+    res.setHeader('Cache-Control', 'public, max-age=3600');
+
     if (response.body && typeof Readable.fromWeb === 'function') {
       const nodeStream = Readable.fromWeb(response.body);
       return nodeStream.pipe(res);
     } else {
       const arrayBuffer = await response.arrayBuffer();
-      return res.status(200).send(Buffer.from(arrayBuffer));
+      return res.send(Buffer.from(arrayBuffer));
     }
 
   } catch (err) {
