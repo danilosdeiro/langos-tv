@@ -1,4 +1,4 @@
-const CACHE_NAME = 'langos-tv-v6';
+const CACHE_NAME = 'langos-tv-v7';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
