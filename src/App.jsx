@@ -29,8 +29,8 @@ export default function App() {
   const [featuredSeries, setFeaturedSeries] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
-  // Estado para Séries Dinâmicas (A-Z atualizado diariamente)
-  const [selectedSeriesLetter, setSelectedSeriesLetter] = useState('Destaques');
+  // Estado para Séries Dinâmicas (A-Z com +10.000 títulos atualizados diariamente)
+  const [selectedSeriesLetter, setSelectedSeriesLetter] = useState('A');
   const [dynamicSeries, setDynamicSeries] = useState([]);
   const [loadingDynamicSeries, setLoadingDynamicSeries] = useState(false);
 
@@ -61,8 +61,22 @@ export default function App() {
     setLoadingDynamicSeries(true);
     VodService.fetchSeriesByLetter(selectedSeriesLetter)
       .then(list => setDynamicSeries(list))
+      .catch(err => {
+        console.warn('Erro ao carregar séries:', err);
+        setDynamicSeries([]);
+      })
       .finally(() => setLoadingDynamicSeries(false));
   }, [selectedSeriesLetter]);
+
+  // Se o usuário buscar na aba de séries, mudar automaticamente para a letra inicial correspondente
+  useEffect(() => {
+    if (activeTab === 'series' && searchQuery.trim().length > 0) {
+      const firstChar = searchQuery.trim()[0].toUpperCase();
+      if (/^[A-Z]$/.test(firstChar) && selectedSeriesLetter !== firstChar) {
+        setSelectedSeriesLetter(firstChar);
+      }
+    }
+  }, [searchQuery, activeTab, selectedSeriesLetter]);
 
   // Alternar favorito
   const handleToggleFavorite = (id) => {

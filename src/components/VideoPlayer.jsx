@@ -92,6 +92,9 @@ export default function VideoPlayer({
     }
   };
 
+  // Timeout de carregamento seguro (12 segundos)
+  const isLoadedRef = useRef(false);
+
   // Carregar e reproduzir o stream
   useEffect(() => {
     if (!resolvedStreamUrl || !videoRef.current) return;
@@ -100,6 +103,7 @@ export default function VideoPlayer({
     const streamUrl = resolvedStreamUrl;
     setLoading(true);
     setErrorMessage(null);
+    isLoadedRef.current = false;
 
     // Limpar HLS anterior
     if (hlsRef.current) {
@@ -111,12 +115,12 @@ export default function VideoPlayer({
       clearTimeout(timeoutRef.current);
     }
 
-    // Timeout de carregamento (6 segundos)
+    // Timeout de conexão generoso para redes móveis e conexões lentas (12 segundos)
     timeoutRef.current = setTimeout(() => {
-      if (loading && sourcesRef.current.length > 1 && activeSourceIndexRef.current < sourcesRef.current.length - 1) {
+      if (!isLoadedRef.current && sourcesRef.current.length > 1 && activeSourceIndexRef.current < sourcesRef.current.length - 1) {
         handleFallback("Tempo limite de conexão");
       }
-    }, 6500);
+    }, 12000);
 
     const isHlsStream = streamUrl.includes('.m3u8') || streamUrl.includes('master') || streamUrl.includes('/hls/') || streamUrl.includes('/api/proxy');
 
@@ -125,10 +129,10 @@ export default function VideoPlayer({
         enableWorker: true,
         lowLatencyMode: true,
         backBufferLength: 60,
-        manifestLoadingTimeOut: 6000,
-        manifestLoadingMaxRetry: 1,
-        fragLoadingTimeOut: 8000,
-        fragLoadingMaxRetry: 1,
+        manifestLoadingTimeOut: 10000,
+        manifestLoadingMaxRetry: 2,
+        fragLoadingTimeOut: 12000,
+        fragLoadingMaxRetry: 2,
       });
       hlsRef.current = hls;
 
@@ -136,9 +140,15 @@ export default function VideoPlayer({
       hls.attachMedia(video);
 
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        isLoadedRef.current = true;
         setLoading(false);
         if (timeoutRef.current) clearTimeout(timeoutRef.current);
         video.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+      });
+
+      hls.on(Hls.Events.FRAG_LOADED, () => {
+        isLoadedRef.current = true;
+        setLoading(false);
       });
 
       hls.on(Hls.Events.ERROR, (event, data) => {

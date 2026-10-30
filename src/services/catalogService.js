@@ -3,16 +3,25 @@ import defaultFilmes from '../data/filmes.json';
 import defaultSeries from '../data/series.json';
 
 const STORAGE_KEY_CUSTOM_LIST = 'langos_custom_channels_url';
-const STORAGE_KEY_CACHED_CHANNELS = 'langos_cached_channels';
+const STORAGE_KEY_CACHED_CUSTOM = 'langos_cached_custom_channels_v4';
 const STORAGE_KEY_FAVORITES = 'langos_favorites';
 
 export const CatalogService = {
-  // Obter canais iniciais (do cache local, do arquivo importado ou do padrão)
+  // Obter canais iniciais (prioriza lista limpa do sistema, a menos que o usuário tenha configurado lista customizada)
   getChannels() {
     try {
-      const cached = localStorage.getItem(STORAGE_KEY_CACHED_CHANNELS);
-      if (cached) {
-        const parsed = JSON.parse(cached);
+      // Limpar cache legado antigo que possa ter URLs desatualizadas
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.removeItem('langos_cached_channels');
+        localStorage.removeItem('langos_cached_channels_v2');
+        localStorage.removeItem('langos_cached_channels_v3');
+      }
+
+      // Se o usuário adicionou uma lista personalizada nas configurações
+      const customUrl = localStorage.getItem(STORAGE_KEY_CUSTOM_LIST);
+      const cachedCustom = localStorage.getItem(STORAGE_KEY_CACHED_CUSTOM);
+      if (customUrl && cachedCustom) {
+        const parsed = JSON.parse(cachedCustom);
         if (Array.isArray(parsed) && parsed.length > 0) {
           return parsed;
         }
@@ -169,8 +178,10 @@ export const CatalogService = {
     const text = await resp.text();
     const canais = this.parseCatalogText(text);
     if (canais.length > 0) {
-      localStorage.setItem(STORAGE_KEY_CACHED_CHANNELS, JSON.stringify(canais));
-      if (url) localStorage.setItem(STORAGE_KEY_CUSTOM_LIST, url);
+      if (url) {
+        localStorage.setItem(STORAGE_KEY_CUSTOM_LIST, url);
+        localStorage.setItem(STORAGE_KEY_CACHED_CUSTOM, JSON.stringify(canais));
+      }
     }
     return canais;
   },
