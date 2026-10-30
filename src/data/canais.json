@@ -1086,29 +1086,29 @@
     "logo": "https://img.faz-o-eli.online/globonews.png",
     "fontes": [
       {
-        "url": "https://aws.s13-s1001604.lat/stream/f40b5972e5f78e715aaf2034cdaac946/globonews.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
       },
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/54ef74f535c6205645a5ef93642e6a62/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 2"
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
       },
       {
-        "url": "https://aws.s13-s1001604.lat/stream/6ca0fa6a24a397e4b47dc8d32fb23e44/globonews.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3"
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globonews/globonews.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 4"
-      },
-      {
-        "url": "https://16-5-0-235.sslip.io/globonews/index.m3u8",
-        "qualidade": "Auto",
-        "nome": "Fonte 5"
       },
       {
         "url": "https://frostview.squareweb.app/relay/m/aHR0cDovL2Fic29sdXRvLnRvcC9saXZlLzIzMzczMTkyOS80MTAzMTQ1ODcvNzI1NDY5Lm0zdTg.m3u8",
@@ -1229,9 +1229,24 @@
     "logo": "https://img.faz-o-eli.online/globonovelas.prev.png",
     "fontes": [
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/5ff311b3c168caad0086c0036cda0c21/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globonovelas/globonovelas.m3u8",
@@ -1347,11 +1362,6 @@
         "url": "http://corruptx.org:80/live/hfp5ejnrey/zq0u3kzads/33453.m3u8",
         "qualidade": "HD",
         "nome": "Fonte 24"
-      },
-      {
-        "url": "http://332nr7hbfu.xyz:80/live/999913/S3CvUB/103450.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 25"
       },
       {
         "url": "https://frostview.squareweb.app/relay/m/aHR0cDovL2Fic29sdXRvLnRvcC9saXZlLzIzMzczMTkyOS80MTAzMTQ1ODcvNzI1MTUwLm0zdTg.m3u8",
@@ -4614,24 +4624,29 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://aws.s13-s1001604.lat/stream/25c389d4965f4166247f2280886f5cba/globosp.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
       },
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/77120cb2d65f2e329ce2b1a84a6880d4/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 2"
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globosp/globosp.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 3"
-      },
-      {
-        "url": "https://16-5-0-235.sslip.io/globosp/index.m3u8",
-        "qualidade": "Auto",
-        "nome": "Fonte 4"
       },
       {
         "url": "https://frostview.squareweb.app/relay/m/aHR0cDovL3BhbGRpLnBybzo4MC9saXZlL3RvbmluaG8wMi9DYjQ5ODAzNy83MjA0MC5tM3U4.m3u8",
@@ -4697,11 +4712,6 @@
         "url": "http://corruptx.org:80/live/hfp5ejnrey/zq0u3kzads/1168918.m3u8",
         "qualidade": "HD",
         "nome": "Fonte 17"
-      },
-      {
-        "url": "http://332nr7hbfu.xyz:80/live/999913/S3CvUB/72040.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 18"
       }
     ]
   },
@@ -8498,6 +8508,26 @@
     "categoria": "TV Aberta",
     "logo": "https://mondrian.claro.com.br/channels/inverse/globo.png",
     "fontes": [
+      {
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
+      },
       {
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "FHD · 1920x1080",
@@ -15849,9 +15879,24 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/6f9cc88d43a6af2452782c7a9a1d8880/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoam/globoam.m3u8",
@@ -15867,9 +15912,24 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/31a44a64c7274058204215b112a5573e/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoce/globoce.m3u8",
@@ -15885,9 +15945,24 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/1eedf404367d6bafac44bbef7ce4590b/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globoes/globoes.m3u8",
@@ -15903,9 +15978,24 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/674260df99b6908466097b0478e82550/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globogo/globogo.m3u8",
@@ -15921,9 +16011,24 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/33382320ccc353fdea5e5e691b54b60f/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globopb/globopb.m3u8",
@@ -15939,9 +16044,24 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/24b361e8d8d58bce10ba0ee4322d52e6/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globope/globope.m3u8",
@@ -15957,19 +16077,29 @@
     "logo": "https://img.faz-o-eli.online/globorj.png",
     "fontes": [
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/1cd2a932d5dfa78c7d7ccba58437951a/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globorj/globorj.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 2"
-      },
-      {
-        "url": "https://16-5-0-235.sslip.io/globorj/index.m3u8",
-        "qualidade": "Auto",
-        "nome": "Fonte 3"
       },
       {
         "url": "https://frostview.squareweb.app/relay/m/aHR0cDovL3BhbGRpLnBybzo4MC9saXZlL3RvbmluaG8wMi9DYjQ5ODAzNy83MjAyNS5tM3U4.m3u8",
@@ -16030,11 +16160,6 @@
         "url": "http://corruptx.org:80/live/hfp5ejnrey/zq0u3kzads/1168921.m3u8",
         "qualidade": "HD",
         "nome": "Fonte 15"
-      },
-      {
-        "url": "http://332nr7hbfu.xyz:80/live/999913/S3CvUB/72025.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 16"
       }
     ]
   },
@@ -16045,9 +16170,24 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/f50f14e5894991b9af5bf2e80eee4191/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globors/globors.m3u8",
@@ -16441,9 +16581,24 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/1e89209a8648c5ddabbe7e110708e01b/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globodf/globodf.m3u8",
@@ -16489,9 +16644,24 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://8f246fdcdd11e03e7750ed4f8e050161.s25-cloudfront-net.lat/stream/99b0e7e50d12bd3ef7fd1c63b89cc574/error.txt",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1"
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
       },
       {
         "url": "https://fallback1.nexustvplay.bbroot.com/nxs/stream/globomg/globomg.m3u8",
@@ -19261,6 +19431,26 @@
     "categoria": "TV Aberta",
     "logo": "https://img.faz-o-eli.online/globo.png",
     "fontes": [
+      {
+        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
+        "qualidade": "FHD",
+        "nome": "Sinal Ao Vivo 1 (FHD)"
+      },
+      {
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo Oficial Fast 2"
+      },
+      {
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
+        "qualidade": "HD",
+        "nome": "GE Globo Esportes"
+      },
+      {
+        "url": "http://170.84.165.204/Globo_HD/index.m3u8",
+        "qualidade": "HD",
+        "nome": "Globo SP Reserva"
+      },
       {
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
         "qualidade": "FHD · 1920x1080",

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Hls from 'hls.js';
 import { 
   Play, Pause, Volume2, VolumeX, Maximize2, Minimize2, 
-  RotateCcw, AlertTriangle, Layers, ChevronRight, X, Radio, Film
+  RotateCcw, AlertTriangle, Layers, X
 } from 'lucide-react';
 
 export default function VideoPlayer({ 
@@ -27,7 +27,11 @@ export default function VideoPlayer({
   const [showControls, setShowControls] = useState(true);
   const controlsTimeoutRef = useRef(null);
 
-  // Determina as fontes ativas baseado no tipo de item (Canal ou Filme/Série)
+  // Ref para evitar closure stale em callbacks de eventos HLS
+  const activeSourceIndexRef = useRef(0);
+  activeSourceIndexRef.current = activeSourceIndex;
+
+  // Determina as fontes ativas baseado no tipo de item
   const isVOD = !!(item?.dublado || item?.legendado);
   
   const sources = React.useMemo(() => {
@@ -39,7 +43,24 @@ export default function VideoPlayer({
     return item.fontes || [];
   }, [item, isVOD, audioVersion]);
 
+  const sourcesRef = useRef(sources);
+  sourcesRef.current = sources;
+
   const currentSource = sources[activeSourceIndex] || sources[0];
+
+  // Resolver URL: Se for HTTP em HTTPS ou exigir referer, passar pelo /api/proxy
+  const resolvedStreamUrl = React.useMemo(() => {
+    if (!currentSource?.url) return '';
+    const rawUrl = currentSource.url;
+    const isPageHttps = typeof window !== 'undefined' && window.location.protocol === 'https:';
+
+    if ((isPageHttps && rawUrl.startsWith('http://')) || currentSource.referer || rawUrl.includes('.txt')) {
+      let proxy = `/api/proxy?url=${encodeURIComponent(rawUrl)}`;
+      if (currentSource.referer) proxy += `&referer=${encodeURIComponent(currentSource.referer)}`;
+      return proxy;
+    }
+    return rawUrl;
+  }, [currentSource]);
 
   // Resetar índice ao trocar de canal ou áudio
   useEffect(() => {
@@ -48,16 +69,32 @@ export default function VideoPlayer({
     setFallbackNotice(null);
   }, [item?.id, audioVersion]);
 
+  // Função de Fallback automática rápida
+  const handleFallback = (reason) => {
+    const curIdx = activeSourceIndexRef.current;
+    const allSources = sourcesRef.current;
+
+    if (allSources.length > 1 && curIdx < allSources.length - 1) {
+      const nextIndex = curIdx + 1;
+      const nextSourceName = allSources[nextIndex]?.nome || `Fonte ${nextIndex + 1}`;
+      setFallbackNotice(`Fonte ${curIdx + 1} indisponível (${reason}). Alternando para ${nextSourceName}...`);
+      setActiveSourceIndex(nextIndex);
+    } else {
+      setLoading(false);
+      setErrorMessage(`Todas as ${allSources.length} fontes deste canal/vídeo estão temporariamente inacessíveis.`);
+    }
+  };
+
   // Carregar e reproduzir o stream
   useEffect(() => {
-    if (!currentSource?.url || !videoRef.current) return;
+    if (!resolvedStreamUrl || !videoRef.current) return;
 
     const video = videoRef.current;
-    const streamUrl = currentSource.url;
+    const streamUrl = resolvedStreamUrl;
     setLoading(true);
     setErrorMessage(null);
 
-    // Limpar instância HLS anterior
+    // Limpar HLS anterior
     if (hlsRef.current) {
       hlsRef.current.destroy();
       hlsRef.current = null;
@@ -67,24 +104,24 @@ export default function VideoPlayer({
       clearTimeout(timeoutRef.current);
     }
 
-    // Timer de timeout: se não carregar em 8s, tenta fallback
+    // Timeout de carregamento (6 segundos)
     timeoutRef.current = setTimeout(() => {
-      if (loading && sources.length > 1 && activeSourceIndex < sources.length - 1) {
-        handleFallback("Tempo limite de carregamento esgotado");
+      if (loading && sourcesRef.current.length > 1 && activeSourceIndexRef.current < sourcesRef.current.length - 1) {
+        handleFallback("Tempo limite de conexão");
       }
-    }, 9000);
+    }, 6500);
 
-    const isHlsStream = streamUrl.includes('.m3u8') || streamUrl.includes('master') || streamUrl.includes('/hls/');
+    const isHlsStream = streamUrl.includes('.m3u8') || streamUrl.includes('master') || streamUrl.includes('/hls/') || streamUrl.includes('/api/proxy');
 
     if (isHlsStream && Hls.isSupported()) {
       const hls = new Hls({
         enableWorker: true,
         lowLatencyMode: true,
-        backBufferLength: 90,
-        manifestLoadingTimeOut: 8000,
-        manifestLoadingMaxRetry: 2,
-        levelLoadingTimeOut: 8000,
-        fragLoadingTimeOut: 10000,
+        backBufferLength: 60,
+        manifestLoadingTimeOut: 6000,
+        manifestLoadingMaxRetry: 1,
+        fragLoadingTimeOut: 8000,
+        fragLoadingMaxRetry: 1,
       });
       hlsRef.current = hls;
 
@@ -102,19 +139,18 @@ export default function VideoPlayer({
           console.warn('HLS Fatal Error:', data.type, data.details);
           switch (data.type) {
             case Hls.ErrorTypes.NETWORK_ERROR:
-              handleFallback("Erro de rede / stream indisponível");
+              handleFallback("Erro de rede / stream fora do ar");
               break;
             case Hls.ErrorTypes.MEDIA_ERROR:
               hls.recoverMediaError();
               break;
             default:
-              handleFallback("Erro de reprodução");
+              handleFallback("Falha de decodificação");
               break;
           }
         }
       });
     } else {
-      // Vídeo MP4 direto ou navegador com suporte nativo HLS (ex: Safari)
       video.src = streamUrl;
       video.load();
 
@@ -125,7 +161,7 @@ export default function VideoPlayer({
       };
 
       const onError = () => {
-        handleFallback("Falha ao reproduzir link de vídeo");
+        handleFallback("Link indisponível");
       };
 
       video.addEventListener('canplay', onCanPlay);
@@ -145,22 +181,9 @@ export default function VideoPlayer({
       }
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [currentSource?.url]);
+  }, [resolvedStreamUrl]);
 
-  // Função para acionar o Fallback automático
-  const handleFallback = (reason) => {
-    if (sources.length > 1 && activeSourceIndex < sources.length - 1) {
-      const nextIndex = activeSourceIndex + 1;
-      const nextSourceName = sources[nextIndex]?.nome || `Fonte ${nextIndex + 1}`;
-      setFallbackNotice(`Fonte ${activeSourceIndex + 1} falhou (${reason}). Alternando automaticamente para ${nextSourceName}...`);
-      setActiveSourceIndex(nextIndex);
-    } else {
-      setLoading(false);
-      setErrorMessage(`Todas as ${sources.length} fontes deste canal/vídeo estão temporariamente inacessíveis.`);
-    }
-  };
-
-  // Atalhos de teclado (Espaço, F, M, Esc)
+  // Atalhos de teclado
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.target.tagName === 'INPUT') return;
@@ -185,7 +208,6 @@ export default function VideoPlayer({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isFullscreen, isPlaying, isMuted]);
 
-  // Ocultar controles automaticamente após inatividade
   const handleMouseMove = () => {
     setShowControls(true);
     if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
@@ -238,7 +260,6 @@ export default function VideoPlayer({
         isFullscreen ? 'fixed inset-0 z-50 rounded-none h-screen' : 'aspect-video max-h-[70vh]'
       }`}
     >
-      {/* Elemento de Vídeo */}
       <video
         ref={videoRef}
         className="w-full h-full object-contain cursor-pointer"
@@ -297,7 +318,7 @@ export default function VideoPlayer({
         </div>
       )}
 
-      {/* Overlay Superior (Título, Logo e Fechar) */}
+      {/* Header do Player */}
       <div 
         className={`absolute top-0 inset-x-0 p-4 bg-gradient-to-b from-black/85 via-black/40 to-transparent z-20 flex items-center justify-between transition-opacity duration-300 ${
           showControls ? 'opacity-100' : 'opacity-0 pointer-events-none'
@@ -326,7 +347,6 @@ export default function VideoPlayer({
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Seletor Dublado / Legendado para Filmes e Séries */}
           {isVOD && onAudioVersionChange && (
             <div className="bg-zinc-900/90 border border-white/10 p-1 rounded-xl flex items-center gap-1 shadow-lg">
               <button
@@ -364,13 +384,12 @@ export default function VideoPlayer({
         </div>
       </div>
 
-      {/* Overlay Inferior (Controles Principais) */}
+      {/* Controles Inferiores */}
       <div 
         className={`absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-20 flex flex-col gap-3 transition-opacity duration-300 ${
           showControls ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       >
-        {/* Barra de Seleção Manual de Fontes */}
         {sources.length > 1 && (
           <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs scrollbar-none">
             <span className="text-zinc-400 flex items-center gap-1 font-medium shrink-0">
@@ -392,10 +411,8 @@ export default function VideoPlayer({
           </div>
         )}
 
-        {/* Linha de Botões de Controle */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            {/* Play / Pause */}
             <button
               onClick={togglePlay}
               className="p-2.5 bg-white text-black hover:bg-zinc-200 rounded-xl transition shadow-lg"
@@ -404,7 +421,6 @@ export default function VideoPlayer({
               {isPlaying ? <Pause size={18} /> : <Play size={18} fill="currentColor" />}
             </button>
 
-            {/* Mudo / Volume */}
             <div className="flex items-center gap-2 text-white">
               <button onClick={toggleMute} className="hover:text-indigo-400 transition" title="Mudo (M)">
                 {isMuted || volume === 0 ? <VolumeX size={18} /> : <Volume2 size={18} />}
