@@ -1,0 +1,128 @@
+[
+  {
+    "id": "m-1",
+    "titulo": "Deadpool & Wolverine",
+    "ano": "2024",
+    "categoria": "Ação / Comédia",
+    "capa": "https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+    "sinopse": "Wolverine está se recuperando quando seus caminhos se cruzam com o mercenário tagarela Deadpool.",
+    "duracao": "2h 08m",
+    "dublado": [
+      {
+        "nome": "Dublado HD 1",
+        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+      }
+    ],
+    "legendado": [
+      {
+        "nome": "Legendado 1080p",
+        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+      }
+    ]
+  },
+  {
+    "id": "m-2",
+    "titulo": "Duna: Parte 2",
+    "ano": "2024",
+    "categoria": "Ficção Científica",
+    "capa": "https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
+    "sinopse": "Paul Atreides se une a Chani e aos Fremen enquanto busca vingança contra os conspiradores que destruíram sua família.",
+    "duracao": "2h 46m",
+    "dublado": [
+      {
+        "nome": "Dublado FHD",
+        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+      }
+    ],
+    "legendado": [
+      {
+        "nome": "Legendado FHD",
+        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+      }
+    ]
+  },
+  {
+    "id": "m-3",
+    "titulo": "Divertida Mente 2",
+    "ano": "2024",
+    "categoria": "Animação / Família",
+    "capa": "https://image.tmdb.org/t/p/w500/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg",
+    "sinopse": "Riley agora é uma adolescente e novas emoções chegam ao quartel-general.",
+    "duracao": "1h 36m",
+    "dublado": [
+      {
+        "nome": "Dublado Oficial",
+        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
+      }
+    ],
+    "legendado": [
+      {
+        "nome": "Legendado",
+        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
+      }
+    ]
+  },
+  {
+    "id": "m-4",
+    "titulo": "Gladiador II",
+    "ano": "2024",
+    "categoria": "Ação / Drama",
+    "capa": "https://image.tmdb.org/t/p/w500/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+    "sinopse": "Anos após testemunhar a morte do reverenciado herói Maximus, Lucius é forçado a entrar no Coliseu.",
+    "duracao": "2h 28m",
+    "dublado": [
+      {
+        "nome": "Dublado HD",
+        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+      }
+    ],
+    "legendado": [
+      {
+        "nome": "Legendado HD",
+        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+      }
+    ]
+  },
+  {
+    "id": "m-5",
+    "titulo": "Interestelar",
+    "ano": "2014",
+    "categoria": "Ficção Científica",
+    "capa": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    "sinopse": "Um grupo de exploradores viaja através de um buraco de minhoca no espaço à procura de um novo lar para a humanidade.",
+    "duracao": "2h 49m",
+    "dublado": [
+      {
+        "nome": "Dublado FHD",
+        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+      }
+    ],
+    "legendado": [
+      {
+        "nome": "Legendado FHD",
+        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+      }
+    ]
+  },
+  {
+    "id": "m-6",
+    "titulo": "O Poderoso Chefão",
+    "ano": "1972",
+    "categoria": "Drama / Crime",
+    "capa": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+    "sinopse": "O patriarca envelhecido de uma dinastia do crime organizado transfere o controle de seu império clandestino para seu filho relutante.",
+    "duracao": "2h 55m",
+    "dublado": [
+      {
+        "nome": "Dublado Clássico",
+        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+      }
+    ],
+    "legendado": [
+      {
+        "nome": "Legendado",
+        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+      }
+    ]
+  }
+]

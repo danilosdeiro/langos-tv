@@ -1,0 +1,94 @@
+[
+  {
+    "id": "s-1",
+    "titulo": "Breaking Bad",
+    "ano": "2008 - 2013",
+    "categoria": "Drama / Crime",
+    "capa": "https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
+    "sinopse": "Um professor de química do ensino médio diagnosticado com câncer de pulmão inoperável se volta para a fabricação de metanfetamina.",
+    "temporadas": 5,
+    "dublado": [
+      {
+        "nome": "T1:E1 Dublado",
+        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+      },
+      {
+        "nome": "T1:E2 Dublado",
+        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+      }
+    ],
+    "legendado": [
+      {
+        "nome": "T1:E1 Legendado",
+        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+      },
+      {
+        "nome": "T1:E2 Legendado",
+        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+      }
+    ]
+  },
+  {
+    "id": "s-2",
+    "titulo": "Stranger Things",
+    "ano": "2016 - 2025",
+    "categoria": "Ficção / Suspense",
+    "capa": "https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
+    "sinopse": "Quando um jovem desaparece, uma pequena cidade descobre um mistério envolvendo experimentos secretos e forças sobrenaturais.",
+    "temporadas": 4,
+    "dublado": [
+      {
+        "nome": "T1:E1 Dublado",
+        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+      }
+    ],
+    "legendado": [
+      {
+        "nome": "T1:E1 Legendado",
+        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+      }
+    ]
+  },
+  {
+    "id": "s-3",
+    "titulo": "Game of Thrones",
+    "ano": "2011 - 2019",
+    "categoria": "Fantasia / Drama",
+    "capa": "https://image.tmdb.org/t/p/w500/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
+    "sinopse": "Nove famílias nobres lutam pelo controle das terras místicas de Westeros.",
+    "temporadas": 8,
+    "dublado": [
+      {
+        "nome": "T1:E1 Dublado",
+        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
+      }
+    ],
+    "legendado": [
+      {
+        "nome": "T1:E1 Legendado",
+        "url": "https://embedplayer2.xyz/cdn/hls/1ba42f61d009f75eb8312de3ce5f6caf/master.txt"
+      }
+    ]
+  },
+  {
+    "id": "s-4",
+    "titulo": "The Last of Us",
+    "ano": "2023 - 2025",
+    "categoria": "Drama / Pós-Apocalíptico",
+    "capa": "https://image.tmdb.org/t/p/w500/uKvVjK1qBt2v9Zf7QcTz2kO80V9.jpg",
+    "sinopse": "Vinte anos após a destruição da civilização moderna, Joel é contratado para contrabandear Ellie para fora de uma zona de quarentena opressiva.",
+    "temporadas": 2,
+    "dublado": [
+      {
+        "nome": "T1:E1 Dublado",
+        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+      }
+    ],
+    "legendado": [
+      {
+        "nome": "T1:E1 Legendado",
+        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+      }
+    ]
+  }
+]
