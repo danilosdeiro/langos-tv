@@ -1,7 +1,8 @@
-// VOD Service — Catálogo Dinâmico de Séries e Episódios (Mais de 7.000 títulos atualizados com capas TMDB e múltiplas temporadas)
+// VOD Service — Catálogo Dinâmico de Séries, Filmes e Episódios (Mais de 50.000 títulos com capas TMDB e múltiplas temporadas)
 
 const SERIES_CACHE = {};
 const EPISODES_CACHE = {};
+const MOVIES_CACHE = {};
 let FICHAS_CACHE = null;
 let FICHAS_PROMISE = null;
 
@@ -149,7 +150,6 @@ export const VodService = {
     }
 
     try {
-      // Buscar lista de séries e tabela de fichas em paralelo
       const [seriesRes, fichas] = await Promise.all([
         fetch(`https://filmes-saimo.pages.dev/series-${l}.txt`),
         getFichasMap()
@@ -172,7 +172,6 @@ export const VodService = {
           const totalEps = parts[3]?.trim() || 'Vários';
           const normKey = normalizeTitle(nome);
 
-          // Obter pôster e gênero oficiais
           const capa = fichas.posters.get(`s|${normKey}`) || fichas.posters.get(normKey) || '';
           const categoria = fichas.genres.get(`s|${normKey}`) || fichas.genres.get(normKey) || 'Série';
 
@@ -202,7 +201,6 @@ export const VodService = {
   async fetchEpisodes(letter, pedaco, seriesTitle) {
     let pieceToUse = pedaco;
 
-    // Se pedaco não veio definido ou for '0', resolver o pedaço real pelo índice da letra
     if (!pieceToUse || pieceToUse === '0') {
       try {
         const letterList = await this.fetchSeriesByLetter(letter);
@@ -233,21 +231,16 @@ export const VodService = {
     const lines = text.split('\n');
     let targetFound = false;
     const episodes = [];
-
     const normTarget = normalizeTitle(seriesTitle);
 
     for (let line of lines) {
       const trimmed = line.trim();
       if (trimmed.startsWith('@')) {
-        if (targetFound) {
-          // Chegou na próxima série
-          break;
-        }
+        if (targetFound) break;
 
         const headerTitlePart = trimmed.slice(1).split('\t')[0];
         const currentTitle = normalizeTitle(headerTitlePart);
 
-        // Correspondência exata primeiro (evita que One Piece caia em "One Piece Extra")
         if (currentTitle === normTarget || 
             currentTitle.replace(/\d{4}$/, '').trim() === normTarget.replace(/\d{4}$/, '').trim()) {
           targetFound = true;
@@ -256,15 +249,13 @@ export const VodService = {
       }
 
       if (targetFound && trimmed) {
-        // Formato: Temporada [TAB] Episodio [TAB] dub|leg [TAB] links
         const parts = trimmed.split('\t');
         if (parts.length >= 4) {
           const season = parseInt(parts[0], 10) || 1;
           const episode = parseInt(parts[1], 10) || 1;
-          const audio = parts[2].trim().toLowerCase(); // 'dub' ou 'leg'
+          const audio = parts[2].trim().toLowerCase();
           const rawLinks = parts[3].trim().split(',');
 
-          // Filtrar links válidos descartando servidores mortos ou APIs desativadas
           const validUrls = rawLinks
             .map(l => l.trim())
             .filter(l => {
@@ -275,10 +266,8 @@ export const VodService = {
               return true;
             });
 
-          // Remover duplicatas
           const uniqueUrls = [...new Set(validUrls)];
 
-          // Ordenar fontes priorizando HTTPS e domínios rápidos
           uniqueUrls.sort((a, b) => {
             const scoreA = (a.startsWith('https') ? 4 : 0) + 
               (a.includes('embedplayer2') || a.includes('maximaimg') || a.includes('apiflix') ? 3 : 0) +
@@ -304,6 +293,171 @@ export const VodService = {
     }
 
     return episodes;
+  },
+
+  // Buscar catálogo de filmes por letra (A-Z) com capas e links dublado/legendado
+  async fetchMoviesByLetter(letter = 'A') {
+    const l = letter.toUpperCase();
+    if (MOVIES_CACHE[l]) {
+      return MOVIES_CACHE[l];
+    }
+
+    try {
+      const [moviesRes, fichas] = await Promise.all([
+        fetch(`https://filmes-saimo.pages.dev/filmes-${l}.txt`),
+        getFichasMap()
+      ]);
+
+      if (!moviesRes.ok) throw new Error(`Status ${moviesRes.status}`);
+      const text = await moviesRes.text();
+
+      const moviesList = [];
+      const lines = text.split('\n');
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+        const parts = line.split('\t');
+        if (parts.length >= 2) {
+          const titulo = parts[0].trim();
+          let dubUrls = [];
+          let legUrls = [];
+
+          for (let p = 1; p < parts.length; p++) {
+            const seg = parts[p].trim();
+            if (seg.startsWith('dub=')) {
+              dubUrls = seg.slice(4).split(',').map(u => u.trim()).filter(u => {
+                if (!u.startsWith('http')) return false;
+                for (const dead of DEAD_HOSTS) {
+                  if (u.includes(dead)) return false;
+                }
+                return true;
+              });
+            } else if (seg.startsWith('leg=')) {
+              legUrls = seg.slice(4).split(',').map(u => u.trim()).filter(u => {
+                if (!u.startsWith('http')) return false;
+                for (const dead of DEAD_HOSTS) {
+                  if (u.includes(dead)) return false;
+                }
+                return true;
+              });
+            }
+          }
+
+          if (dubUrls.length === 0 && legUrls.length === 0) continue;
+
+          const normKey = normalizeTitle(titulo);
+          const capa = fichas.posters.get(`f|${normKey}`) || fichas.posters.get(normKey) || '';
+          const categoria = fichas.genres.get(`f|${normKey}`) || fichas.genres.get(normKey) || 'Filme HD';
+
+          const dubSources = dubUrls.map((u, idx) => ({
+            nome: `Dublado - Fonte ${idx + 1} (${u.includes('.mp4') ? 'MP4 FHD' : 'HLS Auto'})`,
+            url: u,
+            qualidade: u.includes('.mp4') ? 'FHD' : 'Auto',
+            audio: 'dublado'
+          }));
+
+          const legSources = legUrls.map((u, idx) => ({
+            nome: `Legendado - Fonte ${idx + 1} (${u.includes('.mp4') ? 'MP4 FHD' : 'HLS Auto'})`,
+            url: u,
+            qualidade: u.includes('.mp4') ? 'FHD' : 'Auto',
+            audio: 'legendado'
+          }));
+
+          const allSources = dubSources.length > 0 ? dubSources : legSources;
+
+          moviesList.push({
+            id: `dyn-movie-${l}-${i}`,
+            letra: l,
+            titulo: titulo,
+            ano: 'Filme',
+            categoria: categoria,
+            capa: capa,
+            duracao: 'Filme HD',
+            dublado: dubSources,
+            legendado: legSources,
+            fontes: allSources,
+            isDynamic: true
+          });
+        }
+      }
+
+      MOVIES_CACHE[l] = moviesList;
+      return moviesList;
+    } catch (err) {
+      console.warn(`Erro ao carregar filmes da letra ${l}:`, err);
+      return [];
+    }
+  },
+
+  // Obter filmes em destaque (Em alta e Lançamentos)
+  async fetchFeaturedMovies() {
+    try {
+      const fichas = await getFichasMap();
+      const res = await fetch('https://filmes-saimo.pages.dev/destaques.txt');
+      if (!res.ok) throw new Error('Falha ao carregar destaques');
+      const text = await res.text();
+
+      const featuredList = [];
+      const lines = text.split('\n');
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line.startsWith('f\t')) {
+          const parts = line.split('\t');
+          const titulo = parts[1]?.trim();
+          const letra = parts[2]?.trim() || 'A';
+          const ano = parts[3]?.trim() || '2026';
+          const poster = parts[4]?.trim();
+
+          const normKey = normalizeTitle(titulo);
+          let capa = poster ? `https://image.tmdb.org/t/p/w342${poster}` : '';
+          if (!capa) {
+            capa = fichas.posters.get(`f|${normKey}`) || fichas.posters.get(normKey) || '';
+          }
+          const categoria = fichas.genres.get(`f|${normKey}`) || fichas.genres.get(normKey) || 'Em Alta';
+
+          featuredList.push({
+            id: `destaque-filme-${i}`,
+            titulo: titulo,
+            letra: letra,
+            ano: ano,
+            categoria: categoria,
+            capa: capa,
+            duracao: 'Lançamento',
+            isDynamic: true
+          });
+        }
+      }
+
+      return featuredList;
+    } catch (err) {
+      console.warn('Erro ao carregar filmes em destaque:', err);
+      return [];
+    }
+  },
+
+  // Resolver fontes de um filme sob demanda se necessário
+  async resolveMovieSources(movie) {
+    if (movie.dublado?.length || movie.legendado?.length) {
+      return movie;
+    }
+
+    try {
+      const letterList = await this.fetchMoviesByLetter(movie.letra || 'A');
+      const normTarget = normalizeTitle(movie.titulo);
+      const match = letterList.find(m => normalizeTitle(m.titulo) === normTarget);
+      if (match) {
+        return {
+          ...movie,
+          dublado: match.dublado,
+          legendado: match.legendado,
+          fontes: match.fontes
+        };
+      }
+    } catch {}
+
+    return movie;
   }
 };
 

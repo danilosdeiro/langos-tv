@@ -6,11 +6,13 @@ import MovieCard from './components/MovieCard';
 import SeriesCard from './components/SeriesCard';
 import EpisodeModal from './components/EpisodeModal';
 import SettingsModal from './components/SettingsModal';
+import EpgModal from './components/EpgModal';
 import { CatalogService } from './services/catalogService';
 import { VodService } from './services/vodService';
+import { HistoryService } from './services/historyService';
 import { 
   Tv, Film, Clapperboard, Star, Sparkles, Filter, 
-  Volume2, Play, AlertCircle, Compass, Loader2 
+  Volume2, Play, AlertCircle, Compass, Loader2, Clock, X
 } from 'lucide-react';
 
 const ALPHABET = ['Destaques', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -25,40 +27,61 @@ export default function App() {
 
   // Conteúdos base
   const [channels, setChannels] = useState([]);
-  const [movies, setMovies] = useState([]);
+  const [featuredMovies, setFeaturedMovies] = useState([]);
   const [featuredSeries, setFeaturedSeries] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
-  // Estado para Séries Dinâmicas (A-Z com +10.000 títulos atualizados diariamente)
-  const [selectedSeriesLetter, setSelectedSeriesLetter] = useState('A');
+  // Estado para Filmes Dinâmicos (A-Z com +45.000 títulos)
+  const [selectedMovieLetter, setSelectedMovieLetter] = useState('Destaques');
+  const [dynamicMovies, setDynamicMovies] = useState([]);
+  const [loadingDynamicMovies, setLoadingDynamicMovies] = useState(false);
+
+  // Estado para Séries Dinâmicas (A-Z com +7.000 títulos)
+  const [selectedSeriesLetter, setSelectedSeriesLetter] = useState('Destaques');
   const [dynamicSeries, setDynamicSeries] = useState([]);
   const [loadingDynamicSeries, setLoadingDynamicSeries] = useState(false);
 
-  // Modal de Episódios
+  // Histórico de "Continuar Assistindo"
+  const [continueWatchingList, setContinueWatchingList] = useState([]);
+
+  // Modais
   const [selectedSeriesForEpisodes, setSelectedSeriesForEpisodes] = useState(null);
+  const [selectedChannelForEpg, setSelectedChannelForEpg] = useState(null);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   // Estado do Player
   const [activeItem, setActiveItem] = useState(null);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-
   const playerSectionRef = useRef(null);
 
   // Inicialização
   useEffect(() => {
     setChannels(CatalogService.getChannels());
-    setMovies(CatalogService.getMovies());
     setFavorites(CatalogService.getFavorites());
+    setContinueWatchingList(HistoryService.getRecent());
 
-    // Carregar séries consagradas dinâmicas (com todas as temporadas e episódios da nuvem)
+    // Carregar destaques de séries em nuvem
     VodService.fetchFeaturedSeries()
       .then(featured => setFeaturedSeries(featured))
       .catch(err => {
         console.warn('Erro ao carregar destaques de séries:', err);
         setFeaturedSeries(CatalogService.getSeries());
       });
+
+    // Carregar filmes em destaque (Lançamentos de 2026 e sucessos)
+    VodService.fetchFeaturedMovies()
+      .then(featured => setFeaturedMovies(featured))
+      .catch(err => {
+        console.warn('Erro ao carregar destaques de filmes:', err);
+        setFeaturedMovies(CatalogService.getMovies());
+      });
   }, []);
 
-  // Carregar séries da nuvem quando selecionar letra do alfabeto
+  // Atualizar histórico de reprodução quando o player fechar ou trocar
+  useEffect(() => {
+    setContinueWatchingList(HistoryService.getRecent());
+  }, [activeItem]);
+
+  // Carregar séries da nuvem por letra selecionada
   useEffect(() => {
     if (selectedSeriesLetter === 'Destaques') {
       setDynamicSeries([]);
@@ -75,15 +98,36 @@ export default function App() {
       .finally(() => setLoadingDynamicSeries(false));
   }, [selectedSeriesLetter]);
 
-  // Se o usuário buscar na aba de séries, mudar automaticamente para a letra inicial correspondente
+  // Carregar filmes da nuvem por letra selecionada
   useEffect(() => {
-    if (activeTab === 'series' && searchQuery.trim().length > 0) {
+    if (selectedMovieLetter === 'Destaques') {
+      setDynamicMovies([]);
+      return;
+    }
+
+    setLoadingDynamicMovies(true);
+    VodService.fetchMoviesByLetter(selectedMovieLetter)
+      .then(list => setDynamicMovies(list))
+      .catch(err => {
+        console.warn('Erro ao carregar filmes:', err);
+        setDynamicMovies([]);
+      })
+      .finally(() => setLoadingDynamicMovies(false));
+  }, [selectedMovieLetter]);
+
+  // Roteamento inteligente na busca por letra inicial
+  useEffect(() => {
+    if (searchQuery.trim().length > 0) {
       const firstChar = searchQuery.trim()[0].toUpperCase();
-      if (/^[A-Z]$/.test(firstChar) && selectedSeriesLetter !== firstChar) {
-        setSelectedSeriesLetter(firstChar);
+      if (/^[A-Z]$/.test(firstChar)) {
+        if (activeTab === 'series' && selectedSeriesLetter !== firstChar) {
+          setSelectedSeriesLetter(firstChar);
+        } else if (activeTab === 'filmes' && selectedMovieLetter !== firstChar) {
+          setSelectedMovieLetter(firstChar);
+        }
       }
     }
-  }, [searchQuery, activeTab, selectedSeriesLetter]);
+  }, [searchQuery, activeTab, selectedSeriesLetter, selectedMovieLetter]);
 
   // Alternar favorito
   const handleToggleFavorite = (id) => {
@@ -92,17 +136,42 @@ export default function App() {
   };
 
   // Selecionar canal ou filme para assistir
-  const handleSelectItem = (item, audio = 'dublado') => {
-    setActiveItem(item);
+  const handleSelectItem = async (item, audio = 'dublado', initialSeekTime = 0) => {
+    let resolvedItem = item;
+    // Se for filme dinâmico sem fontes resolvidas
+    if (item.isDynamic && !item.dublado?.length && !item.legendado?.length && !item.titulo?.includes('— T')) {
+      resolvedItem = await VodService.resolveMovieSources(item);
+    }
+
+    if (initialSeekTime > 0) {
+      resolvedItem = { ...resolvedItem, initialSeekTime };
+    }
+
+    setActiveItem(resolvedItem);
     setPreferredAudio(audio);
     setTimeout(() => {
       playerSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
   };
 
-  // Clicar em uma série (abre o seletor de episódios)
+  // Clicar em uma série (abre o modal de episódios)
   const handleSelectSeries = (seriesItem) => {
     setSelectedSeriesForEpisodes(seriesItem);
+  };
+
+  // Navegação de canais no player (Anterior / Próximo)
+  const handleNextChannel = () => {
+    if (!channels.length || !activeItem) return;
+    const curIdx = channels.findIndex(c => c.id === activeItem.id);
+    const nextIdx = (curIdx + 1) % channels.length;
+    handleSelectItem(channels[nextIdx]);
+  };
+
+  const handlePrevChannel = () => {
+    if (!channels.length || !activeItem) return;
+    const curIdx = channels.findIndex(c => c.id === activeItem.id);
+    const prevIdx = (curIdx - 1 + channels.length) % channels.length;
+    handleSelectItem(channels[prevIdx]);
   };
 
   // Categorias únicas de canais
@@ -126,23 +195,26 @@ export default function App() {
     });
   }, [channels, searchQuery, selectedChannelCategory]);
 
-  // Filmes filtrados
-  const filteredMovies = useMemo(() => {
-    return movies.filter(m => {
+  // Filmes a exibir (Destaques ou Dinâmicos da letra)
+  const displayedMovies = useMemo(() => {
+    const list = selectedMovieLetter === 'Destaques' ? featuredMovies : dynamicMovies;
+
+    return list.filter(m => {
       const matchesSearch = searchQuery === '' || 
         m.titulo.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        m.categoria.toLowerCase().includes(searchQuery.toLowerCase());
+        (m.categoria && m.categoria.toLowerCase().includes(searchQuery.toLowerCase()));
 
-      const matchesGenre = selectedVodGenre === 'Todos' || m.categoria.includes(selectedVodGenre);
+      const matchesGenre = selectedVodGenre === 'Todos' || (m.categoria && m.categoria.includes(selectedVodGenre));
       
       const matchesAudio = 
         vodAudioFilter === 'todos' ||
+        m.isDynamic ||
         (vodAudioFilter === 'dublado' && m.dublado && m.dublado.length > 0) ||
         (vodAudioFilter === 'legendado' && m.legendado && m.legendado.length > 0);
 
       return matchesSearch && matchesGenre && matchesAudio;
     });
-  }, [movies, searchQuery, selectedVodGenre, vodAudioFilter]);
+  }, [selectedMovieLetter, featuredMovies, dynamicMovies, searchQuery, selectedVodGenre, vodAudioFilter]);
 
   // Séries a exibir (Destaques ou Dinâmicas da letra)
   const displayedSeries = useMemo(() => {
@@ -155,7 +227,7 @@ export default function App() {
 
       const matchesAudio = 
         vodAudioFilter === 'todos' ||
-        s.isDynamic || // Séries dinâmicas contêm tanto dublado quanto legendado
+        s.isDynamic ||
         (vodAudioFilter === 'dublado' && s.dublado && s.dublado.length > 0) ||
         (vodAudioFilter === 'legendado' && s.legendado && s.legendado.length > 0);
 
@@ -169,8 +241,8 @@ export default function App() {
   }, [channels, favorites]);
 
   const favoriteMovies = useMemo(() => {
-    return movies.filter(m => favorites.includes(m.id));
-  }, [movies, favorites]);
+    return featuredMovies.filter(m => favorites.includes(m.id));
+  }, [featuredMovies, favorites]);
 
   const favoriteSeries = useMemo(() => {
     return featuredSeries.filter(s => favorites.includes(s.id));
@@ -201,7 +273,84 @@ export default function App() {
                 audioVersion={preferredAudio}
                 onAudioVersionChange={setPreferredAudio}
                 onClose={() => setActiveItem(null)}
+                onOpenEpg={(ch) => setSelectedChannelForEpg(ch)}
+                onNextChannel={handleNextChannel}
+                onPrevChannel={handlePrevChannel}
               />
+            </div>
+          </section>
+        )}
+
+        {/* Fileira: Continuar Assistindo (Se houver mídias em andamento) */}
+        {continueWatchingList.length > 0 && !searchQuery && (
+          <section className="space-y-3 animate-fadeIn">
+            <div className="flex items-center justify-between">
+              <h2 className="text-sm md:text-base font-extrabold text-white flex items-center gap-2">
+                <Clock size={16} className="text-indigo-400" />
+                Continuar Assistindo
+              </h2>
+              <button 
+                onClick={() => {
+                  HistoryService.clearAll();
+                  setContinueWatchingList([]);
+                }}
+                className="text-[11px] text-zinc-500 hover:text-zinc-300 transition"
+              >
+                Limpar Histórico
+              </button>
+            </div>
+
+            <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none">
+              {continueWatchingList.map(entry => (
+                <div
+                  key={entry.id}
+                  onClick={() => handleSelectItem(entry.itemPayload, entry.audioVersion, entry.currentTime)}
+                  className="group relative bg-zinc-900 border border-white/10 hover:border-indigo-500/50 rounded-2xl p-2.5 flex items-center gap-3 shrink-0 w-64 md:w-72 cursor-pointer transition shadow-md hover:shadow-indigo-500/10 hover:-translate-y-0.5"
+                >
+                  <div className="w-12 h-16 rounded-xl overflow-hidden bg-zinc-800 shrink-0 border border-white/5 relative">
+                    {entry.capa ? (
+                      <img 
+                        src={entry.capa} 
+                        alt={entry.titulo} 
+                        className="w-full h-full object-cover"
+                        onError={(e) => { e.target.style.display = 'none'; }}
+                      />
+                    ) : null}
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                      <Play size={14} fill="currentColor" className="text-white ml-0.5" />
+                    </div>
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-xs font-bold text-white truncate group-hover:text-indigo-300 transition">
+                      {entry.titulo}
+                    </h4>
+                    <p className="text-[10px] text-zinc-400 truncate mt-0.5">
+                      {entry.categoria} • {entry.percent}%
+                    </p>
+
+                    {/* Barra de Progresso */}
+                    <div className="w-full h-1 bg-zinc-800 rounded-full overflow-hidden mt-2">
+                      <div 
+                        className="h-full bg-indigo-500 rounded-full" 
+                        style={{ width: `${entry.percent}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      const updated = HistoryService.removeItem(entry.id);
+                      setContinueWatchingList(updated);
+                    }}
+                    className="p-1 text-zinc-500 hover:text-white rounded-lg hover:bg-zinc-800 transition"
+                    title="Remover do Histórico"
+                  >
+                    <X size={13} />
+                  </button>
+                </div>
+              ))}
             </div>
           </section>
         )}
@@ -211,7 +360,7 @@ export default function App() {
           <div className="relative rounded-3xl p-6 md:p-10 bg-gradient-to-r from-indigo-950/70 via-purple-950/40 to-zinc-900 border border-indigo-500/20 overflow-hidden shadow-2xl">
             <div className="relative z-10 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold border border-indigo-500/30 mb-4">
-                <Sparkles size={14} /> Mais de 350 Canais com Grade EPG & 7.000 Séries
+                <Sparkles size={14} /> Mais de 350 Canais com Grade EPG & 50.000 Títulos VOD
               </div>
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
                 Bem-vindo ao <span className="text-indigo-400">Lango's TV</span>
@@ -234,6 +383,12 @@ export default function App() {
                   className="px-5 py-3 bg-purple-600/80 hover:bg-purple-600 text-white rounded-xl text-xs md:text-sm font-bold flex items-center gap-2 transition border border-white/10"
                 >
                   <Clapperboard size={16} /> Ver Catálogo de Séries (+7.000)
+                </button>
+                <button
+                  onClick={() => setActiveTab('filmes')}
+                  className="px-5 py-3 bg-zinc-800 hover:bg-zinc-750 text-white rounded-xl text-xs md:text-sm font-bold flex items-center gap-2 transition border border-white/10"
+                >
+                  <Film size={16} /> Ver Catálogo de Filmes (+45.000)
                 </button>
               </div>
             </div>
@@ -288,6 +443,7 @@ export default function App() {
                     onToggleFavorite={handleToggleFavorite}
                     onSelect={(ch) => handleSelectItem(ch)}
                     isActive={activeItem?.id === channel.id}
+                    onOpenEpg={(ch) => setSelectedChannelForEpg(ch)}
                   />
                 ))}
               </div>
@@ -301,10 +457,36 @@ export default function App() {
           </div>
         )}
 
-        {/* ---------------- ABA: FILMES ---------------- */}
+        {/* ---------------- ABA: FILMES (+45.000 TÍTULOS COM A-Z DIÁRIO) ---------------- */}
         {activeTab === 'filmes' && (
           <div className="space-y-6">
             
+            {/* Barra de Letras A-Z para Navegação no Acervo de Filmes */}
+            <div className="space-y-2.5">
+              <div className="flex items-center justify-between text-xs text-zinc-400">
+                <span className="font-bold uppercase tracking-wider flex items-center gap-1.5 text-indigo-400">
+                  <Compass size={14} /> Explorar Acervo Completo de Filmes (+45.000):
+                </span>
+                <span>{displayedMovies.length} filmes listados</span>
+              </div>
+
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
+                {ALPHABET.map(letter => (
+                  <button
+                    key={letter}
+                    onClick={() => setSelectedMovieLetter(letter)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition shrink-0 ${
+                      selectedMovieLetter === letter
+                        ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 scale-105'
+                        : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-white/5'
+                    }`}
+                  >
+                    {letter}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Barra de Áudio */}
             <div className="flex flex-wrap items-center justify-between gap-4 bg-zinc-900/60 p-4 rounded-2xl border border-white/5">
               <div className="flex items-center gap-2">
@@ -344,14 +526,19 @@ export default function App() {
               </div>
 
               <div className="text-xs text-zinc-400">
-                {filteredMovies.length} títulos encontrados
+                {displayedMovies.length} títulos encontrados
               </div>
             </div>
 
             {/* Grade de Filmes */}
-            {filteredMovies.length > 0 ? (
+            {loadingDynamicMovies ? (
+              <div className="py-20 flex flex-col items-center justify-center text-zinc-400 bg-zinc-900/30 rounded-3xl border border-white/5">
+                <Loader2 size={36} className="animate-spin text-indigo-500 mb-3" />
+                <span className="text-sm font-semibold">Carregando acervo de filmes da letra {selectedMovieLetter}...</span>
+              </div>
+            ) : displayedMovies.length > 0 ? (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                {filteredMovies.map(movie => (
+                {displayedMovies.map(movie => (
                   <MovieCard
                     key={movie.id}
                     movie={movie}
@@ -429,99 +616,82 @@ export default function App() {
           </div>
         )}
 
-        {/* ---------------- ABA: MEUS FAVORITOS ---------------- */}
+        {/* ---------------- ABA: FAVORITOS ---------------- */}
         {activeTab === 'favoritos' && (
           <div className="space-y-8">
             <div>
-              <h2 className="text-white font-extrabold text-2xl flex items-center gap-2">
-                <Star className="text-amber-400 fill-amber-400" size={24} /> Meus Favoritos
+              <h2 className="text-white font-extrabold text-xl flex items-center gap-2 mb-4">
+                <Star className="text-amber-400" size={22} fill="currentColor" /> Meus Favoritos
               </h2>
-              <p className="text-zinc-400 text-xs mt-1">
-                Acesse rapidamente os seus canais, filmes e séries marcados com estrela
-              </p>
+
+              {favorites.length === 0 ? (
+                <div className="text-center py-20 bg-zinc-900/30 rounded-3xl border border-white/5 p-8">
+                  <Star size={44} className="mx-auto text-zinc-600 mb-3" />
+                  <h3 className="text-white font-bold text-base mb-1">Sua lista está vazia</h3>
+                  <p className="text-zinc-400 text-xs">Clique na estrela de qualquer canal, filme ou série para salvar aqui.</p>
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  {favoriteChannels.length > 0 && (
+                    <div>
+                      <h3 className="text-zinc-400 text-xs font-bold uppercase tracking-wider mb-3">Canais Favoritos:</h3>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
+                        {favoriteChannels.map(ch => (
+                          <ChannelCard
+                            key={ch.id}
+                            channel={ch}
+                            isFavorite={true}
+                            onToggleFavorite={handleToggleFavorite}
+                            onSelect={(c) => handleSelectItem(c)}
+                            onOpenEpg={(c) => setSelectedChannelForEpg(c)}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {favoriteSeries.length > 0 && (
+                    <div>
+                      <h3 className="text-zinc-400 text-xs font-bold uppercase tracking-wider mb-3">Séries Favoritas:</h3>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        {favoriteSeries.map(s => (
+                          <SeriesCard
+                            key={s.id}
+                            series={s}
+                            isFavorite={true}
+                            onToggleFavorite={handleToggleFavorite}
+                            onSelect={(item) => handleSelectSeries(item)}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {favoriteMovies.length > 0 && (
+                    <div>
+                      <h3 className="text-zinc-400 text-xs font-bold uppercase tracking-wider mb-3">Filmes Favoritos:</h3>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        {favoriteMovies.map(m => (
+                          <MovieCard
+                            key={m.id}
+                            movie={m}
+                            isFavorite={true}
+                            onToggleFavorite={handleToggleFavorite}
+                            onSelect={(movie, audio) => handleSelectItem(movie, audio)}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
-
-            {favorites.length === 0 ? (
-              <div className="text-center py-20 bg-zinc-900/40 rounded-3xl border border-white/5 p-8">
-                <Star size={48} className="mx-auto text-zinc-600 mb-4" />
-                <h3 className="text-white font-bold text-lg mb-2">Sua lista de favoritos está vazia</h3>
-                <p className="text-zinc-400 text-sm max-w-sm mx-auto mb-6">
-                  Clique na estrela dos cards para salvá-los aqui.
-                </p>
-                <button
-                  onClick={() => setActiveTab('canais')}
-                  className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition shadow-lg"
-                >
-                  Explorar Canais
-                </button>
-              </div>
-            ) : (
-              <div className="space-y-8">
-                {favoriteChannels.length > 0 && (
-                  <div className="space-y-4">
-                    <h3 className="text-zinc-300 font-bold text-base flex items-center gap-2">
-                      <Tv size={18} className="text-indigo-400" /> Canais Salvos ({favoriteChannels.length})
-                    </h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
-                      {favoriteChannels.map(ch => (
-                        <ChannelCard
-                          key={ch.id}
-                          channel={ch}
-                          isFavorite={true}
-                          onToggleFavorite={handleToggleFavorite}
-                          onSelect={(c) => handleSelectItem(c)}
-                          isActive={activeItem?.id === ch.id}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {favoriteMovies.length > 0 && (
-                  <div className="space-y-4">
-                    <h3 className="text-zinc-300 font-bold text-base flex items-center gap-2">
-                      <Film size={18} className="text-indigo-400" /> Filmes Salvos ({favoriteMovies.length})
-                    </h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                      {favoriteMovies.map(m => (
-                        <MovieCard
-                          key={m.id}
-                          movie={m}
-                          isFavorite={true}
-                          onToggleFavorite={handleToggleFavorite}
-                          onSelect={(item, audio) => handleSelectItem(item, audio)}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {favoriteSeries.length > 0 && (
-                  <div className="space-y-4">
-                    <h3 className="text-zinc-300 font-bold text-base flex items-center gap-2">
-                      <Clapperboard size={18} className="text-purple-400" /> Séries Salvas ({favoriteSeries.length})
-                    </h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                      {favoriteSeries.map(s => (
-                        <SeriesCard
-                          key={s.id}
-                          series={s}
-                          isFavorite={true}
-                          onToggleFavorite={handleToggleFavorite}
-                          onSelect={(item) => handleSelectSeries(item)}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
           </div>
         )}
 
       </main>
 
-      {/* Modal de Seleção de Episódios e Temporadas */}
+      {/* Modal de Episódios da Série */}
       <EpisodeModal
         series={selectedSeriesForEpisodes}
         isOpen={!!selectedSeriesForEpisodes}
@@ -529,21 +699,25 @@ export default function App() {
         onPlayEpisode={(epItem, audio) => handleSelectItem(epItem, audio)}
       />
 
+      {/* Modal de Grade EPG Completa de 24 Horas */}
+      <EpgModal
+        channel={selectedChannelForEpg}
+        isOpen={!!selectedChannelForEpg}
+        onClose={() => setSelectedChannelForEpg(null)}
+        onPlayChannel={(ch) => handleSelectItem(ch)}
+      />
+
       {/* Modal de Configurações */}
       <SettingsModal
         isOpen={isSettingsOpen}
         onClose={() => setIsSettingsOpen(false)}
-        channels={channels}
-        onChannelsUpdated={(updated) => setChannels(updated)}
+        onReloadChannels={() => setChannels(CatalogService.getChannels())}
       />
 
-      <footer className="border-t border-white/5 bg-zinc-950/80 px-4 py-6 text-center text-xs text-zinc-500 mt-12">
-        <p className="font-semibold text-zinc-400">
-          Lango's TV — Criado para você nunca ficar dependente de serviços pagos.
-        </p>
-        <p className="mt-1 text-[11px] text-zinc-600">
-          Grade EPG ao vivo • Mais de 7.000 Séries Atualizadas Diariamente • PWA Multiplataforma
-        </p>
+      {/* Rodapé */}
+      <footer className="border-t border-white/5 py-8 text-center text-zinc-500 text-xs mt-12">
+        <p className="font-semibold text-zinc-400 mb-1">Lango's TV — Entretenimento Digital Livre</p>
+        <p>Canais ao vivo, Filmes e Séries atualizados dinamicamente via CDN Edge.</p>
       </footer>
 
     </div>

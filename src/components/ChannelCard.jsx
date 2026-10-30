@@ -7,7 +7,8 @@ export default function ChannelCard({
   onSelect, 
   isFavorite = false, 
   onToggleFavorite,
-  isActive = false 
+  isActive = false,
+  onOpenEpg
 }) {
   // Obter grade de programação EPG em tempo real
   const epg = useMemo(() => {
@@ -85,7 +86,16 @@ export default function ChannelCard({
       </div>
 
       {/* Grade de Programação EPG em Tempo Real */}
-      <div className="mt-2 pt-2 border-t border-white/5 space-y-1">
+      <div 
+        onClick={(e) => {
+          if (onOpenEpg) {
+            e.stopPropagation();
+            onOpenEpg(channel);
+          }
+        }}
+        className="mt-2 pt-2 border-t border-white/5 space-y-1 hover:bg-zinc-800/40 p-1 rounded-lg transition"
+        title="Clique para ver a grade completa de 24 horas"
+      >
         <div className="flex items-center justify-between text-[10px]">
           <span className="text-indigo-400 font-semibold truncate max-w-[120px] flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>

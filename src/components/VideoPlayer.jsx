@@ -3,9 +3,10 @@ import Hls from 'hls.js';
 import { 
   Play, Pause, Volume2, VolumeX, Maximize2, Minimize2, 
   RotateCcw, RotateCw, AlertTriangle, Layers, X, Clock,
-  Minimize, Maximize, PictureInPicture
+  Minimize, Maximize, PictureInPicture, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { EpgService } from '../services/epgService';
+import { HistoryService } from '../services/historyService';
 
 function formatTime(seconds) {
   if (!seconds || isNaN(seconds) || seconds <= 0) return '00:00';
@@ -22,7 +23,10 @@ export default function VideoPlayer({
   item, 
   onClose, 
   audioVersion = 'dublado', // 'dublado' ou 'legendado'
-  onAudioVersionChange 
+  onAudioVersionChange,
+  onOpenEpg,
+  onNextChannel,
+  onPrevChannel
 }) {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
@@ -94,6 +98,8 @@ export default function VideoPlayer({
   const prevItemIdRef = useRef(item?.id);
   const prevAudioVersionRef = useRef(audioVersion);
 
+  const lastSavedTimeRef = useRef(0);
+
   useEffect(() => {
     const isDifferentItem = prevItemIdRef.current !== item?.id;
     const isDifferentAudio = prevAudioVersionRef.current !== audioVersion;
@@ -105,7 +111,8 @@ export default function VideoPlayer({
       setCurrentTime(0);
       setDuration(0);
       setBufferedEnd(0);
-      savedTimeRef.current = 0;
+      savedTimeRef.current = item?.initialSeekTime || 0;
+      lastSavedTimeRef.current = 0;
     } else if (isDifferentAudio) {
       // Mesma série/filme, apenas trocando idioma do áudio: reter posição atual
       if (videoRef.current && videoRef.current.currentTime > 0) {
@@ -118,9 +125,9 @@ export default function VideoPlayer({
 
     prevItemIdRef.current = item?.id;
     prevAudioVersionRef.current = audioVersion;
-  }, [item?.id, audioVersion]);
+  }, [item?.id, audioVersion, item?.initialSeekTime]);
 
-  // Monitorar tempo e duração do vídeo (VOD)
+  // Monitorar tempo, duração e progresso do vídeo (VOD)
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -131,6 +138,12 @@ export default function VideoPlayer({
         try {
           setBufferedEnd(video.buffered.end(video.buffered.length - 1));
         } catch {}
+      }
+
+      // Salvar progresso a cada 4 segundos no histórico
+      if (isVOD && video.duration && Math.abs(video.currentTime - lastSavedTimeRef.current) > 4) {
+        lastSavedTimeRef.current = video.currentTime;
+        HistoryService.saveProgress(item, video.currentTime, video.duration, audioVersion);
       }
     };
 
@@ -145,11 +158,15 @@ export default function VideoPlayer({
     video.addEventListener('loadedmetadata', onDuration);
 
     return () => {
+      // Salvar progresso ao fechar o reprodutor
+      if (isVOD && video.duration && video.currentTime > 15) {
+        HistoryService.saveProgress(item, video.currentTime, video.duration, audioVersion);
+      }
       video.removeEventListener('timeupdate', onTimeUpdate);
       video.removeEventListener('durationchange', onDuration);
       video.removeEventListener('loadedmetadata', onDuration);
     };
-  }, []);
+  }, [isVOD, item, audioVersion]);
 
   // Função de Fallback automática rápida
   const handleFallback = (reason) => {
@@ -482,12 +499,16 @@ export default function VideoPlayer({
             </div>
             
             {epg ? (
-              <div className="flex items-center gap-1.5 text-[11px] text-zinc-300 truncate mt-0.5">
-                <Clock size={11} className="text-indigo-400 shrink-0" />
-                <span className="text-indigo-300 font-semibold truncate">
+              <button
+                onClick={() => onOpenEpg && onOpenEpg(item)}
+                className="flex items-center gap-1.5 text-[11px] text-zinc-300 truncate mt-0.5 hover:text-white transition group text-left cursor-pointer"
+                title="Clique para abrir a grade completa de 24 horas deste canal"
+              >
+                <Clock size={11} className="text-indigo-400 group-hover:text-indigo-300 shrink-0" />
+                <span className="text-indigo-300 font-semibold truncate group-hover:underline">
                   {epg.title} ({epg.start} - {epg.end})
                 </span>
-              </div>
+              </button>
             ) : (
               <p className="text-zinc-400 text-[11px] truncate">
                 {item?.categoria} {item?.ano ? `• ${item.ano}` : ''} • Fonte {activeSourceIndex + 1} de {sources.length}
@@ -497,6 +518,29 @@ export default function VideoPlayer({
         </div>
 
         <div className="flex items-center gap-1.5">
+          {/* Navegação Rápida entre Canais Ao Vivo */}
+          {!isVOD && (onPrevChannel || onNextChannel) && (
+            <div className="flex items-center gap-1 mr-1">
+              {onPrevChannel && (
+                <button
+                  onClick={onPrevChannel}
+                  className="p-1.5 md:p-2 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 hover:text-white transition border border-white/10"
+                  title="Canal Anterior"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+              )}
+              {onNextChannel && (
+                <button
+                  onClick={onNextChannel}
+                  className="p-1.5 md:p-2 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 hover:text-white transition border border-white/10"
+                  title="Próximo Canal"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              )}
+            </div>
+          )}
           {isVOD && onAudioVersionChange && (item?.dublado?.length > 0 || item?.legendado?.length > 0) && (
             <div className="bg-zinc-900/90 border border-white/10 p-0.5 rounded-xl flex items-center gap-1 shadow-lg">
               <button

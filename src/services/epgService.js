@@ -361,5 +361,88 @@ export const EpgService = {
       nextTitle: 'Programação a seguir',
       nextStart: '--:--'
     };
+  },
+
+  // Retorna a grade completa de 24 horas para o canal
+  getFullScheduleForChannel(channelName, category = '') {
+    if (!channelName) return [];
+
+    const nameLower = channelName.toLowerCase();
+    let schedule = null;
+
+    if (nameLower.includes('globo') && !nameLower.includes('news')) schedule = CHANNEL_SCHEDULES.globo;
+    else if (nameLower.includes('sbt')) schedule = CHANNEL_SCHEDULES.sbt;
+    else if (nameLower.includes('record')) schedule = CHANNEL_SCHEDULES.record;
+    else if (nameLower.includes('band')) schedule = CHANNEL_SCHEDULES.band;
+    else if (nameLower.includes('globonews') || nameLower.includes('globo news') || nameLower.includes('cnn') || nameLower.includes('jovem pan')) schedule = CHANNEL_SCHEDULES.noticias;
+    else if (nameLower.includes('telecine premium')) schedule = CHANNEL_SCHEDULES.telecine_premium;
+    else if (nameLower.includes('telecine action')) schedule = CHANNEL_SCHEDULES.telecine_action;
+    else if (nameLower.includes('telecine pipoca')) schedule = CHANNEL_SCHEDULES.telecine_pipoca;
+    else if (nameLower.includes('telecine touch')) schedule = CHANNEL_SCHEDULES.telecine_touch;
+    else if (nameLower.includes('telecine fun')) schedule = CHANNEL_SCHEDULES.telecine_fun;
+    else if (nameLower.includes('telecine cult')) schedule = CHANNEL_SCHEDULES.telecine_cult;
+    else if (nameLower.includes('telecine')) schedule = CHANNEL_SCHEDULES.telecine_premium;
+    else if (nameLower === 'hbo' || nameLower.includes('hbo hd')) schedule = CHANNEL_SCHEDULES.hbo;
+    else if (nameLower.includes('hbo') && nameLower.includes('2')) schedule = CHANNEL_SCHEDULES.hbo2;
+    else if (nameLower.includes('hbo')) schedule = CHANNEL_SCHEDULES.hbo;
+    else if (nameLower.includes('megapix')) schedule = CHANNEL_SCHEDULES.megapix;
+    else if (nameLower.includes('warner')) schedule = CHANNEL_SCHEDULES.warner;
+    else if (nameLower.includes('cazé') || nameLower.includes('caze')) schedule = CHANNEL_SCHEDULES.cazetv;
+    else if (nameLower.includes('espn')) schedule = CHANNEL_SCHEDULES.espn;
+    else if (nameLower.includes('sportv') || nameLower.includes('premiere')) schedule = CHANNEL_SCHEDULES.sportv;
+
+    if (!schedule) {
+      schedule = generateDynamicSchedule(channelName, category);
+    }
+
+    const now = new Date();
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+    return schedule.map((item, idx) => {
+      let startM = parseTimeToMinutes(item.start);
+      let endM = parseTimeToMinutes(item.end);
+
+      let isCurrent = false;
+      if (endM < startM) {
+        isCurrent = currentMinutes >= startM || currentMinutes < endM;
+      } else {
+        isCurrent = currentMinutes >= startM && currentMinutes < endM;
+      }
+
+      let isPast = false;
+      let isUpcoming = false;
+
+      if (!isCurrent) {
+        if (endM >= startM) {
+          isPast = currentMinutes >= endM;
+          isUpcoming = currentMinutes < startM;
+        } else {
+          isPast = currentMinutes >= endM && currentMinutes < startM;
+          isUpcoming = !isPast;
+        }
+      }
+
+      let progress = 0;
+      if (isCurrent) {
+        let totalDuration = endM < startM ? (1440 - startM + endM) : (endM - startM);
+        let elapsed = endM < startM 
+          ? (currentMinutes >= startM ? currentMinutes - startM : 1440 - startM + currentMinutes)
+          : (currentMinutes - startM);
+        progress = Math.min(100, Math.max(0, Math.round((elapsed / totalDuration) * 100)));
+      } else if (isPast) {
+        progress = 100;
+      }
+
+      return {
+        id: `epg-${idx}`,
+        title: item.title,
+        start: item.start,
+        end: item.end,
+        isCurrent,
+        isPast,
+        isUpcoming,
+        progress
+      };
+    });
   }
 };
