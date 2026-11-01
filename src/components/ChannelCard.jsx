@@ -91,8 +91,11 @@ export default function ChannelCard({
         <h3 className="text-white font-bold text-xs truncate max-w-[130px] group-hover:text-indigo-300 transition-colors">
           {channel.nome}
         </h3>
-        <span className="text-[10px] text-zinc-500 font-medium flex items-center gap-1 shrink-0">
-          <Layers size={11} /> {channel.fontes?.length || 1}
+        <span 
+          className="text-[10px] bg-zinc-800 text-zinc-300 font-semibold px-1.5 py-0.5 rounded-md border border-white/5 flex items-center gap-1 shrink-0"
+          title={`${channel.fontes?.length || 1} fontes de transmissão disponíveis`}
+        >
+          <Layers size={10} className="text-indigo-400" /> {channel.fontes?.length || 1} {channel.fontes?.length === 1 ? 'fonte' : 'fontes'}
         </span>
       </div>
 

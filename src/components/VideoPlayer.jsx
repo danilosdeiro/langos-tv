@@ -54,6 +54,9 @@ export default function VideoPlayer({
   const [osdMessage, setOsdMessage] = useState(null);
   const osdTimeoutRef = useRef(null);
 
+  // Tentativa de resgate com proxy se a fonte direta falhar
+  const [forceProxyForCurrent, setForceProxyForCurrent] = useState(false);
+
   const showOsd = (text) => {
     setOsdMessage(text);
     setShowControls(true);
@@ -97,19 +100,19 @@ export default function VideoPlayer({
     return EpgService.getProgramForChannel(item.nome, item.categoria);
   }, [item?.nome, item?.categoria, isVOD]);
 
-  // Resolver URL: Se for HTTP em HTTPS ou exigir referer, passar pelo /api/proxy
+  // Resolver URL: Se for HTTP em HTTPS, exigir referer ou se foi solicitado resgate por proxy
   const resolvedStreamUrl = React.useMemo(() => {
     if (!currentSource?.url) return '';
     const rawUrl = currentSource.url;
     const isPageHttps = typeof window !== 'undefined' && window.location.protocol === 'https:';
 
-    if ((isPageHttps && rawUrl.startsWith('http://')) || currentSource.referer || rawUrl.includes('.txt')) {
+    if (forceProxyForCurrent || (isPageHttps && rawUrl.startsWith('http://')) || currentSource.referer || rawUrl.includes('.txt')) {
       let proxy = `/api/proxy?url=${encodeURIComponent(rawUrl)}`;
       if (currentSource.referer) proxy += `&referer=${encodeURIComponent(currentSource.referer)}`;
       return proxy;
     }
     return rawUrl;
-  }, [currentSource]);
+  }, [currentSource, forceProxyForCurrent]);
 
   // Gerenciamento de troca de conteúdo e retenção de posição ao alternar áudio (Dub/Leg)
   const savedTimeRef = useRef(0);
@@ -124,6 +127,7 @@ export default function VideoPlayer({
 
     if (isDifferentItem) {
       setActiveSourceIndex(0);
+      setForceProxyForCurrent(false);
       setErrorMessage(null);
       setFallbackNotice(null);
       setCurrentTime(0);
@@ -137,6 +141,7 @@ export default function VideoPlayer({
         savedTimeRef.current = videoRef.current.currentTime;
       }
       setActiveSourceIndex(0);
+      setForceProxyForCurrent(false);
       setErrorMessage(null);
       setFallbackNotice(null);
     }
@@ -186,15 +191,23 @@ export default function VideoPlayer({
     };
   }, [isVOD, item, audioVersion]);
 
-  // Função de Fallback automática rápida
+  // Função de Fallback automática rápida e inteligente
   const handleFallback = (reason) => {
     const curIdx = activeSourceIndexRef.current;
     const allSources = sourcesRef.current;
+
+    // Se a fonte direta falhou por bloqueio de CORS do navegador, tentar via Proxy Seguro antes de pular a fonte
+    if (!forceProxyForCurrent && resolvedStreamUrl && !resolvedStreamUrl.includes('/api/proxy')) {
+      setFallbackNotice(`Fonte ${curIdx + 1} bloqueada pelo navegador. Redirecionando via Proxy...`);
+      setForceProxyForCurrent(true);
+      return;
+    }
 
     if (allSources.length > 1 && curIdx < allSources.length - 1) {
       const nextIndex = curIdx + 1;
       const nextSourceName = allSources[nextIndex]?.nome || `Fonte ${nextIndex + 1}`;
       setFallbackNotice(`Fonte ${curIdx + 1} oscilou (${reason}). Alternando para ${nextSourceName}...`);
+      setForceProxyForCurrent(false);
       setActiveSourceIndex(nextIndex);
     } else {
       setLoading(false);
@@ -224,12 +237,12 @@ export default function VideoPlayer({
       clearTimeout(timeoutRef.current);
     }
 
-    // Timeout de conexão rápido (6.5 segundos para fallback ágil)
+    // Timeout de conexão rápido (3.8 segundos para fallback instantâneo sem travamentos)
     timeoutRef.current = setTimeout(() => {
-      if (!isLoadedRef.current && sourcesRef.current.length > 1 && activeSourceIndexRef.current < sourcesRef.current.length - 1) {
+      if (!isLoadedRef.current && (sourcesRef.current.length > 1 || !forceProxyForCurrent)) {
         handleFallback("Tempo limite de resposta");
       }
-    }, 6500);
+    }, 3800);
 
     // Detectar se o vídeo é MP4 ou HLS baseado na URL real da fonte
     const rawTarget = (currentSource?.url || '').toLowerCase();
@@ -717,23 +730,29 @@ export default function VideoPlayer({
           </div>
         )}
 
-        {/* Lista de Fontes Alternativas */}
+        {/* Lista de Fontes Alternativas (Com troca rápida em 1 clique) */}
         {sources.length > 1 && (
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs scrollbar-none">
-            <span className="text-zinc-400 flex items-center gap-1 font-medium shrink-0 text-[11px]">
-              <Layers size={12} /> Fontes:
+            <span className="text-zinc-300 font-bold flex items-center gap-1 shrink-0 text-[11px] uppercase tracking-wider">
+              <Layers size={13} className="text-indigo-400" /> Fontes ({sources.length}):
             </span>
             {sources.map((s, idx) => (
               <button
                 key={idx}
-                onClick={() => setActiveSourceIndex(idx)}
-                className={`px-2 py-0.5 rounded-md font-semibold shrink-0 transition text-[11px] ${
+                onClick={() => {
+                  setActiveSourceIndex(idx);
+                  setForceProxyForCurrent(false);
+                  showOsd(`Conectando ${s.nome || `Fonte ${idx + 1}`}...`);
+                }}
+                data-tv-focus="true"
+                className={`px-2.5 py-1 rounded-lg font-bold shrink-0 transition text-xs flex items-center gap-1 ${
                   activeSourceIndex === idx
-                    ? 'bg-indigo-600 text-white shadow-md scale-105'
-                    : 'bg-zinc-800/80 hover:bg-zinc-700 text-zinc-300'
+                    ? 'bg-indigo-600 text-white shadow-lg ring-2 ring-indigo-400/40 scale-105'
+                    : 'bg-zinc-850 hover:bg-zinc-750 text-zinc-300 border border-white/5 hover:border-white/20'
                 }`}
               >
-                {s.nome || `Fonte ${idx + 1}`}
+                <span className={`w-1.5 h-1.5 rounded-full ${activeSourceIndex === idx ? 'bg-emerald-400 animate-pulse' : 'bg-zinc-500'}`}></span>
+                <span>{s.nome || `Fonte ${idx + 1}`}</span>
               </button>
             ))}
           </div>

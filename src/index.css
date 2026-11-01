@@ -12,6 +12,15 @@
     color: #f4f4f5;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Números alinhados perfeitamente em relógios e horários EPG */
+  .font-mono, [data-tabular="true"] {
+    font-variant-numeric: tabular-nums;
   }
 }
 
@@ -71,16 +80,30 @@
 
 /* Estilo Modo TV (10-Foot UI para BTV e Smart TV Box) */
 body.tv-mode {
-  font-size: 1.05rem;
+  font-size: 1.12rem;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
 }
 
 body.tv-mode header {
-  padding-top: 1.1rem;
-  padding-bottom: 1.1rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 body.tv-mode [data-tv-card="true"] {
-  padding: 1.15rem;
+  padding: 1.25rem;
+}
+
+body.tv-mode [data-tv-card="true"] h3 {
+  font-size: 0.95rem !important;
+}
+
+body.tv-mode [data-tv-card="true"] span {
+  font-size: 0.8rem !important;
+}
+
+body.tv-mode button {
+  font-size: 0.88rem;
 }
 
 /* OSD (On-Screen Display) para feedback visual de controle remoto na TV */
