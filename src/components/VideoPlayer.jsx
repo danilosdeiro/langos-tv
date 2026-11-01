@@ -523,21 +523,20 @@ export default function VideoPlayer({
       const hls = new Hls({
         enableWorker: true,
         lowLatencyMode: false,
-        backBufferLength: 30, // 30s de histórico na memória (leve e ágil)
-        maxBufferLength: 35, // 35s de buffer contínuo (carregamento inicial mais rápido)
-        maxMaxBufferLength: 60,
-        maxBufferSize: 50 * 1000 * 1000,
+        backBufferLength: 60,
+        maxBufferLength: 60, // 60s de buffer contínuo para reprodução 100% lisa e ininterrupta
+        maxMaxBufferLength: 120,
+        maxBufferSize: 60 * 1000 * 1000,
         startFragPrefetch: true, // Começar a baixar fragmento em paralelo com a playlist
-        initialLiveManifestSize: 1, // Iniciar imediatamente com 1 playlist recebida (sub-segundo)
-        progressive: true, // Reprodução progressiva acelerada dos pacotes recebidos
-        liveSyncDurationCount: 2, // 2 fragmentos de margem segura (~12-16s) — início ágil e fluido
-        liveMaxLatencyDurationCount: 8,
-        manifestLoadingTimeOut: 8000,
-        manifestLoadingMaxRetry: 2,
-        levelLoadingTimeOut: 8000,
-        levelLoadingMaxRetry: 2,
-        fragLoadingTimeOut: 20000,
-        fragLoadingMaxRetry: 3,
+        initialLiveManifestSize: 1, // Iniciar imediatamente com 1 playlist recebida
+        liveSyncDurationCount: 3.5, // 3.5 fragmentos (~35s de margem sólida para streams de 10s como TV Bahia FHD)
+        liveMaxLatencyDurationCount: 10,
+        manifestLoadingTimeOut: 10000,
+        manifestLoadingMaxRetry: 3,
+        levelLoadingTimeOut: 10000,
+        levelLoadingMaxRetry: 3,
+        fragLoadingTimeOut: 25000, // 25s de tolerância para fragmentos pesados de 10s (5.8MB)
+        fragLoadingMaxRetry: 4,
         abrEwmaDefaultEstimate: 5000000,
         testBandwidth: false
       });
@@ -569,11 +568,8 @@ export default function VideoPlayer({
       });
 
       hls.on(Hls.Events.ERROR, (event, data) => {
-        // Recuperação automática de pequenos engasgos de buffer
+        // Deixar o HLS.js gerenciar stalls naturalmente sem forçar seek que causa engasgos
         if (data.details === Hls.ErrorDetails.BUFFER_STALLED_ERROR) {
-          if (video && !video.paused && video.currentTime > 0) {
-            video.currentTime += 0.2;
-          }
           return;
         }
 
@@ -881,15 +877,6 @@ export default function VideoPlayer({
         className="w-full h-full object-contain cursor-pointer"
         onClick={togglePlay}
         playsInline
-        preload="auto"
-        onCanPlay={() => {
-          setLoading(false);
-        }}
-        onPlaying={() => {
-          setLoading(false);
-          setIsPlaying(true);
-          setOsdMessage(prev => (prev && (prev.includes('Conectando') || prev.includes('Sintonizando')) ? null : prev));
-        }}
       />
 
       {/* Mini Barra Superior no Modo Flutuante */}

@@ -57,195 +57,179 @@ export default function Header({
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-xl border-b border-white/10 px-4 md:px-8 py-3.5 transition-all">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <header className="sticky top-0 z-40 bg-zinc-950/95 backdrop-blur-xl border-b border-white/10 px-3 sm:px-6 py-2.5 transition-all">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-3">
         
-        {/* Logo & Marca */}
-        <div className="flex items-center justify-between w-full md:w-auto">
+        {/* Linha 1 no Mobile/Tablet ou Esquerda no Desktop: Logo + Busca Flexível */}
+        <div className="flex items-center justify-between gap-3 w-full lg:w-auto flex-1">
+          {/* Logo & Marca */}
           <div 
             onClick={() => setActiveTab('canais')} 
             data-tv-focus="true"
             tabIndex={0}
-            className="flex items-center gap-3 cursor-pointer group rounded-xl p-1 focus:outline-none"
+            className="flex items-center gap-2.5 cursor-pointer group rounded-xl p-1 shrink-0 focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform overflow-hidden p-1">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform overflow-hidden p-1">
               <img src="/icon-192.png" alt="Lango's TV" className="w-full h-full object-contain" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-xl md:text-2xl tracking-tight bg-gradient-to-r from-white via-zinc-100 to-indigo-300 bg-clip-text text-transparent">
+              <div className="flex items-center gap-1.5">
+                <span className="font-extrabold text-lg sm:text-xl tracking-tight bg-gradient-to-r from-white via-zinc-100 to-indigo-300 bg-clip-text text-transparent">
                   Lango's TV
                 </span>
-                <span className="px-1.5 py-0.5 text-[10px] font-black uppercase tracking-wider rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                <span className="px-1.5 py-0.2 text-[9px] font-black uppercase tracking-wider rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
                   PRO
                 </span>
               </div>
-              <p className="text-[11px] text-zinc-400 font-medium hidden sm:block">
-                Canais, Filmes & Séries Livres
+              <p className="text-[10px] text-zinc-400 font-medium hidden sm:block leading-none">
+                Canais, Filmes & Séries
               </p>
             </div>
           </div>
 
-          {/* Botão de Instalar no Mobile + Relógio */}
-          <div className="flex items-center gap-2 md:hidden">
-            <button
-              onClick={handleInstallClick}
+          {/* Barra de Busca Global - Flexível e Responsiva */}
+          <div className="relative flex-1 min-w-[160px] max-w-xs sm:max-w-sm lg:max-w-xs xl:max-w-sm">
+            <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" />
+            <input
+              type="text"
               data-tv-focus="true"
-              className="px-2.5 py-1 rounded-lg bg-indigo-600 text-white font-bold text-xs flex items-center gap-1 shadow-md"
-              title="Instalar no Aparelho ou BTV"
-            >
-              <DownloadCloud size={14} />
-              <span>Instalar</span>
-            </button>
-            <button
-              onClick={onToggleTvMode}
-              data-tv-focus="true"
-              className={`p-1.5 rounded-lg border text-xs font-bold transition flex items-center gap-1 ${
-                isTvMode 
-                  ? 'bg-emerald-600/30 border-emerald-500/50 text-emerald-300' 
-                  : 'bg-zinc-900 border-white/5 text-zinc-400'
-              }`}
-              title="Modo TV"
-            >
-              <Tv size={14} />
-            </button>
-            <div className="font-mono text-xs font-semibold text-zinc-400 bg-zinc-900 px-2 py-1 rounded-lg border border-white/5">
-              {time}
-            </div>
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Buscar canal, filme, série..."
+              className="w-full bg-zinc-900/90 text-white placeholder-zinc-500 text-xs sm:text-sm rounded-xl pl-8.5 pr-8 py-2 border border-white/10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500/30 transition"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                data-tv-focus="true"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white"
+              >
+                <X size={14} />
+              </button>
+            )}
           </div>
         </div>
 
-        {/* Barra de Busca Global */}
-        <div className="relative w-full md:w-80 lg:w-96">
-          <Search size={17} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400" />
-          <input
-            type="text"
-            data-tv-focus="true"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Buscar canal, filme, série ou categoria..."
-            className="w-full bg-zinc-900/90 text-white placeholder-zinc-500 text-sm rounded-xl pl-10 pr-9 py-2 border border-white/10 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition"
-          />
-          {searchQuery && (
+        {/* Linha 2 no Mobile/Tablet ou Direita no Desktop: Abas de Navegação & Ações */}
+        <div className="flex items-center justify-between sm:justify-end gap-1.5 sm:gap-2 w-full lg:w-auto overflow-x-auto pb-0.5 lg:pb-0 scrollbar-none shrink-0">
+          {/* Abas de Navegação Estilo Cápsula */}
+          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 bg-zinc-900/60 p-1 rounded-2xl border border-white/5">
             <button
-              onClick={() => setSearchQuery('')}
+              onClick={() => setActiveTab('canais')}
               data-tv-focus="true"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white"
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+                activeTab === 'canais'
+                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
+              }`}
             >
-              <X size={16} />
+              <Tv size={14} />
+              <span>Canais</span>
             </button>
-          )}
-        </div>
 
-        {/* Abas de Navegação & Botão Instalar Desktop */}
-        <div className="flex items-center gap-2 md:gap-3 w-full md:w-auto overflow-x-auto pb-1 md:pb-0 scrollbar-none">
-          <button
-            onClick={() => setActiveTab('canais')}
-            data-tv-focus="true"
-            className={`px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold flex items-center gap-2 transition shrink-0 ${
-              activeTab === 'canais'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : 'text-zinc-400 hover:text-white hover:bg-zinc-900'
-            }`}
-          >
-            <Tv size={16} />
-            <span>Canais</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('filmes')}
+              data-tv-focus="true"
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+                activeTab === 'filmes'
+                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <Film size={14} />
+              <span>Filmes</span>
+            </button>
 
-          <button
-            onClick={() => setActiveTab('filmes')}
-            data-tv-focus="true"
-            className={`px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold flex items-center gap-2 transition shrink-0 ${
-              activeTab === 'filmes'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : 'text-zinc-400 hover:text-white hover:bg-zinc-900'
-            }`}
-          >
-            <Film size={16} />
-            <span>Filmes</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('series')}
+              data-tv-focus="true"
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+                activeTab === 'series'
+                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <Clapperboard size={14} />
+              <span>Séries</span>
+            </button>
 
-          <button
-            onClick={() => setActiveTab('series')}
-            data-tv-focus="true"
-            className={`px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold flex items-center gap-2 transition shrink-0 ${
-              activeTab === 'series'
-                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
-                : 'text-zinc-400 hover:text-white hover:bg-zinc-900'
-            }`}
-          >
-            <Clapperboard size={16} />
-            <span>Séries</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('favoritos')}
+              data-tv-focus="true"
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+                activeTab === 'favoritos'
+                  ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                  : 'text-zinc-400 hover:text-amber-300 hover:bg-white/5'
+              }`}
+            >
+              <Star size={14} className={favoritesCount > 0 ? 'fill-amber-400 text-amber-400' : ''} />
+              <span className="hidden sm:inline">Favoritos</span>
+              {favoritesCount > 0 && (
+                <span className="px-1.5 py-0.2 bg-amber-500/30 text-amber-300 rounded-full text-[10px] font-bold">
+                  {favoritesCount}
+                </span>
+              )}
+            </button>
+          </div>
 
-          <button
-            onClick={() => setActiveTab('favoritos')}
-            data-tv-focus="true"
-            className={`px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold flex items-center gap-2 transition shrink-0 ${
-              activeTab === 'favoritos'
-                ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                : 'text-zinc-400 hover:text-amber-300 hover:bg-zinc-900'
-            }`}
-          >
-            <Star size={16} className={favoritesCount > 0 ? 'fill-amber-400 text-amber-400' : ''} />
-            <span>Favoritos</span>
-            {favoritesCount > 0 && (
-              <span className="ml-0.5 px-1.5 py-0.2 bg-amber-500/30 text-amber-300 rounded-full text-[10px] font-bold">
-                {favoritesCount}
-              </span>
-            )}
-          </button>
+          {/* Divisor Visual Sutil */}
+          <div className="h-5 w-px bg-white/10 hidden sm:block shrink-0 mx-0.5"></div>
 
-          {/* Botão de Alternar Modo TV */}
-          <button
-            onClick={onToggleTvMode}
-            data-tv-focus="true"
-            className={`hidden md:flex px-3 py-2 rounded-xl text-xs font-bold border transition items-center gap-1.5 shrink-0 ${
-              isTvMode 
-                ? 'bg-emerald-600/20 border-emerald-500/40 text-emerald-300 shadow-md shadow-emerald-600/10' 
-                : 'bg-zinc-900 hover:bg-zinc-800 border-white/10 text-zinc-300'
-            }`}
-            title="Alternar Modo TV 10-Foot (Otimizado para BTV e Smart TV)"
-          >
-            <Tv size={15} className={isTvMode ? 'text-emerald-400' : ''} />
-            <span>{isTvMode ? 'Modo TV: ON' : 'Modo TV'}</span>
-          </button>
+          {/* Botões de Ação */}
+          <div className="flex items-center gap-1.5 shrink-0">
+            {/* Botão de Alternar Modo TV */}
+            <button
+              onClick={onToggleTvMode}
+              data-tv-focus="true"
+              className={`px-2.5 py-1.5 rounded-xl text-xs font-bold border transition flex items-center gap-1.5 shrink-0 ${
+                isTvMode 
+                  ? 'bg-emerald-600/20 border-emerald-500/40 text-emerald-300 shadow-sm' 
+                  : 'bg-zinc-900/90 hover:bg-zinc-800 border-white/10 text-zinc-300'
+              }`}
+              title="Alternar Modo TV 10-Foot (Otimizado para BTV e Smart TV)"
+            >
+              <Tv size={14} className={isTvMode ? 'text-emerald-400' : ''} />
+              <span className="hidden xl:inline">{isTvMode ? 'Modo TV: ON' : 'Modo TV'}</span>
+            </button>
 
-          {/* Botão de Instalar Desktop / BTV */}
-          <button
-            onClick={handleInstallClick}
-            data-tv-focus="true"
-            className="hidden md:flex px-3 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-md shadow-indigo-600/20 items-center gap-1.5 transition shrink-0 active:scale-95"
-            title="Instalar no BTV, PC ou Celular como Aplicativo"
-          >
-            <DownloadCloud size={15} />
-            <span>Instalar no BTV</span>
-          </button>
+            {/* Botão de Instalar Desktop / BTV */}
+            <button
+              onClick={handleInstallClick}
+              data-tv-focus="true"
+              className="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-sm flex items-center gap-1.5 transition shrink-0 active:scale-95"
+              title="Instalar no BTV, PC ou Celular como Aplicativo"
+            >
+              <DownloadCloud size={14} />
+              <span className="hidden sm:inline">Instalar</span>
+              <span className="hidden xl:inline">no BTV</span>
+            </button>
 
-          {/* Botão de Região / Estado */}
-          <button
-            onClick={onOpenSettings}
-            data-tv-focus="true"
-            className="px-2.5 py-1.5 rounded-xl bg-zinc-900 border border-white/10 text-xs font-bold text-zinc-300 hover:text-white hover:border-indigo-500/50 transition flex items-center gap-1.5 shrink-0"
-            title="Região dos Canais Abertos (Clique para mudar seu Estado)"
-          >
-            <MapPin size={14} className="text-indigo-400" />
-            <span className="hidden sm:inline">Região:</span>
-            <span className="text-white font-extrabold">{userState === 'TODOS' ? 'Brasil' : userState}</span>
-          </button>
+            {/* Botão de Região / Estado */}
+            <button
+              onClick={onOpenSettings}
+              data-tv-focus="true"
+              className="px-2.5 py-1.5 rounded-xl bg-zinc-900/90 border border-white/10 text-xs font-bold text-zinc-300 hover:text-white hover:border-indigo-500/50 transition flex items-center gap-1.5 shrink-0"
+              title="Região dos Canais Abertos (Clique para mudar seu Estado)"
+            >
+              <MapPin size={13} className="text-indigo-400" />
+              <span className="hidden md:inline text-zinc-400 font-medium">UF:</span>
+              <span className="text-white font-extrabold">{userState === 'TODOS' ? 'BR' : userState}</span>
+            </button>
 
-          <button
-            onClick={onOpenSettings}
-            data-tv-focus="true"
-            className="p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-900 transition border border-white/5 shrink-0"
-            title="Configurações & Listas M3U"
-          >
-            <Settings size={18} />
-          </button>
+            {/* Botão de Configurações */}
+            <button
+              onClick={onOpenSettings}
+              data-tv-focus="true"
+              className="p-1.5 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-900 transition border border-white/5 shrink-0"
+              title="Configurações & Listas M3U"
+            >
+              <Settings size={16} />
+            </button>
 
-          {/* Relógio Desktop */}
-          <div className="hidden lg:flex items-center font-mono text-sm font-semibold text-zinc-300 bg-zinc-900/90 px-3 py-1.5 rounded-xl border border-white/10 shrink-0">
-            {time}
+            {/* Relógio Desktop */}
+            <div className="hidden 2xl:flex items-center font-mono text-xs font-semibold text-zinc-400 bg-zinc-900/90 px-2.5 py-1 rounded-xl border border-white/5 shrink-0">
+              {time}
+            </div>
           </div>
         </div>
 
