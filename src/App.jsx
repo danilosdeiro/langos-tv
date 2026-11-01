@@ -237,6 +237,103 @@ export default function App() {
     handleSelectItem(channels[prevIdx]);
   };
 
+  // Navegação Espacial 2D por Controle Remoto (D-Pad para BTV, Android TV e Smart TV)
+  useEffect(() => {
+    const handleRemoteDpad = (e) => {
+      // Se estiver digitando em campo de texto (busca)
+      if (e.target.tagName === 'INPUT') {
+        if (e.key === 'ArrowDown' || e.keyCode === 40) {
+          e.preventDefault();
+          e.target.blur();
+          const firstFocusable = document.querySelector('[data-tv-card="true"], [data-tv-focus="true"]');
+          firstFocusable?.focus();
+        }
+        return;
+      }
+
+      // Se o player estiver ativo em tela cheia, ele gerencia seus próprios atalhos
+      if (document.fullscreenElement) return;
+
+      const key = e.key;
+      const keyCode = e.keyCode;
+
+      let direction = null;
+      if (key === 'ArrowRight' || keyCode === 39) direction = 'right';
+      else if (key === 'ArrowLeft' || keyCode === 37) direction = 'left';
+      else if (key === 'ArrowDown' || keyCode === 40) direction = 'down';
+      else if (key === 'ArrowUp' || keyCode === 38) direction = 'up';
+
+      if (!direction) return;
+
+      const currentEl = document.activeElement;
+      const elements = Array.from(document.querySelectorAll('[data-tv-focus="true"], [data-tv-card="true"]'))
+        .filter(el => {
+          const r = el.getBoundingClientRect();
+          return r.width > 0 && r.height > 0 && window.getComputedStyle(el).display !== 'none';
+        });
+
+      if (!elements.length) return;
+
+      // Se nenhum elemento com foco da TV estiver ativo
+      if (!currentEl || !elements.includes(currentEl)) {
+        e.preventDefault();
+        const initialEl = document.querySelector('[data-tv-card="true"]') || elements[0];
+        initialEl?.focus();
+        initialEl?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        return;
+      }
+
+      const curRect = currentEl.getBoundingClientRect();
+      const curCenter = {
+        x: curRect.left + curRect.width / 2,
+        y: curRect.top + curRect.height / 2
+      };
+
+      let bestEl = null;
+      let bestDist = Infinity;
+
+      for (const el of elements) {
+        if (el === currentEl) continue;
+        const r = el.getBoundingClientRect();
+        const c = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+
+        const dx = c.x - curCenter.x;
+        const dy = c.y - curCenter.y;
+
+        let isValid = false;
+        let dist = 0;
+
+        if (direction === 'right' && dx > 10) {
+          isValid = Math.abs(dy) < Math.abs(dx) * 1.6;
+          dist = Math.hypot(dx, dy * 2);
+        } else if (direction === 'left' && dx < -10) {
+          isValid = Math.abs(dy) < Math.abs(dx) * 1.6;
+          dist = Math.hypot(Math.abs(dx), dy * 2);
+        } else if (direction === 'down' && dy > 10) {
+          isValid = Math.abs(dx) < Math.abs(dy) * 1.6;
+          dist = Math.hypot(dx * 2, dy);
+        } else if (direction === 'up' && dy < -10) {
+          isValid = Math.abs(dx) < Math.abs(dy) * 1.6;
+          dist = Math.hypot(dx * 2, Math.abs(dy));
+        }
+
+        if (isValid && dist < bestDist) {
+          bestDist = dist;
+          bestEl = el;
+        }
+      }
+
+      if (bestEl) {
+        e.preventDefault();
+        bestEl.focus();
+        bestEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    };
+
+    window.addEventListener('keydown', handleRemoteDpad);
+    return () => window.removeEventListener('keydown', handleRemoteDpad);
+  }, []);
+
   // Categorias únicas de canais
   const channelCategories = useMemo(() => {
     const cats = new Set(['Todos']);

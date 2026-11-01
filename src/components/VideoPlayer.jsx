@@ -747,18 +747,24 @@ export default function VideoPlayer({
         e.preventDefault();
         toggleMute();
       } 
-      // Navegação Horizontal (Seek no VOD)
+      // Navegação Horizontal (Seek no VOD / Guia Rápido de Canais no Ao Vivo)
       else if (key === 'ArrowLeft' || keyCode === 37) {
         if (isVOD) {
           e.preventDefault();
           skipTime(-10);
           showOsd('⏪ -10s');
+        } else if (!isChannelDrawerOpen) {
+          e.preventDefault();
+          setIsChannelDrawerOpen(true);
         }
       } else if (key === 'ArrowRight' || keyCode === 39) {
         if (isVOD) {
           e.preventDefault();
           skipTime(10);
           showOsd('⏩ +10s');
+        } else if (isChannelDrawerOpen) {
+          e.preventDefault();
+          setIsChannelDrawerOpen(false);
         }
       } 
       // Navegação Vertical: Troca de canais no controle remoto do BTV
@@ -1107,6 +1113,7 @@ export default function VideoPlayer({
               return (
                 <button
                   key={ch.id}
+                  ref={isCurrentCh ? (el => { if (el && isChannelDrawerOpen) setTimeout(() => el.scrollIntoView({ block: 'nearest' }), 50); }) : null}
                   onClick={() => {
                     if (onSelectChannel) onSelectChannel(ch);
                     setIsChannelDrawerOpen(false);
