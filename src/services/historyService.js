@@ -19,6 +19,17 @@ export const HistoryService = {
     }
   },
 
+  // Obter progresso de um item específico
+  getProgress(itemId) {
+    if (!itemId) return null;
+    try {
+      const list = this.getRecent();
+      return list.find(entry => entry.id === itemId) || null;
+    } catch {
+      return null;
+    }
+  },
+
   // Salvar progresso
   saveProgress(item, currentTime, duration, audioVersion = 'dublado') {
     if (!item || !currentTime || !duration || isNaN(currentTime) || isNaN(duration)) return;

@@ -316,6 +316,9 @@ export default function App() {
                 onOpenEpg={(ch) => setSelectedChannelForEpg(ch)}
                 onNextChannel={handleNextChannel}
                 onPrevChannel={handlePrevChannel}
+                channels={channels}
+                onSelectChannel={(ch) => handleSelectItem(ch)}
+                onPlayNextEpisode={(nextEp, audio) => handleSelectItem(nextEp, audio)}
               />
             </div>
           </section>

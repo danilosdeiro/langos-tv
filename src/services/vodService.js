@@ -8,8 +8,6 @@ let FICHAS_PROMISE = null;
 
 // Lista de domínios ou APIs sabidamente inoperantes
 const DEAD_HOSTS = [
-  'saimo-tv.pages.dev/api/stream',
-  'saimo-tv2.pages.dev/api/stream',
   'desativado.invalid',
   'corruptx.org',
   'vaiagora.vip',
@@ -21,8 +19,7 @@ const DEAD_HOSTS = [
   's23-cloudfront-net.lat',
   'aws.s13-s1001604.lat',
   'koyeb.app',
-  'governosptx.org',
-  'r2.dev'
+  'governosptx.org'
 ];
 
 function normalizeTitle(t) {

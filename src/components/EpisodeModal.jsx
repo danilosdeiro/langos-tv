@@ -84,7 +84,9 @@ export default function EpisodeModal({
     e => e.season === selectedSeason && e.audio === selectedAudio
   );
 
-  // Se a temporada não tiver episódios para o áudio selecionado, usar os disponíveis
+  const audioUnavailableForSeason = currentSeasonEps.length === 0 && episodes.some(e => e.season === selectedSeason);
+
+  // Se a temporada não tiver episódios para o áudio selecionado, usar os disponíveis para não deixar tela vazia
   if (currentSeasonEps.length === 0 && episodes.length > 0) {
     currentSeasonEps = episodes.filter(e => e.season === selectedSeason);
   }
@@ -130,7 +132,11 @@ export default function EpisodeModal({
       capa: series.capa || '',
       fontes: fallbackSources,
       dublado: dubSources,
-      legendado: legSources
+      legendado: legSources,
+      allEpisodes: episodes,
+      currentSeason: ep.season,
+      currentEpisode: ep.episode,
+      seriesData: series
     }, chosenAudio);
 
     onClose();
@@ -185,34 +191,49 @@ export default function EpisodeModal({
           
           {/* Seletor de Áudio (Dublado / Legendado) */}
           <div className="flex items-center justify-between bg-zinc-950 p-2 rounded-2xl border border-white/5">
-            <span className="text-xs font-bold text-zinc-400 px-2">Áudio da Série:</span>
+            <span className="text-xs font-bold text-zinc-400 px-2">Opção de Áudio:</span>
             <div className="flex gap-1.5">
               <button
-                onClick={() => setSelectedAudio('dublado')}
+                onClick={() => hasDublado && setSelectedAudio('dublado')}
+                disabled={!hasDublado}
                 data-tv-focus="true"
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
-                  selectedAudio === 'dublado'
-                    ? 'bg-emerald-600 text-white shadow-md'
-                    : 'text-zinc-400 hover:text-white'
+                  !hasDublado
+                    ? 'opacity-35 cursor-not-allowed bg-zinc-900 text-zinc-600'
+                    : selectedAudio === 'dublado'
+                      ? 'bg-emerald-600 text-white shadow-md'
+                      : 'text-zinc-400 hover:text-white bg-zinc-900/80 hover:bg-zinc-800'
                 }`}
+                title={hasDublado ? "Áudio Dublado em Português" : "Dublagem indisponível para esta série"}
               >
                 <Volume2 size={13} />
-                Dublado
+                Dublado {!hasDublado && <span className="text-[10px] opacity-75 font-normal">(Indisp.)</span>}
               </button>
               <button
-                onClick={() => setSelectedAudio('legendado')}
+                onClick={() => hasLegendado && setSelectedAudio('legendado')}
+                disabled={!hasLegendado}
                 data-tv-focus="true"
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
-                  selectedAudio === 'legendado'
-                    ? 'bg-sky-600 text-white shadow-md'
-                    : 'text-zinc-400 hover:text-white'
+                  !hasLegendado
+                    ? 'opacity-35 cursor-not-allowed bg-zinc-900 text-zinc-600'
+                    : selectedAudio === 'legendado'
+                      ? 'bg-sky-600 text-white shadow-md'
+                      : 'text-zinc-400 hover:text-white bg-zinc-900/80 hover:bg-zinc-800'
                 }`}
+                title={hasLegendado ? "Áudio Original com Legendas" : "Legendas indisponíveis para esta série"}
               >
                 <MessageSquare size={13} />
-                Legendado
+                Legendado {!hasLegendado && <span className="text-[10px] opacity-75 font-normal">(Indisp.)</span>}
               </button>
             </div>
           </div>
+
+          {/* Aviso quando o áudio selecionado não tem episódios nesta temporada */}
+          {audioUnavailableForSeason && (
+            <div className="p-2.5 bg-amber-500/10 border border-amber-500/20 rounded-xl text-amber-300 text-xs flex items-center gap-2">
+              <span>⚠️ A temporada {selectedSeason} possui episódios disponíveis no catálogo apenas em áudio alternativo.</span>
+            </div>
+          )}
 
           {/* Seletor de Temporadas (Aparece se houver mais de 1 temporada) */}
           {seasons.length > 1 && (

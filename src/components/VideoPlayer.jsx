@@ -3,7 +3,7 @@ import Hls from 'hls.js';
 import { 
   Play, Pause, Volume2, VolumeX, Maximize2, Minimize2, 
   RotateCcw, RotateCw, AlertTriangle, Layers, X, Clock,
-  Minimize, Maximize, PictureInPicture, ChevronLeft, ChevronRight
+  Minimize, Maximize, PictureInPicture, ChevronLeft, ChevronRight, Tv
 } from 'lucide-react';
 import { EpgService } from '../services/epgService';
 import { HistoryService } from '../services/historyService';
@@ -26,7 +26,10 @@ export default function VideoPlayer({
   onAudioVersionChange,
   onOpenEpg,
   onNextChannel,
-  onPrevChannel
+  onPrevChannel,
+  channels = [],
+  onSelectChannel,
+  onPlayNextEpisode
 }) {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
@@ -34,8 +37,15 @@ export default function VideoPlayer({
   const timeoutRef = useRef(null);
 
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  const [volume, setVolume] = useState(1);
+  const [isMuted, setIsMuted] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return localStorage.getItem('langos_muted') === 'true';
+  });
+  const [volume, setVolume] = useState(() => {
+    if (typeof window === 'undefined') return 1;
+    const v = localStorage.getItem('langos_volume');
+    return v !== null ? parseFloat(v) : 1;
+  });
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isFloating, setIsFloating] = useState(false);
   const [activeSourceIndex, setActiveSourceIndex] = useState(0);
@@ -53,6 +63,18 @@ export default function VideoPlayer({
   // Feedback Visual na tela da TV (OSD - On-Screen Display)
   const [osdMessage, setOsdMessage] = useState(null);
   const osdTimeoutRef = useRef(null);
+
+  // Guia Rápido de Canais Dentro do Player
+  const [isChannelDrawerOpen, setIsChannelDrawerOpen] = useState(false);
+  const [drawerCategory, setDrawerCategory] = useState('Todos');
+
+  // Prompt "Continuar de onde parou"
+  const [resumePrompt, setResumePrompt] = useState(null);
+
+  // Próximo Episódio para Séries
+  const [showNextEpCard, setShowNextEpCard] = useState(false);
+  const [nextEpCountdown, setNextEpCountdown] = useState(10);
+  const nextEpTimerRef = useRef(null);
 
   // Tentativa de resgate com proxy se a fonte direta falhar
   const [forceProxyForCurrent, setForceProxyForCurrent] = useState(false);
@@ -135,6 +157,23 @@ export default function VideoPlayer({
       setBufferedEnd(0);
       savedTimeRef.current = item?.initialSeekTime || 0;
       lastSavedTimeRef.current = 0;
+      setShowNextEpCard(false);
+
+      // Se for VOD e tiver progresso anterior no histórico, exibir opção amigável de Continuar
+      if (isVOD && !item?.initialSeekTime) {
+        const saved = HistoryService.getProgress(item?.id);
+        if (saved && saved.currentTime > 25 && saved.duration && saved.currentTime < saved.duration * 0.92) {
+          setResumePrompt({
+            seconds: saved.currentTime,
+            formatted: formatTime(saved.currentTime)
+          });
+          setTimeout(() => setResumePrompt(null), 8500);
+        } else {
+          setResumePrompt(null);
+        }
+      } else {
+        setResumePrompt(null);
+      }
     } else if (isDifferentAudio) {
       // Mesma série/filme, apenas trocando idioma do áudio: reter posição atual
       if (videoRef.current && videoRef.current.currentTime > 0) {
@@ -148,7 +187,115 @@ export default function VideoPlayer({
 
     prevItemIdRef.current = item?.id;
     prevAudioVersionRef.current = audioVersion;
-  }, [item?.id, audioVersion, item?.initialSeekTime]);
+  }, [item?.id, audioVersion, item?.initialSeekTime, isVOD]);
+
+  // Próximo episódio para Séries
+  const nextEpisode = useMemo(() => {
+    if (!item?.allEpisodes || !item?.currentSeason || !item?.currentEpisode) return null;
+    const s = item.currentSeason;
+    const e = item.currentEpisode;
+    let next = item.allEpisodes.find(ep => ep.season === s && ep.episode === e + 1);
+    if (!next) {
+      next = item.allEpisodes.find(ep => ep.season === s + 1 && ep.episode === 1);
+    }
+    return next;
+  }, [item?.allEpisodes, item?.currentSeason, item?.currentEpisode]);
+
+  // Drawer de Canais
+  const drawerCategories = useMemo(() => {
+    if (!channels || !channels.length) return ['Todos'];
+    const cats = new Set(['Todos']);
+    channels.forEach(c => {
+      if (c.categoria) cats.add(c.categoria);
+    });
+    return Array.from(cats);
+  }, [channels]);
+
+  const drawerChannels = useMemo(() => {
+    if (!channels) return [];
+    if (drawerCategory === 'Todos') return channels;
+    return channels.filter(c => c.categoria === drawerCategory);
+  }, [channels, drawerCategory]);
+
+  const handleExecuteNextEpisode = () => {
+    if (!nextEpisode || !item?.seriesData) return;
+    setShowNextEpCard(false);
+
+    const dubUrls = (nextEpisode.audio === 'dublado' && nextEpisode.allUrls) ? nextEpisode.allUrls : [nextEpisode.url];
+    const legUrls = (nextEpisode.audio === 'legendado' && nextEpisode.allUrls) ? nextEpisode.allUrls : [nextEpisode.url];
+
+    const dubSources = nextEpisode.audio === 'dublado' ? dubUrls.map((u, i) => ({
+      nome: `Dublado - Fonte ${i + 1}`,
+      url: u,
+      qualidade: 'FHD',
+      audio: 'dublado'
+    })) : [];
+
+    const legSources = nextEpisode.audio === 'legendado' ? legUrls.map((u, i) => ({
+      nome: `Legendado - Fonte ${i + 1}`,
+      url: u,
+      qualidade: 'FHD',
+      audio: 'legendado'
+    })) : [];
+
+    const nextPayload = {
+      id: `ep-${item.seriesData.id}-${nextEpisode.season}-${nextEpisode.episode}`,
+      titulo: `${item.seriesData.titulo} — T${nextEpisode.season}:E${nextEpisode.episode}`,
+      categoria: item.seriesData.categoria || 'Série',
+      capa: item.seriesData.capa || '',
+      fontes: (audioVersion === 'legendado' && legSources.length > 0) ? legSources : (dubSources.length > 0 ? dubSources : legSources),
+      dublado: dubSources,
+      legendado: legSources,
+      allEpisodes: item.allEpisodes,
+      currentSeason: nextEpisode.season,
+      currentEpisode: nextEpisode.episode,
+      seriesData: item.seriesData
+    };
+
+    if (onPlayNextEpisode) {
+      onPlayNextEpisode(nextPayload, audioVersion);
+    }
+  };
+
+  // Monitorar aproximação do final para exibir card de próximo episódio
+  useEffect(() => {
+    if (!isVOD || !nextEpisode || !duration || duration < 60) {
+      setShowNextEpCard(false);
+      return;
+    }
+    const remaining = duration - currentTime;
+    if (remaining <= 25 && currentTime > 15) {
+      if (!showNextEpCard) {
+        setShowNextEpCard(true);
+        setNextEpCountdown(10);
+      }
+    } else {
+      setShowNextEpCard(false);
+    }
+  }, [isVOD, nextEpisode, duration, currentTime, showNextEpCard]);
+
+  // Contagem regressiva para próximo episódio
+  useEffect(() => {
+    if (!showNextEpCard) {
+      if (nextEpTimerRef.current) clearInterval(nextEpTimerRef.current);
+      return;
+    }
+
+    nextEpTimerRef.current = setInterval(() => {
+      setNextEpCountdown(prev => {
+        if (prev <= 1) {
+          clearInterval(nextEpTimerRef.current);
+          handleExecuteNextEpisode();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => {
+      if (nextEpTimerRef.current) clearInterval(nextEpTimerRef.current);
+    };
+  }, [showNextEpCard]);
 
   // Monitorar tempo, duração e progresso do vídeo (VOD)
   useEffect(() => {
@@ -176,9 +323,16 @@ export default function VideoPlayer({
       }
     };
 
+    const onEnded = () => {
+      if (nextEpisode) {
+        handleExecuteNextEpisode();
+      }
+    };
+
     video.addEventListener('timeupdate', onTimeUpdate);
     video.addEventListener('durationchange', onDuration);
     video.addEventListener('loadedmetadata', onDuration);
+    video.addEventListener('ended', onEnded);
 
     return () => {
       // Salvar progresso ao fechar o reprodutor
@@ -188,8 +342,9 @@ export default function VideoPlayer({
       video.removeEventListener('timeupdate', onTimeUpdate);
       video.removeEventListener('durationchange', onDuration);
       video.removeEventListener('loadedmetadata', onDuration);
+      video.removeEventListener('ended', onEnded);
     };
-  }, [isVOD, item, audioVersion]);
+  }, [isVOD, item, audioVersion, nextEpisode]);
 
   // Função de Fallback automática rápida e inteligente
   const handleFallback = (reason) => {
@@ -422,9 +577,24 @@ export default function VideoPlayer({
           showOsd(item?.nome || item?.titulo || 'Vídeo');
         }
       } 
+      // Tecla G: Abrir / Fechar Guia Rápido de Canais
+      else if (e.code === 'KeyG') {
+        if (!isVOD && channels?.length) {
+          e.preventDefault();
+          setIsChannelDrawerOpen(prev => !prev);
+        }
+      }
       // Voltar / Fechar (ESC, Backspace, Back Android TV)
       else if (key === 'Escape' || key === 'Backspace' || key === 'GoBack' || keyCode === 27 || keyCode === 8 || keyCode === 4 || keyCode === 10009 || keyCode === 461) {
         e.preventDefault();
+        if (isChannelDrawerOpen) {
+          setIsChannelDrawerOpen(false);
+          return;
+        }
+        if (showNextEpCard) {
+          setShowNextEpCard(false);
+          return;
+        }
         if (isFullscreen) {
           document.exitFullscreen?.();
         } else if (onClose) {
@@ -435,13 +605,13 @@ export default function VideoPlayer({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isFullscreen, isPlaying, isMuted, duration, isVOD, onNextChannel, onPrevChannel, onClose, item]);
+  }, [isFullscreen, isPlaying, isMuted, duration, isVOD, onNextChannel, onPrevChannel, onClose, item, isChannelDrawerOpen, showNextEpCard, channels]);
 
   const handleMouseMove = () => {
     setShowControls(true);
     if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
     controlsTimeoutRef.current = setTimeout(() => {
-      if (isPlaying) setShowControls(false);
+      if (isPlaying && !isChannelDrawerOpen) setShowControls(false);
     }, 3500);
   };
 
@@ -458,18 +628,24 @@ export default function VideoPlayer({
 
   const toggleMute = () => {
     if (!videoRef.current) return;
-    videoRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
+    const nextMuted = !isMuted;
+    videoRef.current.muted = nextMuted;
+    setIsMuted(nextMuted);
+    try { localStorage.setItem('langos_muted', nextMuted ? 'true' : 'false'); } catch {}
+    showOsd(nextMuted ? '🔇 Áudio Mudo' : `🔊 Volume: ${Math.round(volume * 100)}%`);
   };
 
   const handleVolumeChange = (e) => {
     const val = parseFloat(e.target.value);
     setVolume(val);
+    try { localStorage.setItem('langos_volume', val.toString()); } catch {}
     if (videoRef.current) {
       videoRef.current.volume = val;
       videoRef.current.muted = val === 0;
       setIsMuted(val === 0);
+      try { localStorage.setItem('langos_muted', val === 0 ? 'true' : 'false'); } catch {}
     }
+    showOsd(`🔊 Volume: ${Math.round(val * 100)}%`);
   };
 
   const toggleFullscreen = () => {
@@ -506,6 +682,159 @@ export default function VideoPlayer({
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-zinc-950/90 backdrop-blur-md border border-indigo-500/50 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-sm md:text-base font-extrabold animate-osd pointer-events-none ring-2 ring-indigo-500/20">
           <Tv size={22} className="text-indigo-400" />
           <span>{osdMessage}</span>
+        </div>
+      )}
+
+      {/* Prompt de Retomar Vídeo */}
+      {resumePrompt && (
+        <div className="absolute top-16 left-1/2 -translate-x-1/2 z-40 bg-zinc-900/95 backdrop-blur-md border border-indigo-500/40 text-white px-4 py-2.5 rounded-2xl shadow-2xl flex items-center gap-3 animate-fadeIn">
+          <Clock size={16} className="text-indigo-400 shrink-0" />
+          <span className="text-xs font-medium">
+            Continuar assistindo de <strong>{resumePrompt.formatted}</strong>?
+          </span>
+          <div className="flex items-center gap-1.5 ml-1">
+            <button
+              onClick={() => {
+                if (videoRef.current) {
+                  videoRef.current.currentTime = resumePrompt.seconds;
+                  setCurrentTime(resumePrompt.seconds);
+                }
+                setResumePrompt(null);
+                showOsd(`▶️ Continuando de ${resumePrompt.formatted}`);
+              }}
+              data-tv-focus="true"
+              className="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white text-[11px] font-bold rounded-lg shadow-md"
+            >
+              Continuar
+            </button>
+            <button
+              onClick={() => {
+                if (videoRef.current) {
+                  videoRef.current.currentTime = 0;
+                  setCurrentTime(0);
+                }
+                setResumePrompt(null);
+                showOsd('⏮️ Reiniciado do início');
+              }}
+              data-tv-focus="true"
+              className="px-2 py-1 bg-zinc-800 hover:bg-zinc-750 text-zinc-300 text-[11px] rounded-lg"
+            >
+              Do Início
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Card Flutuante de Próximo Episódio (Séries) */}
+      {showNextEpCard && nextEpisode && (
+        <div className="absolute bottom-16 right-4 z-40 bg-zinc-950/95 backdrop-blur-md border border-purple-500/50 text-white p-3.5 rounded-2xl shadow-2xl flex items-center gap-3.5 max-w-sm animate-fadeIn ring-2 ring-purple-500/20">
+          <div className="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center font-black text-sm shrink-0">
+            {nextEpCountdown}s
+          </div>
+          <div className="flex-1 min-w-0">
+            <span className="text-[10px] uppercase font-bold text-purple-400 block tracking-wider">A Seguir</span>
+            <h4 className="text-xs font-bold truncate">T{nextEpisode.season}:E{nextEpisode.episode} {nextEpisode.nome ? `• ${nextEpisode.nome}` : ''}</h4>
+          </div>
+          <div className="flex items-center gap-1 shrink-0">
+            <button
+              onClick={handleExecuteNextEpisode}
+              data-tv-focus="true"
+              className="px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs flex items-center gap-1 shadow-md"
+            >
+              <Play size={12} fill="currentColor" />
+              <span>Assistir</span>
+            </button>
+            <button
+              onClick={() => setShowNextEpCard(false)}
+              data-tv-focus="true"
+              className="p-1.5 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800"
+              title="Cancelar"
+            >
+              <X size={14} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Drawer Guia Rápido de Canais */}
+      {isChannelDrawerOpen && (
+        <div 
+          className="absolute inset-y-0 left-0 w-72 sm:w-80 bg-zinc-950/95 backdrop-blur-xl border-r border-white/10 z-40 flex flex-col p-3 shadow-2xl animate-fadeIn"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+            <h3 className="font-extrabold text-xs uppercase tracking-wider text-white flex items-center gap-1.5">
+              <Tv size={14} className="text-indigo-400" /> Guia Rápido de Canais
+            </h3>
+            <button
+              onClick={() => setIsChannelDrawerOpen(false)}
+              data-tv-focus="true"
+              className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800"
+              title="Fechar Guia"
+            >
+              <X size={15} />
+            </button>
+          </div>
+
+          {/* Categorias no Drawer */}
+          <div className="flex items-center gap-1 overflow-x-auto pb-2 scrollbar-none mb-2">
+            {drawerCategories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => setDrawerCategory(cat)}
+                data-tv-focus="true"
+                className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition shrink-0 ${
+                  drawerCategory === cat
+                    ? 'bg-indigo-600 text-white'
+                    : 'bg-zinc-900 text-zinc-400 hover:text-white'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Lista de Canais com EPG Passando Agora */}
+          <div className="flex-1 overflow-y-auto space-y-1.5 scrollbar-none pr-1">
+            {drawerChannels.map(ch => {
+              const chEpg = EpgService.getProgramForChannel(ch.nome, ch.categoria);
+              const isCurrentCh = ch.id === item?.id;
+              return (
+                <button
+                  key={ch.id}
+                  onClick={() => {
+                    if (onSelectChannel) onSelectChannel(ch);
+                    setIsChannelDrawerOpen(false);
+                  }}
+                  data-tv-focus="true"
+                  className={`w-full p-2 rounded-xl text-left transition flex items-center gap-2.5 border ${
+                    isCurrentCh
+                      ? 'bg-indigo-600/25 border-indigo-500/50 text-white ring-1 ring-indigo-500/30'
+                      : 'bg-zinc-900/60 hover:bg-zinc-800 border-white/5 text-zinc-300 hover:text-white'
+                  }`}
+                >
+                  <div className="w-8 h-8 rounded-lg bg-zinc-800 shrink-0 overflow-hidden p-0.5 flex items-center justify-center border border-white/5">
+                    {ch.logo ? (
+                      <img src={ch.logo} alt={ch.nome} className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+                    ) : (
+                      <span className="text-[10px] font-bold">{ch.nome.slice(0, 2)}</span>
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <span className="text-xs font-bold block truncate">{ch.nome}</span>
+                    {chEpg && (
+                      <span className="text-[10px] text-zinc-400 truncate block">
+                        {chEpg.title}
+                      </span>
+                    )}
+                  </div>
+                  {isCurrentCh && (
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
       )}
 
@@ -600,6 +929,23 @@ export default function VideoPlayer({
         </div>
 
         <div className="flex items-center gap-1.5">
+          {/* Guia Rápido de Canais Dentro do Player */}
+          {!isVOD && channels && channels.length > 0 && (
+            <button
+              onClick={() => setIsChannelDrawerOpen(!isChannelDrawerOpen)}
+              data-tv-focus="true"
+              className={`p-1.5 md:p-2 rounded-xl transition border border-white/10 flex items-center gap-1.5 text-xs font-bold mr-1 ${
+                isChannelDrawerOpen 
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30' 
+                  : 'bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 hover:text-white'
+              }`}
+              title="Guia Rápido de Canais (Tecla G)"
+            >
+              <Tv size={15} className="text-indigo-400" />
+              <span className="hidden md:inline">Guia de Canais</span>
+            </button>
+          )}
+
           {/* Navegação Rápida entre Canais Ao Vivo */}
           {!isVOD && (onPrevChannel || onNextChannel) && (
             <div className="flex items-center gap-1 mr-1">

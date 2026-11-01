@@ -117,6 +117,17 @@ export default async function handler(req, res) {
     }
 
     // Para arquivos de vídeo binários (.ts, .mp4, etc.):
+    // Se redirecionou para um CDN com SSL/CORS (ex: Cloudflare Workers), redirecionar o navegador diretamente
+    if (!isPlaylist && response.url) {
+      let finalRedirect = response.url;
+      if (finalRedirect.startsWith('http://') && finalRedirect.includes('.workers.dev')) {
+        finalRedirect = finalRedirect.replace('http://', 'https://');
+      }
+      if (finalRedirect.startsWith('https://')) {
+        return res.redirect(302, finalRedirect);
+      }
+    }
+
     res.status(response.status); // 200 ou 206
     if (response.headers.get('content-range')) {
       res.setHeader('Content-Range', response.headers.get('content-range'));
