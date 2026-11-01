@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Tv, Film, Clapperboard, Star, Settings, Search, X, DownloadCloud, MapPin } from 'lucide-react';
+import { Tv, Film, Clapperboard, Star, Settings, Search, X, DownloadCloud, MapPin, Calendar } from 'lucide-react';
 
 export default function Header({ 
   activeTab, 
@@ -11,7 +11,9 @@ export default function Header({
   onOpenInstallTv,
   isTvMode = false,
   onToggleTvMode,
-  userState = 'BA'
+  userState = 'BA',
+  onOpenEpgGrid,
+  isEpgGridOpen = false
 }) {
   const [time, setTime] = useState('');
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -170,6 +172,23 @@ export default function Header({
                 </span>
               )}
             </button>
+
+            {/* Guia de Programação EPG 24 Horas em Linha do Tempo */}
+            {onOpenEpgGrid && (
+              <button
+                onClick={onOpenEpgGrid}
+                data-tv-focus="true"
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+                  isEpgGridOpen
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                    : 'text-zinc-400 hover:text-indigo-300 hover:bg-white/5'
+                }`}
+                title="Grade EPG de Programação 24 Horas em Linha do Tempo (Tecla G)"
+              >
+                <Calendar size={14} className="text-indigo-400" />
+                <span className="hidden sm:inline">Guia TV</span>
+              </button>
+            )}
           </div>
 
           {/* Divisor Visual Sutil */}

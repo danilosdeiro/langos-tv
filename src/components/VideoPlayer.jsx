@@ -4,7 +4,7 @@ import {
   Play, Pause, Volume2, VolumeX, Maximize2, Minimize2, 
   RotateCcw, RotateCw, AlertTriangle, Layers, X, Clock,
   Minimize, Maximize, PictureInPicture, ChevronLeft, ChevronRight, Tv,
-  MessageSquare
+  MessageSquare, Calendar
 } from 'lucide-react';
 import { EpgService } from '../services/epgService';
 import { HistoryService } from '../services/historyService';
@@ -26,6 +26,7 @@ export default function VideoPlayer({
   audioVersion = 'dublado', // 'dublado' ou 'legendado'
   onAudioVersionChange,
   onOpenEpg,
+  onOpenEpgGrid,
   onNextChannel,
   onPrevChannel,
   channels = [],
@@ -748,6 +749,15 @@ export default function VideoPlayer({
         e.preventDefault();
         triggerInfoBanner();
       }
+      // Botão Vermelho no controle (403) ou Tecla G: Abrir Grade EPG Completa
+      else if (e.code === 'KeyG' || keyCode === 403) {
+        e.preventDefault();
+        if (onOpenEpgGrid) {
+          onOpenEpgGrid();
+        } else {
+          setIsChannelDrawerOpen(prev => !prev);
+        }
+      }
       // Botão Amarelo no controle (405) ou Tecla S: Alternar Fonte
       else if (e.code === 'KeyS' || keyCode === 405) {
         e.preventDefault();
@@ -1304,6 +1314,19 @@ export default function VideoPlayer({
         </div>
 
         <div className="flex items-center gap-1.5">
+          {/* Grade EPG Completa 24h em Linha do Tempo */}
+          {!isVOD && onOpenEpgGrid && (
+            <button
+              onClick={onOpenEpgGrid}
+              data-tv-focus="true"
+              className="p-1.5 md:p-2 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-200 border border-indigo-500/30 transition flex items-center gap-1.5 text-xs font-bold mr-1"
+              title="Grade EPG 24 Horas em Linha do Tempo (Tecla G)"
+            >
+              <Calendar size={14} className="text-indigo-400" />
+              <span className="hidden md:inline">Grade TV</span>
+            </button>
+          )}
+
           {/* Guia Rápido de Canais Dentro do Player */}
           {!isVOD && channels && channels.length > 0 && (
             <button
@@ -1314,10 +1337,10 @@ export default function VideoPlayer({
                   ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30' 
                   : 'bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 hover:text-white'
               }`}
-              title="Guia Rápido de Canais (Tecla G)"
+              title="Gaveta Rápida de Canais (Seta Esquerda)"
             >
-              <Tv size={15} className="text-indigo-400" />
-              <span className="hidden md:inline">Guia de Canais</span>
+              <Tv size={14} className="text-indigo-400" />
+              <span className="hidden md:inline">Canais</span>
             </button>
           )}
 

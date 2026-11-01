@@ -7,6 +7,7 @@ import SeriesCard from './components/SeriesCard';
 import EpisodeModal from './components/EpisodeModal';
 import SettingsModal from './components/SettingsModal';
 import EpgModal from './components/EpgModal';
+import EpgTimelineGrid from './components/EpgTimelineGrid';
 import InstallTvModal from './components/InstallTvModal';
 import { CatalogService } from './services/catalogService';
 import { VodService } from './services/vodService';
@@ -81,6 +82,7 @@ export default function App() {
   const [selectedChannelForEpg, setSelectedChannelForEpg] = useState(null);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isInstallTvOpen, setIsInstallTvOpen] = useState(false);
+  const [isEpgGridOpen, setIsEpgGridOpen] = useState(false);
 
   // Modo TV (10-Foot UI para BTV e Smart TV Box)
   const [isTvMode, setIsTvMode] = useState(() => {
@@ -101,7 +103,9 @@ export default function App() {
   // Gerenciador de Botão Voltar para Controle Remoto de BTV e TV Box
   useEffect(() => {
     const unregister = TvNavigation.registerBackHandler(() => {
-      if (isInstallTvOpen) {
+      if (isEpgGridOpen) {
+        setIsEpgGridOpen(false);
+      } else if (isInstallTvOpen) {
         setIsInstallTvOpen(false);
       } else if (isSettingsOpen) {
         setIsSettingsOpen(false);
@@ -114,7 +118,20 @@ export default function App() {
       }
     });
     return unregister;
-  }, [isInstallTvOpen, isSettingsOpen, selectedChannelForEpg, selectedSeriesForEpisodes, activeItem]);
+  }, [isEpgGridOpen, isInstallTvOpen, isSettingsOpen, selectedChannelForEpg, selectedSeriesForEpisodes, activeItem]);
+
+  // Tecla de atalho global G para abrir a Grade EPG em Linha do Tempo
+  useEffect(() => {
+    const handleGlobalKey = (e) => {
+      if (['input', 'textarea'].includes(document.activeElement?.tagName?.toLowerCase())) return;
+      if (e.key === 'g' || e.key === 'G') {
+        e.preventDefault();
+        setIsEpgGridOpen(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKey);
+    return () => window.removeEventListener('keydown', handleGlobalKey);
+  }, []);
 
   // Inicialização
   useEffect(() => {
@@ -436,6 +453,8 @@ export default function App() {
         isTvMode={isTvMode}
         onToggleTvMode={() => setIsTvMode(!isTvMode)}
         userState={userState}
+        onOpenEpgGrid={() => setIsEpgGridOpen(true)}
+        isEpgGridOpen={isEpgGridOpen}
       />
 
       {/* Área Central */}
@@ -451,6 +470,7 @@ export default function App() {
                 onAudioVersionChange={setPreferredAudio}
                 onClose={() => setActiveItem(null)}
                 onOpenEpg={(ch) => setSelectedChannelForEpg(ch)}
+                onOpenEpgGrid={() => setIsEpgGridOpen(true)}
                 onNextChannel={handleNextChannel}
                 onPrevChannel={handlePrevChannel}
                 channels={channels}
@@ -953,6 +973,15 @@ export default function App() {
         isOpen={!!selectedChannelForEpg}
         onClose={() => setSelectedChannelForEpg(null)}
         onPlayChannel={(ch) => handleSelectItem(ch)}
+      />
+
+      {/* Grade EPG Multicanal em Linha do Tempo (Estilo TV a Cabo 24h) */}
+      <EpgTimelineGrid
+        isOpen={isEpgGridOpen}
+        onClose={() => setIsEpgGridOpen(false)}
+        channels={channels}
+        onSelectChannel={(ch) => handleSelectItem(ch)}
+        currentChannelId={activeItem?.id}
       />
 
       {/* Modal de Configurações */}
