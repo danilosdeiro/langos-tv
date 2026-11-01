@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Play, Layers, Clapperboard, Loader2, Volume2, MessageSquare } from 'lucide-react';
 import { VodService } from '../services/vodService';
+import { TvNavigation } from '../services/tvNavigation';
 
 export default function EpisodeModal({ 
   series, 
@@ -12,12 +13,14 @@ export default function EpisodeModal({
   const [episodes, setEpisodes] = useState([]);
   const [selectedSeason, setSelectedSeason] = useState(1);
   const [selectedAudio, setSelectedAudio] = useState('dublado'); // 'dublado' | 'legendado'
+  const [coverError, setCoverError] = useState(false);
 
   useEffect(() => {
     if (!series || !isOpen) return;
 
     setLoading(true);
     setEpisodes([]);
+    setCoverError(false);
 
     // Buscar episódios da série na nuvem
     VodService.fetchEpisodes(series.letra, series.pedaco, series.titulo)
@@ -54,7 +57,10 @@ export default function EpisodeModal({
         console.error('Erro ao carregar episódios:', err);
         setEpisodes([]);
       })
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        setTimeout(() => TvNavigation.focusFirstAvailable(), 150);
+      });
   }, [series, isOpen]);
 
   useEffect(() => {
@@ -64,6 +70,9 @@ export default function EpisodeModal({
       if (e.key === 'Escape' || e.keyCode === 27 || e.keyCode === 8 || e.keyCode === 4) {
         e.preventDefault();
         onClose();
+        if (TvNavigation.lastFocusedCard) {
+          setTimeout(() => TvNavigation.setFocus(TvNavigation.lastFocusedCard), 50);
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -157,15 +166,15 @@ export default function EpisodeModal({
         <div className="p-5 border-b border-white/10 flex items-center justify-between">
           <div className="flex items-center gap-3.5">
             <div className="w-12 h-16 rounded-xl overflow-hidden bg-zinc-800 shrink-0 border border-white/10 shadow-md">
-              {series.capa ? (
+              {series.capa && !coverError ? (
                 <img 
                   src={series.capa} 
                   alt={series.titulo} 
                   className="w-full h-full object-cover" 
-                  onError={(e) => { e.target.style.display = 'none'; }}
+                  onError={() => setCoverError(true)}
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-purple-400">
+                <div className="w-full h-full flex items-center justify-center text-purple-400 bg-zinc-950">
                   <Clapperboard size={20} />
                 </div>
               )}

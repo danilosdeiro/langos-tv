@@ -498,6 +498,7 @@ export default function App() {
                   <ChannelCard
                     key={channel.id}
                     channel={channel}
+                    channelNumber={channels.findIndex(c => c.id === channel.id) + 1}
                     isFavorite={favorites.includes(channel.id)}
                     onToggleFavorite={handleToggleFavorite}
                     onSelect={(ch) => handleSelectItem(ch)}
@@ -704,9 +705,11 @@ export default function App() {
                           <ChannelCard
                             key={ch.id}
                             channel={ch}
+                            channelNumber={channels.findIndex(c => c.id === ch.id) + 1}
                             isFavorite={true}
                             onToggleFavorite={handleToggleFavorite}
                             onSelect={(c) => handleSelectItem(c)}
+                            isActive={activeItem?.id === ch.id}
                             onOpenEpg={(c) => setSelectedChannelForEpg(c)}
                           />
                         ))}

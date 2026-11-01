@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Play, Star, Clock, Film } from 'lucide-react';
 
 export default function MovieCard({ 
@@ -8,6 +8,7 @@ export default function MovieCard({
   onToggleFavorite,
   preferredAudio = 'dublado'
 }) {
+  const [imgError, setImgError] = useState(false);
   const hasDub = movie.dublado && movie.dublado.length > 0;
   const hasLeg = movie.legendado && movie.legendado.length > 0;
 
@@ -29,20 +30,19 @@ export default function MovieCard({
     >
       {/* Imagem do Poster com Badges */}
       <div className="relative aspect-[2/3] w-full bg-zinc-950 overflow-hidden">
-        {movie.capa ? (
+        {movie.capa && !imgError ? (
           <img
             src={movie.capa}
             alt={movie.titulo}
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            onError={(e) => {
-              e.target.style.display = 'none';
-            }}
+            onError={() => setImgError(true)}
           />
         ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-900 text-zinc-600 p-4 text-center">
-            <Film size={32} className="mb-2" />
-            <span className="text-xs font-semibold">{movie.titulo}</span>
+          <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-zinc-900 to-zinc-950 text-zinc-400 p-4 text-center">
+            <Film size={32} className="mb-2 text-indigo-400" />
+            <span className="text-xs font-bold text-white line-clamp-2">{movie.titulo}</span>
+            <span className="text-[10px] text-zinc-400 mt-1">{movie.categoria || movie.ano}</span>
           </div>
         )}
 

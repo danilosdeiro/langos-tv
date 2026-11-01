@@ -1,15 +1,18 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Star, Play, Layers, Clock } from 'lucide-react';
 import { EpgService } from '../services/epgService';
 
 export default function ChannelCard({ 
   channel, 
+  channelNumber,
   onSelect, 
   isFavorite = false, 
   onToggleFavorite,
   isActive = false,
   onOpenEpg
 }) {
+  const [logoError, setLogoError] = useState(false);
+
   // Obter grade de programação EPG em tempo real
   const epg = useMemo(() => {
     return EpgService.getProgramForChannel(channel.nome, channel.categoria);
@@ -28,18 +31,25 @@ export default function ChannelCard({
       data-tv-focus="true"
       tabIndex={0}
       role="button"
-      aria-label={`Canal ${channel.nome}`}
+      aria-label={`Canal ${channelNumber ? `${channelNumber} ` : ''}${channel.nome}`}
       className={`group relative bg-zinc-900/70 hover:bg-zinc-850 border rounded-2xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-200 shadow-md hover:shadow-indigo-500/10 hover:-translate-y-1 focus:outline-none ${
         isActive 
           ? 'border-indigo-500 bg-indigo-950/30 ring-2 ring-indigo-500/30' 
           : 'border-white/5 hover:border-white/20'
       }`}
     >
-      {/* Topo do Card: Badge de Categoria & Botão Favorito */}
+      {/* Topo do Card: Número do Canal, Categoria & Botão Favorito */}
       <div className="flex items-center justify-between gap-2 mb-2">
-        <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-zinc-800 text-zinc-300 border border-white/5 truncate max-w-[120px]">
-          {channel.categoria || 'Geral'}
-        </span>
+        <div className="flex items-center gap-1.5 truncate">
+          {channelNumber && (
+            <span className="text-[10px] font-mono font-black px-1.5 py-0.5 rounded bg-indigo-950/80 text-indigo-300 border border-indigo-500/30 shrink-0">
+              #{channelNumber}
+            </span>
+          )}
+          <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-zinc-800 text-zinc-300 border border-white/5 truncate max-w-[95px]">
+            {channel.categoria || 'Geral'}
+          </span>
+        </div>
 
         <button
           onClick={(e) => {
@@ -59,24 +69,19 @@ export default function ChannelCard({
 
       {/* Centro do Card: Logo do Canal */}
       <div className="h-16 w-full flex items-center justify-center my-1.5 p-1 relative">
-        {channel.logo ? (
+        {channel.logo && !logoError ? (
           <img
             src={channel.logo}
             alt={channel.nome}
             loading="lazy"
             className="max-h-full max-w-full object-contain filter drop-shadow transition-transform group-hover:scale-105"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.nextSibling.style.display = 'flex';
-            }}
+            onError={() => setLogoError(true)}
           />
-        ) : null}
-        <div 
-          className="w-12 h-12 rounded-xl bg-zinc-800 text-zinc-400 items-center justify-center font-bold text-lg uppercase border border-white/10"
-          style={{ display: channel.logo ? 'none' : 'flex' }}
-        >
-          {channel.nome.slice(0, 2)}
-        </div>
+        ) : (
+          <div className="w-12 h-12 rounded-xl bg-zinc-800 text-zinc-300 flex items-center justify-center font-bold text-base uppercase border border-white/10 shadow-inner">
+            {channel.nome.slice(0, 2)}
+          </div>
+        )}
 
         {/* Botão Flutuante de Play no Hover */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-xs rounded-xl">

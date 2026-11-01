@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Play, Star, Clapperboard, Layers } from 'lucide-react';
 
 export default function SeriesCard({ 
@@ -8,6 +8,7 @@ export default function SeriesCard({
   onToggleFavorite,
   preferredAudio = 'dublado'
 }) {
+  const [imgError, setImgError] = useState(false);
   const hasDub = series.dublado && series.dublado.length > 0;
   const hasLeg = series.legendado && series.legendado.length > 0;
 
@@ -29,31 +30,23 @@ export default function SeriesCard({
     >
       {/* Poster Oficial */}
       <div className="relative aspect-[2/3] w-full bg-zinc-950 overflow-hidden">
-        {series.capa ? (
+        {series.capa && !imgError ? (
           <img
             src={series.capa}
             alt={series.titulo}
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              if (e.target.nextSibling) {
-                e.target.nextSibling.style.display = 'flex';
-              }
-            }}
+            onError={() => setImgError(true)}
           />
-        ) : null}
-        
-        <div 
-          className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-zinc-900 to-zinc-950 text-zinc-500 p-4 text-center border-b border-white/5"
-          style={{ display: series.capa ? 'none' : 'flex' }}
-        >
-          <div className="w-12 h-12 rounded-2xl bg-purple-600/15 text-purple-400 flex items-center justify-center mb-2 shadow-inner">
-            <Clapperboard size={24} />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-zinc-900 to-zinc-950 text-zinc-400 p-4 text-center border-b border-white/5">
+            <div className="w-12 h-12 rounded-2xl bg-purple-600/20 text-purple-400 flex items-center justify-center mb-2 shadow-inner">
+              <Clapperboard size={24} />
+            </div>
+            <span className="text-xs font-bold text-white line-clamp-2">{series.titulo}</span>
+            <span className="text-[10px] text-zinc-400 mt-1">{series.categoria || series.ano}</span>
           </div>
-          <span className="text-xs font-bold text-zinc-300 line-clamp-2">{series.titulo}</span>
-          <span className="text-[10px] text-zinc-500 mt-1">{series.ano}</span>
-        </div>
+        )}
 
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-black/60 pointer-events-none"></div>
 

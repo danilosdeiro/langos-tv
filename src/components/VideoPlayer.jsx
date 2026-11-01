@@ -79,6 +79,23 @@ export default function VideoPlayer({
   // Tentativa de resgate com proxy se a fonte direta falhar
   const [forceProxyForCurrent, setForceProxyForCurrent] = useState(false);
 
+  // Teclado Numérico para BTV (Digitação de Canal no controle remoto)
+  const [channelInput, setChannelInput] = useState('');
+  const channelInputRef = useRef('');
+  const channelInputTimeoutRef = useRef(null);
+
+  // Banner Informativo de Transmissão (Mini EPG ao trocar canal ou pressionar OK / Info)
+  const [showInfoBanner, setShowInfoBanner] = useState(false);
+  const infoBannerTimeoutRef = useRef(null);
+
+  const triggerInfoBanner = () => {
+    setShowInfoBanner(true);
+    if (infoBannerTimeoutRef.current) clearTimeout(infoBannerTimeoutRef.current);
+    infoBannerTimeoutRef.current = setTimeout(() => {
+      setShowInfoBanner(false);
+    }, 4500);
+  };
+
   const showOsd = (text) => {
     setOsdMessage(text);
     setShowControls(true);
@@ -113,6 +130,24 @@ export default function VideoPlayer({
 
   const sourcesRef = useRef(sources);
   sourcesRef.current = sources;
+
+  const currentChannelNumber = useMemo(() => {
+    if (isVOD || !channels?.length || !item?.id) return null;
+    const idx = channels.findIndex(c => c.id === item.id);
+    return idx !== -1 ? idx + 1 : null;
+  }, [channels, item?.id, isVOD]);
+
+  const handleSwitchSource = () => {
+    const allSources = sourcesRef.current;
+    if (!allSources || allSources.length <= 1) {
+      showOsd('Apenas 1 fonte disponível');
+      return;
+    }
+    const nextIdx = (activeSourceIndexRef.current + 1) % allSources.length;
+    setActiveSourceIndex(nextIdx);
+    setForceProxyForCurrent(false);
+    showOsd(`Alternado: Fonte ${nextIdx + 1} de ${allSources.length}`);
+  };
 
   const currentSource = sources[activeSourceIndex] || sources[0];
 
@@ -173,6 +208,7 @@ export default function VideoPlayer({
         }
       } else {
         setResumePrompt(null);
+        triggerInfoBanner();
       }
     } else if (isDifferentAudio) {
       // Mesma série/filme, apenas trocando idioma do áudio: reter posição atual
@@ -527,16 +563,87 @@ export default function VideoPlayer({
       const key = e.key;
       const keyCode = e.keyCode;
 
+      // Se estava digitando um número de canal e apertou Enter/OK: sintonizar imediatamente!
+      if (channelInputRef.current && (key === 'Enter' || keyCode === 13 || keyCode === 250)) {
+        e.preventDefault();
+        if (channelInputTimeoutRef.current) clearTimeout(channelInputTimeoutRef.current);
+        const num = parseInt(channelInputRef.current, 10);
+        if (num > 0 && num <= channels.length) {
+          const targetCh = channels[num - 1];
+          if (onSelectChannel) onSelectChannel(targetCh);
+          showOsd(`📡 Canal ${num}: ${targetCh.nome}`);
+        } else {
+          showOsd(`⚠️ Canal ${num} não encontrado`);
+        }
+        setChannelInput('');
+        channelInputRef.current = '';
+        return;
+      }
+
+      // Digitação Numérica de Canal (0-9 no controle do BTV)
+      if (!isVOD && channels?.length && ((key >= '0' && key <= '9') || (keyCode >= 96 && keyCode <= 105))) {
+        e.preventDefault();
+        const digit = (keyCode >= 96 && keyCode <= 105) ? String(keyCode - 96) : key;
+        const newBuf = (channelInputRef.current + digit).slice(0, 3);
+        setChannelInput(newBuf);
+        channelInputRef.current = newBuf;
+
+        if (channelInputTimeoutRef.current) clearTimeout(channelInputTimeoutRef.current);
+        channelInputTimeoutRef.current = setTimeout(() => {
+          const num = parseInt(channelInputRef.current, 10);
+          if (num > 0 && num <= channels.length) {
+            const targetCh = channels[num - 1];
+            if (onSelectChannel) onSelectChannel(targetCh);
+            showOsd(`📡 Canal ${num}: ${targetCh.nome}`);
+          } else {
+            showOsd(`⚠️ Canal ${num} não encontrado`);
+          }
+          setChannelInput('');
+          channelInputRef.current = '';
+        }, 1200);
+        return;
+      }
+
       // Play / Pause (Espaço, Enter, PlayPause no controle)
       if (key === ' ' || e.code === 'Space' || key === 'Enter' || key === 'Select' || keyCode === 13 || keyCode === 179 || keyCode === 250 || keyCode === 19) {
-        // Se estiver focado em um botão de controle específico dentro do player, deixar o clique natural
         if (e.target.tagName === 'BUTTON') return;
         e.preventDefault();
-        togglePlay();
-        showOsd(videoRef.current?.paused ? '⏸️ Vídeo Pausado' : '▶️ Reproduzindo');
+        if (!isVOD) {
+          // Em canais ao vivo, pressionar Enter exibe o Banner EPG da emissora
+          triggerInfoBanner();
+        } else {
+          togglePlay();
+          showOsd(videoRef.current?.paused ? '⏸️ Vídeo Pausado' : '▶️ Reproduzindo');
+        }
       } 
-      // Fullscreen (Tecla F)
-      else if (e.code === 'KeyF') {
+      // Tecla Info / Tecla I
+      else if (e.code === 'KeyI' || keyCode === 457) {
+        e.preventDefault();
+        triggerInfoBanner();
+      }
+      // Botão Amarelo no controle (405) ou Tecla S: Alternar Fonte
+      else if (e.code === 'KeyS' || keyCode === 405) {
+        e.preventDefault();
+        handleSwitchSource();
+      }
+      // Botão Azul no controle (406) ou Tecla A: Alternar Áudio ou Abrir EPG
+      else if (e.code === 'KeyA' || keyCode === 406) {
+        e.preventDefault();
+        if (isVOD && onAudioVersionChange) {
+          const nextAudio = audioVersion === 'dublado' ? 'legendado' : 'dublado';
+          if (nextAudio === 'legendado' && item?.legendado?.length) {
+            onAudioVersionChange('legendado');
+            showOsd('💬 Áudio: Legendado');
+          } else if (item?.dublado?.length) {
+            onAudioVersionChange('dublado');
+            showOsd('🔊 Áudio: Dublado');
+          }
+        } else if (!isVOD && onOpenEpg && item) {
+          onOpenEpg(item);
+        }
+      }
+      // Fullscreen (Tecla F ou Botão Verde 404)
+      else if (e.code === 'KeyF' || keyCode === 404) {
         e.preventDefault();
         toggleFullscreen();
       } 
@@ -564,7 +671,7 @@ export default function VideoPlayer({
         if (!isVOD && onPrevChannel) {
           e.preventDefault();
           onPrevChannel();
-          showOsd('⬆️ Canal Anterior');
+          triggerInfoBanner();
         } else {
           showOsd(item?.nome || item?.titulo || 'Vídeo');
         }
@@ -572,13 +679,13 @@ export default function VideoPlayer({
         if (!isVOD && onNextChannel) {
           e.preventDefault();
           onNextChannel();
-          showOsd('⬇️ Próximo Canal');
+          triggerInfoBanner();
         } else {
           showOsd(item?.nome || item?.titulo || 'Vídeo');
         }
       } 
-      // Tecla G: Abrir / Fechar Guia Rápido de Canais
-      else if (e.code === 'KeyG') {
+      // Tecla G ou Botão Vermelho (403): Abrir / Fechar Guia Rápido de Canais
+      else if (e.code === 'KeyG' || keyCode === 403) {
         if (!isVOD && channels?.length) {
           e.preventDefault();
           setIsChannelDrawerOpen(prev => !prev);
@@ -605,7 +712,7 @@ export default function VideoPlayer({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isFullscreen, isPlaying, isMuted, duration, isVOD, onNextChannel, onPrevChannel, onClose, item, isChannelDrawerOpen, showNextEpCard, channels]);
+  }, [isFullscreen, isPlaying, isMuted, duration, isVOD, onNextChannel, onPrevChannel, onClose, item, isChannelDrawerOpen, showNextEpCard, channels, audioVersion, onAudioVersionChange, onOpenEpg, onSelectChannel]);
 
   const handleMouseMove = () => {
     setShowControls(true);
@@ -682,6 +789,82 @@ export default function VideoPlayer({
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-zinc-950/90 backdrop-blur-md border border-indigo-500/50 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-sm md:text-base font-extrabold animate-osd pointer-events-none ring-2 ring-indigo-500/20">
           <Tv size={22} className="text-indigo-400" />
           <span>{osdMessage}</span>
+        </div>
+      )}
+
+      {/* Overlay de Digitação de Canal (Teclado Numérico do BTV) */}
+      {channelInput && (
+        <div className="absolute top-16 right-6 z-40 bg-indigo-600/95 backdrop-blur-xl text-white font-mono font-black text-2xl md:text-3xl px-5 py-2.5 rounded-2xl shadow-2xl border border-white/20 flex items-center gap-3 animate-pulse pointer-events-none ring-4 ring-indigo-500/30">
+          <span className="text-xs uppercase tracking-wider font-sans font-bold text-indigo-200">Canal:</span>
+          <span>{channelInput}</span>
+        </div>
+      )}
+
+      {/* TV Broadcast Info Banner (Mini EPG ao trocar canal ou pressionar Tecla INFO / OK) */}
+      {!isVOD && showInfoBanner && (
+        <div 
+          className="absolute bottom-16 inset-x-4 sm:inset-x-8 md:inset-x-12 z-30 bg-zinc-950/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl animate-fadeIn pointer-events-none"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+            {/* Informações do Canal */}
+            <div className="flex items-center gap-3.5 min-w-0">
+              {currentChannelNumber && (
+                <div className="bg-indigo-600 text-white font-mono font-black text-sm md:text-base px-2.5 py-1 rounded-xl shadow-md shrink-0">
+                  #{currentChannelNumber}
+                </div>
+              )}
+              {item?.logo && (
+                <div className="w-10 h-10 rounded-xl bg-zinc-900 p-1 border border-white/10 shrink-0 flex items-center justify-center">
+                  <img src={item.logo} alt={item.nome} className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+                </div>
+              )}
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-white font-black text-sm md:text-base truncate drop-shadow">{item?.nome}</h3>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-white/5 shrink-0">
+                    {item?.categoria || 'Ao Vivo'}
+                  </span>
+                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shrink-0">
+                    {currentSource?.qualidade || 'FHD'}
+                  </span>
+                </div>
+                {epg && (
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="text-xs font-bold text-indigo-300 truncate max-w-[280px] sm:max-w-md">
+                      ▶ {epg.title}
+                    </span>
+                    <span className="text-[11px] font-mono text-zinc-400 shrink-0">
+                      ({epg.start} - {epg.end})
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Programa a seguir & Atalhos do controle */}
+            <div className="flex flex-col md:items-end justify-center shrink-0 border-t md:border-t-0 md:border-l border-white/10 pt-2 md:pt-0 md:pl-4">
+              {epg?.nextTitle && (
+                <p className="text-[11px] text-zinc-400 truncate max-w-xs mb-1">
+                  A seguir: <span className="text-zinc-200 font-semibold">{epg.nextTitle}</span> <span className="text-zinc-500 font-mono">({epg.nextStart})</span>
+                </p>
+              )}
+              <div className="flex items-center gap-2.5 text-[10px] text-zinc-400 font-semibold">
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-500 inline-block"></span> [G] Guia</span>
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-yellow-500 inline-block"></span> [S] Fonte</span>
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500 inline-block"></span> [F] Tela Cheia</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Barra de Progresso do Programa Atual */}
+          {epg && (
+            <div className="w-full h-1.5 bg-zinc-800 rounded-full overflow-hidden mt-3">
+              <div 
+                className="h-full bg-indigo-500 rounded-full transition-all duration-300"
+                style={{ width: `${epg.progress}%` }}
+              ></div>
+            </div>
+          )}
         </div>
       )}
 

@@ -1,14 +1,21 @@
 import React, { useMemo } from 'react';
 import { X, Tv, Clock, Play, Radio, Calendar } from 'lucide-react';
 import { EpgService } from '../services/epgService';
+import { TvNavigation } from '../services/tvNavigation';
 
 export default function EpgModal({ channel, isOpen, onClose, onPlayChannel }) {
   React.useEffect(() => {
     if (!isOpen) return;
+
+    setTimeout(() => TvNavigation.focusFirstAvailable(), 100);
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' || e.keyCode === 27 || e.keyCode === 8 || e.keyCode === 4) {
         e.preventDefault();
         onClose();
+        if (TvNavigation.lastFocusedCard) {
+          setTimeout(() => TvNavigation.setFocus(TvNavigation.lastFocusedCard), 50);
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
