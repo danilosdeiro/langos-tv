@@ -443,7 +443,7 @@ export default function App() {
 
         {/* Player de Vídeo em Destaque */}
         {activeItem && (
-          <section ref={playerSectionRef} className="animate-fadeIn">
+          <section ref={playerSectionRef} className="animate-fadeIn scroll-mt-20 sm:scroll-mt-24">
             <div className="bg-zinc-900/40 p-2 md:p-3 rounded-3xl border border-white/10 shadow-2xl">
               <VideoPlayer
                 item={activeItem}
