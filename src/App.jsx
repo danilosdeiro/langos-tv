@@ -46,6 +46,10 @@ export default function App() {
   // Histórico de "Continuar Assistindo"
   const [continueWatchingList, setContinueWatchingList] = useState([]);
 
+  // Estado do Player
+  const [activeItem, setActiveItem] = useState(null);
+  const playerSectionRef = useRef(null);
+
   // Modais
   const [selectedSeriesForEpisodes, setSelectedSeriesForEpisodes] = useState(null);
   const [selectedChannelForEpg, setSelectedChannelForEpg] = useState(null);
@@ -85,10 +89,6 @@ export default function App() {
     });
     return unregister;
   }, [isInstallTvOpen, isSettingsOpen, selectedChannelForEpg, selectedSeriesForEpisodes, activeItem]);
-
-  // Estado do Player
-  const [activeItem, setActiveItem] = useState(null);
-  const playerSectionRef = useRef(null);
 
   // Inicialização
   useEffect(() => {

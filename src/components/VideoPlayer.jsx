@@ -3,7 +3,8 @@ import Hls from 'hls.js';
 import { 
   Play, Pause, Volume2, VolumeX, Maximize2, Minimize2, 
   RotateCcw, RotateCw, AlertTriangle, Layers, X, Clock,
-  Minimize, Maximize, PictureInPicture, ChevronLeft, ChevronRight, Tv
+  Minimize, Maximize, PictureInPicture, ChevronLeft, ChevronRight, Tv,
+  MessageSquare
 } from 'lucide-react';
 import { EpgService } from '../services/epgService';
 import { HistoryService } from '../services/historyService';
@@ -224,6 +225,35 @@ export default function VideoPlayer({
     prevItemIdRef.current = item?.id;
     prevAudioVersionRef.current = audioVersion;
   }, [item?.id, audioVersion, item?.initialSeekTime, isVOD]);
+
+  // Sincronizar audioVersion com o que o item realmente possui no catálogo
+  useEffect(() => {
+    if (!isVOD || !item) return;
+    const hasDub = item.dublado && item.dublado.length > 0;
+    const hasLeg = item.legendado && item.legendado.length > 0;
+    if (hasDub && !hasLeg && audioVersion !== 'dublado') {
+      onAudioVersionChange?.('dublado');
+    } else if (!hasDub && hasLeg && audioVersion !== 'legendado') {
+      onAudioVersionChange?.('legendado');
+    }
+  }, [item?.id, item?.dublado, item?.legendado, isVOD, audioVersion, onAudioVersionChange]);
+
+  // Alternar entre modo flutuante na página e Picture-in-Picture nativo do navegador
+  const handleTogglePip = async () => {
+    try {
+      if (document.pictureInPictureElement) {
+        await document.exitPictureInPicture();
+        setIsFloating(false);
+      } else if (videoRef.current && document.pictureInPictureEnabled) {
+        await videoRef.current.requestPictureInPicture();
+      } else {
+        setIsFloating(prev => !prev);
+      }
+    } catch {
+      // Se a API nativa falhar ou não for suportada, ativar o mini-player flutuante da página
+      setIsFloating(prev => !prev);
+    }
+  };
 
   // Próximo episódio para Séries
   const nextEpisode = useMemo(() => {
@@ -773,7 +803,7 @@ export default function VideoPlayer({
         isFullscreen 
           ? 'fixed inset-0 z-50 rounded-none h-screen' 
           : isFloating
-            ? 'fixed bottom-6 right-6 w-80 md:w-96 aspect-video z-50 rounded-2xl shadow-2xl border-2 border-indigo-500/60 ring-4 ring-black/60 animate-fadeIn'
+            ? 'fixed bottom-6 right-6 w-80 md:w-96 aspect-video z-40 rounded-2xl shadow-2xl border-2 border-indigo-500/60 ring-4 ring-black/80 animate-fadeIn'
             : 'aspect-video max-h-[70vh]'
       }`}
     >
@@ -783,6 +813,33 @@ export default function VideoPlayer({
         onClick={togglePlay}
         playsInline
       />
+
+      {/* Mini Barra Superior no Modo Flutuante */}
+      {isFloating && (
+        <div className="absolute top-2 inset-x-2 z-30 flex items-center justify-between bg-zinc-950/85 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10 shadow-lg pointer-events-auto">
+          <span className="text-[11px] font-bold text-white truncate max-w-[200px] drop-shadow">
+            {item?.nome || item?.titulo}
+          </span>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <button
+              onClick={() => setIsFloating(false)}
+              className="p-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition shadow"
+              title="Restaurar Player Principal"
+            >
+              <Maximize size={13} />
+            </button>
+            {onClose && (
+              <button
+                onClick={onClose}
+                className="p-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white transition"
+                title="Fechar Player"
+              >
+                <X size={13} />
+              </button>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* OSD - Feedback Visual na Tela para Controle Remoto de BTV / TV Box */}
       {osdMessage && (
@@ -1155,45 +1212,62 @@ export default function VideoPlayer({
           {isVOD && onAudioVersionChange && (item?.dublado?.length > 0 || item?.legendado?.length > 0) && (
             <div className="bg-zinc-900/90 border border-white/10 p-0.5 rounded-xl flex items-center gap-1 shadow-lg">
               <button
-                onClick={() => onAudioVersionChange('dublado')}
+                onClick={() => {
+                  if (item?.dublado?.length) {
+                    onAudioVersionChange('dublado');
+                    showOsd('🔊 Áudio: Dublado');
+                  }
+                }}
                 disabled={!item?.dublado?.length}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition flex items-center gap-1 ${
+                data-tv-focus="true"
+                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition flex items-center gap-1.5 ${
                   !item?.dublado?.length 
-                    ? 'opacity-40 cursor-not-allowed text-zinc-500' 
-                    : audioVersion === 'dublado'
-                      ? 'bg-indigo-600 text-white shadow-md'
-                      : 'text-zinc-400 hover:text-white'
+                    ? 'opacity-35 cursor-not-allowed text-zinc-500 bg-zinc-900/40' 
+                    : (audioVersion === 'dublado' && item?.dublado?.length)
+                      ? 'bg-emerald-600 text-white shadow-md'
+                      : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
                 }`}
-                title={item?.dublado?.length ? "Áudio Dublado" : "Áudio Dublado Indisponível"}
+                title={item?.dublado?.length ? "Áudio Dublado em Português" : "Áudio Dublado Indisponível"}
               >
-                🔊 Dub
+                <Volume2 size={13} />
+                <span>Dublado</span>
+                {!item?.dublado?.length && <span className="text-[9px] opacity-60 font-normal">(Indisp.)</span>}
               </button>
               <button
-                onClick={() => onAudioVersionChange('legendado')}
+                onClick={() => {
+                  if (item?.legendado?.length) {
+                    onAudioVersionChange('legendado');
+                    showOsd('💬 Áudio: Legendado');
+                  }
+                }}
                 disabled={!item?.legendado?.length}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition flex items-center gap-1 ${
+                data-tv-focus="true"
+                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition flex items-center gap-1.5 ${
                   !item?.legendado?.length 
-                    ? 'opacity-40 cursor-not-allowed text-zinc-500' 
-                    : audioVersion === 'legendado'
-                      ? 'bg-indigo-600 text-white shadow-md'
-                      : 'text-zinc-400 hover:text-white'
+                    ? 'opacity-35 cursor-not-allowed text-zinc-500 bg-zinc-900/40' 
+                    : (audioVersion === 'legendado' && item?.legendado?.length)
+                      ? 'bg-sky-600 text-white shadow-md'
+                      : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
                 }`}
-                title={item?.legendado?.length ? "Áudio Legendado" : "Áudio Legendado Indisponível"}
+                title={item?.legendado?.length ? "Áudio Original Legendado" : "Áudio Legendado Indisponível"}
               >
-                💬 Leg
+                <MessageSquare size={13} />
+                <span>Legendado</span>
+                {!item?.legendado?.length && <span className="text-[9px] opacity-60 font-normal">(Indisp.)</span>}
               </button>
             </div>
           )}
 
-          {/* Botão Minimizar / Modo Flutuante (Permite navegar no site sem fechar o vídeo) */}
+          {/* Botão Picture-in-Picture / Modo Flutuante (Permite navegar no site sem fechar o vídeo) */}
           <button
-            onClick={() => setIsFloating(!isFloating)}
+            onClick={handleTogglePip}
+            data-tv-focus="true"
             className={`p-1.5 md:p-2 rounded-xl transition border border-white/10 ${
               isFloating 
-                ? 'bg-indigo-600 text-white shadow-lg' 
+                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30' 
                 : 'bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 hover:text-white'
             }`}
-            title={isFloating ? 'Expandir para Tela Normal' : 'Modo Flutuante / Minimizar para navegar no site'}
+            title={isFloating ? 'Expandir para Tela Normal' : 'Modo Flutuante / PiP para navegar no site sem interromper o vídeo'}
           >
             {isFloating ? <Maximize size={16} /> : <PictureInPicture size={16} />}
           </button>
