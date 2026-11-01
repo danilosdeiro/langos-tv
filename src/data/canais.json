@@ -1443,7 +1443,12 @@
       {
         "url": "http://170.83.49.66:8083/BOXKIDSHD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
+        "nome": "Fonte 1 (Box Kids Oficial HD)"
+      },
+      {
+        "url": "https://stmv1.srvif.com/loadingtv/loadingtv/playlist.m3u8",
+        "qualidade": "HD · 1280x720",
+        "nome": "Fonte 2 (Loading TV Kids HD)"
       }
     ]
   },
@@ -1456,7 +1461,17 @@
       {
         "url": "http://170.83.49.66:8083/MUSICBOXBRASILHD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
+        "nome": "Fonte 1 (Music Box Oficial HD)"
+      },
+      {
+        "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01131-tracetv-tracebrazuca-samsungbr/playlist.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 2 (Trace Música Brasil FHD)"
+      },
+      {
+        "url": "https://isaocorp.cloudecast.com/toptv/index.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 3 (Top TV Clipes Brasil FHD)"
       }
     ]
   },
@@ -2221,7 +2236,12 @@
       {
         "url": "http://170.83.49.66:8083/TRAVELBOXHD/index.m3u8",
         "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
+        "nome": "Fonte 1 (Travel Box Oficial HD)"
+      },
+      {
+        "url": "https://amg00353-amg00353c29-plex-us-3205.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg00353-lionsgatetvfast-moviespherebrazil-plexus/playlist.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 2 (MovieSphere Brasil FHD)"
       }
     ]
   },

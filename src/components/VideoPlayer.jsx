@@ -481,12 +481,21 @@ export default function VideoPlayer({
     if (isHlsStream && Hls.isSupported()) {
       const hls = new Hls({
         enableWorker: true,
-        lowLatencyMode: true,
-        backBufferLength: 60,
-        manifestLoadingTimeOut: 6000,
-        manifestLoadingMaxRetry: 1,
-        fragLoadingTimeOut: 8000,
-        fragLoadingMaxRetry: 1,
+        lowLatencyMode: false, // Desativar para garantir buffer estável e sem engasgos
+        backBufferLength: 90, // Manter histórico de buffer
+        maxBufferLength: 35, // 35 segundos de buffer para frente (evita travamentos)
+        maxMaxBufferLength: 60,
+        maxBufferSize: 60 * 1000 * 1000,
+        liveSyncDurationCount: 3, // Inicia com 3 segmentos de margem segura da borda ao vivo
+        liveMaxLatencyDurationCount: 10,
+        manifestLoadingTimeOut: 12000,
+        manifestLoadingMaxRetry: 3,
+        levelLoadingTimeOut: 12000,
+        levelLoadingMaxRetry: 3,
+        fragLoadingTimeOut: 18000, // 18s para baixar segmentos sem abortar
+        fragLoadingMaxRetry: 3,
+        abrEwmaDefaultEstimate: 4000000,
+        testBandwidth: false
       });
       hlsRef.current = hls;
 
@@ -510,11 +519,19 @@ export default function VideoPlayer({
       });
 
       hls.on(Hls.Events.ERROR, (event, data) => {
+        // Recuperação automática de pequenos engasgos de buffer
+        if (data.details === Hls.ErrorDetails.BUFFER_STALLED_ERROR) {
+          if (video && !video.paused && video.currentTime > 0) {
+            video.currentTime += 0.2;
+          }
+          return;
+        }
+
         if (data.fatal) {
           console.warn('HLS Fatal Error:', data.type, data.details);
           switch (data.type) {
             case Hls.ErrorTypes.NETWORK_ERROR:
-              handleFallback("Erro de rede / stream indisponível");
+              handleFallback("Erro de rede / stream instável");
               break;
             case Hls.ErrorTypes.MEDIA_ERROR:
               hls.recoverMediaError();

@@ -141,7 +141,7 @@ export default async function handler(req, res) {
       res.setHeader('Content-Length', response.headers.get('content-length'));
     }
 
-    res.setHeader('Cache-Control', 'public, max-age=3600');
+    res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=7200');
 
     if (response.body && typeof Readable.fromWeb === 'function') {
       const nodeStream = Readable.fromWeb(response.body);
