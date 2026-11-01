@@ -1442,13 +1442,13 @@ export default function VideoPlayer({
           </div>
         )}
 
-        {/* Lista de Fontes Alternativas (Com troca rápida em 1 clique e espaçamento executivo) */}
+        {/* Lista de Fontes Alternativas (Com troca rápida em 1 clique e design discreto executivo) */}
         {sources.length > 1 && (
           <div className="flex items-center gap-3 overflow-x-auto py-2 px-1 text-xs scrollbar-none">
-            <span className="text-zinc-400 font-bold flex items-center gap-1.5 shrink-0 text-[11px] uppercase tracking-wider mr-1">
-              <Layers size={14} className="text-indigo-400" /> Fontes ({sources.length}):
+            <span className="text-zinc-400 font-semibold flex items-center gap-1.5 shrink-0 text-[11px] uppercase tracking-wider mr-1">
+              <Layers size={13} className="text-zinc-400" /> Fontes ({sources.length}):
             </span>
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex items-center gap-2.5 shrink-0">
               {sources.map((s, idx) => (
                 <button
                   key={idx}
@@ -1462,13 +1462,17 @@ export default function VideoPlayer({
                     showOsd(`Sintonizando ${cleanName}...`);
                   }}
                   data-tv-focus="true"
-                  className={`px-3.5 py-1.5 rounded-xl font-bold shrink-0 transition text-xs flex items-center gap-2 border ${
+                  className={`px-3 py-1.5 rounded-xl font-medium shrink-0 transition-all duration-200 text-xs flex items-center gap-2 border outline-none focus:outline-none ${
                     activeSourceIndex === idx
-                      ? 'bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-500/25 ring-2 ring-indigo-400/30'
-                      : 'bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 border-white/10 hover:border-white/25 hover:text-white'
+                      ? 'bg-indigo-500/20 text-indigo-200 border-indigo-400/30 shadow-sm backdrop-blur-sm hover:bg-indigo-500/30 hover:border-indigo-400/45'
+                      : 'bg-zinc-950/40 hover:bg-white/5 text-zinc-400 hover:text-zinc-200 border-white/5 hover:border-white/15'
                   }`}
                 >
-                  <span className={`w-2 h-2 rounded-full shrink-0 ${activeSourceIndex === idx ? 'bg-emerald-400 animate-pulse ring-2 ring-emerald-400/30' : 'bg-zinc-500'}`}></span>
+                  <span className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${
+                    activeSourceIndex === idx 
+                      ? 'bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.4)]' 
+                      : 'bg-zinc-600'
+                  }`}></span>
                   <span className="truncate">{s.nome || `Fonte ${idx + 1}`}</span>
                 </button>
               ))}
