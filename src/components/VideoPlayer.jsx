@@ -467,12 +467,12 @@ export default function VideoPlayer({
       clearTimeout(timeoutRef.current);
     }
 
-    // Timeout de conexão rápido (3.8 segundos para fallback instantâneo sem travamentos)
+    // Timeout de conexão para fallback seguro (12s para buffering de fragmentos pesados FHD de 10s)
     timeoutRef.current = setTimeout(() => {
       if (!isLoadedRef.current && (sourcesRef.current.length > 1 || !forceProxyForCurrent)) {
-        handleFallback("Tempo limite de resposta");
+        handleFallback("Tempo limite de conexão");
       }
-    }, 3800);
+    }, 12000);
 
     // Detectar se o vídeo é MP4 ou HLS baseado na URL real da fonte
     const rawTarget = (currentSource?.url || '').toLowerCase();
@@ -520,27 +520,35 @@ export default function VideoPlayer({
         enableWorker: true,
         lowLatencyMode: false,
         backBufferLength: 60,
-        maxBufferLength: 30,
-        maxMaxBufferLength: 50,
-        maxBufferSize: 50 * 1000 * 1000,
+        maxBufferLength: 45, // Mantém até 45s de buffer contínuo sem engasgos
+        maxMaxBufferLength: 90,
+        maxBufferSize: 60 * 1000 * 1000,
         startFragPrefetch: true, // Começar a baixar fragmento em paralelo com a playlist
         initialLiveManifestSize: 1, // Iniciar imediatamente com 1 playlist recebida
         progressive: true, // Reprodução progressiva acelerada
-        liveSyncDurationCount: 1.5, // Partida ultrarrápida da borda ao vivo (< 800ms)
-        liveMaxLatencyDurationCount: 8,
-        manifestLoadingTimeOut: 4000, // Timeout ágil de 4s
-        manifestLoadingMaxRetry: 1,
-        levelLoadingTimeOut: 4000,
-        levelLoadingMaxRetry: 1,
-        fragLoadingTimeOut: 8500,
-        fragLoadingMaxRetry: 2,
-        abrEwmaDefaultEstimate: 4500000,
+        liveSyncDurationCount: 3, // 3 fragmentos (~18s a 30s) garantem reprodução 100% contínua sem engasgos
+        liveMaxLatencyDurationCount: 10,
+        manifestLoadingTimeOut: 10000,
+        manifestLoadingMaxRetry: 3,
+        levelLoadingTimeOut: 10000,
+        levelLoadingMaxRetry: 3,
+        fragLoadingTimeOut: 25000, // 25s de tolerância para fragmentos pesados de 10s (5.8MB)
+        fragLoadingMaxRetry: 4,
+        abrEwmaDefaultEstimate: 5000000,
         testBandwidth: false
       });
       hlsRef.current = hls;
 
       hls.loadSource(streamUrl);
       hls.attachMedia(video);
+
+      hls.on(Hls.Events.MANIFEST_LOADED, () => {
+        // Conexão bem-sucedida com o servidor de stream
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = null;
+        }
+      });
 
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         startPlayback();
@@ -549,6 +557,10 @@ export default function VideoPlayer({
       hls.on(Hls.Events.FRAG_LOADED, () => {
         isLoadedRef.current = true;
         setLoading(false);
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = null;
+        }
       });
 
       hls.on(Hls.Events.ERROR, (event, data) => {
@@ -564,13 +576,22 @@ export default function VideoPlayer({
           console.warn('HLS Fatal Error:', data.type, data.details);
           switch (data.type) {
             case Hls.ErrorTypes.NETWORK_ERROR:
-              handleFallback("Erro de rede / stream instável");
+              try {
+                console.warn('HLS: Tentando recuperação de rede com startLoad()...');
+                hls.startLoad();
+              } catch {
+                handleFallback("Erro de rede / stream instável");
+              }
               break;
             case Hls.ErrorTypes.MEDIA_ERROR:
-              hls.recoverMediaError();
+              try {
+                hls.recoverMediaError();
+              } catch {
+                handleFallback("Erro de mídia / decodificação");
+              }
               break;
             default:
-              handleFallback("Falha de decodificação");
+              handleFallback("Falha de reprodução");
               break;
           }
         }
@@ -1407,31 +1428,36 @@ export default function VideoPlayer({
           </div>
         )}
 
-        {/* Lista de Fontes Alternativas (Com troca rápida em 1 clique) */}
+        {/* Lista de Fontes Alternativas (Com troca rápida em 1 clique e espaçamento executivo) */}
         {sources.length > 1 && (
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs scrollbar-none">
-            <span className="text-zinc-300 font-bold flex items-center gap-1 shrink-0 text-[11px] uppercase tracking-wider">
-              <Layers size={13} className="text-indigo-400" /> Fontes ({sources.length}):
+          <div className="flex items-center gap-3 overflow-x-auto py-2 px-1 text-xs scrollbar-none">
+            <span className="text-zinc-400 font-bold flex items-center gap-1.5 shrink-0 text-[11px] uppercase tracking-wider mr-1">
+              <Layers size={14} className="text-indigo-400" /> Fontes ({sources.length}):
             </span>
-            {sources.map((s, idx) => (
-              <button
-                key={idx}
-                onClick={() => {
-                  setActiveSourceIndex(idx);
-                  setForceProxyForCurrent(false);
-                  showOsd(`Conectando ${s.nome || `Fonte ${idx + 1}`}...`);
-                }}
-                data-tv-focus="true"
-                className={`px-2.5 py-1 rounded-lg font-bold shrink-0 transition text-xs flex items-center gap-1 ${
-                  activeSourceIndex === idx
-                    ? 'bg-indigo-600 text-white shadow-lg ring-2 ring-indigo-400/40 scale-105'
-                    : 'bg-zinc-850 hover:bg-zinc-750 text-zinc-300 border border-white/5 hover:border-white/20'
-                }`}
-              >
-                <span className={`w-1.5 h-1.5 rounded-full ${activeSourceIndex === idx ? 'bg-emerald-400 animate-pulse' : 'bg-zinc-500'}`}></span>
-                <span>{s.nome || `Fonte ${idx + 1}`}</span>
-              </button>
-            ))}
+            <div className="flex items-center gap-3 shrink-0">
+              {sources.map((s, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    setActiveSourceIndex(idx);
+                    setForceProxyForCurrent(false);
+                    if (item?.id) {
+                      try { sessionStorage.setItem(`langos_best_source_${item.id}`, idx.toString()); } catch {}
+                    }
+                    showOsd(`Conectando ${s.nome || `Fonte ${idx + 1}`}...`);
+                  }}
+                  data-tv-focus="true"
+                  className={`px-3.5 py-1.5 rounded-xl font-bold shrink-0 transition text-xs flex items-center gap-2 border ${
+                    activeSourceIndex === idx
+                      ? 'bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-500/25 ring-2 ring-indigo-400/30'
+                      : 'bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 border-white/10 hover:border-white/25 hover:text-white'
+                  }`}
+                >
+                  <span className={`w-2 h-2 rounded-full shrink-0 ${activeSourceIndex === idx ? 'bg-emerald-400 animate-pulse ring-2 ring-emerald-400/30' : 'bg-zinc-500'}`}></span>
+                  <span className="truncate">{s.nome || `Fonte ${idx + 1}`}</span>
+                </button>
+              ))}
+            </div>
           </div>
         )}
 

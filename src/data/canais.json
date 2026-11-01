@@ -6,19 +6,14 @@
     "logo": "https://img.faz-o-eli.online/globo.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (TV Bahia Oficial FHD)",
         "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo Principal)"
+        "qualidade": "FHD · 1920x1080"
       },
       {
+        "nome": "Fonte 2 (Rede Globo HD)",
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 2 (HD · 720p)"
-      },
-      {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · SSL",
-        "nome": "Fonte 3 (HD · SSL)"
+        "qualidade": "HD · 1280x720"
       }
     ],
     "uf": "BA",
@@ -226,24 +221,9 @@
     "logo": "https://img.faz-o-eli.online/globonews.png",
     "fontes": [
       {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 1 (HD · 720p)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 2 (FHD · CDN Edge)"
-      },
-      {
         "url": "http://45.185.11.126:8000/play/a08d/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 3 (FHD · 1920x1080)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 4 (HD · 720p)"
       },
       {
         "url": "http://79.127.238.228:14093",
@@ -258,21 +238,6 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/globonovelas.prev.png",
     "fontes": [
-      {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 1 (HD · 720p)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 2 (FHD · CDN Edge)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
-      },
       {
         "url": "http://79.127.238.228:14455",
         "qualidade": "HD · 1280x720",
@@ -418,9 +383,9 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "url": "http://45.185.11.126:8000/play/a06g/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
+        "nome": "Fonte 1 (Premiere Ao Vivo FHD)",
+        "url": "http://45.185.11.126:8000/play/a05j/index.m3u8",
+        "qualidade": "FHD · 1920x1080"
       }
     ]
   },
@@ -496,11 +461,6 @@
         "url": "http://45.185.11.126:8000/play/a05f/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
-      },
-      {
-        "nome": "Fonte 2 (GE TV Esportes FHD)",
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist1080p.m3u8",
-        "qualidade": "FHD · 1920x1080"
       }
     ]
   },
@@ -514,11 +474,6 @@
         "url": "http://45.185.11.126:8000/play/a06v/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
-      },
-      {
-        "nome": "Fonte 2 (GE TV Esportes FHD)",
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist1080p.m3u8",
-        "qualidade": "FHD · 1920x1080"
       }
     ]
   },
@@ -532,11 +487,6 @@
         "url": "http://45.185.11.126:8000/play/a07t/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
-      },
-      {
-        "nome": "Fonte 2 (Red Bull TV Esportes Radicais FHD)",
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist1080p.m3u8",
-        "qualidade": "FHD · 1920x1080"
       }
     ]
   },
@@ -641,21 +591,6 @@
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "FHD · 1080p",
         "nome": "Fonte 1 (Ao Vivo Principal)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 2 (Backup Ao Vivo)"
-      },
-      {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 4 (HD · 720p)"
       }
     ],
     "uf": "SP",
@@ -1121,21 +1056,6 @@
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "FHD · 1080p",
         "nome": "Fonte 1 (Ao Vivo Principal)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 2 (Backup Ao Vivo)"
-      },
-      {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 4 (HD · 720p)"
       }
     ],
     "uf": "BR",
@@ -2488,19 +2408,9 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 1 (HD · 720p)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 2 (FHD · CDN Edge)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
+        "nome": "Fonte 1 (Rede Globo Ao Vivo)",
+        "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ],
     "uf": "AM",
@@ -2514,19 +2424,9 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 1 (HD · 720p)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 2 (FHD · CDN Edge)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
+        "nome": "Fonte 1 (Rede Globo Ao Vivo)",
+        "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ],
     "uf": "CE",
@@ -2540,19 +2440,9 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 1 (HD · 720p)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 2 (FHD · CDN Edge)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
+        "nome": "Fonte 1 (Rede Globo Ao Vivo)",
+        "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ],
     "uf": "ES",
@@ -2566,19 +2456,9 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 1 (HD · 720p)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 2 (FHD · CDN Edge)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
+        "nome": "Fonte 1 (Rede Globo Ao Vivo)",
+        "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ],
     "uf": "GO",
@@ -2592,19 +2472,9 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 1 (HD · 720p)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 2 (FHD · CDN Edge)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
+        "nome": "Fonte 1 (Rede Globo Ao Vivo)",
+        "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ],
     "uf": "PB",
@@ -2618,19 +2488,9 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 1 (HD · 720p)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 2 (FHD · CDN Edge)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
+        "nome": "Fonte 1 (Rede Globo Ao Vivo)",
+        "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ],
     "uf": "PE",
@@ -2647,21 +2507,6 @@
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "FHD · 1080p",
         "nome": "Fonte 1 (Ao Vivo Principal)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 2 (Backup Ao Vivo)"
-      },
-      {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 4 (HD · 720p)"
       }
     ],
     "uf": "RJ",
@@ -2675,19 +2520,9 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 1 (HD · 720p)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 2 (FHD · CDN Edge)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
+        "nome": "Fonte 1 (Rede Globo Ao Vivo)",
+        "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ],
     "uf": "RS",
@@ -2701,19 +2536,9 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 1 (HD · 720p)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 2 (FHD · CDN Edge)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
+        "nome": "Fonte 1 (Rede Globo Ao Vivo)",
+        "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ],
     "uf": "DF",
@@ -2727,19 +2552,9 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 1 (HD · 720p)"
-      },
-      {
-        "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-        "qualidade": "FHD · CDN Edge",
-        "nome": "Fonte 2 (FHD · CDN Edge)"
-      },
-      {
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast_BR/GE_Fast.m3u8",
-        "qualidade": "HD · 720p",
-        "nome": "Fonte 3 (HD · 720p)"
+        "nome": "Fonte 1 (Rede Globo Ao Vivo)",
+        "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ],
     "uf": "MG",
