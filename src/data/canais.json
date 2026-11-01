@@ -34,8 +34,8 @@
         "qualidade": "FHD · 1920x1080"
       },
       {
-        "nome": "Fonte 2 (Band Bahia HD)",
-        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/720p/index.m3u8",
+        "nome": "Fonte 2 (Band Nacional HD Oficial)",
+        "url": "http://138.204.86.4:8080/BAND_HD/index.m3u8",
         "qualidade": "HD · 1280x720"
       }
     ],
@@ -95,14 +95,19 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/band.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Band TV Aberta Oficial FHD)",
-        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/index.m3u8",
-        "qualidade": "FHD · 1920x1080"
+        "nome": "Fonte 1 (Band TV Aberta Oficial HD)",
+        "url": "http://138.204.86.4:8080/BAND_HD/index.m3u8",
+        "qualidade": "HD · 1280x720"
       },
       {
-        "nome": "Fonte 2 (Band TV Aberta Oficial HD)",
-        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/720p/index.m3u8",
+        "nome": "Fonte 2 (Band News HD)",
+        "url": "http://45.185.11.126:8000/play/a076/index.m3u8",
         "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 3 (Band Thathi FHD)",
+        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/index.m3u8",
+        "qualidade": "FHD · 1920x1080"
       }
     ],
     "uf": "BR",
@@ -344,9 +349,9 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/premiere.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (Premiere 6 Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a05j/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo HD)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -357,9 +362,9 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (Premiere 7 Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a05k/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo HD)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -370,9 +375,9 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/premiere.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (Premiere 8 Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a05l/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo HD)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -383,9 +388,14 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Premiere Ao Vivo FHD)",
+        "nome": "Fonte 1 (Premiere Clubes Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a06g/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 2 (Premiere 6 HD)",
         "url": "http://45.185.11.126:8000/play/a05j/index.m3u8",
-        "qualidade": "FHD · 1920x1080"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -458,9 +468,14 @@
     "logo": "https://img.faz-o-eli.online/sportv2.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (SporTV 2 Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a05f/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 2 (SporTV 3 HD)",
+        "url": "http://45.185.11.126:8000/play/a06v/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -471,9 +486,14 @@
     "logo": "https://img.faz-o-eli.online/sportv3.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (SporTV 3 Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a06v/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 2 (SporTV 2 HD)",
+        "url": "http://45.185.11.126:8000/play/a05f/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -497,13 +517,8 @@
     "logo": "https://img.faz-o-eli.online/telecineaction.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (Telecine Action Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a058/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
-      },
-      {
-        "nome": "Fonte 2 (Telecine Pipoca HD)",
-        "url": "http://45.185.11.126:8000/play/a08g/index.m3u8",
         "qualidade": "HD · 1280x720"
       }
     ]
@@ -515,9 +530,9 @@
     "logo": "https://img.faz-o-eli.online/telecinepipoca.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (Telecine Pipoca Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08g/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -707,14 +722,9 @@
     "logo": "https://img.faz-o-eli.online/espn2.png",
     "fontes": [
       {
-        "url": "http://45.162.64.114/ESPN_BRASIL/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
-      },
-      {
+        "nome": "Fonte 1 (ESPN 2 Oficial HD)",
         "url": "http://138.204.86.4:8080/ESPN2_HD/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2 (HD · 1280x720)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -779,13 +789,13 @@
     "logo": "https://img.faz-o-eli.online/hbo.png",
     "fontes": [
       {
-        "url": "http://138.204.86.4:8080/HBO/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
+        "nome": "Fonte 1 (HBO Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a08n/index.m3u8",
+        "qualidade": "HD · 1280x720"
       },
       {
         "nome": "Fonte 2 (HBO Alternativa HD)",
-        "url": "http://45.185.11.126:8000/play/a08o/index.m3u8",
+        "url": "http://138.204.86.4:8080/HBO/index.m3u8",
         "qualidade": "HD · 1280x720"
       }
     ]
@@ -797,14 +807,14 @@
     "logo": "https://img.faz-o-eli.online/hbo2.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (HBO2 Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08o/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
+        "qualidade": "HD · 1280x720"
       },
       {
+        "nome": "Fonte 2 (HBO2 Alternativa HD)",
         "url": "http://138.204.86.4:8080/HBO2/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2 (HD · 1280x720)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -815,14 +825,14 @@
     "logo": "https://img.faz-o-eli.online/hbofamily.png",
     "fontes": [
       {
-        "url": "http://138.204.86.4:8080/HBO_FAMILY/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
+        "nome": "Fonte 1 (HBO Family Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a08q/index.m3u8",
+        "qualidade": "HD · 1280x720"
       },
       {
-        "nome": "Fonte 2 (MovieSphere Cinema FHD)",
-        "url": "https://amg00353-amg00353c29-plex-us-3205.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg00353-lionsgatetvfast-moviespherebrazil-plexus/playlist.m3u8",
-        "qualidade": "FHD · 1920x1080"
+        "nome": "Fonte 2 (HBO Family Alternativa HD)",
+        "url": "http://138.204.86.4:8080/HBO_FAMILY/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -833,9 +843,14 @@
     "logo": "https://img.faz-o-eli.online/hbomundi.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (HBO Mundi Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a082/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 2 (HBO Mundi Alternativa HD)",
         "url": "http://138.204.86.4:8080/HBO_MUNDI_HD/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -846,9 +861,14 @@
     "logo": "https://img.faz-o-eli.online/hboplus.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (HBO+ Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a08p/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 2 (HBO Plus Alternativa HD)",
         "url": "http://138.204.86.4:8080/HBO_PLUS/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -859,14 +879,14 @@
     "logo": "https://img.faz-o-eli.online/hbopop.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (HBO Pop Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08s/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
+        "qualidade": "HD · 1280x720"
       },
       {
+        "nome": "Fonte 2 (HBO Pop Alternativa HD)",
         "url": "http://138.204.86.4:8080/HBO_POP_HD/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2 (HD · 1280x720)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -877,9 +897,14 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/hbo-signature.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (HBO Signature Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a08r/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 2 (HBO Signature Alternativa HD)",
         "url": "http://138.204.86.4:8080/HBO_SIGNATURE/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -890,9 +915,9 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/hbo-xtreme.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (HBO Xtreme Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a083/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -1014,9 +1039,9 @@
     "logo": "https://img.faz-o-eli.online/telecinefun.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (Telecine Fun Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a059/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -1027,9 +1052,9 @@
     "logo": "https://img.faz-o-eli.online/telecinecult.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (Telecine Cult Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a05a/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -1271,19 +1296,9 @@
     "logo": "https://img.faz-o-eli.online/espn3.png",
     "fontes": [
       {
-        "url": "http://45.162.64.114/ESPN_BRASIL/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo FHD)"
-      },
-      {
+        "nome": "Fonte 1 (ESPN 3 Oficial HD)",
         "url": "http://138.204.86.4:8080/ESPN3_HD/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2 (HD · 1280x720)"
-      },
-      {
-        "url": "http://181.78.197.59:8000/play/a081/index.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3 (FHD · 1920x1080)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -1490,19 +1505,19 @@
     "logo": "https://img.faz-o-eli.online/musicboxbrazil.png",
     "fontes": [
       {
+        "nome": "Fonte 1 (Trace Brasil Música HD)",
+        "url": "http://45.185.11.126:8000/play/a08l/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 2 (BIS HD)",
+        "url": "http://45.185.11.126:8000/play/a07w/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 3 (Music Box Oficial)",
         "url": "http://170.83.49.66:8083/MUSICBOXBRASILHD/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (Music Box Oficial HD)"
-      },
-      {
-        "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01131-tracetv-tracebrazuca-samsungbr/playlist.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2 (Trace Música Brasil FHD)"
-      },
-      {
-        "url": "https://isaocorp.cloudecast.com/toptv/index.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3 (Top TV Clipes Brasil FHD)"
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -2852,6 +2867,102 @@
         "url": "https://stmv2.painelvideocast.com.br/multicanais/multicanais/playlist.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
+      }
+    ]
+  },
+  {
+    "id": "ch-sportv-1",
+    "nome": "SporTV",
+    "categoria": "Esportes",
+    "logo": "https://img.faz-o-eli.online/sportv.png",
+    "fontes": [
+      {
+        "nome": "Fonte 1 (SporTV 1 Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a05g/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 2 (SporTV 2 HD)",
+        "url": "http://45.185.11.126:8000/play/a05f/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      }
+    ]
+  },
+  {
+    "id": "ch-tc-prem",
+    "nome": "Telecine Premium",
+    "categoria": "Filmes e Séries",
+    "logo": "https://img.faz-o-eli.online/telecine_premium.png",
+    "fontes": [
+      {
+        "nome": "Fonte 1 (Telecine Premium Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a08e/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      }
+    ]
+  },
+  {
+    "id": "ch-tc-touch",
+    "nome": "Telecine Touch",
+    "categoria": "Filmes e Séries",
+    "logo": "https://img.faz-o-eli.online/telecine_touch.png",
+    "fontes": [
+      {
+        "nome": "Fonte 1 (Telecine Touch Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a08f/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      }
+    ]
+  },
+  {
+    "id": "ch-prem-2",
+    "nome": "Premiere 2",
+    "categoria": "Esportes",
+    "logo": "https://img.faz-o-eli.online/premiere.png",
+    "fontes": [
+      {
+        "nome": "Fonte 1 (Premiere 2 Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a06h/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      }
+    ]
+  },
+  {
+    "id": "ch-prem-3",
+    "nome": "Premiere 3",
+    "categoria": "Esportes",
+    "logo": "https://img.faz-o-eli.online/premiere.png",
+    "fontes": [
+      {
+        "nome": "Fonte 1 (Premiere 3 Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a0av/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      }
+    ]
+  },
+  {
+    "id": "ch-prem-4",
+    "nome": "Premiere 4",
+    "categoria": "Esportes",
+    "logo": "https://img.faz-o-eli.online/premiere.png",
+    "fontes": [
+      {
+        "nome": "Fonte 1 (Premiere 4 Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a07b/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      }
+    ]
+  },
+  {
+    "id": "ch-prem-5",
+    "nome": "Premiere 5",
+    "categoria": "Esportes",
+    "logo": "https://img.faz-o-eli.online/premiere.png",
+    "fontes": [
+      {
+        "nome": "Fonte 1 (Premiere 5 Oficial HD)",
+        "url": "http://45.185.11.126:8000/play/a07c/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ]
   }

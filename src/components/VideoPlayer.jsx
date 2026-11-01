@@ -72,6 +72,19 @@ export default function VideoPlayer({
   // Guia Rápido de Canais Dentro do Player
   const [isChannelDrawerOpen, setIsChannelDrawerOpen] = useState(false);
   const [drawerCategory, setDrawerCategory] = useState('Todos');
+  const drawerListRef = useRef(null);
+
+  useEffect(() => {
+    if (isChannelDrawerOpen && drawerListRef.current) {
+      setTimeout(() => {
+        if (!drawerListRef.current) return;
+        const activeBtn = drawerListRef.current.querySelector('[data-is-current="true"]');
+        if (activeBtn) {
+          drawerListRef.current.scrollTop = Math.max(0, activeBtn.offsetTop - drawerListRef.current.offsetTop - 12);
+        }
+      }, 50);
+    }
+  }, [isChannelDrawerOpen, item?.id]);
 
   // Prompt "Continuar de onde parou"
   const [resumePrompt, setResumePrompt] = useState(null);
@@ -553,6 +566,17 @@ export default function VideoPlayer({
         }
       });
 
+      hls.on(Hls.Events.LEVEL_LOADED, (event, data) => {
+        const details = data.details;
+        if (details && details.live) {
+          // Se o playlist ao vivo tiver poucos fragmentos (ex: <= 5 fragmentos como Box Brazil),
+          // manter sincronismo mais próximo da ponta ao vivo para evitar 404 em fragmentos já expurgados
+          if (details.fragments.length <= 5) {
+            hls.config.liveSyncDurationCount = 2;
+          }
+        }
+      });
+
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         startPlayback();
       });
@@ -570,6 +594,14 @@ export default function VideoPlayer({
       hls.on(Hls.Events.ERROR, (event, data) => {
         // Deixar o HLS.js gerenciar stalls naturalmente sem forçar seek que causa engasgos
         if (data.details === Hls.ErrorDetails.BUFFER_STALLED_ERROR) {
+          return;
+        }
+
+        // Se um fragmento deu 404/410 num canal ao vivo, avançar sem travar a reprodução
+        if (data.details === Hls.ErrorDetails.FRAG_LOAD_ERROR && data.response?.code === 404) {
+          try {
+            hls.startLoad();
+          } catch {}
           return;
         }
 
@@ -1070,10 +1102,10 @@ export default function VideoPlayer({
       {/* Drawer Guia Rápido de Canais */}
       {isChannelDrawerOpen && (
         <div 
-          className="absolute inset-y-0 left-0 w-72 sm:w-80 bg-zinc-950/95 backdrop-blur-xl border-r border-white/10 z-40 flex flex-col p-3 shadow-2xl animate-fadeIn"
+          className="absolute inset-y-0 left-0 w-72 sm:w-80 bg-zinc-950/95 backdrop-blur-xl border-r border-white/10 z-40 flex flex-col p-3 shadow-2xl animate-fadeIn overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+          <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/10 shrink-0">
             <h3 className="font-extrabold text-xs uppercase tracking-wider text-white flex items-center gap-1.5">
               <Tv size={14} className="text-indigo-400" /> Guia Rápido de Canais
             </h3>
@@ -1088,7 +1120,7 @@ export default function VideoPlayer({
           </div>
 
           {/* Categorias no Drawer */}
-          <div className="flex items-center gap-1 overflow-x-auto pb-2 scrollbar-none mb-2">
+          <div className="flex items-center gap-1 overflow-x-auto pb-2 scrollbar-none mb-2 shrink-0">
             {drawerCategories.map(cat => (
               <button
                 key={cat}
@@ -1106,14 +1138,14 @@ export default function VideoPlayer({
           </div>
 
           {/* Lista de Canais com EPG Passando Agora */}
-          <div className="flex-1 overflow-y-auto space-y-1.5 scrollbar-none pr-1">
+          <div ref={drawerListRef} className="flex-1 overflow-y-auto space-y-1.5 scrollbar-none pr-1 min-h-0">
             {drawerChannels.map(ch => {
               const chEpg = EpgService.getProgramForChannel(ch.nome, ch.categoria);
               const isCurrentCh = ch.id === item?.id;
               return (
                 <button
                   key={ch.id}
-                  ref={isCurrentCh ? (el => { if (el && isChannelDrawerOpen) setTimeout(() => el.scrollIntoView({ block: 'nearest' }), 50); }) : null}
+                  data-is-current={isCurrentCh ? "true" : "false"}
                   onClick={() => {
                     if (onSelectChannel) onSelectChannel(ch);
                     setIsChannelDrawerOpen(false);
