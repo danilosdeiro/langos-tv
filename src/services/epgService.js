@@ -108,6 +108,64 @@ const CHANNEL_SCHEDULES = {
     { start: '00:30', end: '01:15', title: 'Conversa com Bial' },
     { start: '01:15', end: '06:00', title: 'Corujão' }
   ],
+  band_bahia: [
+    { start: '06:00', end: '08:00', title: 'Band Bom Dia com Notícias' },
+    { start: '08:00', end: '09:00', title: 'Bora Brasil com Joel Datena' },
+    { start: '09:00', end: '11:00', title: 'The Chef com Edu Guedes' },
+    { start: '11:00', end: '13:00', title: 'Jogo Aberto Bahia (Ao Vivo)' },
+    { start: '13:00', end: '14:00', title: 'Os Donos da Bola Bahia' },
+    { start: '14:00', end: '15:30', title: 'Melhor da Tarde com Catia Fonseca' },
+    { start: '15:30', end: '18:50', title: 'Brasil Urgente Bahia (Ao Vivo)' },
+    { start: '18:50', end: '19:20', title: 'Band Cidade Bahia' },
+    { start: '19:20', end: '20:30', title: 'Jornal da Band com Eduardo Oinegue' },
+    { start: '20:30', end: '22:00', title: 'Melhor da Noite com Glenda Kozlowski' },
+    { start: '22:00', end: '23:30', title: 'Perrengue do Dia & MasterChef' },
+    { start: '23:30', end: '01:00', title: 'Jornal da Noite' },
+    { start: '01:00', end: '06:00', title: 'Linha de Combate / BandNews na Madrugada' }
+  ],
+  record_bahia: [
+    { start: '06:30', end: '08:40', title: 'Balanço Geral Manhã Bahia' },
+    { start: '08:40', end: '10:00', title: 'Fala Brasil com Mariana Godoy' },
+    { start: '10:00', end: '11:50', title: 'Hoje em Dia com Ana Hickmann' },
+    { start: '11:50', end: '15:15', title: 'Balanço Geral Bahia (Zé Eduardo Bocão Ao Vivo)' },
+    { start: '15:15', end: '16:30', title: 'Novela da Tarde: A Terra Prometida' },
+    { start: '16:30', end: '18:00', title: 'Cidade Alerta Bahia (Ao Vivo)' },
+    { start: '18:00', end: '19:50', title: 'Cidade Alerta com Luiz Bacci' },
+    { start: '19:50', end: '20:40', title: 'Jornal da Record com Celso Freitas' },
+    { start: '20:40', end: '21:45', title: 'Novela: Força de Mulher' },
+    { start: '21:45', end: '22:45', title: 'Série Bíblica: A Rainha da Pérsia' },
+    { start: '22:45', end: '00:00', title: 'A Fazenda / Câmera Record' },
+    { start: '00:00', end: '06:30', title: 'JR 24 Horas & Fala Que Eu Te Escuto' }
+  ],
+  sbt_bahia: [
+    { start: '06:00', end: '07:30', title: 'Primeiro Impacto' },
+    { start: '07:30', end: '08:30', title: 'Bom Dia Bahia (Casemiro Neto Ao Vivo)' },
+    { start: '08:30', end: '11:15', title: 'Chega Mais' },
+    { start: '11:15', end: '13:00', title: 'Alô Juca (Marcelo Castro Ao Vivo)' },
+    { start: '13:00', end: '13:45', title: 'Universo Axé com Alex Lopes' },
+    { start: '13:45', end: '14:30', title: 'Aratu Notícias 1ª Edição' },
+    { start: '14:30', end: '16:15', title: 'Fofocalizando' },
+    { start: '16:15', end: '17:30', title: 'Contigo Sim (Novela Mexicana)' },
+    { start: '17:30', end: '19:15', title: 'Tá na Hora Bahia' },
+    { start: '19:15', end: '19:45', title: 'Aratu Notícias 2ª Edição' },
+    { start: '19:45', end: '20:45', title: 'SBT Brasil com César Filho' },
+    { start: '20:45', end: '21:45', title: 'A Infância de Romeu e Julieta' },
+    { start: '21:45', end: '22:45', title: 'Programa do Ratinho' },
+    { start: '22:45', end: '00:30', title: 'A Praça é Nossa / Cine Espetacular' },
+    { start: '00:30', end: '06:00', title: 'The Noite com Danilo Gentili & Operação Mesquita' }
+  ],
+  tve_bahia: [
+    { start: '06:00', end: '08:00', title: 'Música da Bahia e Encontros Culturais' },
+    { start: '08:00', end: '10:00', title: 'TVE Revista (Cultura e Artes da Bahia)' },
+    { start: '10:00', end: '12:00', title: 'Especial Música Instrumental Baiana' },
+    { start: '12:00', end: '13:30', title: 'TVE Notícias (1ª Edição Ao Vivo)' },
+    { start: '13:30', end: '15:30', title: 'Bahia de Todos os Cantos (Documentário)' },
+    { start: '15:30', end: '18:30', title: 'Festival de Música Educadora FM / Concha Acústica' },
+    { start: '18:30', end: '19:30', title: 'TVE Notícias (2ª Edição Ao Vivo)' },
+    { start: '19:30', end: '21:30', title: 'Especial Shows Ao Vivo no Pelourinho' },
+    { start: '21:30', end: '00:00', title: 'Cinema Baiano e Nacional na TVE' },
+    { start: '00:00', end: '06:00', title: 'Madrugada Musical TVE' }
+  ],
 
   // =========================================================================
   // --- FAMÍLIA HBO (8 CANAIS COM GRADES 100% INDIVIDUAIS E DIFERENCIADAS) ---
@@ -762,6 +820,22 @@ function resolveSchedule(channelName, category = '') {
     if (name.includes('rs') || name.includes('rio grande')) return CHANNEL_SCHEDULES.globo_rs;
     if (name.includes('pe') || name.includes('pernambuco')) return CHANNEL_SCHEDULES.globo_pe;
     if (!name.includes('news')) return CHANNEL_SCHEDULES.globo_padrao;
+  }
+
+  // 1.1 TV ABERTA REGIONAL & BAHIA
+  if (name.includes('band')) {
+    if (name.includes('sports')) return CHANNEL_SCHEDULES.band_sports;
+    if (name.includes('news')) return CHANNEL_SCHEDULES.band_news;
+    return CHANNEL_SCHEDULES.band_bahia;
+  }
+  if (name.includes('record')) {
+    if (!name.includes('news')) return CHANNEL_SCHEDULES.record_bahia;
+  }
+  if (name.includes('sbt')) {
+    if (!name.includes('news')) return CHANNEL_SCHEDULES.sbt_bahia;
+  }
+  if (name.includes('tve')) {
+    return CHANNEL_SCHEDULES.tve_bahia;
   }
 
   // 2. FAMÍLIA HBO (TODOS OS 8 CANAIS DISTINTOS)

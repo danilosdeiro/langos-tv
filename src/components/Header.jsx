@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Tv, Film, Clapperboard, Star, Settings, Search, X, DownloadCloud } from 'lucide-react';
+import { Tv, Film, Clapperboard, Star, Settings, Search, X, DownloadCloud, MapPin } from 'lucide-react';
 
 export default function Header({ 
   activeTab, 
@@ -10,7 +10,8 @@ export default function Header({
   onOpenSettings,
   onOpenInstallTv,
   isTvMode = false,
-  onToggleTvMode
+  onToggleTvMode,
+  userState = 'BA'
 }) {
   const [time, setTime] = useState('');
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -219,6 +220,18 @@ export default function Header({
           >
             <DownloadCloud size={15} />
             <span>Instalar no BTV</span>
+          </button>
+
+          {/* Botão de Região / Estado */}
+          <button
+            onClick={onOpenSettings}
+            data-tv-focus="true"
+            className="px-2.5 py-1.5 rounded-xl bg-zinc-900 border border-white/10 text-xs font-bold text-zinc-300 hover:text-white hover:border-indigo-500/50 transition flex items-center gap-1.5 shrink-0"
+            title="Região dos Canais Abertos (Clique para mudar seu Estado)"
+          >
+            <MapPin size={14} className="text-indigo-400" />
+            <span className="hidden sm:inline">Região:</span>
+            <span className="text-white font-extrabold">{userState === 'TODOS' ? 'Brasil' : userState}</span>
           </button>
 
           <button

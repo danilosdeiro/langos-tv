@@ -20,7 +20,52 @@
         "qualidade": "HD · SSL",
         "nome": "Fonte 3 (HD · SSL)"
       }
-    ]
+    ],
+    "uf": "BA",
+    "estado": "Bahia",
+    "isNational": false
+  },
+  {
+    "id": "ch-band-ba",
+    "nome": "Band Bahia",
+    "categoria": "TV Aberta",
+    "uf": "BA",
+    "estado": "Bahia",
+    "logo": "https://mondrian.claro.com.br/channels/inverse/band.png",
+    "fontes": [
+      {
+        "nome": "Fonte 1 (Band Bahia / TV Aberta FHD)",
+        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/index.m3u8",
+        "qualidade": "FHD · 1920x1080"
+      },
+      {
+        "nome": "Fonte 2 (Band Bahia HD)",
+        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/720p/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      }
+    ],
+    "isNational": false
+  },
+  {
+    "id": "ch-record-ba",
+    "nome": "Record Bahia",
+    "categoria": "TV Aberta",
+    "uf": "BA",
+    "estado": "Bahia",
+    "logo": "https://mondrian.claro.com.br/channels/inverse/record-tv.png",
+    "fontes": [
+      {
+        "nome": "Fonte 1 (Record TV Itapoan / Record Bahia FHD)",
+        "url": "http://138.204.86.4:8080/RECORD/index.m3u8",
+        "qualidade": "FHD · 1920x1080"
+      },
+      {
+        "nome": "Fonte 2 (Record Bahia HD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
+        "qualidade": "HD · 1280x720"
+      }
+    ],
+    "isNational": false
   },
   {
     "id": "ch-2",
@@ -55,21 +100,19 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/band.png",
     "fontes": [
       {
-        "url": "http://138.204.86.4:8080/BAND_HD/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
-      },
-      {
+        "nome": "Fonte 1 (Band TV Aberta Oficial FHD)",
         "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/index.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2 (HD · 1280x720)"
+        "qualidade": "FHD · 1920x1080"
       },
       {
+        "nome": "Fonte 2 (Band TV Aberta Oficial HD)",
         "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/720p/index.m3u8",
-        "qualidade": "Auto",
-        "nome": "Fonte 3 (Auto)"
+        "qualidade": "HD · 1280x720"
       }
-    ]
+    ],
+    "uf": "BR",
+    "isNational": true,
+    "estado": "Nacional"
   },
   {
     "id": "ch-6",
@@ -397,7 +440,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 2 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-28",
@@ -541,7 +587,10 @@
         "qualidade": "SD · 576x324",
         "nome": "Fonte 2 (SD · 576x324)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-38",
@@ -608,7 +657,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 4 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "SP",
+    "estado": "São Paulo",
+    "isNational": false
   },
   {
     "id": "ch-43",
@@ -930,7 +982,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 3 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-62",
@@ -1082,7 +1137,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 4 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-73",
@@ -1229,7 +1287,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 3 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-83",
@@ -1242,7 +1303,10 @@
         "qualidade": "SD · 960x540",
         "nome": "Fonte 1 (SD · 960x540)"
       }
-    ]
+    ],
+    "uf": "SP",
+    "estado": "São Paulo",
+    "isNational": false
   },
   {
     "id": "ch-84",
@@ -1324,7 +1388,10 @@
         "qualidade": "Auto",
         "nome": "Fonte 3 (Auto)"
       }
-    ]
+    ],
+    "uf": "SP",
+    "estado": "São Paulo",
+    "isNational": false
   },
   {
     "id": "ch-88",
@@ -1380,7 +1447,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 2 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-90",
@@ -1403,7 +1473,10 @@
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 3 (FHD · 1920x1080)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-91",
@@ -1431,7 +1504,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 4 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-92",
@@ -1557,7 +1633,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 2 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-105",
@@ -1598,7 +1677,10 @@
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 2 (FHD · 1920x1080)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-107",
@@ -1621,7 +1703,10 @@
         "qualidade": "Auto",
         "nome": "Fonte 3 (Auto)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-108",
@@ -1675,7 +1760,10 @@
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 2 (FHD · 1920x1080)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-111",
@@ -1711,7 +1799,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 2 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-113",
@@ -1752,7 +1843,10 @@
         "qualidade": "HD · 1310x720",
         "nome": "Fonte 2 (HD · 1310x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-115",
@@ -1870,7 +1964,10 @@
         "qualidade": "SD · 720x576",
         "nome": "Fonte 3 (SD · 720x576)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-122",
@@ -1945,7 +2042,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 2 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-127",
@@ -1968,7 +2068,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 3 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-128",
@@ -1981,7 +2084,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-129",
@@ -2030,7 +2136,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-133",
@@ -2071,7 +2180,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 2 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-135",
@@ -2244,7 +2356,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 4 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "BR",
+    "estado": "Nacional",
+    "isNational": true
   },
   {
     "id": "ch-146",
@@ -2301,7 +2416,10 @@
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
       }
-    ]
+    ],
+    "uf": "BA",
+    "estado": "Bahia",
+    "isNational": false
   },
   {
     "id": "ch-201",
@@ -2314,7 +2432,10 @@
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
       }
-    ]
+    ],
+    "uf": "BA",
+    "estado": "Bahia",
+    "isNational": false
   },
   {
     "id": "ch-203",
@@ -2381,7 +2502,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 3 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "AM",
+    "estado": "Amazonas",
+    "isNational": false
   },
   {
     "id": "ch-233",
@@ -2404,7 +2528,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 3 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "CE",
+    "estado": "Ceará",
+    "isNational": false
   },
   {
     "id": "ch-234",
@@ -2427,7 +2554,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 3 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "ES",
+    "estado": "Espírito Santo",
+    "isNational": false
   },
   {
     "id": "ch-235",
@@ -2450,7 +2580,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 3 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "GO",
+    "estado": "Goiás",
+    "isNational": false
   },
   {
     "id": "ch-236",
@@ -2473,7 +2606,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 3 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "PB",
+    "estado": "Paraíba",
+    "isNational": false
   },
   {
     "id": "ch-237",
@@ -2496,7 +2632,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 3 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "PE",
+    "estado": "Pernambuco",
+    "isNational": false
   },
   {
     "id": "ch-238",
@@ -2524,7 +2663,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 4 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "RJ",
+    "estado": "Rio de Janeiro",
+    "isNational": false
   },
   {
     "id": "ch-239",
@@ -2547,7 +2689,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 3 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "RS",
+    "estado": "Rio Grande do Sul",
+    "isNational": false
   },
   {
     "id": "ch-251",
@@ -2570,7 +2715,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 3 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "DF",
+    "estado": "Distrito Federal",
+    "isNational": false
   },
   {
     "id": "ch-252",
@@ -2593,7 +2741,10 @@
         "qualidade": "HD · 720p",
         "nome": "Fonte 3 (HD · 720p)"
       }
-    ]
+    ],
+    "uf": "MG",
+    "estado": "Minas Gerais",
+    "isNational": false
   },
   {
     "id": "ch-324",
@@ -2736,7 +2887,10 @@
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
       }
-    ]
+    ],
+    "uf": "AM",
+    "estado": "Amazonas",
+    "isNational": false
   },
   {
     "id": "ch-335",

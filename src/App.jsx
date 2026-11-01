@@ -14,10 +14,23 @@ import { HistoryService } from './services/historyService';
 import { TvNavigation } from './services/tvNavigation';
 import { 
   Tv, Film, Clapperboard, Star, Sparkles, Filter, 
-  Volume2, Play, AlertCircle, Compass, Loader2, Clock, X
+  Volume2, Play, AlertCircle, Compass, Loader2, Clock, X, MapPin
 } from 'lucide-react';
 
 const ALPHABET = ['Destaques', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+const BRAZIL_STATES = [
+  { uf: 'BA', nome: 'Bahia', label: 'Bahia (BA)' },
+  { uf: 'SP', nome: 'São Paulo', label: 'São Paulo (SP)' },
+  { uf: 'RJ', nome: 'Rio de Janeiro', label: 'Rio de Janeiro (RJ)' },
+  { uf: 'MG', nome: 'Minas Gerais', label: 'Minas Gerais (MG)' },
+  { uf: 'RS', nome: 'Rio Grande do Sul', label: 'Rio Grande do Sul (RS)' },
+  { uf: 'CE', nome: 'Ceará', label: 'Ceará (CE)' },
+  { uf: 'PE', nome: 'Pernambuco', label: 'Pernambuco (PE)' },
+  { uf: 'AM', nome: 'Amazonas', label: 'Amazonas (AM)' },
+  { uf: 'DF', nome: 'Distrito Federal', label: 'Distrito Federal (DF)' },
+  { uf: 'TODOS', nome: 'Todos os Estados', label: 'Todos os Estados' }
+];
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('canais'); // 'canais', 'filmes', 'series', 'favoritos'
@@ -26,6 +39,19 @@ export default function App() {
   const [selectedVodGenre, setSelectedVodGenre] = useState('Todos');
   const [vodAudioFilter, setVodAudioFilter] = useState('todos'); // 'todos', 'dublado', 'legendado'
   const [preferredAudio, setPreferredAudio] = useState('dublado'); // para reprodução
+
+  // Região do Usuário para TV Aberta (Padrão: 'BA' Bahia)
+  const [userState, setUserState] = useState(() => {
+    if (typeof window === 'undefined') return 'BA';
+    return localStorage.getItem('langos_selected_state') || 'BA';
+  });
+
+  const handleSelectState = (uf) => {
+    setUserState(uf);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('langos_selected_state', uf);
+    }
+  };
 
   // Conteúdos base
   const [channels, setChannels] = useState([]);
@@ -220,17 +246,30 @@ export default function App() {
     return Array.from(cats);
   }, [channels]);
 
-  // Canais filtrados
+  // Canais filtrados com prioridade regional para TV Aberta
   const filteredChannels = useMemo(() => {
-    return channels.filter(c => {
+    let list = channels.filter(c => {
       const matchesSearch = searchQuery === '' || 
         c.nome.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        c.categoria.toLowerCase().includes(searchQuery.toLowerCase());
+        c.categoria.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (c.estado && c.estado.toLowerCase().includes(searchQuery.toLowerCase()));
       
       const matchesCategory = selectedChannelCategory === 'Todos' || c.categoria === selectedChannelCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [channels, searchQuery, selectedChannelCategory]);
+
+    // Se estiver na categoria TV Aberta, organizar com prioridade máxima para o estado do usuário
+    if (selectedChannelCategory === 'TV Aberta') {
+      if (userState !== 'TODOS') {
+        const localChannels = list.filter(c => c.uf === userState);
+        const nationalChannels = list.filter(c => c.isNational || c.uf === 'BR');
+        const otherAffiliates = list.filter(c => c.uf && c.uf !== userState && c.uf !== 'BR');
+        return [...localChannels, ...nationalChannels, ...otherAffiliates];
+      }
+    }
+
+    return list;
+  }, [channels, searchQuery, selectedChannelCategory, userState]);
 
   // Filmes a exibir (Destaques ou Dinâmicos da letra)
   const displayedMovies = useMemo(() => {
@@ -299,6 +338,7 @@ export default function App() {
         onOpenInstallTv={() => setIsInstallTvOpen(true)}
         isTvMode={isTvMode}
         onToggleTvMode={() => setIsTvMode(!isTvMode)}
+        userState={userState}
       />
 
       {/* Área Central */}
@@ -478,6 +518,49 @@ export default function App() {
               ))}
             </div>
 
+            {/* Seletor Regional de Estado para Afiliadas de TV Aberta */}
+            {selectedChannelCategory === 'TV Aberta' && (
+              <div className="bg-gradient-to-r from-indigo-950/70 via-zinc-900/90 to-zinc-950 border border-indigo-500/30 rounded-2xl p-4 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4 animate-fadeIn">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-600/30 text-indigo-400 border border-indigo-500/40 flex items-center justify-center shrink-0">
+                    <MapPin size={20} />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h4 className="text-white text-xs sm:text-sm font-extrabold truncate">
+                        Sua Região: <span className="text-indigo-400">{BRAZIL_STATES.find(s => s.uf === userState)?.nome || 'Bahia'}</span>
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 shrink-0">
+                        Afiliadas Prioritárias
+                      </span>
+                    </div>
+                    <p className="text-zinc-400 text-xs mt-0.5">
+                      Canais e telejornais locais da sua região organizados no topo da grade.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Botões dos Estados */}
+                <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none max-w-full">
+                  {BRAZIL_STATES.map(st => (
+                    <button
+                      key={st.uf}
+                      onClick={() => handleSelectState(st.uf)}
+                      data-tv-focus="true"
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1 shrink-0 ${
+                        userState === st.uf
+                          ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/40 ring-2 ring-indigo-400'
+                          : 'bg-zinc-800/80 text-zinc-300 hover:text-white hover:bg-zinc-700 border border-white/5'
+                      }`}
+                    >
+                      {st.uf === 'BA' && '⭐ '}
+                      {st.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Cabeçalho da Seção com Badge EPG */}
             <div className="flex items-center justify-between">
               <div>
@@ -504,6 +587,7 @@ export default function App() {
                     onSelect={(ch) => handleSelectItem(ch)}
                     isActive={activeItem?.id === channel.id}
                     onOpenEpg={(ch) => setSelectedChannelForEpg(ch)}
+                    isLocal={channel.uf === userState && channel.uf !== 'BR'}
                   />
                 ))}
               </div>
@@ -778,7 +862,10 @@ export default function App() {
       <SettingsModal
         isOpen={isSettingsOpen}
         onClose={() => setIsSettingsOpen(false)}
-        onReloadChannels={() => setChannels(CatalogService.getChannels())}
+        channels={channels}
+        onChannelsUpdated={() => setChannels(CatalogService.getChannels())}
+        userState={userState}
+        onUserStateChange={handleSelectState}
       />
 
       {/* Modal de Guia de Instalação no BTV e Smart TV Box */}

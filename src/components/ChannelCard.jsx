@@ -9,7 +9,8 @@ export default function ChannelCard({
   isFavorite = false, 
   onToggleFavorite,
   isActive = false,
-  onOpenEpg
+  onOpenEpg,
+  isLocal = false
 }) {
   const [logoError, setLogoError] = useState(false);
 
@@ -53,7 +54,9 @@ export default function ChannelCard({
       className={`group relative bg-zinc-900/70 hover:bg-zinc-850 border rounded-2xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-200 shadow-md hover:shadow-indigo-500/10 hover:-translate-y-1 focus:outline-none ${
         isActive 
           ? 'border-indigo-500 bg-indigo-950/30 ring-2 ring-indigo-500/30' 
-          : 'border-white/5 hover:border-white/20'
+          : isLocal
+            ? 'border-emerald-500/40 bg-emerald-950/15 hover:border-emerald-500/60'
+            : 'border-white/5 hover:border-white/20'
       }`}
     >
       {/* Topo do Card: Número do Canal, Categoria & Botão Favorito */}
@@ -64,9 +67,15 @@ export default function ChannelCard({
               #{channelNumber}
             </span>
           )}
-          <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-zinc-800 text-zinc-300 border border-white/5 truncate max-w-[95px]">
-            {channel.categoria || 'Geral'}
-          </span>
+          {isLocal ? (
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1 shrink-0 animate-pulse">
+              <span>📍</span> Local ({channel.uf || 'BA'})
+            </span>
+          ) : (
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-zinc-800 text-zinc-300 border border-white/5 truncate max-w-[95px]">
+              {channel.categoria || 'Geral'}
+            </span>
+          )}
         </div>
 
         <button

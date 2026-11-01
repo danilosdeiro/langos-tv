@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  X, RefreshCw, Download, Database, Check, AlertCircle, Trash2, Globe, ShieldCheck 
+  X, RefreshCw, Download, Database, Check, AlertCircle, Trash2, Globe, ShieldCheck, MapPin 
 } from 'lucide-react';
 import { CatalogService } from '../services/catalogService';
 
@@ -8,7 +8,9 @@ export default function SettingsModal({
   isOpen, 
   onClose, 
   channels, 
-  onChannelsUpdated 
+  onChannelsUpdated,
+  userState = 'BA',
+  onUserStateChange
 }) {
   const [customUrl, setCustomUrl] = useState(
     () => localStorage.getItem('langos_custom_channels_url') || 'https://canais-saimo.pages.dev/catalogo.txt'
@@ -120,6 +122,32 @@ export default function SettingsModal({
                 {channels.reduce((acc, c) => acc + (c.fontes?.length || 1), 0)}
               </p>
             </div>
+          </div>
+
+          {/* Configuração de Estado / Região para Afiliadas de TV Aberta */}
+          <div className="bg-zinc-950/60 p-4 rounded-2xl border border-white/5 space-y-2.5">
+            <label className="block text-zinc-300 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+              <MapPin size={15} className="text-indigo-400" /> Seu Estado / Região (Afiliadas de TV Aberta)
+            </label>
+            <p className="text-zinc-400 text-xs leading-relaxed">
+              Define quais emissoras locais e telejornais regionais (ex: Bahia Meio Dia, BATV, Balanço Geral BA, Alô Juca) terão prioridade máxima no topo da grade de TV aberta.
+            </p>
+            <select
+              value={userState}
+              onChange={(e) => onUserStateChange && onUserStateChange(e.target.value)}
+              className="w-full bg-zinc-900 border border-white/10 rounded-xl p-2.5 text-xs md:text-sm text-white focus:outline-none focus:border-indigo-500 font-bold cursor-pointer"
+            >
+              <option value="BA">⭐ Bahia (BA) — Priorizar TV Bahia, Band BA, TV Aratu (SBT), Record BA</option>
+              <option value="SP">São Paulo (SP) — Priorizar Globo SP, Band, SBT, Record, TV Cultura, Gazeta</option>
+              <option value="RJ">Rio de Janeiro (RJ) — Priorizar Globo RJ, Band, SBT, Record</option>
+              <option value="MG">Minas Gerais (MG) — Priorizar Globo MG, Band, SBT, Record</option>
+              <option value="RS">Rio Grande do Sul (RS) — Priorizar RBS TV / Globo RS</option>
+              <option value="CE">Ceará (CE) — Priorizar TV Verdes Mares / Globo CE</option>
+              <option value="PE">Pernambuco (PE) — Priorizar Globo Nordeste</option>
+              <option value="AM">Amazonas (AM) — Priorizar TV A Crítica e Globo AM</option>
+              <option value="DF">Distrito Federal (DF) — Priorizar Globo Brasília</option>
+              <option value="TODOS">🌎 Todos os Estados (Sem filtro regional — exibir todas)</option>
+            </select>
           </div>
 
           {/* Configuração de URL da Lista */}
