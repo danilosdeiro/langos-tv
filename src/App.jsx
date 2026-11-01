@@ -9,6 +9,7 @@ import SettingsModal from './components/SettingsModal';
 import EpgModal from './components/EpgModal';
 import EpgTimelineGrid from './components/EpgTimelineGrid';
 import InstallTvModal from './components/InstallTvModal';
+import ErrorBoundary from './components/ErrorBoundary';
 import { CatalogService } from './services/catalogService';
 import { VodService } from './services/vodService';
 import { HistoryService } from './services/historyService';
@@ -464,19 +465,29 @@ export default function App() {
         {activeItem && (
           <section ref={playerSectionRef} className="animate-fadeIn scroll-mt-20 sm:scroll-mt-24">
             <div className="bg-zinc-900/40 p-2 md:p-3 rounded-3xl border border-white/10 shadow-2xl">
-              <VideoPlayer
-                item={activeItem}
-                audioVersion={preferredAudio}
-                onAudioVersionChange={setPreferredAudio}
-                onClose={() => setActiveItem(null)}
-                onOpenEpg={(ch) => setSelectedChannelForEpg(ch)}
-                onOpenEpgGrid={() => setIsEpgGridOpen(true)}
-                onNextChannel={handleNextChannel}
-                onPrevChannel={handlePrevChannel}
-                channels={channels}
-                onSelectChannel={(ch) => handleSelectItem(ch)}
-                onPlayNextEpisode={(nextEp, audio) => handleSelectItem(nextEp, audio)}
-              />
+              <ErrorBoundary fallback={(error, reset) => (
+                <div className="p-8 text-center bg-zinc-950/80 rounded-2xl border border-white/10">
+                  <p className="text-red-400 font-bold mb-2">Erro ao reproduzir conteúdo</p>
+                  <p className="text-zinc-400 text-xs mb-4">{error?.message || 'Falha inesperada no player'}</p>
+                  <button onClick={() => { reset(); setActiveItem(null); }} className="px-4 py-2 bg-indigo-600 rounded-xl text-white text-xs font-bold">
+                    Voltar aos Canais
+                  </button>
+                </div>
+              )}>
+                <VideoPlayer
+                  item={activeItem}
+                  audioVersion={preferredAudio}
+                  onAudioVersionChange={setPreferredAudio}
+                  onClose={() => setActiveItem(null)}
+                  onOpenEpg={(ch) => setSelectedChannelForEpg(ch)}
+                  onOpenEpgGrid={() => setIsEpgGridOpen(true)}
+                  onNextChannel={handleNextChannel}
+                  onPrevChannel={handlePrevChannel}
+                  channels={channels}
+                  onSelectChannel={(ch) => handleSelectItem(ch)}
+                  onPlayNextEpisode={(nextEp, audio) => handleSelectItem(nextEp, audio)}
+                />
+              </ErrorBoundary>
             </div>
           </section>
         )}
@@ -960,29 +971,35 @@ export default function App() {
       </main>
 
       {/* Modal de Episódios da Série */}
-      <EpisodeModal
-        series={selectedSeriesForEpisodes}
-        isOpen={!!selectedSeriesForEpisodes}
-        onClose={() => setSelectedSeriesForEpisodes(null)}
-        onPlayEpisode={(epItem, audio) => handleSelectItem(epItem, audio)}
-      />
+      <ErrorBoundary onReset={() => setSelectedSeriesForEpisodes(null)}>
+        <EpisodeModal
+          series={selectedSeriesForEpisodes}
+          isOpen={!!selectedSeriesForEpisodes}
+          onClose={() => setSelectedSeriesForEpisodes(null)}
+          onPlayEpisode={(epItem, audio) => handleSelectItem(epItem, audio)}
+        />
+      </ErrorBoundary>
 
       {/* Modal de Grade EPG Completa de 24 Horas */}
-      <EpgModal
-        channel={selectedChannelForEpg}
-        isOpen={!!selectedChannelForEpg}
-        onClose={() => setSelectedChannelForEpg(null)}
-        onPlayChannel={(ch) => handleSelectItem(ch)}
-      />
+      <ErrorBoundary onReset={() => setSelectedChannelForEpg(null)}>
+        <EpgModal
+          channel={selectedChannelForEpg}
+          isOpen={!!selectedChannelForEpg}
+          onClose={() => setSelectedChannelForEpg(null)}
+          onPlayChannel={(ch) => handleSelectItem(ch)}
+        />
+      </ErrorBoundary>
 
       {/* Grade EPG Multicanal em Linha do Tempo (Estilo TV a Cabo 24h) */}
-      <EpgTimelineGrid
-        isOpen={isEpgGridOpen}
-        onClose={() => setIsEpgGridOpen(false)}
-        channels={channels}
-        onSelectChannel={(ch) => handleSelectItem(ch)}
-        currentChannelId={activeItem?.id}
-      />
+      <ErrorBoundary onReset={() => setIsEpgGridOpen(false)}>
+        <EpgTimelineGrid
+          isOpen={isEpgGridOpen}
+          onClose={() => setIsEpgGridOpen(false)}
+          channels={channels}
+          onSelectChannel={(ch) => handleSelectItem(ch)}
+          currentChannelId={activeItem?.id}
+        />
+      </ErrorBoundary>
 
       {/* Modal de Configurações */}
       <SettingsModal

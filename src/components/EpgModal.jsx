@@ -22,11 +22,12 @@ export default function EpgModal({ channel, isOpen, onClose, onPlayChannel }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  if (!isOpen || !channel) return null;
-
   const schedule = useMemo(() => {
+    if (!channel?.nome) return [];
     return EpgService.getFullScheduleForChannel(channel.nome, channel.categoria);
-  }, [channel.nome, channel.categoria]);
+  }, [channel?.nome, channel?.categoria]);
+
+  if (!isOpen || !channel) return null;
 
   const currentShow = schedule.find(s => s.isCurrent);
 
