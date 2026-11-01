@@ -14,7 +14,18 @@ export default function SeriesCard({
   return (
     <div
       onClick={() => onSelect(series, preferredAudio)}
-      className="group relative bg-zinc-900/60 hover:bg-zinc-850 border border-white/5 hover:border-purple-500/40 rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 shadow-lg hover:shadow-purple-500/15 hover:-translate-y-1.5"
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.code === 'Space' || e.keyCode === 13) {
+          e.preventDefault();
+          onSelect(series, preferredAudio);
+        }
+      }}
+      data-tv-card="true"
+      data-tv-focus="true"
+      tabIndex={0}
+      role="button"
+      aria-label={`Série ${series.titulo}`}
+      className="group relative bg-zinc-900/60 hover:bg-zinc-850 border border-white/5 hover:border-purple-500/40 rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 shadow-lg hover:shadow-purple-500/15 hover:-translate-y-1.5 focus:outline-none"
     >
       {/* Poster Oficial */}
       <div className="relative aspect-[2/3] w-full bg-zinc-950 overflow-hidden">

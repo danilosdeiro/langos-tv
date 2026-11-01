@@ -14,7 +14,18 @@ export default function MovieCard({
   return (
     <div
       onClick={() => onSelect(movie, preferredAudio)}
-      className="group relative bg-zinc-900/60 hover:bg-zinc-850 border border-white/5 hover:border-indigo-500/40 rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 shadow-lg hover:shadow-indigo-500/15 hover:-translate-y-1.5"
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.code === 'Space' || e.keyCode === 13) {
+          e.preventDefault();
+          onSelect(movie, preferredAudio);
+        }
+      }}
+      data-tv-card="true"
+      data-tv-focus="true"
+      tabIndex={0}
+      role="button"
+      aria-label={`Filme ${movie.titulo}`}
+      className="group relative bg-zinc-900/60 hover:bg-zinc-850 border border-white/5 hover:border-indigo-500/40 rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer transition-all duration-300 shadow-lg hover:shadow-indigo-500/15 hover:-translate-y-1.5 focus:outline-none"
     >
       {/* Imagem do Poster com Badges */}
       <div className="relative aspect-[2/3] w-full bg-zinc-950 overflow-hidden">

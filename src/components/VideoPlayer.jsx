@@ -50,6 +50,24 @@ export default function VideoPlayer({
   const [duration, setDuration] = useState(0);
   const [bufferedEnd, setBufferedEnd] = useState(0);
 
+  // Feedback Visual na tela da TV (OSD - On-Screen Display)
+  const [osdMessage, setOsdMessage] = useState(null);
+  const osdTimeoutRef = useRef(null);
+
+  const showOsd = (text) => {
+    setOsdMessage(text);
+    setShowControls(true);
+    if (osdTimeoutRef.current) clearTimeout(osdTimeoutRef.current);
+    osdTimeoutRef.current = setTimeout(() => {
+      setOsdMessage(null);
+    }, 2500);
+
+    if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+    controlsTimeoutRef.current = setTimeout(() => {
+      if (videoRef.current && !videoRef.current.paused) setShowControls(false);
+    }, 3500);
+  };
+
   // Ref para evitar closure stale em callbacks de eventos HLS
   const activeSourceIndexRef = useRef(0);
   activeSourceIndexRef.current = activeSourceIndex;
@@ -333,26 +351,67 @@ export default function VideoPlayer({
     }
   };
 
-  // Atalhos de teclado
+  // Atalhos de teclado e Controle Remoto de TV (BTV / Android TV / Fire TV)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.target.tagName === 'INPUT' && e.target.type !== 'range') return;
-      if (e.code === 'Space') {
+      
+      const key = e.key;
+      const keyCode = e.keyCode;
+
+      // Play / Pause (Espaço, Enter, PlayPause no controle)
+      if (key === ' ' || e.code === 'Space' || key === 'Enter' || key === 'Select' || keyCode === 13 || keyCode === 179 || keyCode === 250 || keyCode === 19) {
+        // Se estiver focado em um botão de controle específico dentro do player, deixar o clique natural
+        if (e.target.tagName === 'BUTTON') return;
         e.preventDefault();
         togglePlay();
-      } else if (e.code === 'KeyF') {
+        showOsd(videoRef.current?.paused ? '⏸️ Vídeo Pausado' : '▶️ Reproduzindo');
+      } 
+      // Fullscreen (Tecla F)
+      else if (e.code === 'KeyF') {
         e.preventDefault();
         toggleFullscreen();
-      } else if (e.code === 'KeyM') {
+      } 
+      // Mute (Tecla M)
+      else if (e.code === 'KeyM') {
         e.preventDefault();
         toggleMute();
-      } else if (e.code === 'ArrowLeft') {
+      } 
+      // Navegação Horizontal (Seek no VOD)
+      else if (key === 'ArrowLeft' || keyCode === 37) {
+        if (isVOD) {
+          e.preventDefault();
+          skipTime(-10);
+          showOsd('⏪ -10s');
+        }
+      } else if (key === 'ArrowRight' || keyCode === 39) {
+        if (isVOD) {
+          e.preventDefault();
+          skipTime(10);
+          showOsd('⏩ +10s');
+        }
+      } 
+      // Navegação Vertical: Troca de canais no controle remoto do BTV
+      else if (key === 'ArrowUp' || keyCode === 38 || key === 'ChannelUp' || keyCode === 427 || keyCode === 33) {
+        if (!isVOD && onPrevChannel) {
+          e.preventDefault();
+          onPrevChannel();
+          showOsd('⬆️ Canal Anterior');
+        } else {
+          showOsd(item?.nome || item?.titulo || 'Vídeo');
+        }
+      } else if (key === 'ArrowDown' || keyCode === 40 || key === 'ChannelDown' || keyCode === 428 || keyCode === 34) {
+        if (!isVOD && onNextChannel) {
+          e.preventDefault();
+          onNextChannel();
+          showOsd('⬇️ Próximo Canal');
+        } else {
+          showOsd(item?.nome || item?.titulo || 'Vídeo');
+        }
+      } 
+      // Voltar / Fechar (ESC, Backspace, Back Android TV)
+      else if (key === 'Escape' || key === 'Backspace' || key === 'GoBack' || keyCode === 27 || keyCode === 8 || keyCode === 4 || keyCode === 10009 || keyCode === 461) {
         e.preventDefault();
-        skipTime(-10);
-      } else if (e.code === 'ArrowRight') {
-        e.preventDefault();
-        skipTime(10);
-      } else if (e.code === 'Escape') {
         if (isFullscreen) {
           document.exitFullscreen?.();
         } else if (onClose) {
@@ -360,9 +419,10 @@ export default function VideoPlayer({
         }
       }
     };
+
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isFullscreen, isPlaying, isMuted, duration]);
+  }, [isFullscreen, isPlaying, isMuted, duration, isVOD, onNextChannel, onPrevChannel, onClose, item]);
 
   const handleMouseMove = () => {
     setShowControls(true);
@@ -411,6 +471,7 @@ export default function VideoPlayer({
   return (
     <div 
       ref={containerRef}
+      data-tv-player="true"
       onMouseMove={handleMouseMove}
       className={`relative w-full bg-black rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ${
         isFullscreen 
@@ -426,6 +487,14 @@ export default function VideoPlayer({
         onClick={togglePlay}
         playsInline
       />
+
+      {/* OSD - Feedback Visual na Tela para Controle Remoto de BTV / TV Box */}
+      {osdMessage && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-zinc-950/90 backdrop-blur-md border border-indigo-500/50 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-sm md:text-base font-extrabold animate-osd pointer-events-none ring-2 ring-indigo-500/20">
+          <Tv size={22} className="text-indigo-400" />
+          <span>{osdMessage}</span>
+        </div>
+      )}
 
       {/* Loading Spinner */}
       {loading && !errorMessage && (

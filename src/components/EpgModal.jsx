@@ -3,6 +3,18 @@ import { X, Tv, Clock, Play, Radio, Calendar } from 'lucide-react';
 import { EpgService } from '../services/epgService';
 
 export default function EpgModal({ channel, isOpen, onClose, onPlayChannel }) {
+  React.useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' || e.keyCode === 27 || e.keyCode === 8 || e.keyCode === 4) {
+        e.preventDefault();
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen || !channel) return null;
 
   const schedule = useMemo(() => {
@@ -12,8 +24,15 @@ export default function EpgModal({ channel, isOpen, onClose, onPlayChannel }) {
   const currentShow = schedule.find(s => s.isCurrent);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-      <div className="bg-zinc-900 border border-white/10 rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh]">
+    <div 
+      data-tv-modal="true"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn"
+      onClick={onClose}
+    >
+      <div 
+        onClick={(e) => e.stopPropagation()}
+        className="bg-zinc-900 border border-white/10 rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh]"
+      >
         
         {/* Cabeçalho do Modal */}
         <div className="p-5 border-b border-white/10 flex items-center justify-between">
@@ -51,6 +70,7 @@ export default function EpgModal({ channel, isOpen, onClose, onPlayChannel }) {
                   onPlayChannel(channel);
                   onClose();
                 }}
+                data-tv-focus="true"
                 className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition shadow-md"
               >
                 <Play size={13} fill="currentColor" />
@@ -59,6 +79,7 @@ export default function EpgModal({ channel, isOpen, onClose, onPlayChannel }) {
             )}
             <button
               onClick={onClose}
+              data-tv-focus="true"
               className="p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800 transition"
             >
               <X size={20} />

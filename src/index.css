@@ -47,3 +47,48 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ==============================================================================
+   ESTILOS DE FOCO PARA CONTROLE REMOTO (BTV, ANDROID TV, FIRE TV, SMART TV)
+   Ultra visível a 3 metros de distância no sofá
+   ============================================================================== */
+:focus-visible,
+[data-tv-focused="true"],
+.tv-focused {
+  outline: none !important;
+  box-shadow: 0 0 0 3.5px #6366f1, 0 0 28px rgba(99, 102, 241, 0.8), inset 0 0 12px rgba(99, 102, 241, 0.25) !important;
+  transform: scale(1.045) !important;
+  z-index: 35 !important;
+  border-color: #818cf8 !important;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Card focado no controle remoto com brilho especial */
+[data-tv-card="true"][data-tv-focused="true"] {
+  transform: scale(1.06) translateY(-4px) !important;
+  box-shadow: 0 0 0 4px #818cf8, 0 12px 35px rgba(99, 102, 241, 0.65) !important;
+}
+
+/* Estilo Modo TV (10-Foot UI para BTV e Smart TV Box) */
+body.tv-mode {
+  font-size: 1.05rem;
+}
+
+body.tv-mode header {
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+}
+
+body.tv-mode [data-tv-card="true"] {
+  padding: 1.15rem;
+}
+
+/* OSD (On-Screen Display) para feedback visual de controle remoto na TV */
+@keyframes osdFadeIn {
+  from { opacity: 0; transform: translate(-50%, -20px) scale(0.95); }
+  to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+
+.animate-osd {
+  animation: osdFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

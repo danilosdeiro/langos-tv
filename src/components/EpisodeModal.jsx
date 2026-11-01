@@ -57,6 +57,19 @@ export default function EpisodeModal({
       .finally(() => setLoading(false));
   }, [series, isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' || e.keyCode === 27 || e.keyCode === 8 || e.keyCode === 4) {
+        e.preventDefault();
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen || !series) return null;
 
   // Temporadas disponíveis
@@ -124,8 +137,15 @@ export default function EpisodeModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-      <div className="bg-zinc-900 border border-white/10 rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh]">
+    <div 
+      data-tv-modal="true"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn"
+      onClick={onClose}
+    >
+      <div 
+        onClick={(e) => e.stopPropagation()}
+        className="bg-zinc-900 border border-white/10 rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh]"
+      >
         
         {/* Cabeçalho do Modal */}
         <div className="p-5 border-b border-white/10 flex items-center justify-between">
@@ -153,6 +173,7 @@ export default function EpisodeModal({
           </div>
           <button
             onClick={onClose}
+            data-tv-focus="true"
             className="p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800 transition"
           >
             <X size={20} />
@@ -168,6 +189,7 @@ export default function EpisodeModal({
             <div className="flex gap-1.5">
               <button
                 onClick={() => setSelectedAudio('dublado')}
+                data-tv-focus="true"
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
                   selectedAudio === 'dublado'
                     ? 'bg-emerald-600 text-white shadow-md'
@@ -179,6 +201,7 @@ export default function EpisodeModal({
               </button>
               <button
                 onClick={() => setSelectedAudio('legendado')}
+                data-tv-focus="true"
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
                   selectedAudio === 'legendado'
                     ? 'bg-sky-600 text-white shadow-md'
@@ -202,6 +225,7 @@ export default function EpisodeModal({
                   <button
                     key={s}
                     onClick={() => setSelectedSeason(s)}
+                    data-tv-focus="true"
                     className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition shrink-0 ${
                       selectedSeason === s
                         ? 'bg-purple-600 text-white shadow-md'
@@ -231,7 +255,8 @@ export default function EpisodeModal({
                   <button
                     key={idx}
                     onClick={() => handleEpisodeClick(ep)}
-                    className="p-3 bg-zinc-800/80 hover:bg-purple-600 border border-white/5 hover:border-purple-400 rounded-xl text-left transition flex items-center justify-between group shadow-sm"
+                    data-tv-focus="true"
+                    className="p-3 bg-zinc-800/80 hover:bg-purple-600 border border-white/5 hover:border-purple-400 rounded-xl text-left transition flex items-center justify-between group shadow-sm focus:outline-none"
                   >
                     <div>
                       <span className="text-[11px] font-bold text-white block">

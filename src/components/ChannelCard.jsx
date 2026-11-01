@@ -18,7 +18,18 @@ export default function ChannelCard({
   return (
     <div
       onClick={() => onSelect(channel)}
-      className={`group relative bg-zinc-900/70 hover:bg-zinc-850 border rounded-2xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-200 shadow-md hover:shadow-indigo-500/10 hover:-translate-y-1 ${
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.code === 'Space' || e.keyCode === 13) {
+          e.preventDefault();
+          onSelect(channel);
+        }
+      }}
+      data-tv-card="true"
+      data-tv-focus="true"
+      tabIndex={0}
+      role="button"
+      aria-label={`Canal ${channel.nome}`}
+      className={`group relative bg-zinc-900/70 hover:bg-zinc-850 border rounded-2xl p-3.5 flex flex-col justify-between cursor-pointer transition-all duration-200 shadow-md hover:shadow-indigo-500/10 hover:-translate-y-1 focus:outline-none ${
         isActive 
           ? 'border-indigo-500 bg-indigo-950/30 ring-2 ring-indigo-500/30' 
           : 'border-white/5 hover:border-white/20'

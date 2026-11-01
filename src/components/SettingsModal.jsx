@@ -16,6 +16,18 @@ export default function SettingsModal({
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
 
+  React.useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' || e.keyCode === 27 || e.keyCode === 8 || e.keyCode === 4) {
+        e.preventDefault();
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const handleUpdate = async () => {
@@ -51,8 +63,15 @@ export default function SettingsModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-      <div className="bg-zinc-900 border border-white/10 rounded-3xl w-full max-w-xl overflow-hidden shadow-2xl flex flex-col">
+    <div 
+      data-tv-modal="true"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn"
+      onClick={onClose}
+    >
+      <div 
+        onClick={(e) => e.stopPropagation()}
+        className="bg-zinc-900 border border-white/10 rounded-3xl w-full max-w-xl overflow-hidden shadow-2xl flex flex-col"
+      >
         
         {/* Topo do Modal */}
         <div className="p-6 border-b border-white/10 flex items-center justify-between">
@@ -67,6 +86,7 @@ export default function SettingsModal({
           </div>
           <button
             onClick={onClose}
+            data-tv-focus="true"
             className="p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800 transition"
           >
             <X size={20} />

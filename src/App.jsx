@@ -7,9 +7,11 @@ import SeriesCard from './components/SeriesCard';
 import EpisodeModal from './components/EpisodeModal';
 import SettingsModal from './components/SettingsModal';
 import EpgModal from './components/EpgModal';
+import InstallTvModal from './components/InstallTvModal';
 import { CatalogService } from './services/catalogService';
 import { VodService } from './services/vodService';
 import { HistoryService } from './services/historyService';
+import { TvNavigation } from './services/tvNavigation';
 import { 
   Tv, Film, Clapperboard, Star, Sparkles, Filter, 
   Volume2, Play, AlertCircle, Compass, Loader2, Clock, X
@@ -48,6 +50,41 @@ export default function App() {
   const [selectedSeriesForEpisodes, setSelectedSeriesForEpisodes] = useState(null);
   const [selectedChannelForEpg, setSelectedChannelForEpg] = useState(null);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isInstallTvOpen, setIsInstallTvOpen] = useState(false);
+
+  // Modo TV (10-Foot UI para BTV e Smart TV Box)
+  const [isTvMode, setIsTvMode] = useState(() => {
+    const saved = localStorage.getItem('langos_tv_mode');
+    if (saved !== null) return saved === 'true';
+    return TvNavigation.isTvDevice;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('langos_tv_mode', isTvMode ? 'true' : 'false');
+    if (isTvMode) {
+      document.body.classList.add('tv-mode');
+    } else {
+      document.body.classList.remove('tv-mode');
+    }
+  }, [isTvMode]);
+
+  // Gerenciador de Botão Voltar para Controle Remoto de BTV e TV Box
+  useEffect(() => {
+    const unregister = TvNavigation.registerBackHandler(() => {
+      if (isInstallTvOpen) {
+        setIsInstallTvOpen(false);
+      } else if (isSettingsOpen) {
+        setIsSettingsOpen(false);
+      } else if (selectedChannelForEpg) {
+        setSelectedChannelForEpg(null);
+      } else if (selectedSeriesForEpisodes) {
+        setSelectedSeriesForEpisodes(null);
+      } else if (activeItem) {
+        setActiveItem(null);
+      }
+    });
+    return unregister;
+  }, [isInstallTvOpen, isSettingsOpen, selectedChannelForEpg, selectedSeriesForEpisodes, activeItem]);
 
   // Estado do Player
   const [activeItem, setActiveItem] = useState(null);
@@ -259,6 +296,9 @@ export default function App() {
         setSearchQuery={setSearchQuery}
         favoritesCount={favorites.length}
         onOpenSettings={() => setIsSettingsOpen(true)}
+        onOpenInstallTv={() => setIsInstallTvOpen(true)}
+        isTvMode={isTvMode}
+        onToggleTvMode={() => setIsTvMode(!isTvMode)}
       />
 
       {/* Área Central */}
@@ -305,7 +345,18 @@ export default function App() {
                 <div
                   key={entry.id}
                   onClick={() => handleSelectItem(entry.itemPayload, entry.audioVersion, entry.currentTime)}
-                  className="group relative bg-zinc-900 border border-white/10 hover:border-indigo-500/50 rounded-2xl p-2.5 flex items-center gap-3 shrink-0 w-64 md:w-72 cursor-pointer transition shadow-md hover:shadow-indigo-500/10 hover:-translate-y-0.5"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.code === 'Space' || e.keyCode === 13) {
+                      e.preventDefault();
+                      handleSelectItem(entry.itemPayload, entry.audioVersion, entry.currentTime);
+                    }
+                  }}
+                  data-tv-card="true"
+                  data-tv-focus="true"
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`Continuar assistindo ${entry.titulo}`}
+                  className="group relative bg-zinc-900 border border-white/10 hover:border-indigo-500/50 rounded-2xl p-2.5 flex items-center gap-3 shrink-0 w-64 md:w-72 cursor-pointer transition shadow-md hover:shadow-indigo-500/10 hover:-translate-y-0.5 focus:outline-none"
                 >
                   <div className="w-12 h-16 rounded-xl overflow-hidden bg-zinc-800 shrink-0 border border-white/5 relative">
                     {entry.capa ? (
@@ -344,6 +395,7 @@ export default function App() {
                       const updated = HistoryService.removeItem(entry.id);
                       setContinueWatchingList(updated);
                     }}
+                    data-tv-focus="true"
                     className="p-1 text-zinc-500 hover:text-white rounded-lg hover:bg-zinc-800 transition"
                     title="Remover do Histórico"
                   >
@@ -374,18 +426,21 @@ export default function App() {
                     const firstOpen = channels.find(c => c.categoria === 'TV Aberta') || channels[0];
                     if (firstOpen) handleSelectItem(firstOpen);
                   }}
+                  data-tv-focus="true"
                   className="px-5 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs md:text-sm font-bold flex items-center gap-2 shadow-xl shadow-indigo-600/30 transition hover:scale-105"
                 >
                   <Play size={16} fill="currentColor" /> Assistir TV Aberta
                 </button>
                 <button
                   onClick={() => setActiveTab('series')}
+                  data-tv-focus="true"
                   className="px-5 py-3 bg-purple-600/80 hover:bg-purple-600 text-white rounded-xl text-xs md:text-sm font-bold flex items-center gap-2 transition border border-white/10"
                 >
                   <Clapperboard size={16} /> Ver Catálogo de Séries (+7.000)
                 </button>
                 <button
                   onClick={() => setActiveTab('filmes')}
+                  data-tv-focus="true"
                   className="px-5 py-3 bg-zinc-800 hover:bg-zinc-750 text-white rounded-xl text-xs md:text-sm font-bold flex items-center gap-2 transition border border-white/10"
                 >
                   <Film size={16} /> Ver Catálogo de Filmes (+45.000)
@@ -408,6 +463,7 @@ export default function App() {
                 <button
                   key={cat}
                   onClick={() => setSelectedChannelCategory(cat)}
+                  data-tv-focus="true"
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition shrink-0 ${
                     selectedChannelCategory === cat
                       ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 scale-105'
@@ -475,6 +531,7 @@ export default function App() {
                   <button
                     key={letter}
                     onClick={() => setSelectedMovieLetter(letter)}
+                    data-tv-focus="true"
                     className={`px-3 py-1.5 rounded-xl text-xs font-bold transition shrink-0 ${
                       selectedMovieLetter === letter
                         ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 scale-105'
@@ -495,6 +552,7 @@ export default function App() {
                 </span>
                 <button
                   onClick={() => setVodAudioFilter('todos')}
+                  data-tv-focus="true"
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
                     vodAudioFilter === 'todos'
                       ? 'bg-indigo-600 text-white'
@@ -505,6 +563,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => setVodAudioFilter('dublado')}
+                  data-tv-focus="true"
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
                     vodAudioFilter === 'dublado'
                       ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
@@ -515,6 +574,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => setVodAudioFilter('legendado')}
+                  data-tv-focus="true"
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
                     vodAudioFilter === 'legendado'
                       ? 'bg-sky-600 text-white shadow-lg shadow-sky-600/30'
@@ -576,6 +636,7 @@ export default function App() {
                   <button
                     key={letter}
                     onClick={() => setSelectedSeriesLetter(letter)}
+                    data-tv-focus="true"
                     className={`px-3 py-1.5 rounded-xl text-xs font-bold transition shrink-0 ${
                       selectedSeriesLetter === letter
                         ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/30 scale-105'
@@ -712,6 +773,14 @@ export default function App() {
         isOpen={isSettingsOpen}
         onClose={() => setIsSettingsOpen(false)}
         onReloadChannels={() => setChannels(CatalogService.getChannels())}
+      />
+
+      {/* Modal de Guia de Instalação no BTV e Smart TV Box */}
+      <InstallTvModal
+        isOpen={isInstallTvOpen}
+        onClose={() => setIsInstallTvOpen(false)}
+        isTvMode={isTvMode}
+        onToggleTvMode={() => setIsTvMode(!isTvMode)}
       />
 
       {/* Rodapé */}
