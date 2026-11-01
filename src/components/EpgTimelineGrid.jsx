@@ -183,11 +183,11 @@ export default function EpgTimelineGrid({ isOpen, onClose, channels, onSelectCha
         <div style={{ width: `${CHANNEL_COL_WIDTH + (1440 * PIXELS_PER_MINUTE)}px` }} className="relative">
           
           {/* Cabeçalho de Horários (Fixado no Topo da Rolagem Vertical) */}
-          <div className="sticky top-0 z-30 flex bg-zinc-900/95 backdrop-blur-md border-b border-white/10 h-10 shadow">
+          <div className="sticky top-0 z-40 flex bg-zinc-900 border-b border-white/10 h-10 shadow">
             {/* Coluna de Canais (Cabeçalho fixo no canto superior esquerdo) */}
             <div 
               style={{ width: `${CHANNEL_COL_WIDTH}px` }} 
-              className="sticky left-0 z-40 bg-zinc-900 px-4 flex items-center justify-between border-r border-white/10 shrink-0 font-extrabold text-[11px] text-zinc-400 uppercase tracking-wider"
+              className="sticky left-0 z-50 bg-zinc-900 px-4 flex items-center justify-between border-r border-white/10 shrink-0 font-extrabold text-[11px] text-zinc-400 uppercase tracking-wider shadow-[6px_0_20px_rgba(0,0,0,0.95)]"
             >
               <span>Canal</span>
               <span>{filteredChannels.length} canais</span>
@@ -226,16 +226,16 @@ export default function EpgTimelineGrid({ isOpen, onClose, channels, onSelectCha
               return (
                 <div key={ch.id} className="flex h-16 group hover:bg-white/[0.02] transition-colors relative">
                   
-                  {/* Coluna Fixa do Canal (Sticky na Rolagem Horizontal) */}
+                  {/* Coluna Fixa do Canal (Sticky na Rolagem Horizontal com fundo sólido opaco) */}
                   <div 
                     style={{ width: `${CHANNEL_COL_WIDTH}px` }}
                     onClick={() => {
                       onSelectChannel(ch);
                       onClose();
                     }}
-                    className={`sticky left-0 z-10 px-3 flex items-center gap-2.5 border-r border-white/10 shrink-0 cursor-pointer transition ${
+                    className={`sticky left-0 z-30 px-3 flex items-center gap-2.5 border-r border-white/10 shrink-0 cursor-pointer transition shadow-[6px_0_20px_rgba(0,0,0,0.95)] ${
                       isCurrentPlaying 
-                        ? 'bg-indigo-950/80 hover:bg-indigo-900/80' 
+                        ? 'bg-indigo-950 hover:bg-indigo-900' 
                         : 'bg-zinc-950 hover:bg-zinc-900'
                     }`}
                   >
