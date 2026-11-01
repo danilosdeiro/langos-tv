@@ -103,16 +103,10 @@ export default function VideoPlayer({
 
   const showOsd = (text) => {
     setOsdMessage(text);
-    setShowControls(true);
     if (osdTimeoutRef.current) clearTimeout(osdTimeoutRef.current);
     osdTimeoutRef.current = setTimeout(() => {
       setOsdMessage(null);
-    }, 2500);
-
-    if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
-    controlsTimeoutRef.current = setTimeout(() => {
-      if (videoRef.current && !videoRef.current.paused) setShowControls(false);
-    }, 3500);
+    }, 1600);
   };
 
   // Ref para evitar closure stale em callbacks de eventos HLS
@@ -492,7 +486,11 @@ export default function VideoPlayer({
       const v = videoRef.current;
       isLoadedRef.current = true;
       setLoading(false);
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      setOsdMessage(prev => (prev && (prev.includes('Conectando') || prev.includes('Sintonizando')) ? null : prev));
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
       if (savedTimeRef.current > 0) {
         try { v.currentTime = savedTimeRef.current; } catch {}
         savedTimeRef.current = 0;
@@ -500,7 +498,11 @@ export default function VideoPlayer({
       const playPromise = v.play();
       if (playPromise !== undefined) {
         playPromise
-          .then(() => setIsPlaying(true))
+          .then(() => {
+            setIsPlaying(true);
+            setLoading(false);
+            setOsdMessage(prev => (prev && (prev.includes('Conectando') || prev.includes('Sintonizando')) ? null : prev));
+          })
           .catch((err) => {
             console.warn('Autoplay bloqueado pelo navegador, tentando mudo:', err);
             v.muted = true;
@@ -508,6 +510,8 @@ export default function VideoPlayer({
             v.play()
               .then(() => {
                 setIsPlaying(true);
+                setLoading(false);
+                setOsdMessage(prev => (prev && (prev.includes('Conectando') || prev.includes('Sintonizando')) ? null : prev));
                 showOsd('🔊 Toque ou pressione M para ativar o som');
               })
               .catch(() => setIsPlaying(false));
@@ -519,21 +523,21 @@ export default function VideoPlayer({
       const hls = new Hls({
         enableWorker: true,
         lowLatencyMode: false,
-        backBufferLength: 60,
-        maxBufferLength: 45, // Mantém até 45s de buffer contínuo sem engasgos
-        maxMaxBufferLength: 90,
-        maxBufferSize: 60 * 1000 * 1000,
+        backBufferLength: 30, // 30s de histórico na memória (leve e ágil)
+        maxBufferLength: 35, // 35s de buffer contínuo (carregamento inicial mais rápido)
+        maxMaxBufferLength: 60,
+        maxBufferSize: 50 * 1000 * 1000,
         startFragPrefetch: true, // Começar a baixar fragmento em paralelo com a playlist
-        initialLiveManifestSize: 1, // Iniciar imediatamente com 1 playlist recebida
-        progressive: true, // Reprodução progressiva acelerada
-        liveSyncDurationCount: 3, // 3 fragmentos (~18s a 30s) garantem reprodução 100% contínua sem engasgos
-        liveMaxLatencyDurationCount: 10,
-        manifestLoadingTimeOut: 10000,
-        manifestLoadingMaxRetry: 3,
-        levelLoadingTimeOut: 10000,
-        levelLoadingMaxRetry: 3,
-        fragLoadingTimeOut: 25000, // 25s de tolerância para fragmentos pesados de 10s (5.8MB)
-        fragLoadingMaxRetry: 4,
+        initialLiveManifestSize: 1, // Iniciar imediatamente com 1 playlist recebida (sub-segundo)
+        progressive: true, // Reprodução progressiva acelerada dos pacotes recebidos
+        liveSyncDurationCount: 2, // 2 fragmentos de margem segura (~12-16s) — início ágil e fluido
+        liveMaxLatencyDurationCount: 8,
+        manifestLoadingTimeOut: 8000,
+        manifestLoadingMaxRetry: 2,
+        levelLoadingTimeOut: 8000,
+        levelLoadingMaxRetry: 2,
+        fragLoadingTimeOut: 20000,
+        fragLoadingMaxRetry: 3,
         abrEwmaDefaultEstimate: 5000000,
         testBandwidth: false
       });
@@ -557,6 +561,7 @@ export default function VideoPlayer({
       hls.on(Hls.Events.FRAG_LOADED, () => {
         isLoadedRef.current = true;
         setLoading(false);
+        setOsdMessage(prev => (prev && (prev.includes('Conectando') || prev.includes('Sintonizando')) ? null : prev));
         if (timeoutRef.current) {
           clearTimeout(timeoutRef.current);
           timeoutRef.current = null;
@@ -876,6 +881,15 @@ export default function VideoPlayer({
         className="w-full h-full object-contain cursor-pointer"
         onClick={togglePlay}
         playsInline
+        preload="auto"
+        onCanPlay={() => {
+          setLoading(false);
+        }}
+        onPlaying={() => {
+          setLoading(false);
+          setIsPlaying(true);
+          setOsdMessage(prev => (prev && (prev.includes('Conectando') || prev.includes('Sintonizando')) ? null : prev));
+        }}
       />
 
       {/* Mini Barra Superior no Modo Flutuante */}
@@ -905,11 +919,11 @@ export default function VideoPlayer({
         </div>
       )}
 
-      {/* OSD - Feedback Visual na Tela para Controle Remoto de BTV / TV Box */}
+      {/* OSD - Feedback Visual Suave e Elegante (Pill Flutuante Superior) */}
       {osdMessage && (
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-zinc-950/90 backdrop-blur-md border border-indigo-500/50 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-sm md:text-base font-extrabold animate-osd pointer-events-none ring-2 ring-indigo-500/20">
-          <Tv size={22} className="text-indigo-400" />
-          <span>{osdMessage}</span>
+        <div className="absolute top-6 left-1/2 -translate-x-1/2 z-40 bg-zinc-950/85 backdrop-blur-xl border border-white/10 text-white px-4 py-2 rounded-full shadow-2xl flex items-center gap-2.5 text-xs font-semibold animate-osd pointer-events-none ring-1 ring-white/10 transition-all duration-300">
+          <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-ping shrink-0"></span>
+          <span className="tracking-wide drop-shadow">{osdMessage}</span>
         </div>
       )}
 
@@ -1144,9 +1158,9 @@ export default function VideoPlayer({
 
       {/* TV-Grade Channel / Video Splash Screen durante o carregamento inicial */}
       {loading && !errorMessage && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-950/92 backdrop-blur-md z-20 p-6 animate-fadeIn transition-opacity">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-950/80 backdrop-blur-sm z-20 p-6 transition-all duration-300 pointer-events-none">
           <div className="relative mb-3 flex items-center justify-center">
-            <div className="w-20 h-20 rounded-2xl bg-zinc-900/90 border border-white/10 p-2 shadow-2xl flex items-center justify-center relative overflow-hidden">
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-zinc-900/90 border border-white/10 p-2.5 shadow-2xl flex items-center justify-center relative overflow-hidden">
               {item?.logo ? (
                 <img src={item.logo} alt={item?.nome} className="w-full h-full object-contain filter drop-shadow" onError={(e) => { e.target.style.display = 'none'; }} />
               ) : item?.capa ? (
@@ -1155,8 +1169,8 @@ export default function VideoPlayer({
                 <span className="text-xl font-black text-indigo-400 uppercase">{item?.nome ? item.nome.slice(0, 3) : 'TV'}</span>
               )}
             </div>
-            {/* Anel de Carregamento Brilhante ao Redor */}
-            <div className="absolute -inset-1.5 border-2 border-indigo-500 border-t-transparent rounded-2xl animate-spin pointer-events-none"></div>
+            {/* Anel de Carregamento Brilhante e Suave */}
+            <div className="absolute -inset-1.5 border-2 border-indigo-500/80 border-t-transparent rounded-2xl animate-spin pointer-events-none"></div>
           </div>
 
           <div className="text-center max-w-sm space-y-1">
@@ -1176,8 +1190,8 @@ export default function VideoPlayer({
             )}
 
             <div className="pt-2 flex items-center justify-center gap-2 text-[11px] text-zinc-400 font-medium">
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-              <span>Iniciando transmissão ultrarrápida ({currentSource?.nome || `Fonte ${activeSourceIndex + 1}`})...</span>
+              <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Sintonizando transmissão ({currentSource?.nome ? currentSource.nome.split('(')[0].trim() : `Fonte ${activeSourceIndex + 1}`})...</span>
             </div>
           </div>
         </div>
@@ -1444,7 +1458,8 @@ export default function VideoPlayer({
                     if (item?.id) {
                       try { sessionStorage.setItem(`langos_best_source_${item.id}`, idx.toString()); } catch {}
                     }
-                    showOsd(`Conectando ${s.nome || `Fonte ${idx + 1}`}...`);
+                    const cleanName = s.nome ? s.nome.split('(')[0].trim() : `Fonte ${idx + 1}`;
+                    showOsd(`Sintonizando ${cleanName}...`);
                   }}
                   data-tv-focus="true"
                   className={`px-3.5 py-1.5 rounded-xl font-bold shrink-0 transition text-xs flex items-center gap-2 border ${
