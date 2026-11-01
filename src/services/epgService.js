@@ -745,6 +745,23 @@ const CHANNEL_SCHEDULES = {
     { start: '18:00', end: '21:00', title: 'Top Fest: Clipes e Shows Ao Vivo' },
     { start: '21:00', end: '00:00', title: 'Noite Eletrônica & Pop Dance' },
     { start: '00:00', end: '06:00', title: 'Top TV Som e Imagem' }
+  ],
+  multishow: [
+    { start: '06:00', end: '07:30', title: 'TVZ Manhã: Os Melhores Clipes e Lançamentos' },
+    { start: '07:30', end: '09:00', title: 'Chaves no Multishow: Episódios Clássicos' },
+    { start: '09:00', end: '10:30', title: 'Vai que Cola: Maratona Especial Dona Jô e Valdo' },
+    { start: '10:30', end: '12:00', title: 'Os Roni / Dra. Darci com Tom Cavalcante' },
+    { start: '12:00', end: '13:30', title: 'Tô de Graça: As Trapalhadas de Graça e Família' },
+    { start: '13:30', end: '15:00', title: 'Vai que Cola: Nova Temporada no Leblon' },
+    { start: '15:00', end: '16:30', title: 'Lady Night com Tatá Werneck (Melhores Momentos)' },
+    { start: '16:30', end: '18:30', title: 'TVZ Ao Vivo: Clipes, Entrevistas e Convidados' },
+    { start: '18:30', end: '20:00', title: 'Vai que Cola (Episódio Inédito)' },
+    { start: '20:00', end: '21:15', title: 'Tô de Graça (Inédito na Comunidade)' },
+    { start: '21:15', end: '22:30', title: 'Lady Night com Tatá Werneck (Inédito)' },
+    { start: '22:30', end: '23:45', title: 'Bar do Gough / Humor & Música Multishow' },
+    { start: '23:45', end: '01:00', title: 'Prêmio Multishow / Shows e Festivais Ao Vivo' },
+    { start: '01:00', end: '03:00', title: 'Madrugada do Riso: Vai que Cola e Os Suburbanos' },
+    { start: '03:00', end: '06:00', title: 'TVZ Madrugada: Clipes Non-Stop' }
   ]
 };
 
@@ -914,7 +931,8 @@ function resolveSchedule(channelName, category = '') {
   if (name.includes('jovem pan')) return CHANNEL_SCHEDULES.jovem_pan_news;
   if (name.includes('band news') || name.includes('bandnews')) return CHANNEL_SCHEDULES.band_news;
 
-  // 11. CANAIS 24 HORAS DEDICADOS
+  // 11. CANAIS 24 HORAS DEDICADOS & VARIEDADES
+  if (name.includes('multishow')) return CHANNEL_SCHEDULES.multishow;
   if (name.includes('assombração') || name.includes('assombracoes')) return CHANNEL_SCHEDULES.assombracoes;
   if (name.includes('bob esponja')) return CHANNEL_SCHEDULES.bob_esponja;
   if (name.includes('boruto') || name.includes('naruto')) return CHANNEL_SCHEDULES.boruto;
