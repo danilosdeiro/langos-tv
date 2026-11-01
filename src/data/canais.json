@@ -275,14 +275,24 @@
     "logo": "https://img.faz-o-eli.online/multishow.png",
     "fontes": [
       {
-        "url": "http://45.185.11.126:8000/play/a07a/index.m3u8",
-        "qualidade": "FHD · 1920x1080",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/8974.m3u8",
+        "qualidade": "FHD · 1080p (SSL)",
         "nome": "Fonte 1 (Ao Vivo Principal)"
       },
       {
-        "url": "http://64.31.23.207:80/59471019/60849037/518581.m3u8",
-        "qualidade": "HD · 1280x720",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/13540.m3u8",
+        "qualidade": "HD · 720p (SSL)",
         "nome": "Fonte 2 (HD · 720p)"
+      },
+      {
+        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/8974.m3u8",
+        "qualidade": "FHD · 1080p (Mirror)",
+        "nome": "Fonte 3 (FHD · Mirror)"
+      },
+      {
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/35239.m3u8",
+        "qualidade": "SD · 480p (Rápida)",
+        "nome": "Fonte 4 (SD · Rápida)"
       }
     ]
   },

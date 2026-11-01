@@ -1,5 +1,9 @@
 import { Readable } from 'stream';
 
+export const config = {
+  maxDuration: 60
+};
+
 export default async function handler(req, res) {
   // Configuração CORS irrestrita
   res.setHeader('Access-Control-Allow-Origin', '*');
