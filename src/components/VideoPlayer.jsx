@@ -49,7 +49,11 @@ export default function VideoPlayer({
   });
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isFloating, setIsFloating] = useState(false);
-  const [activeSourceIndex, setActiveSourceIndex] = useState(0);
+  const [activeSourceIndex, setActiveSourceIndex] = useState(() => {
+    if (typeof window === 'undefined' || !item?.id) return 0;
+    const saved = sessionStorage.getItem(`langos_best_source_${item.id}`);
+    return saved !== null ? parseInt(saved, 10) : 0;
+  });
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const [fallbackNotice, setFallbackNotice] = useState(null);
@@ -184,7 +188,9 @@ export default function VideoPlayer({
     const isDifferentAudio = prevAudioVersionRef.current !== audioVersion;
 
     if (isDifferentItem) {
-      setActiveSourceIndex(0);
+      const savedBest = (typeof window !== 'undefined' && item?.id) ? sessionStorage.getItem(`langos_best_source_${item.id}`) : null;
+      const initialIdx = savedBest !== null ? parseInt(savedBest, 10) : 0;
+      setActiveSourceIndex(initialIdx >= 0 ? initialIdx : 0);
       setForceProxyForCurrent(false);
       setErrorMessage(null);
       setFallbackNotice(null);
@@ -430,6 +436,9 @@ export default function VideoPlayer({
       setFallbackNotice(`Fonte ${curIdx + 1} oscilou (${reason}). Alternando para ${nextSourceName}...`);
       setForceProxyForCurrent(false);
       setActiveSourceIndex(nextIndex);
+      if (item?.id) {
+        try { sessionStorage.setItem(`langos_best_source_${item.id}`, nextIndex.toString()); } catch {}
+      }
     } else {
       setLoading(false);
       setErrorMessage(`Todas as ${allSources.length} fontes deste canal/vídeo estão temporariamente indisponíveis.`);
@@ -478,23 +487,54 @@ export default function VideoPlayer({
       (!rawTarget.includes('.') && streamUrl.includes('/api/proxy'))
     );
 
+    const startPlayback = () => {
+      if (!videoRef.current) return;
+      const v = videoRef.current;
+      isLoadedRef.current = true;
+      setLoading(false);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (savedTimeRef.current > 0) {
+        try { v.currentTime = savedTimeRef.current; } catch {}
+        savedTimeRef.current = 0;
+      }
+      const playPromise = v.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch((err) => {
+            console.warn('Autoplay bloqueado pelo navegador, tentando mudo:', err);
+            v.muted = true;
+            setIsMuted(true);
+            v.play()
+              .then(() => {
+                setIsPlaying(true);
+                showOsd('🔊 Toque ou pressione M para ativar o som');
+              })
+              .catch(() => setIsPlaying(false));
+          });
+      }
+    };
+
     if (isHlsStream && Hls.isSupported()) {
       const hls = new Hls({
         enableWorker: true,
-        lowLatencyMode: false, // Desativar para garantir buffer estável e sem engasgos
-        backBufferLength: 90, // Manter histórico de buffer
-        maxBufferLength: 35, // 35 segundos de buffer para frente (evita travamentos)
-        maxMaxBufferLength: 60,
-        maxBufferSize: 60 * 1000 * 1000,
-        liveSyncDurationCount: 3, // Inicia com 3 segmentos de margem segura da borda ao vivo
-        liveMaxLatencyDurationCount: 10,
-        manifestLoadingTimeOut: 12000,
-        manifestLoadingMaxRetry: 3,
-        levelLoadingTimeOut: 12000,
-        levelLoadingMaxRetry: 3,
-        fragLoadingTimeOut: 18000, // 18s para baixar segmentos sem abortar
-        fragLoadingMaxRetry: 3,
-        abrEwmaDefaultEstimate: 4000000,
+        lowLatencyMode: false,
+        backBufferLength: 60,
+        maxBufferLength: 30,
+        maxMaxBufferLength: 50,
+        maxBufferSize: 50 * 1000 * 1000,
+        startFragPrefetch: true, // Começar a baixar fragmento em paralelo com a playlist
+        initialLiveManifestSize: 1, // Iniciar imediatamente com 1 playlist recebida
+        progressive: true, // Reprodução progressiva acelerada
+        liveSyncDurationCount: 1.5, // Partida ultrarrápida da borda ao vivo (< 800ms)
+        liveMaxLatencyDurationCount: 8,
+        manifestLoadingTimeOut: 4000, // Timeout ágil de 4s
+        manifestLoadingMaxRetry: 1,
+        levelLoadingTimeOut: 4000,
+        levelLoadingMaxRetry: 1,
+        fragLoadingTimeOut: 8500,
+        fragLoadingMaxRetry: 2,
+        abrEwmaDefaultEstimate: 4500000,
         testBandwidth: false
       });
       hlsRef.current = hls;
@@ -503,14 +543,7 @@ export default function VideoPlayer({
       hls.attachMedia(video);
 
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        isLoadedRef.current = true;
-        setLoading(false);
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-        if (savedTimeRef.current > 0) {
-          try { video.currentTime = savedTimeRef.current; } catch {}
-          savedTimeRef.current = 0;
-        }
-        video.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+        startPlayback();
       });
 
       hls.on(Hls.Events.FRAG_LOADED, () => {
@@ -548,14 +581,7 @@ export default function VideoPlayer({
       video.load();
 
       const onCanPlay = () => {
-        isLoadedRef.current = true;
-        setLoading(false);
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-        if (savedTimeRef.current > 0) {
-          try { video.currentTime = savedTimeRef.current; } catch {}
-          savedTimeRef.current = 0;
-        }
-        video.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+        startPlayback();
       };
 
       const onError = () => {
@@ -1095,13 +1121,44 @@ export default function VideoPlayer({
         </div>
       )}
 
-      {/* Loading Spinner */}
+      {/* TV-Grade Channel / Video Splash Screen durante o carregamento inicial */}
       {loading && !errorMessage && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/70 backdrop-blur-sm z-20">
-          <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
-          <p className="mt-3 text-white/90 font-medium text-xs md:text-sm">
-            Conectando ({currentSource?.nome || `Fonte ${activeSourceIndex + 1}`})...
-          </p>
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-950/92 backdrop-blur-md z-20 p-6 animate-fadeIn transition-opacity">
+          <div className="relative mb-3 flex items-center justify-center">
+            <div className="w-20 h-20 rounded-2xl bg-zinc-900/90 border border-white/10 p-2 shadow-2xl flex items-center justify-center relative overflow-hidden">
+              {item?.logo ? (
+                <img src={item.logo} alt={item?.nome} className="w-full h-full object-contain filter drop-shadow" onError={(e) => { e.target.style.display = 'none'; }} />
+              ) : item?.capa ? (
+                <img src={item.capa} alt={item?.titulo} className="w-full h-full object-cover rounded-xl" />
+              ) : (
+                <span className="text-xl font-black text-indigo-400 uppercase">{item?.nome ? item.nome.slice(0, 3) : 'TV'}</span>
+              )}
+            </div>
+            {/* Anel de Carregamento Brilhante ao Redor */}
+            <div className="absolute -inset-1.5 border-2 border-indigo-500 border-t-transparent rounded-2xl animate-spin pointer-events-none"></div>
+          </div>
+
+          <div className="text-center max-w-sm space-y-1">
+            <div className="flex items-center justify-center gap-2">
+              {currentChannelNumber && (
+                <span className="text-xs font-mono font-black px-2 py-0.5 rounded bg-indigo-600 text-white shadow">
+                  #{currentChannelNumber}
+                </span>
+              )}
+              <h3 className="text-white font-black text-sm md:text-base truncate drop-shadow">{item?.nome || item?.titulo}</h3>
+            </div>
+            
+            {epg && (
+              <p className="text-indigo-300 text-xs font-semibold truncate max-w-xs">
+                ▶ {epg.title} <span className="text-zinc-500 font-mono text-[10px]">({epg.start} - {epg.end})</span>
+              </p>
+            )}
+
+            <div className="pt-2 flex items-center justify-center gap-2 text-[11px] text-zinc-400 font-medium">
+              <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span>Iniciando transmissão ultrarrápida ({currentSource?.nome || `Fonte ${activeSourceIndex + 1}`})...</span>
+            </div>
+          </div>
         </div>
       )}
 

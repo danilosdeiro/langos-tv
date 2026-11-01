@@ -13,6 +13,22 @@ export default function ChannelCard({
 }) {
   const [logoError, setLogoError] = useState(false);
 
+  // Pré-aquecimento rápido de conexão (DNS / SSL / Preconnect) ao passar o cursor ou focar pelo controle da TV
+  const handlePrewarm = () => {
+    if (typeof document === 'undefined' || !channel?.fontes?.[0]?.url) return;
+    try {
+      const url = channel.fontes[0].url;
+      const origin = new URL(url).origin;
+      if (!document.querySelector(`link[rel="preconnect"][href="${origin}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = origin;
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+      }
+    } catch {}
+  };
+
   // Obter grade de programação EPG em tempo real
   const epg = useMemo(() => {
     return EpgService.getProgramForChannel(channel.nome, channel.categoria);
@@ -21,6 +37,8 @@ export default function ChannelCard({
   return (
     <div
       onClick={() => onSelect(channel)}
+      onMouseEnter={handlePrewarm}
+      onFocus={handlePrewarm}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.code === 'Space' || e.keyCode === 13) {
           e.preventDefault();

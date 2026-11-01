@@ -137,9 +137,14 @@
     "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/E%21_Logo_Flat_2012.svg?width=300",
     "fontes": [
       {
-        "url": "https://video49.mais.uol.com.br/live/4503.mpd",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 1 (Qualidade não informada)"
+        "nome": "Fonte 1 (UOL Oficial HLS)",
+        "url": "https://video49.mais.uol.com.br/live/4503.m3u8",
+        "qualidade": "FHD · 1920x1080"
+      },
+      {
+        "nome": "Fonte 2 (Trace Entretenimento FHD)",
+        "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01131-tracetv-tracebrazuca-samsungbr/playlist.m3u8",
+        "qualidade": "FHD · 1920x1080"
       }
     ]
   },
@@ -445,6 +450,11 @@
         "url": "http://45.185.11.126:8000/play/a05f/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
+      },
+      {
+        "nome": "Fonte 2 (GE TV Esportes FHD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist1080p.m3u8",
+        "qualidade": "FHD · 1920x1080"
       }
     ]
   },
@@ -458,6 +468,11 @@
         "url": "http://45.185.11.126:8000/play/a06v/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
+      },
+      {
+        "nome": "Fonte 2 (GE TV Esportes FHD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist1080p.m3u8",
+        "qualidade": "FHD · 1920x1080"
       }
     ]
   },
@@ -471,6 +486,11 @@
         "url": "http://45.185.11.126:8000/play/a07t/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
+      },
+      {
+        "nome": "Fonte 2 (Red Bull TV Esportes Radicais FHD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist1080p.m3u8",
+        "qualidade": "FHD · 1920x1080"
       }
     ]
   },
@@ -484,6 +504,11 @@
         "url": "http://45.185.11.126:8000/play/a058/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
+      },
+      {
+        "nome": "Fonte 2 (Telecine Pipoca HD)",
+        "url": "http://45.185.11.126:8000/play/a08g/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -770,6 +795,11 @@
         "url": "http://138.204.86.4:8080/HBO/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
+      },
+      {
+        "nome": "Fonte 2 (HBO Alternativa HD)",
+        "url": "http://45.185.11.126:8000/play/a08o/index.m3u8",
+        "qualidade": "HD · 1280x720"
       }
     ]
   },
@@ -801,6 +831,11 @@
         "url": "http://138.204.86.4:8080/HBO_FAMILY/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
+      },
+      {
+        "nome": "Fonte 2 (MovieSphere Cinema FHD)",
+        "url": "https://amg00353-amg00353c29-plex-us-3205.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg00353-lionsgatetvfast-moviespherebrazil-plexus/playlist.m3u8",
+        "qualidade": "FHD · 1920x1080"
       }
     ]
   },
@@ -1775,14 +1810,19 @@
   },
   {
     "id": "ch-118",
-    "nome": "Blits TV",
+    "nome": "TV Cultura & Variedades",
     "categoria": "Variedades",
     "logo": "https://i.imgur.com/FO4QTRf.jpeg",
     "fontes": [
       {
-        "url": "https://stmv1.transmissaodigital.com/blitstv/blitstv/playlist.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1 (FHD · 1920x1080)"
+        "nome": "Fonte 1 (TV Cultura Oficial HD)",
+        "url": "https://player-tvcultura.stream.uol.com.br/live/tvcultura.m3u8",
+        "qualidade": "HD · 960x540"
+      },
+      {
+        "nome": "Fonte 2 (MovieSphere Brasil FHD)",
+        "url": "https://amg00353-amg00353c29-plex-us-3205.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg00353-lionsgatetvfast-moviespherebrazil-plexus/playlist.m3u8",
+        "qualidade": "FHD · 1920x1080"
       }
     ]
   },
@@ -1950,14 +1990,14 @@
     "logo": "https://conteudo.imguol.com.br/c/play/logo_canaluol_2024.svg",
     "fontes": [
       {
-        "url": "http://45.185.11.126:8000/play/a0a4/index.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1 (FHD · 1920x1080)"
-      },
-      {
         "url": "https://video24.mais.uol.com.br/live/6146.m3u8",
         "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2 (FHD · 1920x1080)"
+        "nome": "Fonte 1 (Canal UOL FHD)"
+      },
+      {
+        "url": "http://45.185.11.126:8000/play/a0a4/index.m3u8",
+        "qualidade": "FHD · 1920x1080",
+        "nome": "Fonte 2 (Canal UOL HD)"
       }
     ]
   },
@@ -2040,9 +2080,14 @@
     "logo": "https://i.imgur.com/Tf0vweF.png",
     "fontes": [
       {
-        "url": "https://giatv.bozztv.com/giatv/giatv-kpoptvplay/kpoptvplay/playlist.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
+        "nome": "Fonte 1 (Trace Urban Pop & Hits FHD)",
+        "url": "https://amg01076-lightningintern-traceurban-xiaomi-m78n3.amagi.tv/playlist/amg01076-lightningintern-traceurban-xiaomi/playlist.m3u8",
+        "qualidade": "FHD · 1920x1080"
+      },
+      {
+        "nome": "Fonte 2 (Now Pop & Rock Hits FHD)",
+        "url": "https://lightning-now90s-rakuten.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1920x1080"
       }
     ]
   },
