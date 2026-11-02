@@ -2,10 +2,8 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "langos-tv",
   "compatibility_date": "2026-11-01",
+  "pages_build_output_dir": "dist",
   "observability": {
     "enabled": true
-  },
-  "assets": {
-    "directory": "dist"
   }
 }
