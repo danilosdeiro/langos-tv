@@ -11,7 +11,7 @@
 export const VERCEL_PROXY_URL = 
   (typeof window !== 'undefined' && window.location.hostname.includes('vercel.app'))
     ? '/api/proxy'
-    : 'https://langos-tv.vercel.app/api/proxy';
+    : 'https://langos-proxy.dansdeiro.workers.dev';
 
 export const CLOUDFLARE_PROXY_URL = 
   (typeof import.meta !== 'undefined' && import.meta.env?.VITE_STREAM_PROXY_URL) || 
@@ -27,7 +27,6 @@ export const CF_BLOCKED_HOSTS = [
   '45.162.64.114',
   '138.204.86.4',
   '170.83.16.50',
-  'sua.tv',
   'multtv.tv.br',
   'mais.uol.com.br'
 ];

@@ -3,7 +3,7 @@
     "id": "match-bavi",
     "campeonato": "Clássico Ba-Vi • Campeonato Baiano / Copa do Nordeste",
     "status": "AO VIVO",
-    "tempo": "2º Tempo · 32'",
+    "tempo": "2º Tempo · 34'",
     "estadio": "Arena Fonte Nova · Salvador (BA)",
     "destaque": true,
     "mandante": {
@@ -146,6 +146,79 @@
       {
         "canalId": "ch-record-ba",
         "nome": "Record TV",
+        "badge": "Sinal Aberto"
+      }
+    ]
+  },
+  {
+    "id": "match-ars-mci",
+    "campeonato": "Premier League • Duelo Pela Liderança",
+    "status": "HOJE 17:30",
+    "tempo": "Hoje à Tarde",
+    "estadio": "Emirates Stadium · Londres",
+    "destaque": false,
+    "mandante": {
+      "nome": "Arsenal",
+      "sigla": "ARS",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg"
+    },
+    "visitante": {
+      "nome": "Manchester City",
+      "sigla": "MCI",
+      "gols": 0,
+      "cor": "from-sky-500 to-indigo-900",
+      "escudo": "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Exclusivo"
+      },
+      {
+        "canalId": "ch-49",
+        "nome": "ESPN 2",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-vas-flu",
+    "campeonato": "Cariocão / Brasileirão • Clássico dos Gigantes",
+    "status": "HOJE 19:00",
+    "tempo": "Hoje à Noite",
+    "estadio": "São Januário · Rio de Janeiro (RJ)",
+    "destaque": false,
+    "mandante": {
+      "nome": "Vasco",
+      "sigla": "VAS",
+      "gols": 0,
+      "cor": "from-zinc-950 to-zinc-700",
+      "escudo": "https://upload.wikimedia.org/wikipedia/pt/a/ac/CRVascodaGama.png"
+    },
+    "visitante": {
+      "nome": "Fluminense",
+      "sigla": "FLU",
+      "gols": 0,
+      "cor": "from-emerald-800 to-red-800",
+      "escudo": "https://upload.wikimedia.org/wikipedia/pt/a/a3/FFC_shield.svg"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-prem-4",
+        "nome": "Premiere 4 HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-band-ba",
+        "nome": "Band HD",
         "badge": "Sinal Aberto"
       }
     ]

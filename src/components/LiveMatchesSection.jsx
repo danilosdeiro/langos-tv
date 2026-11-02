@@ -1,30 +1,49 @@
 import React, { useState } from 'react';
-import { Play, Tv, Trophy, Clock, MapPin, Radio, Flame, Sparkles } from 'lucide-react';
+import { Play, Tv, Trophy, Clock, MapPin, Radio, Flame, Sparkles, Globe, Shield } from 'lucide-react';
 import JOGOS_DATA from '../data/jogosHoje.json';
 
 export default function LiveMatchesSection({ channels = [], onSelectChannel }) {
-  const [activeMatchTab, setActiveMatchTab] = useState('todos'); // 'todos', 'aovivo', 'hoje'
+  const [activeMatchTab, setActiveMatchTab] = useState('todos'); // 'todos', 'aovivo', 'nacional', 'inter'
 
   const filteredMatches = JOGOS_DATA.filter(m => {
     if (activeMatchTab === 'aovivo') return m.status === 'AO VIVO';
-    if (activeMatchTab === 'hoje') return m.status !== 'AO VIVO';
+    if (activeMatchTab === 'nacional') return m.campeonato.includes('Baiano') || m.campeonato.includes('Brasileirão') || m.campeonato.includes('Paulistão') || m.campeonato.includes('Cariocão') || m.campeonato.includes('Nordeste');
+    if (activeMatchTab === 'inter') return m.campeonato.includes('Champions') || m.campeonato.includes('Premier') || m.campeonato.includes('La Liga');
     return true;
   });
 
   const handleTuneIn = (canalId, matchInfo) => {
     if (!canalId) return;
     const targetChannel = channels.find(c => c.id === canalId);
+    const scoreStr = (matchInfo.status === 'AO VIVO' || matchInfo.mandante.gols > 0 || matchInfo.visitante.gols > 0)
+      ? `${matchInfo.mandante.gols} x ${matchInfo.visitante.gols}`
+      : 'vs';
+    const osdMsg = `⚽ ${matchInfo.mandante.nome} ${scoreStr} ${matchInfo.visitante.nome} • Transmissão Ao Vivo`;
+
     if (targetChannel && onSelectChannel) {
-      onSelectChannel(targetChannel);
+      onSelectChannel({
+        ...targetChannel,
+        matchInfo,
+        initialOsd: osdMsg
+      });
     } else if (onSelectChannel) {
-      // Fallback: tentar por nome ou primeiro canal de esportes
-      const fallback = channels.find(c => c.nome.toLowerCase().includes('premiere') || c.nome.toLowerCase().includes('sportv'));
-      if (fallback) onSelectChannel(fallback);
+      const fallback = channels.find(c => 
+        c.nome.toLowerCase().includes('premiere') || 
+        c.nome.toLowerCase().includes('sportv') || 
+        c.nome.toLowerCase().includes('cazé')
+      );
+      if (fallback) {
+        onSelectChannel({
+          ...fallback,
+          matchInfo,
+          initialOsd: osdMsg
+        });
+      }
     }
   };
 
   return (
-    <section className="w-full mb-8 space-y-4">
+    <section className="w-full mb-8 space-y-4 animate-fadeIn">
       {/* Cabeçalho da Seção de Jogos */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-gradient-to-r from-emerald-950/40 via-zinc-900/60 to-zinc-950/80 p-4 sm:p-5 rounded-3xl border border-emerald-500/20 backdrop-blur-md">
         <div className="flex items-center gap-3">
@@ -46,12 +65,12 @@ export default function LiveMatchesSection({ channels = [], onSelectChannel }) {
           </div>
         </div>
 
-        {/* Filtro Rápido: Todos / Ao Vivo / Mais Tarde */}
-        <div className="flex items-center gap-1.5 bg-black/40 p-1 rounded-2xl border border-white/5 self-start sm:self-auto">
+        {/* Filtros de Competições */}
+        <div className="flex items-center gap-1.5 bg-black/40 p-1 rounded-2xl border border-white/5 self-start sm:self-auto overflow-x-auto max-w-full scrollbar-none">
           <button
             onClick={() => setActiveMatchTab('todos')}
             data-tv-focus="true"
-            className={`px-3 py-1 rounded-xl text-xs font-bold transition ${
+            className={`px-3 py-1 rounded-xl text-xs font-bold transition shrink-0 ${
               activeMatchTab === 'todos' ? 'bg-emerald-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'
             }`}
           >
@@ -60,7 +79,7 @@ export default function LiveMatchesSection({ channels = [], onSelectChannel }) {
           <button
             onClick={() => setActiveMatchTab('aovivo')}
             data-tv-focus="true"
-            className={`px-3 py-1 rounded-xl text-xs font-bold transition flex items-center gap-1 ${
+            className={`px-3 py-1 rounded-xl text-xs font-bold transition shrink-0 flex items-center gap-1 ${
               activeMatchTab === 'aovivo' ? 'bg-red-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'
             }`}
           >
@@ -68,13 +87,22 @@ export default function LiveMatchesSection({ channels = [], onSelectChannel }) {
             Ao Vivo (1)
           </button>
           <button
-            onClick={() => setActiveMatchTab('hoje')}
+            onClick={() => setActiveMatchTab('nacional')}
             data-tv-focus="true"
-            className={`px-3 py-1 rounded-xl text-xs font-bold transition ${
-              activeMatchTab === 'hoje' ? 'bg-zinc-800 text-white' : 'text-zinc-400 hover:text-white'
+            className={`px-3 py-1 rounded-xl text-xs font-bold transition shrink-0 flex items-center gap-1 ${
+              activeMatchTab === 'nacional' ? 'bg-zinc-800 text-white font-extrabold' : 'text-zinc-400 hover:text-white'
             }`}
           >
-            Hoje à Noite (3)
+            <span>🇧🇷 Nacionais (4)</span>
+          </button>
+          <button
+            onClick={() => setActiveMatchTab('inter')}
+            data-tv-focus="true"
+            className={`px-3 py-1 rounded-xl text-xs font-bold transition shrink-0 flex items-center gap-1 ${
+              activeMatchTab === 'inter' ? 'bg-zinc-800 text-white font-extrabold' : 'text-zinc-400 hover:text-white'
+            }`}
+          >
+            <span>🌍 Internacionais (2)</span>
           </button>
         </div>
       </div>
@@ -190,9 +218,11 @@ export default function LiveMatchesSection({ channels = [], onSelectChannel }) {
                       onClick={() => handleTuneIn(opt.canalId, match)}
                       data-tv-focus="true"
                       className={`px-2.5 py-1 rounded-xl text-[11px] font-bold border transition flex items-center gap-1 ${
-                        i === 0
-                          ? 'bg-emerald-600/20 border-emerald-500/40 text-emerald-300 hover:bg-emerald-600 hover:text-white'
-                          : 'bg-zinc-800/80 border-white/5 text-zinc-300 hover:bg-zinc-700 hover:text-white'
+                        opt.canalId === 'ch-cazetv'
+                          ? 'bg-amber-500/20 border-amber-500/40 text-amber-300 hover:bg-amber-500 hover:text-black font-extrabold'
+                          : i === 0
+                            ? 'bg-emerald-600/20 border-emerald-500/40 text-emerald-300 hover:bg-emerald-600 hover:text-white'
+                            : 'bg-zinc-800/80 border-white/5 text-zinc-300 hover:bg-zinc-700 hover:text-white'
                       }`}
                       title={`Assistir no ${opt.nome}`}
                     >

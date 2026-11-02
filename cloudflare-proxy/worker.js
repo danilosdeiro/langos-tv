@@ -84,16 +84,18 @@ export default {
       }
 
       const contentType = response.headers.get('content-type') || '';
-      let isPlaylist = 
+      const isSegment = targetUrl.endsWith('.ts') || targetUrl.endsWith('.m4s') || targetUrl.endsWith('.mp4') || targetUrl.includes('.ts?') || targetUrl.includes('.m4s?');
+      let isPlaylist = !isSegment && (
         contentType.includes('mpegurl') || 
         contentType.includes('application/x-mpegURL') || 
         targetUrl.includes('.m3u8') || 
         targetUrl.includes('.txt') ||
         targetUrl.includes('/m3/') ||
-        targetUrl.includes('/hls/');
+        targetUrl.includes('/hls/')
+      );
 
       let text = null;
-      if (!isPlaylist && (contentType.includes('text') || !contentType.includes('video') || contentType === '')) {
+      if (!isPlaylist && !isSegment && (contentType.includes('text') || !contentType.includes('video') || contentType === '')) {
         try {
           const peek = await response.clone().text();
           if (peek.trim().startsWith('#EXTM3U')) {
@@ -174,7 +176,15 @@ export default {
 
       // Binary media files (.ts, .mp4, audio, video)
       const outHeaders = new Headers(corsHeaders);
-      if (contentType) outHeaders.set('Content-Type', contentType);
+      let outContentType = contentType;
+      if (!outContentType || outContentType === 'application/octet-stream' || outContentType.includes('text')) {
+        if (targetUrl.includes('.ts')) {
+          outContentType = 'video/mp2t';
+        } else if (targetUrl.includes('.m4s') || targetUrl.includes('.mp4')) {
+          outContentType = 'video/mp4';
+        }
+      }
+      if (outContentType) outHeaders.set('Content-Type', outContentType);
       
       const contentRange = response.headers.get('content-range');
       if (contentRange) outHeaders.set('Content-Range', contentRange);

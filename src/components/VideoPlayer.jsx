@@ -4,7 +4,7 @@ import {
   Play, Pause, Volume2, VolumeX, Maximize2, Minimize2, 
   RotateCcw, RotateCw, AlertTriangle, Layers, X, Clock,
   Minimize, Maximize, PictureInPicture, ChevronLeft, ChevronRight, Tv,
-  MessageSquare, Calendar
+  MessageSquare, Calendar, Sliders, Zap
 } from 'lucide-react';
 import { EpgService } from '../services/epgService';
 import { HistoryService } from '../services/historyService';
@@ -70,6 +70,14 @@ export default function VideoPlayer({
   // Feedback Visual na tela da TV (OSD - On-Screen Display)
   const [osdMessage, setOsdMessage] = useState(null);
   const osdTimeoutRef = useRef(null);
+
+  // Resolução / Qualidade HLS
+  const [qualityLevels, setQualityLevels] = useState([]);
+  const [selectedQualityIndex, setSelectedQualityIndex] = useState(-1); // -1 = Auto
+  const [isQualityMenuOpen, setIsQualityMenuOpen] = useState(false);
+
+  // Velocidade de reprodução (VOD)
+  const [playbackSpeed, setPlaybackSpeed] = useState(1);
 
   // Guia Rápido de Canais Dentro do Player
   const [isChannelDrawerOpen, setIsChannelDrawerOpen] = useState(false);
@@ -197,6 +205,31 @@ export default function VideoPlayer({
     }
   };
 
+  const handleSelectQuality = (lvlIndex) => {
+    if (hlsRef.current) {
+      hlsRef.current.currentLevel = lvlIndex;
+      setSelectedQualityIndex(lvlIndex);
+      setIsQualityMenuOpen(false);
+      if (lvlIndex === -1) {
+        showOsd('⚙️ Qualidade: Automática (Auto)');
+      } else {
+        const lvl = qualityLevels.find(q => q.index === lvlIndex);
+        showOsd(`⚙️ Qualidade: ${lvl?.label || `${lvlIndex}p`}`);
+      }
+    }
+  };
+
+  const PLAYBACK_SPEEDS = [0.75, 1, 1.25, 1.5, 2];
+  const handleCycleSpeed = () => {
+    if (!videoRef.current) return;
+    const curIdx = PLAYBACK_SPEEDS.indexOf(playbackSpeed);
+    const nextIdx = (curIdx + 1) % PLAYBACK_SPEEDS.length;
+    const nextSpeed = PLAYBACK_SPEEDS[nextIdx];
+    videoRef.current.playbackRate = nextSpeed;
+    setPlaybackSpeed(nextSpeed);
+    showOsd(`⚡ Velocidade: ${nextSpeed}x`);
+  };
+
   const currentSource = sources[activeSourceIndex] || sources[0];
 
   // EPG para canais ao vivo
@@ -248,6 +281,14 @@ export default function VideoPlayer({
       savedTimeRef.current = item?.initialSeekTime || 0;
       lastSavedTimeRef.current = 0;
       setShowNextEpCard(false);
+      setQualityLevels([]);
+      setSelectedQualityIndex(-1);
+      setIsQualityMenuOpen(false);
+      setPlaybackSpeed(1);
+
+      if (item?.initialOsd) {
+        showOsd(item.initialOsd);
+      }
 
       // Se for VOD e tiver progresso anterior no histórico, exibir opção amigável de Continuar
       if (isVOD && !item?.initialSeekTime) {
@@ -635,6 +676,18 @@ export default function VideoPlayer({
         if (hls.audioTracks && hls.audioTracks.length > 1) {
           setAudioTracks(hls.audioTracks);
           setActiveAudioTrack(hls.audioTrack);
+        }
+        if (hls.levels && hls.levels.length > 1) {
+          const lvls = hls.levels.map((lvl, idx) => ({
+            index: idx,
+            height: lvl.height || 0,
+            label: lvl.height ? `${lvl.height}p` : `${Math.round(lvl.bitrate / 1000)}k`,
+            bitrate: lvl.bitrate
+          }));
+          lvls.sort((a, b) => (b.height || b.bitrate) - (a.height || a.bitrate));
+          setQualityLevels(lvls);
+        } else {
+          setQualityLevels([]);
         }
         startPlayback();
       });
@@ -1720,6 +1773,73 @@ export default function VideoPlayer({
           </div>
 
           <div className="flex items-center gap-1.5">
+            {/* Seletor de Velocidade (VOD) */}
+            {isVOD && (
+              <button
+                onClick={handleCycleSpeed}
+                data-tv-focus="true"
+                className="px-2 py-1 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 hover:text-white transition border border-white/10 text-xs font-bold flex items-center gap-1 shadow-sm"
+                title="Velocidade de Reprodução"
+              >
+                <Zap size={13} className="text-amber-400" />
+                <span>{playbackSpeed}x</span>
+              </button>
+            )}
+
+            {/* Seletor de Resolução / Qualidade (HLS) */}
+            {qualityLevels.length > 1 && (
+              <div className="relative">
+                <button
+                  onClick={() => setIsQualityMenuOpen(prev => !prev)}
+                  data-tv-focus="true"
+                  className={`px-2.5 py-1 rounded-xl transition border text-xs font-bold flex items-center gap-1.5 shadow-sm ${
+                    isQualityMenuOpen
+                      ? 'bg-indigo-600 text-white border-indigo-500 ring-1 ring-indigo-400'
+                      : 'bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 hover:text-white border-white/10'
+                  }`}
+                  title="Ajustar Qualidade do Vídeo"
+                >
+                  <Sliders size={13} className="text-indigo-400" />
+                  <span>
+                    {selectedQualityIndex === -1 
+                      ? 'Auto' 
+                      : (qualityLevels.find(q => q.index === selectedQualityIndex)?.label || 'Qualidade')}
+                  </span>
+                </button>
+
+                {isQualityMenuOpen && (
+                  <div className="absolute bottom-full right-0 mb-2 w-32 bg-zinc-950/95 backdrop-blur-xl border border-white/15 rounded-2xl shadow-2xl p-1.5 z-50 flex flex-col gap-1 animate-fadeIn">
+                    <span className="text-[10px] uppercase font-bold text-zinc-400 px-2 py-0.5 tracking-wider">Qualidade</span>
+                    <button
+                      onClick={() => handleSelectQuality(-1)}
+                      className={`px-2 py-1 rounded-lg text-xs font-bold text-left transition flex items-center justify-between ${
+                        selectedQualityIndex === -1
+                          ? 'bg-indigo-600 text-white'
+                          : 'text-zinc-300 hover:bg-white/10'
+                      }`}
+                    >
+                      <span>Auto</span>
+                      {selectedQualityIndex === -1 && <span className="text-[10px]">✓</span>}
+                    </button>
+                    {qualityLevels.map(lvl => (
+                      <button
+                        key={lvl.index}
+                        onClick={() => handleSelectQuality(lvl.index)}
+                        className={`px-2 py-1 rounded-lg text-xs font-bold text-left transition flex items-center justify-between ${
+                          selectedQualityIndex === lvl.index
+                            ? 'bg-indigo-600 text-white'
+                            : 'text-zinc-300 hover:bg-white/10'
+                        }`}
+                      >
+                        <span>{lvl.label}</span>
+                        {selectedQualityIndex === lvl.index && <span className="text-[10px]">✓</span>}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Modo Flutuante */}
             <button
               onClick={() => setIsFloating(!isFloating)}
