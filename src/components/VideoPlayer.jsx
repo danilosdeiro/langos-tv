@@ -176,7 +176,14 @@ export default function VideoPlayer({
     const rawUrl = currentSource.url;
     const isPageHttps = typeof window !== 'undefined' && window.location.protocol === 'https:';
 
-    if (forceProxyForCurrent || (isPageHttps && rawUrl.startsWith('http://')) || currentSource.referer || rawUrl.includes('.txt')) {
+    if (
+      forceProxyForCurrent || 
+      currentSource?.proxy || 
+      currentSource?.forceProxy || 
+      (isPageHttps && rawUrl.startsWith('http://')) || 
+      currentSource.referer || 
+      rawUrl.includes('.txt')
+    ) {
       let proxy = `/api/proxy?url=${encodeURIComponent(rawUrl)}`;
       if (currentSource.referer) proxy += `&referer=${encodeURIComponent(currentSource.referer)}`;
       return proxy;
@@ -610,11 +617,15 @@ export default function VideoPlayer({
           console.warn('HLS Fatal Error:', data.type, data.details);
           switch (data.type) {
             case Hls.ErrorTypes.NETWORK_ERROR:
-              try {
-                console.warn('HLS: Tentando recuperação de rede com startLoad()...');
-                hls.startLoad();
-              } catch {
-                handleFallback("Erro de rede / stream instável");
+              if (data.details === Hls.ErrorDetails.MANIFEST_LOAD_ERROR || data.details === Hls.ErrorDetails.MANIFEST_LOAD_TIMEOUT) {
+                handleFallback("Falha ao carregar playlist / CORS");
+              } else {
+                try {
+                  console.warn('HLS: Tentando recuperação de rede com startLoad()...');
+                  hls.startLoad();
+                } catch {
+                  handleFallback("Erro de rede / stream instável");
+                }
               }
               break;
             case Hls.ErrorTypes.MEDIA_ERROR:

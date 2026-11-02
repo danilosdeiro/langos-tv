@@ -35,7 +35,7 @@ export default async function handler(req, res) {
     }
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
+    const timeoutId = setTimeout(() => controller.abort(), 30000);
 
     const response = await fetch(targetUrl, { 
       headers,
@@ -79,7 +79,8 @@ export default async function handler(req, res) {
 
       res.setHeader('Content-Type', 'application/vnd.apple.mpegurl');
       res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-      const baseUrl = new URL(targetUrl);
+      const finalUrl = response.url || targetUrl;
+      const baseUrl = new URL(finalUrl);
 
       const lines = text.split('\n');
       const rewritten = lines.map(line => {

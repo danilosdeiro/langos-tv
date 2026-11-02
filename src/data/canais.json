@@ -276,23 +276,27 @@
     "fontes": [
       {
         "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/8974.m3u8",
-        "qualidade": "FHD · 1080p (SSL)",
-        "nome": "Fonte 1 (Ao Vivo Principal)"
+        "qualidade": "FHD · 1080p",
+        "nome": "Fonte 1 (Ao Vivo Principal)",
+        "proxy": true
       },
       {
         "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/13540.m3u8",
-        "qualidade": "HD · 720p (SSL)",
-        "nome": "Fonte 2 (HD · 720p)"
+        "qualidade": "HD · 720p",
+        "nome": "Fonte 2 (HD · 720p)",
+        "proxy": true
       },
       {
         "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/8974.m3u8",
-        "qualidade": "FHD · 1080p (Mirror)",
-        "nome": "Fonte 3 (FHD · Mirror)"
+        "qualidade": "FHD · 1080p",
+        "nome": "Fonte 3 (FHD · Mirror)",
+        "proxy": true
       },
       {
         "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/35239.m3u8",
-        "qualidade": "SD · 480p (Rápida)",
-        "nome": "Fonte 4 (SD · Rápida)"
+        "qualidade": "SD · 480p",
+        "nome": "Fonte 4 (SD · Rápida)",
+        "proxy": true
       }
     ]
   },
