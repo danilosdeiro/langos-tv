@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Tv, Film, Clapperboard, Star, Settings, Search, X, 
   DownloadCloud, MapPin, Calendar, Sparkles, Flame 
@@ -23,6 +23,19 @@ export default function Header({
   const [time, setTime] = useState('');
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [isInstallable, setIsInstallable] = useState(false);
+  const searchInputRef = useRef(null);
+
+  // Atalho global Ctrl+K ou / para focar a busca
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && document.activeElement?.tagName !== 'INPUT')) {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   // Capturar evento de instalação do PWA
   useEffect(() => {
@@ -99,11 +112,12 @@ export default function Header({
           <div className="relative flex-1 max-w-xs sm:max-w-md mx-2">
             <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400" />
             <input
+              ref={searchInputRef}
               type="text"
               data-tv-focus="true"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Buscar canal, filme, série, anime..."
+              placeholder="Buscar canal, filme, série, anime... (Ctrl+K)"
               className="w-full bg-zinc-900/90 text-white placeholder-zinc-500 text-xs sm:text-sm rounded-xl pl-9 pr-8 py-2 border border-white/10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500/30 transition shadow-inner"
             />
             {searchQuery && (

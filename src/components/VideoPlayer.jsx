@@ -4,7 +4,7 @@ import {
   Play, Pause, Volume2, VolumeX, Maximize2, Minimize2, 
   RotateCcw, RotateCw, AlertTriangle, Layers, X, Clock,
   Minimize, Maximize, PictureInPicture, ChevronLeft, ChevronRight, Tv,
-  MessageSquare, Calendar, Sliders, Zap
+  MessageSquare, Calendar, Sliders, Zap, Moon, Search
 } from 'lucide-react';
 import { EpgService } from '../services/epgService';
 import { HistoryService } from '../services/historyService';
@@ -78,6 +78,20 @@ export default function VideoPlayer({
 
   // Velocidade de reprodução (VOD)
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
+
+  // Temporizador de Desligamento (Sleep Timer)
+  const [sleepTimerMinutes, setSleepTimerMinutes] = useState(null);
+  const [sleepRemainingSeconds, setSleepRemainingSeconds] = useState(null);
+  const [isSleepModalOpen, setIsSleepModalOpen] = useState(false);
+  const [isSleeping, setIsSleeping] = useState(false);
+
+  // Busca rápida dentro do Drawer de Canais
+  const [drawerSearch, setDrawerSearch] = useState('');
+
+  // Ganho / Amplificador de Volume (Volume Boost: 100%, 140%, 180%)
+  const [volumeBoost, setVolumeBoost] = useState(1);
+  const audioCtxRef = useRef(null);
+  const gainNodeRef = useRef(null);
 
   // Guia Rápido de Canais Dentro do Player
   const [isChannelDrawerOpen, setIsChannelDrawerOpen] = useState(false);
@@ -230,6 +244,77 @@ export default function VideoPlayer({
     showOsd(`⚡ Velocidade: ${nextSpeed}x`);
   };
 
+  // Temporizador de Desligamento (Sleep Timer)
+  useEffect(() => {
+    if (!sleepRemainingSeconds) return;
+    const interval = setInterval(() => {
+      setSleepRemainingSeconds(prev => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          if (videoRef.current) {
+            videoRef.current.pause();
+            setIsPlaying(false);
+          }
+          setIsSleeping(true);
+          setSleepTimerMinutes(null);
+          showOsd('🌙 Modo Soneca ativado');
+          return null;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [sleepRemainingSeconds]);
+
+  const handleSetSleepTimer = (minutes) => {
+    setIsSleepModalOpen(false);
+    if (!minutes) {
+      setSleepTimerMinutes(null);
+      setSleepRemainingSeconds(null);
+      showOsd('⏱️ Temporizador desativado');
+      return;
+    }
+    setSleepTimerMinutes(minutes);
+    setSleepRemainingSeconds(minutes * 60);
+    showOsd(`⏱️ Desligar em ${minutes} minutos`);
+  };
+
+  // Volume Boost (100% / 140% / 180%)
+  const handleToggleVolumeBoost = () => {
+    try {
+      const video = videoRef.current;
+      if (!video) return;
+
+      if (!audioCtxRef.current) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) {
+          const ctx = new AudioCtx();
+          const source = ctx.createMediaElementSource(video);
+          const gain = ctx.createGain();
+          source.connect(gain);
+          gain.connect(ctx.destination);
+          audioCtxRef.current = ctx;
+          gainNodeRef.current = gain;
+        }
+      }
+
+      if (audioCtxRef.current && audioCtxRef.current.state === 'suspended') {
+        audioCtxRef.current.resume();
+      }
+
+      const boosts = [1, 1.4, 1.8];
+      const curIdx = boosts.indexOf(volumeBoost);
+      const nextBoost = boosts[(curIdx + 1) % boosts.length];
+      if (gainNodeRef.current) {
+        gainNodeRef.current.gain.value = nextBoost;
+      }
+      setVolumeBoost(nextBoost);
+      showOsd(`🔊 Ganho Extra: ${Math.round(nextBoost * 100)}%`);
+    } catch (e) {
+      console.warn('Volume boost not allowed or supported:', e);
+    }
+  };
+
   const currentSource = sources[activeSourceIndex] || sources[0];
 
   // EPG para canais ao vivo
@@ -374,9 +459,16 @@ export default function VideoPlayer({
 
   const drawerChannels = useMemo(() => {
     if (!channels) return [];
-    if (drawerCategory === 'Todos') return channels;
-    return channels.filter(c => c.categoria === drawerCategory);
-  }, [channels, drawerCategory]);
+    let list = channels;
+    if (drawerCategory !== 'Todos') {
+      list = list.filter(c => c.categoria === drawerCategory);
+    }
+    if (drawerSearch.trim()) {
+      const q = drawerSearch.toLowerCase().trim();
+      list = list.filter(c => c.nome.toLowerCase().includes(q));
+    }
+    return list;
+  }, [channels, drawerCategory, drawerSearch]);
 
   const handleExecuteNextEpisode = () => {
     if (!nextEpisode || !item?.seriesData) return;
@@ -1254,6 +1346,26 @@ export default function VideoPlayer({
             </button>
           </div>
 
+          {/* Busca Rápida no Drawer */}
+          <div className="relative mb-2 shrink-0">
+            <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-zinc-500" />
+            <input 
+              type="text"
+              value={drawerSearch}
+              onChange={(e) => setDrawerSearch(e.target.value)}
+              placeholder="Buscar canal..."
+              className="w-full bg-zinc-900/90 border border-white/10 rounded-xl pl-8 pr-7 py-1 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-indigo-500"
+            />
+            {drawerSearch && (
+              <button 
+                onClick={() => setDrawerSearch('')} 
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white"
+              >
+                <X size={12} />
+              </button>
+            )}
+          </div>
+
           {/* Categorias no Drawer */}
           <div className="flex items-center gap-1 overflow-x-auto pb-2 scrollbar-none mb-2 shrink-0">
             {drawerCategories.map(cat => (
@@ -1541,6 +1653,65 @@ export default function VideoPlayer({
             </div>
           )}
 
+          {/* Temporizador de Desligamento (Sleep Timer) */}
+          <div className="relative">
+            <button
+              onClick={() => setIsSleepModalOpen(prev => !prev)}
+              data-tv-focus="true"
+              className={`p-1.5 md:p-2 rounded-xl transition border flex items-center gap-1.5 text-xs font-bold ${
+                sleepRemainingSeconds 
+                  ? 'bg-indigo-600 text-white border-indigo-500 shadow-md ring-1 ring-indigo-400' 
+                  : 'bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 hover:text-white border-white/10'
+              }`}
+              title={sleepRemainingSeconds ? `Desliga em ${Math.ceil(sleepRemainingSeconds / 60)}min` : "Temporizador de Desligamento (Sleep)"}
+            >
+              <Moon size={15} className={sleepRemainingSeconds ? "text-amber-300 animate-pulse" : "text-zinc-400"} />
+              {sleepRemainingSeconds && (
+                <span className="text-[10px] font-mono font-bold hidden sm:inline">
+                  {Math.floor(sleepRemainingSeconds / 60)}m
+                </span>
+              )}
+            </button>
+
+            {isSleepModalOpen && (
+              <div 
+                className="absolute top-full right-0 mt-2 w-48 bg-zinc-950/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl p-2 z-50 flex flex-col gap-1 animate-fadeIn"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between px-2 py-1 border-b border-white/10 mb-1">
+                  <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider flex items-center gap-1">
+                    <Moon size={12} className="text-indigo-400" /> Desligar em...
+                  </span>
+                  <button onClick={() => setIsSleepModalOpen(false)} className="text-zinc-500 hover:text-white">
+                    <X size={12} />
+                  </button>
+                </div>
+                {[15, 30, 45, 60, 90, 120].map(m => (
+                  <button
+                    key={m}
+                    onClick={() => handleSetSleepTimer(m)}
+                    className={`px-2.5 py-1.5 rounded-xl text-xs font-bold text-left transition flex items-center justify-between ${
+                      sleepTimerMinutes === m
+                        ? 'bg-indigo-600 text-white shadow'
+                        : 'text-zinc-300 hover:bg-white/10'
+                    }`}
+                  >
+                    <span>{m} minutos</span>
+                    {sleepTimerMinutes === m && <span className="text-[10px]">✓</span>}
+                  </button>
+                ))}
+                {sleepTimerMinutes && (
+                  <button
+                    onClick={() => handleSetSleepTimer(null)}
+                    className="px-2.5 py-1.5 rounded-xl text-xs font-bold text-red-400 hover:bg-red-500/15 text-left transition mt-1 border-t border-white/10"
+                  >
+                    ✕ Cancelar Temporizador
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+
           {/* Botão Picture-in-Picture / Modo Flutuante (Permite navegar no site sem fechar o vídeo) */}
           <button
             onClick={handleTogglePip}
@@ -1763,6 +1934,18 @@ export default function VideoPlayer({
                 onChange={handleVolumeChange}
                 className="w-14 md:w-20 accent-indigo-500 cursor-pointer h-1.5 rounded-lg bg-zinc-700 hidden sm:inline-block"
               />
+              <button
+                onClick={handleToggleVolumeBoost}
+                data-tv-focus="true"
+                className={`px-1.5 py-0.5 rounded-lg text-[10px] font-black transition border ml-0.5 ${
+                  volumeBoost > 1 
+                    ? 'bg-amber-500/25 text-amber-300 border-amber-400/40 shadow-sm' 
+                    : 'bg-zinc-900/80 text-zinc-400 hover:text-white border-white/10'
+                }`}
+                title="Amplificar volume / Ganho extra (100% / 140% / 180%)"
+              >
+                {Math.round(volumeBoost * 100)}%
+              </button>
             </div>
 
             <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-wider ${
@@ -1860,6 +2043,31 @@ export default function VideoPlayer({
           </div>
         </div>
       </div>
+
+      {/* Overlay de Modo Soneca (Sleep Timer Finalizado) */}
+      {isSleeping && (
+        <div 
+          onClick={() => {
+            setIsSleeping(false);
+            if (videoRef.current) {
+              videoRef.current.play();
+              setIsPlaying(true);
+            }
+          }}
+          className="absolute inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col items-center justify-center text-center p-6 cursor-pointer animate-fadeIn"
+        >
+          <div className="w-16 h-16 rounded-3xl bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 flex items-center justify-center mb-4 shadow-2xl">
+            <Moon size={32} />
+          </div>
+          <h2 className="text-xl font-bold text-white mb-1.5">Modo Soneca Ativo</h2>
+          <p className="text-zinc-400 text-xs max-w-xs mb-6">
+            A transmissão foi pausada automaticamente para poupar dados e energia.
+          </p>
+          <button className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-indigo-600/30 transition">
+            Continuar Assistindo
+          </button>
+        </div>
+      )}
     </div>
   );
 }
