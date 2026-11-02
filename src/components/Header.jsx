@@ -193,7 +193,7 @@ export default function Header({
         </div>
 
         {/* LINHA 2: Barra Dedicada de Navegação - TOTALMENTE ISOLADA DA BUSCA */}
-        <nav className="flex items-center gap-1.5 overflow-x-auto pb-0.5 scrollbar-none bg-zinc-900/60 p-1 rounded-2xl border border-white/5 w-full">
+        <nav className="flex items-center justify-start sm:justify-center gap-1.5 overflow-x-auto pb-0.5 scrollbar-none bg-zinc-900/60 p-1 rounded-2xl border border-white/5 w-full">
           <button
             onClick={() => setActiveTab('canais')}
             data-tv-focus="true"

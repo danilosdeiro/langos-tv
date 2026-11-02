@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, Info, Sparkles, Star, ChevronLeft, ChevronRight, X, Volume2, Flame, Tv } from 'lucide-react';
+import { CatalogService } from '../services/catalogService';
 
 export const HERO_SLIDES = [
   {
@@ -107,7 +108,10 @@ export default function HeroBanner({
 
   const handleAction = () => {
     if (current.actionType === 'movie') {
-      const found = movies.find(m => m.id === current.targetId);
+      let found = movies.find(m => m.id === current.targetId);
+      if (!found) {
+        found = CatalogService.getMovies().find(m => m.id === current.targetId);
+      }
       if (found && onPlayMovie) {
         onPlayMovie(found);
       } else if (onNavigateTab) {
@@ -115,6 +119,10 @@ export default function HeroBanner({
       }
     } else if (current.actionType === 'category') {
       if (onSelectCategory) onSelectCategory(current.categoryTarget);
+      if (current.id === 'reality-ppv' && onPlayMovie) {
+        const fazendaCam = CatalogService.getChannels().find(c => c.id === 'ch-fazenda-cam1' || c.id === 'ch-fazenda-mosaico');
+        if (fazendaCam) onPlayMovie(fazendaCam);
+      }
     } else if (current.actionType === 'tab') {
       if (onNavigateTab) onNavigateTab(current.tabTarget);
     }

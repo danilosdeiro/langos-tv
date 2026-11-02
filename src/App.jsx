@@ -10,6 +10,7 @@ import EpgModal from './components/EpgModal';
 import EpgTimelineGrid from './components/EpgTimelineGrid';
 import InstallTvModal from './components/InstallTvModal';
 import HeroBanner from './components/HeroBanner';
+import LiveMatchesSection from './components/LiveMatchesSection';
 import ErrorBoundary from './components/ErrorBoundary';
 import { CatalogService } from './services/catalogService';
 import { VodService } from './services/vodService';
@@ -182,12 +183,18 @@ export default function App() {
         setFeaturedSeries(CatalogService.getSeries());
       });
 
-    // Carregar filmes em destaque (Lançamentos de 2026 e sucessos)
+    // Carregar filmes em destaque (Base VIP + Lançamentos dinâmicos de 2026)
+    const baseMovies = CatalogService.getMovies();
+    setFeaturedMovies(baseMovies);
     VodService.fetchFeaturedMovies()
-      .then(featured => setFeaturedMovies(featured))
+      .then(featured => {
+        const existingIds = new Set(baseMovies.map(m => m.id));
+        const unique = (featured || []).filter(m => !existingIds.has(m.id));
+        setFeaturedMovies([...baseMovies, ...unique]);
+      })
       .catch(err => {
         console.warn('Erro ao carregar destaques de filmes:', err);
-        setFeaturedMovies(CatalogService.getMovies());
+        setFeaturedMovies(baseMovies);
       });
 
     // Carregar acervo VIP de animes
@@ -878,6 +885,14 @@ export default function App() {
                   ))}
                 </div>
               </div>
+            )}
+
+            {/* Seção de Jogos Ao Vivo & Transmissões (Esportes) */}
+            {(selectedChannelCategory === 'Esportes' || (selectedChannelCategory === 'Todos' && !searchQuery)) && (
+              <LiveMatchesSection
+                channels={channels}
+                onSelectChannel={(ch) => handleSelectItem(ch)}
+              />
             )}
 
             {/* Cabeçalho da Seção com Badge EPG */}

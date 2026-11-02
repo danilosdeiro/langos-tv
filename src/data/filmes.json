@@ -9,14 +9,18 @@
     "duracao": "2h 08m",
     "dublado": [
       {
-        "nome": "Dublado HD 1",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+        "nome": "Dublado HD (Principal)",
+        "url": "https://comprarebom.xyz/cdn/down/ccb87cf0cf4ec850a93a4988/index.m3u8"
+      },
+      {
+        "nome": "Dublado Servidor 2",
+        "url": "https://saimo-tv.pages.dev/api/stream?tipo=movie&id=533535&versao=dub"
       }
     ],
     "legendado": [
       {
         "nome": "Legendado 1080p",
-        "url": "https://embedplayer2.xyz/cdn/hls/7cc4d8cab33af71e601088e58981f9d4/master.txt"
+        "url": "https://saimo-tv.pages.dev/api/stream?tipo=movie&id=533535&versao=leg"
       }
     ]
   },
@@ -30,14 +34,18 @@
     "duracao": "2h 46m",
     "dublado": [
       {
-        "nome": "Dublado FHD",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+        "nome": "Dublado FHD (Principal)",
+        "url": "https://comprarebom.xyz/cdn/down/15fe900bbee226f0a92a1c10/index.m3u8"
+      },
+      {
+        "nome": "Dublado Servidor 2",
+        "url": "https://saimo-tv.pages.dev/api/stream?tipo=movie&id=693134&versao=dub"
       }
     ],
     "legendado": [
       {
         "nome": "Legendado FHD",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+        "url": "https://saimo-tv.pages.dev/api/stream?tipo=movie&id=693134&versao=leg"
       }
     ]
   },
@@ -72,14 +80,18 @@
     "duracao": "2h 28m",
     "dublado": [
       {
-        "nome": "Dublado HD",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+        "nome": "Dublado HD (Principal)",
+        "url": "https://comprarebom.xyz/cdn/down/5b6f9ad926744203cd1d88d4/index.m3u8"
+      },
+      {
+        "nome": "Dublado Servidor 2",
+        "url": "https://saimo-tv.pages.dev/api/stream?tipo=movie&id=558449&versao=dub"
       }
     ],
     "legendado": [
       {
         "nome": "Legendado HD",
-        "url": "https://embedplayer2.xyz/cdn/hls/34a51b5400c84fe640e57400b4bf4a23/master.txt"
+        "url": "https://saimo-tv.pages.dev/api/stream?tipo=movie&id=558449&versao=leg"
       }
     ]
   },

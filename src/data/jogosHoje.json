@@ -1,0 +1,143 @@
+[
+  {
+    "id": "match-bavi",
+    "campeonato": "Clássico Ba-Vi • Campeonato Baiano / Copa do Nordeste",
+    "status": "AO VIVO",
+    "tempo": "2º Tempo · 32'",
+    "estadio": "Arena Fonte Nova · Salvador (BA)",
+    "destaque": true,
+    "mandante": {
+      "nome": "Bahia",
+      "sigla": "BAH",
+      "gols": 2,
+      "cor": "from-blue-600 to-red-600",
+      "escudo": "https://upload.wikimedia.org/wikipedia/pt/2/20/Esporte_Clube_Bahia_logo.png"
+    },
+    "visitante": {
+      "nome": "Vitória",
+      "sigla": "VIT",
+      "gols": 1,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://upload.wikimedia.org/wikipedia/pt/e/e0/Esporte_Clube_Vit%C3%B3ria_logo.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-2",
+        "nome": "Premiere 2 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Opção 2"
+      },
+      {
+        "canalId": "ch-338",
+        "nome": "Globo Bahia",
+        "badge": "Sinal Aberto"
+      }
+    ]
+  },
+  {
+    "id": "match-fla-pal",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "status": "HOJE 18:30",
+    "tempo": "Pré-Jogo",
+    "estadio": "Maracanã · Rio de Janeiro (RJ)",
+    "destaque": false,
+    "mandante": {
+      "nome": "Flamengo",
+      "sigla": "FLA",
+      "gols": 0,
+      "cor": "from-red-700 to-zinc-950",
+      "escudo": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg"
+    },
+    "visitante": {
+      "nome": "Palmeiras",
+      "sigla": "PAL",
+      "gols": 0,
+      "cor": "from-emerald-700 to-emerald-950",
+      "escudo": "https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-rma-bar",
+    "campeonato": "Champions League / La Liga • El Clásico",
+    "status": "HOJE 21:00",
+    "tempo": "Hoje à Noite",
+    "estadio": "Santiago Bernabéu · Madrid",
+    "destaque": false,
+    "mandante": {
+      "nome": "Real Madrid",
+      "sigla": "RMA",
+      "gols": 0,
+      "cor": "from-amber-400 to-indigo-900",
+      "escudo": "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg"
+    },
+    "visitante": {
+      "nome": "Barcelona",
+      "sigla": "BAR",
+      "gols": 0,
+      "cor": "from-blue-700 to-red-700",
+      "escudo": "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Exclusivo"
+      },
+      {
+        "canalId": "ch-50",
+        "nome": "ESPN 4",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-sao-cor",
+    "campeonato": "Paulistão / Copa do Brasil • Clássico Majestoso",
+    "status": "HOJE 20:00",
+    "tempo": "Hoje à Noite",
+    "estadio": "MorumBIS · São Paulo (SP)",
+    "destaque": false,
+    "mandante": {
+      "nome": "São Paulo",
+      "sigla": "SAO",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg"
+    },
+    "visitante": {
+      "nome": "Corinthians",
+      "sigla": "COR",
+      "gols": 0,
+      "cor": "from-zinc-900 to-zinc-700",
+      "escudo": "https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-3",
+        "nome": "Premiere 3 HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-record-ba",
+        "nome": "Record TV",
+        "badge": "Sinal Aberto"
+      }
+    ]
+  }
+]

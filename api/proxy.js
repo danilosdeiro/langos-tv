@@ -95,6 +95,9 @@ export default async function handler(req, res) {
       const finalUrl = response.url || targetUrl;
       const baseUrl = new URL(finalUrl);
       const effectiveReferer = referer ? decodeURIComponent(referer) : (baseUrl.origin + '/');
+      const reqProto = req.headers['x-forwarded-proto'] || 'https';
+      const reqHost = req.headers['x-forwarded-host'] || req.headers['host'] || 'langos-tv.vercel.app';
+      const proxyBase = `${reqProto}://${reqHost}/api/proxy`;
 
       const lines = text.split('\n');
       const rewritten = lines.map(line => {
@@ -113,7 +116,7 @@ export default async function handler(req, res) {
               }
               const refParam = `&referer=${encodeURIComponent(effectiveReferer)}`;
               const uaParam = ua ? `&ua=${encodeURIComponent(ua)}` : '';
-              return `URI="/api/proxy?url=${encodeURIComponent(absUri)}${refParam}${uaParam}"`;
+              return `URI="${proxyBase}?url=${encodeURIComponent(absUri)}${refParam}${uaParam}"`;
             });
           }
           return line;
@@ -129,7 +132,7 @@ export default async function handler(req, res) {
 
         const refParam = `&referer=${encodeURIComponent(effectiveReferer)}`;
         const uaParam = ua ? `&ua=${encodeURIComponent(ua)}` : '';
-        return `/api/proxy?url=${encodeURIComponent(absoluteUrl)}${refParam}${uaParam}`;
+        return `${proxyBase}?url=${encodeURIComponent(absoluteUrl)}${refParam}${uaParam}`;
       }).join('\n');
 
       return res.status(200).send(rewritten);
