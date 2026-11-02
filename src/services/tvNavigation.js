@@ -34,9 +34,11 @@ class TvNavigationEngine {
       }
     });
 
-    // Inicializar foco quando a página carregar
+    // Inicializar foco apenas se estiver no modo TV explícito
     window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => this.focusFirstAvailable(), 500);
+      if (this.isTvDevice || document.body.classList.contains('tv-mode')) {
+        setTimeout(() => this.focusFirstAvailable(false), 500);
+      }
     });
   }
 
@@ -79,14 +81,14 @@ class TvNavigationEngine {
     }
   }
 
-  focusFirstAvailable() {
+  focusFirstAvailable(shouldScroll = false) {
     const activeModal = document.querySelector('[data-tv-modal="true"]');
     const container = activeModal || document.body;
     const focusable = this.getFocusableElements(container);
     if (focusable.length > 0) {
       // Priorizar cards ou primeiro botão de aba
       const firstCard = focusable.find(el => el.getAttribute('data-tv-card') === 'true');
-      this.setFocus(firstCard || focusable[0]);
+      this.setFocus(firstCard || focusable[0], shouldScroll);
     }
   }
 
