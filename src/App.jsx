@@ -735,7 +735,27 @@ export default function App() {
               <div className="text-center py-16 bg-zinc-900/30 rounded-3xl border border-white/5 p-8">
                 <AlertCircle size={40} className="mx-auto text-zinc-500 mb-3" />
                 <h3 className="text-white font-bold text-base mb-1">Nenhum canal encontrado</h3>
-                <p className="text-zinc-400 text-xs">Tente ajustar a busca ou a categoria selecionada.</p>
+                <p className="text-zinc-400 text-xs mb-4">Tente ajustar a busca ou a categoria selecionada.</p>
+                {searchQuery && (
+                  <div className="flex flex-wrap items-center justify-center gap-2.5">
+                    <button
+                      onClick={() => setActiveTab('filmes')}
+                      data-tv-focus="true"
+                      className="px-4 py-2 rounded-xl bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/30 text-xs font-bold transition flex items-center gap-2"
+                    >
+                      <Film size={14} className="text-indigo-400" />
+                      <span>Buscar "{searchQuery}" em Filmes</span>
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('series')}
+                      data-tv-focus="true"
+                      className="px-4 py-2 rounded-xl bg-purple-600/30 hover:bg-purple-600/50 text-purple-200 border border-purple-500/30 text-xs font-bold transition flex items-center gap-2"
+                    >
+                      <Clapperboard size={14} className="text-purple-400" />
+                      <span>Buscar "{searchQuery}" em Séries</span>
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -841,6 +861,27 @@ export default function App() {
               <div className="text-center py-16 bg-zinc-900/30 rounded-3xl border border-white/5 p-8">
                 <Film size={40} className="mx-auto text-zinc-500 mb-3" />
                 <h3 className="text-white font-bold text-base mb-1">Nenhum filme encontrado</h3>
+                <p className="text-zinc-400 text-xs mb-4">Tente navegar por outra letra ou explorar em outras abas.</p>
+                {searchQuery && (
+                  <div className="flex flex-wrap items-center justify-center gap-2.5">
+                    <button
+                      onClick={() => setActiveTab('canais')}
+                      data-tv-focus="true"
+                      className="px-4 py-2 rounded-xl bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/30 text-xs font-bold transition flex items-center gap-2"
+                    >
+                      <Tv size={14} className="text-indigo-400" />
+                      <span>Buscar "{searchQuery}" em Canais</span>
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('series')}
+                      data-tv-focus="true"
+                      className="px-4 py-2 rounded-xl bg-purple-600/30 hover:bg-purple-600/50 text-purple-200 border border-purple-500/30 text-xs font-bold transition flex items-center gap-2"
+                    >
+                      <Clapperboard size={14} className="text-purple-400" />
+                      <span>Buscar "{searchQuery}" em Séries</span>
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -900,6 +941,27 @@ export default function App() {
               <div className="text-center py-16 bg-zinc-900/30 rounded-3xl border border-white/5 p-8">
                 <Clapperboard size={40} className="mx-auto text-zinc-500 mb-3" />
                 <h3 className="text-white font-bold text-base mb-1">Nenhuma série encontrada</h3>
+                <p className="text-zinc-400 text-xs mb-4">Tente navegar por outra letra ou explorar em outras abas.</p>
+                {searchQuery && (
+                  <div className="flex flex-wrap items-center justify-center gap-2.5">
+                    <button
+                      onClick={() => setActiveTab('canais')}
+                      data-tv-focus="true"
+                      className="px-4 py-2 rounded-xl bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/30 text-xs font-bold transition flex items-center gap-2"
+                    >
+                      <Tv size={14} className="text-indigo-400" />
+                      <span>Buscar "{searchQuery}" em Canais</span>
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('filmes')}
+                      data-tv-focus="true"
+                      className="px-4 py-2 rounded-xl bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/30 text-xs font-bold transition flex items-center gap-2"
+                    >
+                      <Film size={14} className="text-indigo-400" />
+                      <span>Buscar "{searchQuery}" em Filmes</span>
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </div>

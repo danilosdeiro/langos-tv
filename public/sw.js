@@ -20,7 +20,8 @@ self.addEventListener('fetch', (event) => {
     url.includes('.ts') || 
     url.includes('.mp4') || 
     url.includes('stream') || 
-    url.includes('/api/')
+    url.includes('/api/') ||
+    url.includes('workers.dev')
   ) {
     return;
   }
