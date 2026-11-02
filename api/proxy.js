@@ -52,13 +52,20 @@ export default async function handler(req, res) {
     }
 
     const contentType = response.headers.get('content-type') || '';
-    let isPlaylist = 
+    const isSegment = 
+      targetUrl.includes('.ts') || 
+      targetUrl.includes('.m4s') || 
+      targetUrl.includes('.mp4') || 
+      targetUrl.includes('.aac') || 
+      targetUrl.includes('.mp3');
+
+    let isPlaylist = !isSegment && (
       contentType.includes('mpegurl') || 
       contentType.includes('application/x-mpegURL') || 
       targetUrl.includes('.m3u8') || 
       targetUrl.includes('.txt') ||
-      targetUrl.includes('/m3/') ||
-      targetUrl.includes('/hls/');
+      targetUrl.includes('/m3/')
+    );
 
     let text = null;
     if (!isPlaylist && (contentType.includes('text') || !contentType.includes('video') || contentType === '')) {
@@ -151,6 +158,7 @@ export default async function handler(req, res) {
     }
 
     res.status(response.status); // 200 ou 206
+    res.setHeader('Content-Type', contentType || (targetUrl.includes('.ts') ? 'video/mp2t' : 'application/octet-stream'));
     if (response.headers.get('content-range')) {
       res.setHeader('Content-Range', response.headers.get('content-range'));
     }
