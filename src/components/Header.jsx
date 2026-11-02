@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Tv, Film, Clapperboard, Star, Settings, Search, X, DownloadCloud, MapPin, Calendar, Sparkles, Flame } from 'lucide-react';
+import { 
+  Tv, Film, Clapperboard, Star, Settings, Search, X, 
+  DownloadCloud, MapPin, Calendar, Sparkles, Flame 
+} from 'lucide-react';
 
 export default function Header({ 
   activeTab, 
@@ -60,171 +63,178 @@ export default function Header({
     return () => clearInterval(interval);
   }, []);
 
+  // Botões de navegação principais (reutilizáveis para desktop e mobile)
+  const renderNavTabs = (isMobile = false) => (
+    <div className={`flex items-center gap-1 sm:gap-1.5 shrink-0 ${isMobile ? 'overflow-x-auto pb-0.5 scrollbar-none w-full' : ''}`}>
+      <button
+        onClick={() => setActiveTab('canais')}
+        data-tv-focus="true"
+        className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+          activeTab === 'canais'
+            ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+            : 'text-zinc-400 hover:text-white hover:bg-white/5'
+        }`}
+      >
+        <Tv size={14} />
+        <span>Canais</span>
+      </button>
+
+      <button
+        onClick={() => setActiveTab('filmes')}
+        data-tv-focus="true"
+        className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+          activeTab === 'filmes'
+            ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+            : 'text-zinc-400 hover:text-white hover:bg-white/5'
+        }`}
+      >
+        <Film size={14} />
+        <span>Filmes</span>
+      </button>
+
+      <button
+        onClick={() => setActiveTab('series')}
+        data-tv-focus="true"
+        className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+          activeTab === 'series'
+            ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+            : 'text-zinc-400 hover:text-white hover:bg-white/5'
+        }`}
+      >
+        <Clapperboard size={14} />
+        <span>Séries</span>
+      </button>
+
+      <button
+        onClick={() => setActiveTab('animes')}
+        data-tv-focus="true"
+        className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+          activeTab === 'animes'
+            ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-md shadow-rose-600/30 font-bold'
+            : 'text-zinc-400 hover:text-rose-300 hover:bg-white/5'
+        }`}
+      >
+        <Sparkles size={14} className={activeTab === 'animes' ? 'text-white' : 'text-rose-400'} />
+        <span>Animes</span>
+      </button>
+
+      <button
+        onClick={() => setActiveTab('favoritos')}
+        data-tv-focus="true"
+        className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+          activeTab === 'favoritos'
+            ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+            : 'text-zinc-400 hover:text-amber-300 hover:bg-white/5'
+        }`}
+      >
+        <Star size={14} className={favoritesCount > 0 ? 'fill-amber-400 text-amber-400' : ''} />
+        <span>Favoritos</span>
+        {favoritesCount > 0 && (
+          <span className="px-1.5 py-0.2 bg-amber-500/30 text-amber-300 rounded-full text-[10px] font-bold">
+            {favoritesCount}
+          </span>
+        )}
+      </button>
+
+      {onOpenEpgGrid && (
+        <button
+          onClick={onOpenEpgGrid}
+          data-tv-focus="true"
+          className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+            isEpgGridOpen
+              ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+              : 'text-zinc-400 hover:text-indigo-300 hover:bg-white/5'
+          }`}
+          title="Grade EPG de Programação 24 Horas em Linha do Tempo (Tecla G)"
+        >
+          <Calendar size={14} className="text-indigo-400" />
+          <span>Guia TV</span>
+        </button>
+      )}
+    </div>
+  );
+
   return (
     <header className="sticky top-0 z-40 bg-zinc-950/95 backdrop-blur-xl border-b border-white/10 px-3 sm:px-6 py-2.5 transition-all">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto flex flex-col gap-2.5">
         
-        {/* Linha 1 no Mobile/Tablet ou Esquerda no Desktop: Logo + Busca Flexível */}
-        <div className="flex items-center justify-between gap-3 w-full lg:w-auto flex-1">
-          {/* Logo & Marca */}
-          <div 
-            onClick={() => setActiveTab('canais')} 
-            data-tv-focus="true"
-            tabIndex={0}
-            className="flex items-center gap-2.5 cursor-pointer group rounded-xl p-1 shrink-0 focus:outline-none"
-          >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform overflow-hidden p-1">
-              <img src="/icon-192.png" alt="Lango's TV" className="w-full h-full object-contain" />
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-lg sm:text-xl tracking-tight bg-gradient-to-r from-white via-zinc-100 to-indigo-300 bg-clip-text text-transparent">
-                  Lango's TV
-                </span>
-                <span className="px-1.5 py-0.2 text-[9px] font-black uppercase tracking-wider rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
-                  PRO
-                </span>
+        {/* Linha Principal do Header */}
+        <div className="flex items-center justify-between gap-3 w-full">
+          
+          {/* Lado Esquerdo: Logo & Marca + Abas Desktop */}
+          <div className="flex items-center gap-3 sm:gap-4 shrink-0 min-w-0">
+            {/* Logo */}
+            <div 
+              onClick={() => setActiveTab('canais')} 
+              data-tv-focus="true"
+              tabIndex={0}
+              className="flex items-center gap-2.5 cursor-pointer group rounded-xl p-0.5 shrink-0 focus:outline-none"
+            >
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform overflow-hidden p-1">
+                <img src="/icon-192.png" alt="Lango's TV" className="w-full h-full object-contain" />
               </div>
-              <p className="text-[10px] text-zinc-400 font-medium hidden sm:block leading-none">
-                Canais, Filmes & Séries
-              </p>
+              <div className="hidden sm:block">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-extrabold text-lg sm:text-xl tracking-tight bg-gradient-to-r from-white via-zinc-100 to-indigo-300 bg-clip-text text-transparent">
+                    Lango's TV
+                  </span>
+                  <span className="px-1.5 py-0.2 text-[9px] font-black uppercase tracking-wider rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                    PRO
+                  </span>
+                </div>
+                <p className="text-[10px] text-zinc-400 font-medium leading-none">
+                  Canais, Filmes & Séries
+                </p>
+              </div>
             </div>
+
+            {/* Abas no Desktop (Ficam ao lado do logo, NUNCA sobrepostas pela busca) */}
+            <nav className="hidden xl:flex items-center bg-zinc-900/60 p-1 rounded-2xl border border-white/5 shrink-0">
+              {renderNavTabs(false)}
+            </nav>
           </div>
 
-          {/* Barra de Busca Global - Flexível e Responsiva */}
-          <div className="relative flex-1 min-w-[160px] max-w-xs sm:max-w-sm lg:max-w-xs xl:max-w-sm">
-            <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" />
-            <input
-              type="text"
-              data-tv-focus="true"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Buscar canal, filme, série..."
-              className="w-full bg-zinc-900/90 text-white placeholder-zinc-500 text-xs sm:text-sm rounded-xl pl-8.5 pr-8 py-2 border border-white/10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500/30 transition"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
+          {/* Lado Direito: Barra de Busca + Ações Rápidas */}
+          <div className="flex items-center justify-end gap-1.5 sm:gap-2 flex-1 max-w-2xl">
+            
+            {/* Barra de Busca - Isolada e posicionada na direita com largura controlada */}
+            <div className="relative flex-1 max-w-xs sm:max-w-sm">
+              <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400" />
+              <input
+                type="text"
                 data-tv-focus="true"
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white"
-              >
-                <X size={14} />
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Linha 2 no Mobile/Tablet ou Direita no Desktop: Abas de Navegação & Ações */}
-        <div className="flex items-center justify-between sm:justify-end gap-1.5 sm:gap-2 w-full lg:w-auto overflow-x-auto pb-0.5 lg:pb-0 scrollbar-none shrink-0">
-          {/* Abas de Navegação Estilo Cápsula */}
-          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 bg-zinc-900/60 p-1 rounded-2xl border border-white/5">
-            <button
-              onClick={() => setActiveTab('canais')}
-              data-tv-focus="true"
-              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
-                activeTab === 'canais'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <Tv size={14} />
-              <span>Canais</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('filmes')}
-              data-tv-focus="true"
-              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
-                activeTab === 'filmes'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <Film size={14} />
-              <span>Filmes</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('series')}
-              data-tv-focus="true"
-              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
-                activeTab === 'series'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <Clapperboard size={14} />
-              <span>Séries</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('animes')}
-              data-tv-focus="true"
-              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
-                activeTab === 'animes'
-                  ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-md shadow-rose-600/30 font-bold'
-                  : 'text-zinc-400 hover:text-rose-300 hover:bg-white/5'
-              }`}
-            >
-              <Sparkles size={14} className={activeTab === 'animes' ? 'text-white' : 'text-rose-400'} />
-              <span>Animes</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('favoritos')}
-              data-tv-focus="true"
-              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
-                activeTab === 'favoritos'
-                  ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                  : 'text-zinc-400 hover:text-amber-300 hover:bg-white/5'
-              }`}
-            >
-              <Star size={14} className={favoritesCount > 0 ? 'fill-amber-400 text-amber-400' : ''} />
-              <span className="hidden sm:inline">Favoritos</span>
-              {favoritesCount > 0 && (
-                <span className="px-1.5 py-0.2 bg-amber-500/30 text-amber-300 rounded-full text-[10px] font-bold">
-                  {favoritesCount}
-                </span>
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Buscar canal, filme, série..."
+                className="w-full bg-zinc-900/90 text-white placeholder-zinc-500 text-xs sm:text-sm rounded-xl pl-8.5 pr-8 py-2 border border-white/10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500/30 transition shadow-inner"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  data-tv-focus="true"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white"
+                >
+                  <X size={14} />
+                </button>
               )}
-            </button>
+            </div>
 
-            {/* Guia de Programação EPG 24 Horas em Linha do Tempo */}
-            {onOpenEpgGrid && (
+            {/* Botão de Lançamentos Rápidos */}
+            {onToggleReleases && (
               <button
-                onClick={onOpenEpgGrid}
+                onClick={onToggleReleases}
                 data-tv-focus="true"
-                className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
-                  isEpgGridOpen
-                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                    : 'text-zinc-400 hover:text-indigo-300 hover:bg-white/5'
+                className={`px-2.5 py-1.5 rounded-xl text-xs font-bold border transition flex items-center gap-1.5 shrink-0 ${
+                  isOnlyReleases
+                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-black border-amber-400 font-black shadow-lg shadow-amber-500/30 scale-105'
+                    : 'bg-zinc-900/90 hover:bg-zinc-800 border-white/10 text-zinc-300 hover:text-white'
                 }`}
-                title="Grade EPG de Programação 24 Horas em Linha do Tempo (Tecla G)"
+                title="Filtrar pelos lançamentos mais recentes de 2026 e 2025"
               >
-                <Calendar size={14} className="text-indigo-400" />
-                <span className="hidden sm:inline">Guia TV</span>
+                <Flame size={14} className={isOnlyReleases ? 'text-black fill-current' : 'text-amber-400'} />
+                <span className="hidden md:inline">Lançamentos</span>
               </button>
             )}
-          </div>
-
-          {/* Divisor Visual Sutil */}
-          <div className="h-5 w-px bg-white/10 hidden sm:block shrink-0 mx-0.5"></div>
-
-          {/* Botões de Ação */}
-          <div className="flex items-center gap-1.5 shrink-0">
-            {/* Botão de Lançamentos Rápidos */}
-            <button
-              onClick={onToggleReleases}
-              data-tv-focus="true"
-              className={`px-2.5 py-1.5 rounded-xl text-xs font-bold border transition flex items-center gap-1.5 shrink-0 ${
-                isOnlyReleases
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-black border-amber-400 font-black shadow-lg shadow-amber-500/30 scale-105'
-                  : 'bg-zinc-900/90 hover:bg-zinc-800 border-white/10 text-zinc-300 hover:text-white'
-              }`}
-              title="Filtrar pelos lançamentos mais recentes de 2026 e 2025"
-            >
-              <Flame size={14} className={isOnlyReleases ? 'text-black fill-current' : 'text-amber-400'} />
-              <span className="hidden md:inline">Lançamentos</span>
-            </button>
 
             {/* Botão de Alternar Modo TV */}
             <button
@@ -238,7 +248,7 @@ export default function Header({
               title="Alternar Modo TV 10-Foot (Otimizado para BTV e Smart TV)"
             >
               <Tv size={14} className={isTvMode ? 'text-emerald-400' : ''} />
-              <span className="hidden xl:inline">{isTvMode ? 'Modo TV: ON' : 'Modo TV'}</span>
+              <span className="hidden 2xl:inline">{isTvMode ? 'Modo TV: ON' : 'Modo TV'}</span>
             </button>
 
             {/* Botão de Instalar Desktop / BTV */}
@@ -280,6 +290,12 @@ export default function Header({
               {time}
             </div>
           </div>
+
+        </div>
+
+        {/* Linha Secundária: Abas no Tablet / Mobile / Telas menores que XL */}
+        <div className="flex xl:hidden items-center justify-between overflow-x-auto pb-0.5 scrollbar-none bg-zinc-900/50 p-1 rounded-2xl border border-white/5">
+          {renderNavTabs(true)}
         </div>
 
       </div>

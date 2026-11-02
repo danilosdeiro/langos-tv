@@ -16,10 +16,25 @@ import { HistoryService } from './services/historyService';
 import { TvNavigation } from './services/tvNavigation';
 import { 
   Tv, Film, Clapperboard, Star, Sparkles, Filter, 
-  Volume2, Play, AlertCircle, Compass, Loader2, Clock, X, MapPin
+  Volume2, Play, AlertCircle, Compass, Loader2, Clock, X, MapPin,
+  ChevronLeft, ChevronRight, LayoutGrid
 } from 'lucide-react';
 
 const ALPHABET = ['Destaques', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+// Categorias sumarizadas e organizadas por relevância e volume
+const CHANNEL_CATEGORY_GROUPS = [
+  { id: 'Todos', label: 'Todos os Canais', icon: '🌐', short: 'Todos' },
+  { id: 'TV Aberta', label: 'TV Aberta', icon: '📺', short: 'TV Aberta', match: ['TV Aberta'] },
+  { id: 'Reality Shows', label: 'Reality Shows', icon: '🤠', badge: 'PPV', short: 'Reality PPV', match: ['Reality Shows'] },
+  { id: 'Filmes e Séries', label: 'Filmes e Séries', icon: '🎬', short: 'Filmes & Séries', match: ['Filmes e Séries'] },
+  { id: 'Esportes', label: 'Esportes', icon: '⚽', short: 'Esportes', match: ['Esportes'] },
+  { id: 'Notícias', label: 'Notícias', icon: '📰', short: 'Notícias', match: ['Notícias'] },
+  { id: 'Variedades', label: 'Variedades & Música', icon: '✨', short: 'Variedades', match: ['Variedades', 'Músicas'] },
+  { id: 'Infantil', label: 'Infantil & Desenhos', icon: '🧸', short: 'Infantil', match: ['Infantil'] },
+  { id: 'Documentários', label: 'Documentários', icon: '🌍', short: 'Documentários', match: ['Documentários'] },
+  { id: '24 Horas', label: '24 Horas & FAST', icon: '⏱️', short: '24 Horas', match: ['24 Horas', 'Pluto TV'] },
+];
 
 const BRAZIL_STATES = [
   { uf: 'BA', nome: 'Bahia', label: 'Bahia (BA)' },
@@ -91,6 +106,17 @@ export default function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isInstallTvOpen, setIsInstallTvOpen] = useState(false);
   const [isEpgGridOpen, setIsEpgGridOpen] = useState(false);
+
+  // Controle de Visualização e Rolagem de Categorias
+  const [isCategoryGridExpanded, setIsCategoryGridExpanded] = useState(false);
+  const categoryScrollRef = useRef(null);
+
+  const scrollCategories = (direction) => {
+    if (categoryScrollRef.current) {
+      const amount = direction === 'left' ? -280 : 280;
+      categoryScrollRef.current.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+  };
 
   // Modo TV (10-Foot UI para BTV e Smart TV Box)
   const [isTvMode, setIsTvMode] = useState(() => {
@@ -366,13 +392,15 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleRemoteDpad);
   }, []);
 
-  // Categorias únicas de canais
-  const channelCategories = useMemo(() => {
-    const cats = new Set(['Todos']);
-    channels.forEach(c => {
-      if (c.categoria) cats.add(c.categoria);
+  // Contagem dinâmica de canais por categoria sumarizada
+  const categoryCounts = useMemo(() => {
+    const counts = { Todos: channels.length };
+    CHANNEL_CATEGORY_GROUPS.forEach(g => {
+      if (g.match) {
+        counts[g.id] = channels.filter(c => g.match.includes(c.categoria)).length;
+      }
     });
-    return Array.from(cats);
+    return counts;
   }, [channels]);
 
   // Canais filtrados com prioridade regional para TV Aberta
@@ -383,7 +411,18 @@ export default function App() {
         c.categoria.toLowerCase().includes(searchQuery.toLowerCase()) ||
         (c.estado && c.estado.toLowerCase().includes(searchQuery.toLowerCase()));
       
-      const matchesCategory = selectedChannelCategory === 'Todos' || c.categoria === selectedChannelCategory;
+      let matchesCategory = false;
+      if (selectedChannelCategory === 'Todos') {
+        matchesCategory = true;
+      } else {
+        const group = CHANNEL_CATEGORY_GROUPS.find(g => g.id === selectedChannelCategory);
+        if (group && group.match) {
+          matchesCategory = group.match.includes(c.categoria);
+        } else {
+          matchesCategory = c.categoria === selectedChannelCategory;
+        }
+      }
+
       return matchesSearch && matchesCategory;
     });
 
@@ -688,37 +727,146 @@ export default function App() {
         {activeTab === 'canais' && (
           <div className="space-y-6">
             
-            {/* Filtro de Categorias */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-              <span className="text-zinc-400 text-xs font-bold uppercase tracking-wider flex items-center gap-1 shrink-0 mr-1">
-                <Filter size={13} /> Categorias:
-              </span>
-              {channelCategories.map(cat => {
-                const isReality = cat === 'Reality Shows';
-                const isSelected = selectedChannelCategory === cat;
-                return (
+            {/* Barra de Categorias Profissional e Otimizada */}
+            <div className="bg-zinc-900/40 p-2.5 sm:p-3.5 rounded-2xl border border-white/5 space-y-2.5">
+              
+              {/* Cabeçalho da Barra de Categorias com Controles */}
+              <div className="flex items-center justify-between gap-2 px-1">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-6 h-6 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center shrink-0">
+                    <Filter size={13} />
+                  </div>
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-zinc-200 truncate">
+                    Categorias
+                  </span>
+                  <span className="text-[11px] font-semibold text-zinc-400 hidden sm:inline">
+                    • {channels.length} canais ao vivo
+                  </span>
+                </div>
+
+                {/* Controles: Setas de Rolagem + Alternador Ver Todas */}
+                <div className="flex items-center gap-1.5 shrink-0">
+                  {!isCategoryGridExpanded && (
+                    <div className="flex items-center gap-1 bg-zinc-900/90 p-0.5 rounded-xl border border-white/10">
+                      <button
+                        onClick={() => scrollCategories('left')}
+                        data-tv-focus="true"
+                        className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition"
+                        title="Rolar categorias para esquerda"
+                      >
+                        <ChevronLeft size={15} />
+                      </button>
+                      <button
+                        onClick={() => scrollCategories('right')}
+                        data-tv-focus="true"
+                        className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition"
+                        title="Rolar categorias para direita"
+                      >
+                        <ChevronRight size={15} />
+                      </button>
+                    </div>
+                  )}
+
                   <button
-                    key={cat}
-                    onClick={() => setSelectedChannelCategory(cat)}
+                    onClick={() => setIsCategoryGridExpanded(prev => !prev)}
                     data-tv-focus="true"
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition shrink-0 flex items-center gap-1.5 ${
-                      isSelected
-                        ? isReality 
-                          ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-black shadow-lg shadow-amber-500/30 scale-105 font-black'
-                          : 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 scale-105'
-                        : isReality
-                          ? 'bg-amber-500/10 text-amber-300 hover:text-white hover:bg-amber-500/20 border border-amber-500/30'
-                          : 'bg-zinc-900/90 text-zinc-400 hover:text-white hover:bg-zinc-850 border border-white/5'
+                    className={`px-2.5 py-1 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition border ${
+                      isCategoryGridExpanded
+                        ? 'bg-indigo-600/30 text-indigo-300 border-indigo-500/40'
+                        : 'bg-zinc-900/90 text-zinc-400 hover:text-white border-white/10 hover:bg-zinc-800'
                     }`}
+                    title={isCategoryGridExpanded ? 'Voltar para carrossel' : 'Ver todas as categorias em grade'}
                   >
-                    {isReality && <span>🤠</span>}
-                    <span>{cat}</span>
-                    {isReality && (
-                      <span className="text-[9px] px-1 py-0.2 bg-amber-400/20 text-amber-300 rounded font-black border border-amber-400/30 uppercase">PPV</span>
-                    )}
+                    <LayoutGrid size={13} />
+                    <span className="hidden sm:inline">{isCategoryGridExpanded ? 'Carrossel' : 'Ver Todas'}</span>
                   </button>
-                );
-              })}
+                </div>
+              </div>
+
+              {/* Linha de Categorias (Modo Grade Completa ou Carrossel Suave) */}
+              {isCategoryGridExpanded ? (
+                /* Modo Grade: Todos os itens visíveis organizados em bloco */
+                <div className="flex flex-wrap items-center gap-2 pt-1 animate-fadeIn">
+                  {CHANNEL_CATEGORY_GROUPS.map(group => {
+                    const isReality = group.id === 'Reality Shows';
+                    const isSelected = selectedChannelCategory === group.id;
+                    const count = categoryCounts[group.id] || 0;
+                    return (
+                      <button
+                        key={group.id}
+                        onClick={() => setSelectedChannelCategory(group.id)}
+                        data-tv-focus="true"
+                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                          isSelected
+                            ? isReality
+                              ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-black shadow-lg shadow-amber-500/30 font-black scale-105'
+                              : 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 scale-105'
+                            : isReality
+                              ? 'bg-amber-500/10 text-amber-300 hover:text-white hover:bg-amber-500/20 border border-amber-500/30'
+                              : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 border border-white/5'
+                        }`}
+                      >
+                        <span>{group.icon}</span>
+                        <span>{group.label}</span>
+                        {group.badge && (
+                          <span className="text-[9px] px-1 py-0.2 bg-amber-400/20 text-amber-300 rounded font-black border border-amber-400/30 uppercase">
+                            {group.badge}
+                          </span>
+                        )}
+                        <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-medium ${
+                          isSelected ? (isReality ? 'bg-black/20 text-black' : 'bg-white/20 text-white') : 'bg-white/5 text-zinc-400'
+                        }`}>
+                          {count}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              ) : (
+                /* Modo Carrossel: Linha horizontal suave com setas e sem corte abrupto */
+                <div className="relative">
+                  <div
+                    ref={categoryScrollRef}
+                    className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none scroll-smooth"
+                  >
+                    {CHANNEL_CATEGORY_GROUPS.map(group => {
+                      const isReality = group.id === 'Reality Shows';
+                      const isSelected = selectedChannelCategory === group.id;
+                      const count = categoryCounts[group.id] || 0;
+                      return (
+                        <button
+                          key={group.id}
+                          onClick={() => setSelectedChannelCategory(group.id)}
+                          data-tv-focus="true"
+                          className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition shrink-0 flex items-center gap-1.5 ${
+                            isSelected
+                              ? isReality
+                                ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-black shadow-lg shadow-amber-500/30 font-black scale-105'
+                                : 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 scale-105'
+                              : isReality
+                                ? 'bg-amber-500/10 text-amber-300 hover:text-white hover:bg-amber-500/20 border border-amber-500/30'
+                                : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 border border-white/5'
+                          }`}
+                        >
+                          <span>{group.icon}</span>
+                          <span>{group.label}</span>
+                          {group.badge && (
+                            <span className="text-[9px] px-1 py-0.2 bg-amber-400/20 text-amber-300 rounded font-black border border-amber-400/30 uppercase">
+                              {group.badge}
+                            </span>
+                          )}
+                          <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-medium ${
+                            isSelected ? (isReality ? 'bg-black/20 text-black' : 'bg-white/20 text-white') : 'bg-white/5 text-zinc-400'
+                          }`}>
+                            {count}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
             </div>
 
             {/* Seletor Regional de Estado para Afiliadas de TV Aberta */}
