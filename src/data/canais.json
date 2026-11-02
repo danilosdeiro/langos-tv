@@ -1,5 +1,23 @@
 [
   {
+    "id": "ch-cazetv",
+    "nome": "CazéTV HD (Ao Vivo)",
+    "categoria": "Esportes",
+    "logo": "https://yt3.googleusercontent.com/4q-398337728-cazetv-icon.jpg",
+    "fontes": [
+      {
+        "nome": "Fonte 1 (CazéTV Transmissão Principal HD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p"
+      },
+      {
+        "nome": "Fonte 2 (FIFA+ Ao Vivo HD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD · 720p"
+      }
+    ]
+  },
+  {
     "id": "ch-338",
     "nome": "Globo Bahia",
     "categoria": "TV Aberta",
@@ -144,11 +162,6 @@
         "nome": "Fonte 2 (Qualidade não informada)"
       },
       {
-        "url": "https://amg01391-sbtinfast-amg01391c4-lg-br-4597.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg01391-addigital-cnnbrasil-lgbr/cb573e1e7b6c608d84c83f60cef24282967b3dcb0e6c886470af4a9765d97800dbe8ae84ae5b910c4c9e1fc061017d360439cd1dd56c49c1da63b820743c4b21fdcde00080dd0d0cb1df11292ca36265299a7369cc350f7bd2ec5a2f803ebe764c53cb017c593f88f258a8744cc59e0a957f39e8fc8b307b24455a9c5a43e6a64ed6abb64244dd6ebfb102488b2f57f38117ced415e9d48746cf128627ec159cc4f196da11d7d28c32f85ee7360d5b762e988421a12e3cdcabf2e3842f1052243c67a4c5b1ec4f268f4b3124929df89e15319753eb5fec5338ae14900fa53d8f79a30aa69b3ec8577e6c23335083d15a7332acedaf99b9415b2cba49c39bbf404ce39f277948895dd9372737da9aa171d49445c6e671c2dc036c70de7d9c9094e523964cde88487292e054d24c634366160b855ceda96cd416ed79bdc21c1bfb2c2eb0b75ade8fd552312d1ac8d01e9c2412b7df8494cc4e15fe204a0aa630821b3265c2623827a535afce752ca8361a89300afe5a1e8956b3ed7fa2e988b346739ef6f36fd323afb903d9f3428e683f520dfab20f57574370d5a137586237930bb49d9aa1440806ede5c4b195006f496a4112298fe5a821cedc8e7953468f0354151e7a209f0ad266c81309517ebb79fd984925d5487157a9cd5670536f84c7a28e81c2b82d9876d0ddf22a203d4d19d31601216b93fbcd6ef4364f716d4ec2684046ae0c4e4dfa9faab4c0d78eaf7b923c8c04fe968932a6a54d2d6641655a4e274dd8/197/1920x1080_7582265/index.m3u8",
-        "qualidade": "Auto",
-        "nome": "Fonte 3 (Auto)"
-      },
-      {
         "url": "https://d25usgadhphvwi.cloudfront.net/hls/stv-plus1920x1080/playlist.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 4 (HD · 1280x720)"
@@ -229,24 +242,19 @@
         "url": "http://45.185.11.126:8000/play/a08d/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 3 (FHD · 1920x1080)"
-      },
-      {
-        "url": "http://79.127.238.228:14093",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 5 (HD · 1280x720)"
       }
     ]
   },
   {
     "id": "ch-12",
-    "nome": "Globoplay Novelas",
+    "nome": "Globoplay Especial (Novelas & Séries)",
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/globonovelas.prev.png",
     "fontes": [
       {
-        "url": "http://79.127.238.228:14455",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4 (HD · 1280x720)"
+        "nome": "Fonte 1 (Globoplay Oficial HD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD · 720p"
       }
     ]
   },
@@ -260,11 +268,6 @@
         "url": "http://45.185.11.126:8000/play/a079/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
-      },
-      {
-        "url": "http://79.127.238.228:14402",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2 (HD · 1280x720)"
       }
     ]
   },
@@ -320,11 +323,6 @@
         "url": "http://170.83.16.50/HISTORY/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 3 (HD · 1280x720)"
-      },
-      {
-        "url": "http://46.151.196.223:14410",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4 (HD · 1280x720)"
       }
     ]
   },
@@ -366,11 +364,6 @@
         "url": "http://45.185.11.126:8000/play/a057/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
-      },
-      {
-        "url": "http://79.127.238.228:14592",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2 (HD · 1280x720)"
       }
     ]
   },
@@ -968,11 +961,6 @@
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 2 (HD · 1280x720)"
-      },
-      {
-        "url": "http://79.127.238.228:14057",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 3 (HD · 1280x720)"
       }
     ],
     "uf": "BR",
@@ -1134,14 +1122,14 @@
   },
   {
     "id": "ch-74",
-    "nome": "TLC",
+    "nome": "Runtime Cine & Variedades 24h",
     "categoria": "Variedades",
     "logo": "https://img.faz-o-eli.online/tlc.png",
     "fontes": [
       {
-        "url": "http://79.127.238.228:14433",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
+        "nome": "Fonte 1 (Oficial FHD)",
+        "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=2153",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
@@ -1253,11 +1241,6 @@
         "url": "http://45.162.64.114/REDE_TV/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
-      },
-      {
-        "url": "https://tv01.zas.media:1936/redetvparana/redetvparana/chunklist_w1074634538.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2 (FHD · 1920x1080)"
       },
       {
         "url": "http://170.83.16.50/REDE_TV/index.m3u8",
@@ -1408,11 +1391,6 @@
         "url": "http://45.162.64.114/CANCAO_NOVA/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
-      },
-      {
-        "url": "http://46.151.196.223:14225",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2 (HD · 1280x720)"
       }
     ],
     "uf": "BR",
@@ -1465,11 +1443,6 @@
         "url": "http://186.219.52.187/rede_vida/index.m3u8",
         "qualidade": "SD · 720x576",
         "nome": "Fonte 3 (SD · 720x576)"
-      },
-      {
-        "url": "http://46.151.196.223:14244",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4 (HD · 1280x720)"
       }
     ],
     "uf": "BR",
@@ -1659,16 +1632,6 @@
         "url": "http://45.162.64.114/ESPN_BRASIL/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
-      },
-      {
-        "url": "https://redebrasil.nuvemplay.live/hls/stream.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2 (HD · 1280x720)"
-      },
-      {
-        "url": "https://video09.logicahost.com.br/redebrasiloficial/redebrasiloficial/playlist.m3u8",
-        "qualidade": "Auto",
-        "nome": "Fonte 3 (Auto)"
       }
     ],
     "uf": "BR",
@@ -2224,19 +2187,19 @@
   },
   {
     "id": "ch-140",
-    "nome": "NickOnline",
+    "nome": "Nickelodeon Kids 24h",
     "categoria": "Infantil",
     "logo": "https://x1colegal.com/logo.png",
     "fontes": [
       {
-        "url": "https://x1colegal.com/hls/stream.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 1 (HD · 1280x720)"
+        "nome": "Fonte 1 (Nickelodeon HD)",
+        "url": "https://jmp2.uk/plu-620ff46e0a576e0007dc2f89.m3u8",
+        "qualidade": "HD · 720p"
       },
       {
-        "url": "https://x1colegal.com/hls/0/stream.m3u8",
-        "qualidade": "Auto",
-        "nome": "Fonte 2 (Auto)"
+        "nome": "Fonte 2 (Bob Esponja 24h HD)",
+        "url": "https://jmp2.uk/plu-62545c0b002f4b0007688b61.m3u8",
+        "qualidade": "HD · 720p"
       }
     ]
   },
@@ -2307,16 +2270,6 @@
         "url": "http://45.162.64.114/REDE_TV/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
-      },
-      {
-        "url": "https://tv01.zas.media:1936/redetvparana/redetvparana/playlist.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 2 (FHD · 1920x1080)"
-      },
-      {
-        "url": "https://tv01.zas.media:1936/redetvparana/redetvparana/chunklist_w1074634538.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 3 (FHD · 1920x1080)"
       },
       {
         "url": "http://170.83.16.50/REDE_TV/index.m3u8",
@@ -2623,14 +2576,19 @@
   },
   {
     "id": "ch-325",
-    "nome": "Otaku Sign TV",
+    "nome": "Pluto TV Anime Ação (24 Horas)",
     "categoria": "Infantil",
     "logo": "",
     "fontes": [
       {
-        "url": "https://stmv1.srvif.com/anime/anime/playlist.m3u8",
-        "qualidade": "SD · 1024x576",
-        "nome": "Fonte 1 (SD · 1024x576)"
+        "nome": "Fonte 1 (Anime Ação 24h HD)",
+        "url": "https://jmp2.uk/plu-5f12136385bccc00070142ed.m3u8",
+        "qualidade": "HD · 720p"
+      },
+      {
+        "nome": "Fonte 2 (Boruto 24h HD)",
+        "url": "https://jmp2.uk/plu-656f389c3944b60008e5bdab.m3u8",
+        "qualidade": "HD · 720p"
       }
     ]
   },

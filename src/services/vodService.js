@@ -375,9 +375,10 @@ export const VodService = {
 
       filled.push(...seasonEps);
 
-      // Se há um pulo de episódios (ex: ep 1 e ep 25 registrados na base)
-      if (template && maxEp > 1 && maxEp - minEp + 1 > seasonEps.length) {
-        for (let epNum = 1; epNum <= maxEp; epNum++) {
+      // Auto-preencher episódios se a temporada tiver pulos ou se tiver apenas o episódio 1 registrado
+      if (template && (seasonEps.length === 1 || (maxEp > 1 && maxEp - minEp + 1 > seasonEps.length))) {
+        const targetEpCount = seasonEps.length === 1 ? 12 : maxEp;
+        for (let epNum = 1; epNum <= targetEpCount; epNum++) {
           if (!existingNums.has(epNum)) {
             const filledUrl = template.url.replace(/([?&]s=)\d+/, '$1' + s).replace(/([?&]e=)\d+/, '$1' + epNum);
             filled.push({

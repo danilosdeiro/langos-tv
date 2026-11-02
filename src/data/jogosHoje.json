@@ -27,6 +27,11 @@
         "badge": "Principal"
       },
       {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
         "canalId": "ch-sportv-1",
         "nome": "SporTV HD",
         "badge": "Opção 2"
@@ -63,6 +68,11 @@
       {
         "canalId": "ch-26",
         "nome": "Premiere Clubes",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
         "badge": "Ao Vivo"
       },
       {
