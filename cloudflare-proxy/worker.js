@@ -84,14 +84,29 @@ export default {
       }
 
       const contentType = response.headers.get('content-type') || '';
-      const isPlaylist = 
+      let isPlaylist = 
         contentType.includes('mpegurl') || 
         contentType.includes('application/x-mpegURL') || 
         targetUrl.includes('.m3u8') || 
-        targetUrl.includes('.txt');
+        targetUrl.includes('.txt') ||
+        targetUrl.includes('/m3/') ||
+        targetUrl.includes('/hls/');
+
+      let text = null;
+      if (!isPlaylist && (contentType.includes('text') || !contentType.includes('video') || contentType === '')) {
+        try {
+          const peek = await response.clone().text();
+          if (peek.trim().startsWith('#EXTM3U')) {
+            isPlaylist = true;
+            text = peek;
+          }
+        } catch {}
+      }
 
       if (isPlaylist) {
-        const text = await response.text();
+        if (text === null) {
+          text = await response.text();
+        }
         const trimmed = text.trim();
 
         // Check if remote returned HTML error page
@@ -109,6 +124,7 @@ export default {
         // Anchor base URL to the final destination URL (handles 302 redirects)
         const finalUrl = response.url || targetUrl;
         const baseUrl = new URL(finalUrl);
+        const effectiveReferer = referer ? decodeURIComponent(referer) : (baseUrl.origin + '/');
 
         const lines = text.split('\n');
         const rewritten = lines.map(line => {
@@ -125,7 +141,7 @@ export default {
                 } catch {
                   absUri = uri;
                 }
-                const refP = referer ? `&referer=${encodeURIComponent(referer)}` : '';
+                const refP = `&referer=${encodeURIComponent(effectiveReferer)}`;
                 const uaP = ua ? `&ua=${encodeURIComponent(ua)}` : '';
                 return `URI="${workerOrigin}/?url=${encodeURIComponent(absUri)}${refP}${uaP}"`;
               });
@@ -141,7 +157,7 @@ export default {
             absUrl = l;
           }
 
-          const refP = referer ? `&referer=${encodeURIComponent(referer)}` : '';
+          const refP = `&referer=${encodeURIComponent(effectiveReferer)}`;
           const uaP = ua ? `&ua=${encodeURIComponent(ua)}` : '';
           return `${workerOrigin}/?url=${encodeURIComponent(absUrl)}${refP}${uaP}`;
         }).join('\n');

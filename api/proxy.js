@@ -51,17 +51,30 @@ export default async function handler(req, res) {
       });
     }
 
-    const contentType = response.headers.get('content-type') || 'application/vnd.apple.mpegurl';
-    res.setHeader('Content-Type', contentType);
-
-    const isPlaylist = 
+    const contentType = response.headers.get('content-type') || '';
+    let isPlaylist = 
       contentType.includes('mpegurl') || 
       contentType.includes('application/x-mpegURL') || 
       targetUrl.includes('.m3u8') || 
-      targetUrl.includes('.txt');
+      targetUrl.includes('.txt') ||
+      targetUrl.includes('/m3/') ||
+      targetUrl.includes('/hls/');
+
+    let text = null;
+    if (!isPlaylist && (contentType.includes('text') || !contentType.includes('video') || contentType === '')) {
+      try {
+        const peek = await response.clone().text();
+        if (peek.trim().startsWith('#EXTM3U')) {
+          isPlaylist = true;
+          text = peek;
+        }
+      } catch {}
+    }
 
     if (isPlaylist) {
-      const text = await response.text();
+      if (text === null) {
+        text = await response.text();
+      }
       const trimmedText = text.trim();
 
       // Se o servidor remoto retornou página HTML (erro 404/bloqueio mascarado de 200)
@@ -81,6 +94,7 @@ export default async function handler(req, res) {
       res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
       const finalUrl = response.url || targetUrl;
       const baseUrl = new URL(finalUrl);
+      const effectiveReferer = referer ? decodeURIComponent(referer) : (baseUrl.origin + '/');
 
       const lines = text.split('\n');
       const rewritten = lines.map(line => {
@@ -97,7 +111,7 @@ export default async function handler(req, res) {
               } catch {
                 absUri = uri;
               }
-              const refParam = referer ? `&referer=${encodeURIComponent(referer)}` : '';
+              const refParam = `&referer=${encodeURIComponent(effectiveReferer)}`;
               const uaParam = ua ? `&ua=${encodeURIComponent(ua)}` : '';
               return `URI="/api/proxy?url=${encodeURIComponent(absUri)}${refParam}${uaParam}"`;
             });
@@ -113,7 +127,7 @@ export default async function handler(req, res) {
           absoluteUrl = trimmed;
         }
 
-        const refParam = referer ? `&referer=${encodeURIComponent(referer)}` : '';
+        const refParam = `&referer=${encodeURIComponent(effectiveReferer)}`;
         const uaParam = ua ? `&ua=${encodeURIComponent(ua)}` : '';
         return `/api/proxy?url=${encodeURIComponent(absoluteUrl)}${refParam}${uaParam}`;
       }).join('\n');

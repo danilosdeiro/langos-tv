@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Play, Layers, Clapperboard, Loader2, Volume2, MessageSquare } from 'lucide-react';
+import { X, Play, Layers, Clapperboard, Loader2, Volume2, MessageSquare, Sparkles } from 'lucide-react';
 import { VodService } from '../services/vodService';
 import { TvNavigation } from '../services/tvNavigation';
 
@@ -102,6 +102,28 @@ export default function EpisodeModal({
 
   // Ordenar episódios numericamente
   currentSeasonEps.sort((a, b) => a.episode - b.episode);
+
+  // Desbloquear mais episódios para temporadas que possuem apenas 1 episódio registrado
+  const handleUnlockMoreEpisodes = (seasonNum) => {
+    const template = currentSeasonEps.find(e => e.url && e.url.includes('s=') && e.url.includes('e='));
+    if (!template) return;
+    const existing = new Set(episodes.filter(e => e.season === seasonNum).map(e => e.episode));
+    const newEps = [];
+    for (let i = 1; i <= 12; i++) {
+      if (!existing.has(i)) {
+        const url = template.url.replace(/([?&]s=)\d+/, '$1' + seasonNum).replace(/([?&]e=)\d+/, '$1' + i);
+        newEps.push({
+          season: seasonNum,
+          episode: i,
+          audio: template.audio,
+          url,
+          allUrls: [url],
+          nome: `T${seasonNum}:E${i} (${template.audio === 'dublado' ? 'Dublado' : 'Legendado'})`
+        });
+      }
+    }
+    setEpisodes(prev => [...prev, ...newEps]);
+  };
 
   // Manipular clique no episódio
   const handleEpisodeClick = (ep) => {
@@ -300,6 +322,25 @@ export default function EpisodeModal({
                   </button>
                 ))}
               </div>
+
+              {/* Botão de Expansão quando a temporada tem poucos episódios */}
+              {currentSeasonEps.length <= 2 && currentSeasonEps.some(e => e.url && e.url.includes('s=') && e.url.includes('e=')) && (
+                <div className="mt-4 p-3.5 bg-gradient-to-r from-purple-950/40 via-indigo-950/30 to-zinc-900 border border-purple-500/30 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
+                  <div>
+                    <h4 className="text-xs font-bold text-white flex items-center gap-1.5">
+                      <Sparkles size={14} className="text-purple-400" /> Deseja ver mais episódios desta temporada?
+                    </h4>
+                    <p className="text-[11px] text-zinc-400">Desbloquear todos os episódios completos da Temporada {selectedSeason}</p>
+                  </div>
+                  <button
+                    onClick={() => handleUnlockMoreEpisodes(selectedSeason)}
+                    data-tv-focus="true"
+                    className="px-3.5 py-1.5 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-xs font-bold transition shrink-0 shadow-md"
+                  >
+                    + Desbloquear 12 Episódios
+                  </button>
+                </div>
+              )}
             </div>
           ) : (
             <div className="py-10 text-center text-zinc-500 text-xs">

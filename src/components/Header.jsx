@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Tv, Film, Clapperboard, Star, Settings, Search, X, DownloadCloud, MapPin, Calendar } from 'lucide-react';
+import { Tv, Film, Clapperboard, Star, Settings, Search, X, DownloadCloud, MapPin, Calendar, Sparkles, Flame } from 'lucide-react';
 
 export default function Header({ 
   activeTab, 
@@ -13,7 +13,9 @@ export default function Header({
   onToggleTvMode,
   userState = 'BA',
   onOpenEpgGrid,
-  isEpgGridOpen = false
+  isEpgGridOpen = false,
+  isOnlyReleases = false,
+  onToggleReleases
 }) {
   const [time, setTime] = useState('');
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -156,6 +158,19 @@ export default function Header({
             </button>
 
             <button
+              onClick={() => setActiveTab('animes')}
+              data-tv-focus="true"
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
+                activeTab === 'animes'
+                  ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-md shadow-rose-600/30 font-bold'
+                  : 'text-zinc-400 hover:text-rose-300 hover:bg-white/5'
+              }`}
+            >
+              <Sparkles size={14} className={activeTab === 'animes' ? 'text-white' : 'text-rose-400'} />
+              <span>Animes</span>
+            </button>
+
+            <button
               onClick={() => setActiveTab('favoritos')}
               data-tv-focus="true"
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition shrink-0 ${
@@ -196,6 +211,21 @@ export default function Header({
 
           {/* Botões de Ação */}
           <div className="flex items-center gap-1.5 shrink-0">
+            {/* Botão de Lançamentos Rápidos */}
+            <button
+              onClick={onToggleReleases}
+              data-tv-focus="true"
+              className={`px-2.5 py-1.5 rounded-xl text-xs font-bold border transition flex items-center gap-1.5 shrink-0 ${
+                isOnlyReleases
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-black border-amber-400 font-black shadow-lg shadow-amber-500/30 scale-105'
+                  : 'bg-zinc-900/90 hover:bg-zinc-800 border-white/10 text-zinc-300 hover:text-white'
+              }`}
+              title="Filtrar pelos lançamentos mais recentes de 2026 e 2025"
+            >
+              <Flame size={14} className={isOnlyReleases ? 'text-black fill-current' : 'text-amber-400'} />
+              <span className="hidden md:inline">Lançamentos</span>
+            </button>
+
             {/* Botão de Alternar Modo TV */}
             <button
               onClick={onToggleTvMode}

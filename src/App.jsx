@@ -35,12 +35,19 @@ const BRAZIL_STATES = [
 ];
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('canais'); // 'canais', 'filmes', 'series', 'favoritos'
+  const [activeTab, setActiveTab] = useState('canais'); // 'canais', 'filmes', 'series', 'animes', 'favoritos'
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedChannelCategory, setSelectedChannelCategory] = useState('Todos');
   const [selectedVodGenre, setSelectedVodGenre] = useState('Todos');
   const [vodAudioFilter, setVodAudioFilter] = useState('todos'); // 'todos', 'dublado', 'legendado'
   const [preferredAudio, setPreferredAudio] = useState('dublado'); // para reprodução
+
+  // Lançamentos Recentes (Filtro Rápido 2026/2025)
+  const [isOnlyReleases, setIsOnlyReleases] = useState(false);
+
+  // Estado para Animes em Destaque & Filtro de Gênero
+  const [featuredAnimes, setFeaturedAnimes] = useState([]);
+  const [selectedAnimeGenre, setSelectedAnimeGenre] = useState('Todos');
 
   // Região do Usuário para TV Aberta (Padrão: 'BA' Bahia)
   const [userState, setUserState] = useState(() => {
@@ -154,6 +161,13 @@ export default function App() {
       .catch(err => {
         console.warn('Erro ao carregar destaques de filmes:', err);
         setFeaturedMovies(CatalogService.getMovies());
+      });
+
+    // Carregar acervo VIP de animes
+    VodService.fetchFeaturedAnimes()
+      .then(animes => setFeaturedAnimes(animes))
+      .catch(err => {
+        console.warn('Erro ao carregar animes:', err);
       });
   }, []);
 
@@ -397,15 +411,21 @@ export default function App() {
 
       const matchesGenre = selectedVodGenre === 'Todos' || (m.categoria && m.categoria.includes(selectedVodGenre));
       
+      const matchesRelease = !isOnlyReleases || 
+        m.ano === '2026' || 
+        m.ano === '2025' || 
+        m.duracao === 'Lançamento' || 
+        (m.ano && parseInt(m.ano) >= 2025);
+
       const matchesAudio = 
         vodAudioFilter === 'todos' ||
         m.isDynamic ||
         (vodAudioFilter === 'dublado' && m.dublado && m.dublado.length > 0) ||
         (vodAudioFilter === 'legendado' && m.legendado && m.legendado.length > 0);
 
-      return matchesSearch && matchesGenre && matchesAudio;
+      return matchesSearch && matchesGenre && matchesRelease && matchesAudio;
     });
-  }, [selectedMovieLetter, featuredMovies, dynamicMovies, searchQuery, selectedVodGenre, vodAudioFilter]);
+  }, [selectedMovieLetter, featuredMovies, dynamicMovies, searchQuery, selectedVodGenre, vodAudioFilter, isOnlyReleases]);
 
   // Séries a exibir (Destaques ou Dinâmicas da letra)
   const displayedSeries = useMemo(() => {
@@ -416,15 +436,56 @@ export default function App() {
         s.titulo.toLowerCase().includes(searchQuery.toLowerCase()) ||
         (s.categoria && s.categoria.toLowerCase().includes(searchQuery.toLowerCase()));
 
+      const matchesRelease = !isOnlyReleases || 
+        s.ano === '2026' || 
+        s.ano === '2025' || 
+        s.ano === '2024' || 
+        (s.ano && parseInt(s.ano) >= 2024);
+
       const matchesAudio = 
         vodAudioFilter === 'todos' ||
         s.isDynamic ||
         (vodAudioFilter === 'dublado' && s.dublado && s.dublado.length > 0) ||
         (vodAudioFilter === 'legendado' && s.legendado && s.legendado.length > 0);
 
-      return matchesSearch && matchesAudio;
+      return matchesSearch && matchesRelease && matchesAudio;
     });
-  }, [selectedSeriesLetter, featuredSeries, dynamicSeries, searchQuery, vodAudioFilter]);
+  }, [selectedSeriesLetter, featuredSeries, dynamicSeries, searchQuery, vodAudioFilter, isOnlyReleases]);
+
+  // Animes a exibir (com filtros de busca, gênero, áudio e lançamentos)
+  const displayedAnimes = useMemo(() => {
+    return featuredAnimes.filter(a => {
+      const matchesSearch = searchQuery === '' || 
+        a.titulo.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (a.categoria && a.categoria.toLowerCase().includes(searchQuery.toLowerCase()));
+
+      const matchesGenre = selectedAnimeGenre === 'Todos' || 
+        (a.categoria && a.categoria.toLowerCase().includes(selectedAnimeGenre.toLowerCase()));
+
+      const matchesRelease = !isOnlyReleases || 
+        a.ano === '2026' || 
+        a.ano === '2025' || 
+        a.ano === '2024' || 
+        (a.ano && parseInt(a.ano) >= 2024);
+
+      const matchesAudio = 
+        vodAudioFilter === 'todos' ||
+        a.isDynamic ||
+        (vodAudioFilter === 'dublado' && a.dublado && a.dublado.length > 0) ||
+        (vodAudioFilter === 'legendado' && a.legendado && a.legendado.length > 0);
+
+      return matchesSearch && matchesGenre && matchesRelease && matchesAudio;
+    });
+  }, [featuredAnimes, searchQuery, selectedAnimeGenre, vodAudioFilter, isOnlyReleases]);
+
+  // Canais de Anime 24h ao Vivo
+  const liveAnimeChannels = useMemo(() => {
+    return channels.filter(c => {
+      const name = (c.nome || '').toLowerCase();
+      const cat = (c.categoria || '').toLowerCase();
+      return name.includes('anime') || name.includes('otaku') || name.includes('loading') || name.includes('crunchy') || name.includes('naruto') || name.includes('dragon ball');
+    });
+  }, [channels]);
 
   // Itens favoritos
   const favoriteChannels = useMemo(() => {
@@ -456,6 +517,8 @@ export default function App() {
         userState={userState}
         onOpenEpgGrid={() => setIsEpgGridOpen(true)}
         isEpgGridOpen={isEpgGridOpen}
+        isOnlyReleases={isOnlyReleases}
+        onToggleReleases={() => setIsOnlyReleases(prev => !prev)}
       />
 
       {/* Área Central */}
@@ -962,6 +1025,104 @@ export default function App() {
                     </button>
                   </div>
                 )}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ---------------- ABA: ANIMES (+18 GRANDES SUCESSOS & CANAIS 24H) ---------------- */}
+        {activeTab === 'animes' && (
+          <div className="space-y-6">
+            
+            {/* Banner Hero Animes */}
+            <div className="relative rounded-3xl p-6 md:p-8 bg-gradient-to-r from-rose-950/70 via-purple-950/50 to-zinc-900 border border-rose-500/30 overflow-hidden shadow-2xl">
+              <div className="relative z-10 max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-bold border border-rose-500/30 mb-3">
+                  <Sparkles size={14} className="text-rose-400" />
+                  <span>⛩️ Acervo de Animes VIP & Sucessos Japoneses</span>
+                </div>
+                <h2 className="text-2xl md:text-4xl font-black text-white mb-2">
+                  Universo <span className="text-rose-400">Otaku & Animes</span>
+                </h2>
+                <p className="text-zinc-300 text-xs md:text-sm leading-relaxed mb-4">
+                  Grandes lançamentos e animes lendários com todas as temporadas, episódios completos dublados e legendados em Full HD, além de canais 24h dedicados.
+                </p>
+
+                {/* Filtros de Gênero de Anime */}
+                <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                  {['Todos', 'Shounen', 'Ação', 'Aventura', 'Sobrenatural', 'Fantasia', 'Clássicos'].map(genre => (
+                    <button
+                      key={genre}
+                      onClick={() => setSelectedAnimeGenre(genre)}
+                      data-tv-focus="true"
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition shrink-0 ${
+                        selectedAnimeGenre === genre
+                          ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/30 scale-105'
+                          : 'bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/5'
+                      }`}
+                    >
+                      {genre}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Canais de Anime 24h ao Vivo */}
+            {liveAnimeChannels.length > 0 && !searchQuery && (
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm md:text-base font-extrabold text-white flex items-center gap-2">
+                    <Tv size={16} className="text-rose-400" />
+                    Canais de Anime 24h Ao Vivo
+                  </h3>
+                  <span className="text-xs text-zinc-400">{liveAnimeChannels.length} canais transmitindo</span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
+                  {liveAnimeChannels.map(ch => (
+                    <ChannelCard
+                      key={ch.id}
+                      channel={ch}
+                      channelNumber={channels.findIndex(c => c.id === ch.id) + 1}
+                      isFavorite={favorites.includes(ch.id)}
+                      onToggleFavorite={handleToggleFavorite}
+                      onSelect={(c) => handleSelectItem(c)}
+                      isActive={activeItem?.id === ch.id}
+                      onOpenEpg={(c) => setSelectedChannelForEpg(c)}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Cabeçalho da Grade de Animes */}
+            <div className="flex items-center justify-between pt-2">
+              <h3 className="text-white font-extrabold text-lg flex items-center gap-2">
+                <Clapperboard className="text-rose-400" size={20} />
+                {selectedAnimeGenre === 'Todos' ? 'Séries de Animes Populares' : `Animes de ${selectedAnimeGenre}`}
+              </h3>
+              <span className="text-xs text-zinc-400">{displayedAnimes.length} títulos disponíveis</span>
+            </div>
+
+            {/* Grade de Séries de Anime */}
+            {displayedAnimes.length > 0 ? (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                {displayedAnimes.map(s => (
+                  <SeriesCard
+                    key={s.id}
+                    series={s}
+                    isFavorite={favorites.includes(s.id)}
+                    onToggleFavorite={handleToggleFavorite}
+                    onSelect={(item) => handleSelectSeries(item)}
+                    preferredAudio={preferredAudio}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-16 bg-zinc-900/30 rounded-3xl border border-white/5 p-8">
+                <Sparkles size={40} className="mx-auto text-zinc-500 mb-3" />
+                <h3 className="text-white font-bold text-base mb-1">Nenhum anime encontrado</h3>
+                <p className="text-zinc-400 text-xs">Tente ajustar a busca ou o gênero selecionado.</p>
               </div>
             )}
           </div>
