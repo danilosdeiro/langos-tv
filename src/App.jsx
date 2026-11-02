@@ -9,6 +9,7 @@ import SettingsModal from './components/SettingsModal';
 import EpgModal from './components/EpgModal';
 import EpgTimelineGrid from './components/EpgTimelineGrid';
 import InstallTvModal from './components/InstallTvModal';
+import HeroBanner from './components/HeroBanner';
 import ErrorBoundary from './components/ErrorBoundary';
 import { CatalogService } from './services/catalogService';
 import { VodService } from './services/vodService';
@@ -680,47 +681,14 @@ export default function App() {
           </section>
         )}
 
-        {/* Banner Hero */}
+        {/* Banner Hero Cinematográfico (Estilo Netflix / HBO Max) */}
         {!activeItem && !searchQuery && activeTab === 'canais' && (
-          <div className="relative rounded-3xl p-6 md:p-10 bg-gradient-to-r from-indigo-950/70 via-purple-950/40 to-zinc-900 border border-indigo-500/20 overflow-hidden shadow-2xl">
-            <div className="relative z-10 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold border border-indigo-500/30 mb-4">
-                <Sparkles size={14} /> Mais de 350 Canais com Grade EPG & 50.000 Títulos VOD
-              </div>
-              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
-                Bem-vindo ao <span className="text-indigo-400">Lango's TV</span>
-              </h1>
-              <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-6 font-normal">
-                Assista a canais ao vivo com grade de programação em tempo real, além de um acervo com milhares de séries e filmes dublados e legendados atualizados diariamente.
-              </p>
-              <div className="flex flex-wrap items-center gap-3">
-                <button
-                  onClick={() => {
-                    const firstOpen = channels.find(c => c.categoria === 'TV Aberta') || channels[0];
-                    if (firstOpen) handleSelectItem(firstOpen);
-                  }}
-                  data-tv-focus="true"
-                  className="px-5 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs md:text-sm font-bold flex items-center gap-2 shadow-xl shadow-indigo-600/30 transition hover:scale-105"
-                >
-                  <Play size={16} fill="currentColor" /> Assistir TV Aberta
-                </button>
-                <button
-                  onClick={() => setActiveTab('series')}
-                  data-tv-focus="true"
-                  className="px-5 py-3 bg-purple-600/80 hover:bg-purple-600 text-white rounded-xl text-xs md:text-sm font-bold flex items-center gap-2 transition border border-white/10"
-                >
-                  <Clapperboard size={16} /> Ver Catálogo de Séries (+7.000)
-                </button>
-                <button
-                  onClick={() => setActiveTab('filmes')}
-                  data-tv-focus="true"
-                  className="px-5 py-3 bg-zinc-800 hover:bg-zinc-750 text-white rounded-xl text-xs md:text-sm font-bold flex items-center gap-2 transition border border-white/10"
-                >
-                  <Film size={16} /> Ver Catálogo de Filmes (+45.000)
-                </button>
-              </div>
-            </div>
-          </div>
+          <HeroBanner
+            movies={featuredMovies}
+            onPlayMovie={(movie) => handleSelectItem(movie)}
+            onSelectCategory={(cat) => setSelectedChannelCategory(cat)}
+            onNavigateTab={(tab) => setActiveTab(tab)}
+          />
         )}
 
         {/* ---------------- ABA: CANAIS AO VIVO COM EPG ---------------- */}
