@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { EpgService } from '../services/epgService';
 import { HistoryService } from '../services/historyService';
+import { getProxyUrl, isProxiedUrl } from '../services/proxyService';
 
 function formatTime(seconds) {
   if (!seconds || isNaN(seconds) || seconds <= 0) return '00:00';
@@ -184,9 +185,7 @@ export default function VideoPlayer({
       currentSource.referer || 
       rawUrl.includes('.txt')
     ) {
-      let proxy = `/api/proxy?url=${encodeURIComponent(rawUrl)}`;
-      if (currentSource.referer) proxy += `&referer=${encodeURIComponent(currentSource.referer)}`;
-      return proxy;
+      return getProxyUrl(rawUrl, currentSource.referer);
     }
     return rawUrl;
   }, [currentSource, forceProxyForCurrent]);
@@ -439,7 +438,7 @@ export default function VideoPlayer({
     const allSources = sourcesRef.current;
 
     // Se a fonte direta falhou por bloqueio de CORS do navegador, tentar via Proxy Seguro antes de pular a fonte
-    if (!forceProxyForCurrent && resolvedStreamUrl && !resolvedStreamUrl.includes('/api/proxy')) {
+    if (!forceProxyForCurrent && resolvedStreamUrl && !isProxiedUrl(resolvedStreamUrl)) {
       setFallbackNotice(`Fonte ${curIdx + 1} bloqueada pelo navegador. Redirecionando via Proxy...`);
       setForceProxyForCurrent(true);
       return;
@@ -499,7 +498,7 @@ export default function VideoPlayer({
       rawTarget.includes('.txt') ||
       rawTarget.includes('live') ||
       rawTarget.includes('stream') ||
-      (!rawTarget.includes('.') && streamUrl.includes('/api/proxy'))
+      (!rawTarget.includes('.') && isProxiedUrl(streamUrl))
     );
 
     const startPlayback = () => {
