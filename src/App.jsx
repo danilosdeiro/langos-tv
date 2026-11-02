@@ -630,20 +630,32 @@ export default function App() {
               <span className="text-zinc-400 text-xs font-bold uppercase tracking-wider flex items-center gap-1 shrink-0 mr-1">
                 <Filter size={13} /> Categorias:
               </span>
-              {channelCategories.map(cat => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedChannelCategory(cat)}
-                  data-tv-focus="true"
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition shrink-0 ${
-                    selectedChannelCategory === cat
-                      ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 scale-105'
-                      : 'bg-zinc-900/90 text-zinc-400 hover:text-white hover:bg-zinc-850 border border-white/5'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+              {channelCategories.map(cat => {
+                const isReality = cat === 'Reality Shows';
+                const isSelected = selectedChannelCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setSelectedChannelCategory(cat)}
+                    data-tv-focus="true"
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition shrink-0 flex items-center gap-1.5 ${
+                      isSelected
+                        ? isReality 
+                          ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-black shadow-lg shadow-amber-500/30 scale-105 font-black'
+                          : 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 scale-105'
+                        : isReality
+                          ? 'bg-amber-500/10 text-amber-300 hover:text-white hover:bg-amber-500/20 border border-amber-500/30'
+                          : 'bg-zinc-900/90 text-zinc-400 hover:text-white hover:bg-zinc-850 border border-white/5'
+                    }`}
+                  >
+                    {isReality && <span>🤠</span>}
+                    <span>{cat}</span>
+                    {isReality && (
+                      <span className="text-[9px] px-1 py-0.2 bg-amber-400/20 text-amber-300 rounded font-black border border-amber-400/30 uppercase">PPV</span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Seletor Regional de Estado para Afiliadas de TV Aberta */}

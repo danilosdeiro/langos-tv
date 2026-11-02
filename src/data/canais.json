@@ -3002,6 +3002,8 @@
     "id": "ch-fazenda-mosaico",
     "nome": "A Fazenda 18 — Mosaico (Multi-Telas PPV)",
     "categoria": "Reality Shows",
+    "camShort": "Mosaico",
+    "camIcon": "📺",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
@@ -3016,6 +3018,8 @@
     "id": "ch-fazenda-cam1",
     "nome": "A Fazenda 18 — Câmera Principal (Sinal 24h)",
     "categoria": "Reality Shows",
+    "camShort": "Principal",
+    "camIcon": "⭐",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
@@ -3030,6 +3034,8 @@
     "id": "ch-fazenda-cam2",
     "nome": "A Fazenda 18 — Câmera 02 (A Sede)",
     "categoria": "Reality Shows",
+    "camShort": "Sede",
+    "camIcon": "🏠",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
@@ -3044,6 +3050,8 @@
     "id": "ch-fazenda-cam3",
     "nome": "A Fazenda 18 — Câmera 03 (A Baia)",
     "categoria": "Reality Shows",
+    "camShort": "Baia",
+    "camIcon": "🐴",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
@@ -3058,6 +3066,8 @@
     "id": "ch-fazenda-cam4",
     "nome": "A Fazenda 18 — Câmera 04 (Área Externa & Piscina)",
     "categoria": "Reality Shows",
+    "camShort": "Piscina",
+    "camIcon": "🏊",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
@@ -3072,6 +3082,8 @@
     "id": "ch-fazenda-cam5",
     "nome": "A Fazenda 18 — Câmera 05 (Oficina & Academia)",
     "categoria": "Reality Shows",
+    "camShort": "Oficina",
+    "camIcon": "🏋️",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
@@ -3086,6 +3098,8 @@
     "id": "ch-fazenda-cam6",
     "nome": "A Fazenda 18 — Câmera 06 (Trato dos Animais)",
     "categoria": "Reality Shows",
+    "camShort": "Animais",
+    "camIcon": "🐾",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
@@ -3100,7 +3114,9 @@
     "id": "ch-bbb-principal",
     "nome": "BBB 24h — Câmera Principal (Aguardando Temporada)",
     "categoria": "Reality Shows",
-    "logo": "https://upload.wikimedia.org/wikipedia/pt/5/5a/Logotipo_do_Big_Brother_Brasil.png",
+    "camShort": "Principal",
+    "camIcon": "⭐",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Big_Brother_Brasil_logo.png",
     "fontes": [
       {
         "nome": "Flashes & Especiais Multishow (BBB)",
@@ -3114,7 +3130,9 @@
     "id": "ch-bbb-mosaico",
     "nome": "BBB 24h — Mosaico Multitelas (Globoplay)",
     "categoria": "Reality Shows",
-    "logo": "https://upload.wikimedia.org/wikipedia/pt/5/5a/Logotipo_do_Big_Brother_Brasil.png",
+    "camShort": "Mosaico",
+    "camIcon": "📺",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Big_Brother_Brasil_logo.png",
     "fontes": [
       {
         "nome": "Canal BBB Especial Globoplay",

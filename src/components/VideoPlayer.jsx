@@ -163,6 +163,40 @@ export default function VideoPlayer({
     showOsd(`Alternado: Fonte ${nextIdx + 1} de ${allSources.length}`);
   };
 
+  // Câmeras PPV de Reality Shows (A Fazenda, BBB)
+  const realityCameras = useMemo(() => {
+    if (!item?.id || !channels?.length) return [];
+    if (item.id.startsWith('ch-fazenda')) {
+      return channels.filter(c => c.id.startsWith('ch-fazenda'));
+    }
+    if (item.id.startsWith('ch-bbb')) {
+      return channels.filter(c => c.id.startsWith('ch-bbb'));
+    }
+    return [];
+  }, [item?.id, channels]);
+
+  const handleSelectCamera = (cam) => {
+    if (!cam || cam.id === item?.id) return;
+    if (onSelectChannel) {
+      onSelectChannel(cam);
+      showOsd(`📹 ${cam.camShort || cam.nome.split('(')[0].trim()}`);
+    }
+  };
+
+  // Trilhas de áudio HLS (Dual Áudio / Idiomas)
+  const [audioTracks, setAudioTracks] = useState([]);
+  const [activeAudioTrack, setActiveAudioTrack] = useState(-1);
+
+  const handleSelectAudioTrack = (trackId) => {
+    if (hlsRef.current && trackId !== undefined) {
+      hlsRef.current.audioTrack = trackId;
+      setActiveAudioTrack(trackId);
+      const track = audioTracks.find(t => t.id === trackId);
+      const trackName = track?.name || track?.lang || `Trilha ${trackId + 1}`;
+      showOsd(`🔊 Áudio: ${trackName}`);
+    }
+  };
+
   const currentSource = sources[activeSourceIndex] || sources[0];
 
   // EPG para canais ao vivo
@@ -476,6 +510,8 @@ export default function VideoPlayer({
       hlsRef.current.destroy();
       hlsRef.current = null;
     }
+    setAudioTracks([]);
+    setActiveAudioTrack(-1);
 
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -584,7 +620,22 @@ export default function VideoPlayer({
         }
       });
 
+      hls.on(Hls.Events.AUDIO_TRACKS_UPDATED, (event, data) => {
+        if (data?.audioTracks && data.audioTracks.length > 1) {
+          setAudioTracks(data.audioTracks);
+          setActiveAudioTrack(hls.audioTrack);
+        }
+      });
+
+      hls.on(Hls.Events.AUDIO_TRACK_SWITCHED, (event, data) => {
+        setActiveAudioTrack(data.id);
+      });
+
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        if (hls.audioTracks && hls.audioTracks.length > 1) {
+          setAudioTracks(hls.audioTracks);
+          setActiveAudioTrack(hls.audioTrack);
+        }
         startPlayback();
       });
 
@@ -772,6 +823,17 @@ export default function VideoPlayer({
       else if (e.code === 'KeyS' || keyCode === 405) {
         e.preventDefault();
         handleSwitchSource();
+      }
+      // Tecla C: Alternar Câmeras do Reality Show PPV
+      else if ((e.code === 'KeyC' || keyCode === 67) && realityCameras.length > 1) {
+        e.preventDefault();
+        const currentIndex = realityCameras.findIndex(c => c.id === item?.id);
+        const nextIndex = (currentIndex + 1) % realityCameras.length;
+        const nextCam = realityCameras[nextIndex];
+        if (onSelectChannel && nextCam) {
+          onSelectChannel(nextCam);
+          showOsd(`📹 ${nextCam.camShort || nextCam.nome.split('(')[0].trim()}`);
+        }
       }
       // Botão Azul no controle (406) ou Tecla A: Alternar Áudio ou Abrir EPG
       else if (e.code === 'KeyA' || keyCode === 406) {
@@ -1498,6 +1560,69 @@ export default function VideoPlayer({
             <span className="text-[10px] md:text-xs font-mono font-medium text-zinc-400 min-w-[36px]">
               {formatTime(duration)}
             </span>
+          </div>
+        )}
+
+        {/* Seletor de Câmeras PPV do Reality Show (A Fazenda / BBB) */}
+        {realityCameras.length > 1 && (
+          <div className="flex items-center gap-2.5 overflow-x-auto py-1 px-1 text-xs scrollbar-none animate-fadeIn bg-gradient-to-r from-amber-500/20 via-orange-500/10 to-transparent border border-amber-500/30 rounded-2xl p-1.5 backdrop-blur-md">
+            <span className="text-amber-400 font-extrabold flex items-center gap-1.5 shrink-0 text-[11px] uppercase tracking-wider px-2 py-0.5">
+              <Tv size={13} className="text-amber-400 animate-pulse" /> Câmeras PPV ({realityCameras.length}):
+            </span>
+            <div className="flex items-center gap-1.5 shrink-0">
+              {realityCameras.map((cam) => {
+                const isCurrentCam = cam.id === item?.id;
+                const shortLabel = cam.camShort || cam.nome.replace(/^A Fazenda 18 — |^BBB 24h — /i, '').replace(/\(.*\)/, '').trim();
+                return (
+                  <button
+                    key={cam.id}
+                    onClick={() => handleSelectCamera(cam)}
+                    data-tv-focus="true"
+                    className={`px-3 py-1.5 rounded-xl font-bold shrink-0 transition-all duration-200 text-xs flex items-center gap-1.5 border outline-none ${
+                      isCurrentCam
+                        ? 'bg-amber-400 text-black border-amber-300 font-black shadow-lg shadow-amber-400/30 ring-1 ring-amber-300 scale-105'
+                        : 'bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border-white/10 hover:border-amber-400/40'
+                    }`}
+                    title={`Alternar câmera para ${cam.nome}`}
+                  >
+                    {cam.camIcon && <span className="text-sm">{cam.camIcon}</span>}
+                    <span className="truncate">{shortLabel}</span>
+                    {isCurrentCam && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-black animate-ping ml-0.5"></span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Trilhas de Áudio HLS (Dual Áudio / Idiomas) */}
+        {audioTracks.length > 1 && (
+          <div className="flex items-center gap-2 overflow-x-auto py-1 px-1 text-xs scrollbar-none animate-fadeIn bg-zinc-900/60 border border-white/10 rounded-2xl p-1">
+            <span className="text-zinc-400 font-semibold flex items-center gap-1.5 shrink-0 text-[11px] uppercase tracking-wider px-2">
+              <Volume2 size={13} className="text-indigo-400" /> Áudio:
+            </span>
+            <div className="flex items-center gap-1.5 shrink-0">
+              {audioTracks.map((tr, idx) => {
+                const isSelected = activeAudioTrack === tr.id || activeAudioTrack === idx;
+                const trackLabel = tr.name || (tr.lang ? tr.lang.toUpperCase() : `Trilha ${idx + 1}`);
+                return (
+                  <button
+                    key={tr.id ?? idx}
+                    onClick={() => handleSelectAudioTrack(tr.id ?? idx)}
+                    data-tv-focus="true"
+                    className={`px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1 border ${
+                      isSelected
+                        ? 'bg-indigo-600 text-white border-indigo-500 shadow-md'
+                        : 'bg-zinc-900/80 hover:bg-zinc-800 text-zinc-400 hover:text-white border-white/5'
+                    }`}
+                  >
+                    <span>{trackLabel}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         )}
 

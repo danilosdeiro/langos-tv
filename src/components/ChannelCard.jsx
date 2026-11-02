@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Star, Play, Layers, Clock } from 'lucide-react';
+import { Star, Play, Layers, Clock, Tv } from 'lucide-react';
 import { EpgService } from '../services/epgService';
 
 export default function ChannelCard({ 
@@ -105,8 +105,9 @@ export default function ChannelCard({
             onError={() => setLogoError(true)}
           />
         ) : (
-          <div className="w-12 h-12 rounded-xl bg-zinc-800 text-zinc-300 flex items-center justify-center font-bold text-base uppercase border border-white/10 shadow-inner">
-            {channel.nome.slice(0, 2)}
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-950/80 to-purple-950/60 text-indigo-300 flex flex-col items-center justify-center font-black uppercase border border-indigo-500/25 shadow-inner">
+            <Tv size={16} className="text-indigo-400 mb-0.5 opacity-90" />
+            <span className="text-[10px] tracking-wider leading-none">{channel.nome.slice(0, 3)}</span>
           </div>
         )}
 
