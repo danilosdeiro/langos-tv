@@ -546,6 +546,28 @@ const CHANNEL_SCHEDULES = {
   ],
 
   // =========================================================================
+  // --- REALITY SHOWS & PAY-PER-VIEW (24H AO VIVO) ---
+  // =========================================================================
+  a_fazenda: [
+    { start: '06:00', end: '10:00', title: 'A Fazenda 24h: Trato dos Animais & Despertar' },
+    { start: '10:00', end: '13:00', title: 'A Fazenda 24h: Convivência na Sede & Almoço' },
+    { start: '13:00', end: '16:00', title: 'A Fazenda 24h: Tarde de Estratégias & Fofocas' },
+    { start: '16:00', end: '19:00', title: 'A Fazenda 24h: Treino, Piscina & Convivência' },
+    { start: '19:00', end: '22:30', title: 'A Fazenda 24h: Jantar & Concentração dos Peões' },
+    { start: '22:30', end: '00:00', title: 'A Fazenda 24h: Transmissão Ao Vivo com Adriane Galisteu' },
+    { start: '00:00', end: '06:00', title: 'A Fazenda 24h: Madrugada dos Peões & Câmeras Noturnas' }
+  ],
+  bbb: [
+    { start: '06:00', end: '10:30', title: 'BBB 24h: Raio-X & Despertar dos Brothers' },
+    { start: '10:30', end: '13:30', title: 'BBB 24h: Cozinha VIP & Xepa - Almoço da Casa' },
+    { start: '13:30', end: '17:00', title: 'BBB 24h: Piscina, Conversas & Estratégias de Jogo' },
+    { start: '17:00', end: '20:30', title: 'BBB 24h: Tarde na Casa & Preparação' },
+    { start: '20:30', end: '22:30', title: 'BBB 24h: Aquecimento para o Programa da Noite' },
+    { start: '22:30', end: '00:00', title: 'BBB 24h: Programa Ao Vivo & Provas / Paredão' },
+    { start: '00:00', end: '06:00', title: 'BBB 24h: Madrugada na Casa, Quarto do Líder & Festas' }
+  ],
+
+  // =========================================================================
   // --- FAMÍLIA SONY (DRAMA MÉDICO, AÇÃO E CLÁSSICOS) ---
   // =========================================================================
   sony_channel: [
@@ -931,7 +953,9 @@ function resolveSchedule(channelName, category = '') {
   if (name.includes('jovem pan')) return CHANNEL_SCHEDULES.jovem_pan_news;
   if (name.includes('band news') || name.includes('bandnews')) return CHANNEL_SCHEDULES.band_news;
 
-  // 11. CANAIS 24 HORAS DEDICADOS & VARIEDADES
+  // 11. CANAIS 24 HORAS DEDICADOS, REALITIES & VARIEDADES
+  if (name.includes('fazenda')) return CHANNEL_SCHEDULES.a_fazenda;
+  if (name.includes('bbb') || name.includes('big brother')) return CHANNEL_SCHEDULES.bbb;
   if (name.includes('multishow')) return CHANNEL_SCHEDULES.multishow;
   if (name.includes('assombração') || name.includes('assombracoes')) return CHANNEL_SCHEDULES.assombracoes;
   if (name.includes('bob esponja')) return CHANNEL_SCHEDULES.bob_esponja;

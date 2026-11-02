@@ -605,7 +605,7 @@
   {
     "id": "ch-39",
     "nome": "Universal Reality",
-    "categoria": "Filmes e Séries",
+    "categoria": "Reality Shows",
     "logo": "https://mondrian.claro.com.br/channels/inverse/universal-reality.png",
     "fontes": [
       {
@@ -2995,6 +2995,131 @@
         "nome": "Fonte 1 (Premiere 5 Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a07c/index.m3u8",
         "qualidade": "HD · 1280x720"
+      }
+    ]
+  },
+  {
+    "id": "ch-fazenda-mosaico",
+    "nome": "A Fazenda 18 — Mosaico (Multi-Telas PPV)",
+    "categoria": "Reality Shows",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
+    "fontes": [
+      {
+        "nome": "Mosaico Ao Vivo (Todas as Câmeras)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470067.m3u8",
+        "qualidade": "FHD · 1080p",
+        "proxy": true
+      }
+    ]
+  },
+  {
+    "id": "ch-fazenda-cam1",
+    "nome": "A Fazenda 18 — Câmera Principal (Sinal 24h)",
+    "categoria": "Reality Shows",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
+    "fontes": [
+      {
+        "nome": "Câmera Principal (Ao Vivo 24h)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470061.m3u8",
+        "qualidade": "FHD · 1080p",
+        "proxy": true
+      }
+    ]
+  },
+  {
+    "id": "ch-fazenda-cam2",
+    "nome": "A Fazenda 18 — Câmera 02 (A Sede)",
+    "categoria": "Reality Shows",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
+    "fontes": [
+      {
+        "nome": "Câmera 02 (A Sede)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470062.m3u8",
+        "qualidade": "FHD · 1080p",
+        "proxy": true
+      }
+    ]
+  },
+  {
+    "id": "ch-fazenda-cam3",
+    "nome": "A Fazenda 18 — Câmera 03 (A Baia)",
+    "categoria": "Reality Shows",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
+    "fontes": [
+      {
+        "nome": "Câmera 03 (A Baia)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470063.m3u8",
+        "qualidade": "FHD · 1080p",
+        "proxy": true
+      }
+    ]
+  },
+  {
+    "id": "ch-fazenda-cam4",
+    "nome": "A Fazenda 18 — Câmera 04 (Área Externa & Piscina)",
+    "categoria": "Reality Shows",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
+    "fontes": [
+      {
+        "nome": "Câmera 04 (Piscina & Área Externa)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470064.m3u8",
+        "qualidade": "FHD · 1080p",
+        "proxy": true
+      }
+    ]
+  },
+  {
+    "id": "ch-fazenda-cam5",
+    "nome": "A Fazenda 18 — Câmera 05 (Oficina & Academia)",
+    "categoria": "Reality Shows",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
+    "fontes": [
+      {
+        "nome": "Câmera 05 (Oficina & Academia)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470065.m3u8",
+        "qualidade": "FHD · 1080p",
+        "proxy": true
+      }
+    ]
+  },
+  {
+    "id": "ch-fazenda-cam6",
+    "nome": "A Fazenda 18 — Câmera 06 (Trato dos Animais)",
+    "categoria": "Reality Shows",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
+    "fontes": [
+      {
+        "nome": "Câmera 06 (Trato dos Animais)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470066.m3u8",
+        "qualidade": "FHD · 1080p",
+        "proxy": true
+      }
+    ]
+  },
+  {
+    "id": "ch-bbb-principal",
+    "nome": "BBB 24h — Câmera Principal (Aguardando Temporada)",
+    "categoria": "Reality Shows",
+    "logo": "https://upload.wikimedia.org/wikipedia/pt/5/5a/Logotipo_do_Big_Brother_Brasil.png",
+    "fontes": [
+      {
+        "nome": "Flashes & Especiais Multishow (BBB)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/8974.m3u8",
+        "qualidade": "FHD · 1080p",
+        "proxy": true
+      }
+    ]
+  },
+  {
+    "id": "ch-bbb-mosaico",
+    "nome": "BBB 24h — Mosaico Multitelas (Globoplay)",
+    "categoria": "Reality Shows",
+    "logo": "https://upload.wikimedia.org/wikipedia/pt/5/5a/Logotipo_do_Big_Brother_Brasil.png",
+    "fontes": [
+      {
+        "nome": "Canal BBB Especial Globoplay",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "HD · 720p"
       }
     ]
   }

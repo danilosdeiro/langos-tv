@@ -16,6 +16,7 @@ const CF_BLOCKED_HOSTS = [
   'governosptx.org',
   'acaidopt.org',
   '207.38.87.252',
+  '146.0.32.89',
   '45.185.11.126'
 ];
 
