@@ -28,7 +28,8 @@ export default function InstallTvModal({
 
   if (!isOpen) return null;
 
-  const appUrl = 'https://langostv.vercel.app';
+  const appUrl = 'https://langos-tv.pages.dev';
+  const apkDownloadUrl = 'https://langos-tv.pages.dev/langos-tv.apk';
 
   const handleCopyUrl = () => {
     navigator.clipboard?.writeText(appUrl);
@@ -124,11 +125,33 @@ export default function InstallTvModal({
           {activeStepTab === 'btv' && (
             <div className="space-y-4 animate-fadeIn">
               
+              {/* Card de Download Direto do APK Nativo */}
+              <div className="bg-gradient-to-r from-emerald-950/60 to-indigo-950/60 border border-emerald-500/40 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg shadow-emerald-950/40">
+                <div className="space-y-1">
+                  <span className="text-[11px] font-black text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                    <Sparkles size={13} />
+                    <span>App Nativo Android (Recomendado para TV Box & BTV)</span>
+                  </span>
+                  <p className="text-xs text-zinc-300">
+                    Instale o APK nativo e assista a <strong>todos os 184 canais ao vivo</strong> sem restrições de navegador, sem travamentos de CORS e com ultra-estabilidade.
+                  </p>
+                </div>
+                <a
+                  href="/langos-tv.apk"
+                  download="langos-tv.apk"
+                  data-tv-focus="true"
+                  className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs flex items-center gap-2 transition shrink-0 shadow-md shadow-emerald-600/30 active:scale-95"
+                >
+                  <DownloadCloud size={16} />
+                  <span>Baixar APK (4.5 MB)</span>
+                </a>
+              </div>
+
               {/* Card de Link Direto */}
               <div className="bg-indigo-950/40 border border-indigo-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div>
                   <span className="text-[11px] font-bold text-indigo-400 uppercase tracking-wider block">
-                    Endereço Oficial para o BTV:
+                    Endereço Oficial Web (Cloudflare):
                   </span>
                   <span className="font-mono text-sm md:text-base font-extrabold text-white tracking-wide">
                     {appUrl}
@@ -144,43 +167,43 @@ export default function InstallTvModal({
                 </button>
               </div>
 
-              {/* Método 1: Adicionar à Tela Inicial */}
+              {/* Método 1: Instalação do APK Nativo no BTV / TV Box */}
               <div className="bg-zinc-950/60 border border-white/5 rounded-2xl p-4 space-y-3">
-                <div className="flex items-center gap-2 text-indigo-400 font-extrabold text-sm">
-                  <div className="w-6 h-6 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-xs">
+                <div className="flex items-center gap-2 text-emerald-400 font-extrabold text-sm">
+                  <div className="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-xs">
                     1
                   </div>
-                  <span>Método Recomendado: Instalar via Navegador do BTV</span>
+                  <span>Como Instalar o APK no BTV ou TV Box Android</span>
                 </div>
                 <ol className="list-decimal list-inside space-y-2 text-zinc-300 text-xs md:text-sm leading-relaxed pl-1">
                   <li>
-                    No seu BTV (ou TV Box Android), abra o <strong>Google Chrome</strong>, o navegador <strong>TV Bro</strong> ou <strong>Puffin TV</strong>.
+                    No seu BTV ou TV Box, abra o aplicativo <strong>Downloader</strong> (ou o navegador).
                   </li>
                   <li>
-                    Acesse o endereço: <code className="bg-zinc-800 px-2 py-0.5 rounded text-indigo-300 font-mono">langostv.vercel.app</code>
+                    Digite o link direto: <code className="bg-zinc-800 px-2 py-0.5 rounded text-emerald-300 font-mono font-bold">https://langos-tv.pages.dev/langos-tv.apk</code>
                   </li>
                   <li>
-                    Pressione o menu do navegador (os <strong>3 pontinhos</strong> no canto superior direito ou o botão Menu do controle remoto).
+                    O download do arquivo de apenas <strong>4.5 MB</strong> iniciará automaticamente.
                   </li>
                   <li>
-                    Clique em <strong>"Adicionar à Tela Inicial"</strong> ou <strong>"Instalar Aplicativo"</strong>.
+                    Clique em <strong>Instalar</strong>.
                   </li>
                   <li>
-                    <span className="text-emerald-400 font-semibold">Pronto!</span> Um ícone exclusivo do Lango's TV aparecerá na tela inicial do seu BTV. Ao clicar nele, ele abrirá em tela inteira sem barra de endereço, como se fosse um app oficial da Play Store!
+                    <span className="text-emerald-400 font-semibold">Pronto!</span> O Lango's TV aparecerá como aplicativo instalado no menu principal da sua TV Box com suporte nativo a controle remoto D-Pad!
                   </li>
                 </ol>
               </div>
 
-              {/* Método 2: Downloader App */}
+              {/* Método 2: PWA Web */}
               <div className="bg-zinc-950/60 border border-white/5 rounded-2xl p-4 space-y-2">
                 <div className="flex items-center gap-2 text-purple-400 font-extrabold text-sm">
                   <div className="w-6 h-6 rounded-lg bg-purple-600 text-white flex items-center justify-center text-xs">
                     2
                   </div>
-                  <span>Método Alternativo: App Downloader (AFTVnews)</span>
+                  <span>Método Alternativo: Adicionar aos Favoritos do Navegador</span>
                 </div>
                 <p className="text-zinc-300 text-xs md:text-sm leading-relaxed">
-                  Se o seu BTV tiver o aplicativo <strong>Downloader</strong> instalado, basta abrir o Downloader, digitar no campo de endereço <strong>langostv.vercel.app</strong> e pressionar <strong>Go</strong>. Em seguida, adicione aos Favoritos do Downloader para acesso em 1 clique!
+                  Se preferir não instalar o arquivo APK, acesse pelo navegador da sua TV o endereço <code className="bg-zinc-800 px-1.5 py-0.5 rounded text-indigo-300 font-mono">langos-tv.pages.dev</code> e adicione aos favoritos ou à tela inicial.
                 </p>
               </div>
 

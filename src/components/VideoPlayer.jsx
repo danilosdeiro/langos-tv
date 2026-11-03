@@ -323,6 +323,21 @@ export default function VideoPlayer({
   const resolvedStreamUrl = React.useMemo(() => {
     if (!currentSource?.url) return '';
     const rawUrl = currentSource.url;
+
+    // DETECÇÃO DE APLICATIVO NATIVO (Capacitor / Android TV / BTV APK)
+    const isNativeApp = typeof window !== 'undefined' && (
+      window.Capacitor?.isNativePlatform?.() || 
+      window.IS_NATIVE_ANDROID ||
+      navigator.userAgent.includes('wv') ||
+      window.location.protocol === 'capacitor:' ||
+      window.location.hostname === 'localhost'
+    );
+
+    // No App Nativo, NUNCA usar proxy! Conexão direta residencial exatamente como apps concorrentes (BTV, TVExpress)
+    if (isNativeApp) {
+      return rawUrl;
+    }
+
     const isPageHttps = typeof window !== 'undefined' && window.location.protocol === 'https:';
     const isDirectHttps = rawUrl.startsWith('https://');
     const isHostBlockedByWorker = isBlockedByCloudflare(rawUrl);

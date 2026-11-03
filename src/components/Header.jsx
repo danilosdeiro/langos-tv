@@ -165,15 +165,15 @@ export default function Header({
               <span className="hidden xl:inline">{isTvMode ? 'Modo TV: ON' : 'Modo TV'}</span>
             </button>
 
-            {/* Botão de Instalar Desktop / BTV */}
+            {/* Botão de Instalar Desktop / BTV / APK */}
             <button
               onClick={handleInstallClick}
               data-tv-focus="true"
-              className="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-sm flex items-center gap-1.5 transition shrink-0 active:scale-95"
-              title="Instalar no BTV, PC ou Celular como Aplicativo"
+              className="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-indigo-600 hover:from-emerald-500 hover:to-indigo-500 text-white shadow-sm flex items-center gap-1.5 transition shrink-0 active:scale-95"
+              title="Baixar APK Nativo para BTV / TV Box ou Instalar Web App"
             >
               <DownloadCloud size={14} />
-              <span className="hidden sm:inline">Instalar</span>
+              <span className="hidden sm:inline">Baixar App (APK)</span>
             </button>
 
             {/* Botão de Região / Estado */}
