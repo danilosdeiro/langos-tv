@@ -31,7 +31,7 @@ export const CF_BLOCKED_HOSTS = [
   'mais.uol.com.br'
 ];
 
-function isBlockedByCloudflare(url) {
+export function isBlockedByCloudflare(url) {
   if (!url) return false;
   // Checar domínios conhecidos
   for (const host of CF_BLOCKED_HOSTS) {

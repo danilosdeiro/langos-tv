@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { EpgService } from '../services/epgService';
 import { HistoryService } from '../services/historyService';
-import { getProxyUrl, isProxiedUrl } from '../services/proxyService';
+import { getProxyUrl, isProxiedUrl, isBlockedByCloudflare } from '../services/proxyService';
 
 function formatTime(seconds) {
   if (!seconds || isNaN(seconds) || seconds <= 0) return '00:00';
@@ -328,6 +328,14 @@ export default function VideoPlayer({
     if (!currentSource?.url) return '';
     const rawUrl = currentSource.url;
     const isPageHttps = typeof window !== 'undefined' && window.location.protocol === 'https:';
+    const isDirectHttps = rawUrl.startsWith('https://');
+    const isHostBlockedByWorker = isBlockedByCloudflare(rawUrl);
+
+    // Se o sinal já for HTTPS nativo e o servidor bloquear Cloudflare Workers,
+    // tocar DIRETO no navegador sem proxy (permite conexões diretas limpas e sem 403)
+    if (isDirectHttps && isHostBlockedByWorker) {
+      return rawUrl;
+    }
 
     if (
       forceProxyForCurrent || 
@@ -605,7 +613,9 @@ export default function VideoPlayer({
     const allSources = sourcesRef.current;
 
     // Se a fonte direta falhou por bloqueio de CORS do navegador, tentar via Proxy Seguro antes de pular a fonte
-    if (!forceProxyForCurrent && resolvedStreamUrl && !isProxiedUrl(resolvedStreamUrl)) {
+    // (Apenas se o host upstream não bloquear datacenters Cloudflare)
+    const isDirectHostBlockedByWorker = isBlockedByCloudflare(resolvedStreamUrl);
+    if (!forceProxyForCurrent && resolvedStreamUrl && !isProxiedUrl(resolvedStreamUrl) && !isDirectHostBlockedByWorker) {
       setFallbackNotice(`Fonte ${curIdx + 1} bloqueada pelo navegador. Redirecionando via Proxy...`);
       setForceProxyForCurrent(true);
       return;
