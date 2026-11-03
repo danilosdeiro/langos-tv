@@ -668,12 +668,12 @@ export default function VideoPlayer({
       clearTimeout(timeoutRef.current);
     }
 
-    // Timeout de conexão para fallback seguro (18s para buffering de fragmentos pesados FHD de 10s)
+    // Timeout de conexão ágil para fallback instantâneo (6.5s em vez de travar 18s)
     timeoutRef.current = setTimeout(() => {
       if (!isLoadedRef.current && (sourcesRef.current.length > 1 || !forceProxyForCurrent)) {
-        handleFallback("Tempo limite de conexão");
+        handleFallback("Tempo limite de conexão (Sinal Lento)");
       }
-    }, 18000);
+    }, 6500);
 
     // Detectar se o vídeo é MP4 ou HLS baseado na URL real da fonte
     const rawTarget = (currentSource?.url || '').toLowerCase();
@@ -730,22 +730,22 @@ export default function VideoPlayer({
       const hls = new Hls({
         enableWorker: true,
         lowLatencyMode: false,
-        backBufferLength: 60,
-        maxBufferLength: 60, // 60s de buffer contínuo para reprodução 100% lisa e ininterrupta
-        maxMaxBufferLength: 120,
-        maxBufferSize: 60 * 1000 * 1000,
+        backBufferLength: 30,
+        maxBufferLength: 30, // 30s de buffer contínuo (carregamento leve e ágil no navegador)
+        maxMaxBufferLength: 60,
+        maxBufferSize: 30 * 1000 * 1000,
         startFragPrefetch: true, // Começar a baixar fragmento em paralelo com a playlist
         initialLiveManifestSize: 1, // Iniciar imediatamente com 1 playlist recebida
-        liveSyncDurationCount: 3.5, // 3.5 fragmentos (~35s de margem sólida para streams de 10s como TV Bahia FHD)
-        liveMaxLatencyDurationCount: 10,
-        manifestLoadingTimeOut: 18000,
-        manifestLoadingMaxRetry: 4,
-        manifestLoadingRetryDelay: 1000,
-        levelLoadingTimeOut: 18000,
-        levelLoadingMaxRetry: 4,
-        fragLoadingTimeOut: 30000,
-        fragLoadingMaxRetry: 4,
-        abrEwmaDefaultEstimate: 5000000,
+        liveSyncDurationCount: 3, // ~3 fragmentos de sincronia ao vivo
+        liveMaxLatencyDurationCount: 8,
+        manifestLoadingTimeOut: 6000, // Falhar rápido em vez de congelar a tela
+        manifestLoadingMaxRetry: 1,
+        manifestLoadingRetryDelay: 500,
+        levelLoadingTimeOut: 6000,
+        levelLoadingMaxRetry: 1,
+        fragLoadingTimeOut: 12000,
+        fragLoadingMaxRetry: 2,
+        abrEwmaDefaultEstimate: 4000000,
         testBandwidth: false
       });
       hlsRef.current = hls;
@@ -1505,7 +1505,7 @@ export default function VideoPlayer({
           </div>
           <h3 className="text-white text-base md:text-lg font-bold mb-1.5">Sinal Temporariamente Indisponível</h3>
           <p className="text-zinc-400 text-xs md:text-sm max-w-md mb-5">{errorMessage}</p>
-          <div className="flex gap-2.5">
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
             <button
               onClick={() => {
                 setActiveSourceIndex(0);
@@ -1515,6 +1515,13 @@ export default function VideoPlayer({
             >
               <RotateCcw size={14} /> Tentar Novamente
             </button>
+            <a
+              href="/langos-tv.apk"
+              download="langos-tv.apk"
+              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold flex items-center gap-2 transition shadow-md shadow-emerald-600/30"
+            >
+              <DownloadCloud size={14} /> Assistir no App APK
+            </a>
             {onClose && (
               <button
                 onClick={onClose}

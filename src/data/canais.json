@@ -68,13 +68,13 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/record-tv.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Record TV Itapoan / Record Bahia FHD)",
-        "url": "http://138.204.86.4:8080/RECORD/index.m3u8",
-        "qualidade": "FHD · 1920x1080"
+        "nome": "Fonte 1: Record TV Oficial 1080p FHD",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
+        "qualidade": "FHD · 1920x1080 (CORS Garantido)"
       },
       {
-        "nome": "Fonte 2 (Record Bahia HD)",
-        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
+        "nome": "Fonte 2: Record Bahia Sinal Direto",
+        "url": "http://138.204.86.4:8080/RECORD/index.m3u8",
         "qualidade": "HD · 1280x720"
       }
     ],
@@ -113,19 +113,14 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/band.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Band TV Aberta Oficial HD)",
+        "nome": "Fonte 1: Band TV Aberta FHD (MultTV CDN)",
+        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/index.m3u8",
+        "qualidade": "FHD · 1920x1080 (CORS Garantido)"
+      },
+      {
+        "nome": "Fonte 2: Band Oficial Direto",
         "url": "http://138.204.86.4:8080/BAND_HD/index.m3u8",
         "qualidade": "HD · 1280x720"
-      },
-      {
-        "nome": "Fonte 2 (Band News HD)",
-        "url": "http://45.185.11.126:8000/play/a076/index.m3u8",
-        "qualidade": "HD · 1280x720"
-      },
-      {
-        "nome": "Fonte 3 (Band Thathi FHD)",
-        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/index.m3u8",
-        "qualidade": "FHD · 1920x1080"
       }
     ],
     "uf": "BR",
@@ -152,19 +147,19 @@
     "logo": "https://img.faz-o-eli.online/cnnbrasil.png",
     "fontes": [
       {
-        "url": "http://45.162.64.114/CNN_BRASIL/index.m3u8",
-        "qualidade": "FHD · Ao Vivo",
-        "nome": "Fonte 1 (Ao Vivo HD)"
-      },
-      {
-        "url": "https://amg01391-sbtinfast-amg01391c4-lg-br-4597.playouts.now.amagi.tv/playlist/amg01391-addigital-cnnbrasil-lgbr/playlist.m3u8",
-        "qualidade": "Qualidade não informada",
-        "nome": "Fonte 2 (Qualidade não informada)"
-      },
-      {
+        "nome": "Fonte 1: CNN Brasil Oficial HD (Cloudfront)",
         "url": "https://d25usgadhphvwi.cloudfront.net/hls/stv-plus1920x1080/playlist.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 4 (HD · 1280x720)"
+        "qualidade": "FHD · 1080p (CORS Garantido)"
+      },
+      {
+        "nome": "Fonte 2: CNN Brasil Principal HD",
+        "url": "https://d25usgadhphvwi.cloudfront.net/hls/main.m3u8",
+        "qualidade": "HD · 720p"
+      },
+      {
+        "nome": "Fonte 3: Transmissão IPTV Direta",
+        "url": "http://45.162.64.114/CNN_BRASIL/index.m3u8",
+        "qualidade": "FHD · Ao Vivo"
       }
     ]
   },
@@ -984,14 +979,19 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/record-tv.png",
     "fontes": [
       {
-        "url": "http://138.204.86.4:8080/RECORD/index.m3u8",
-        "qualidade": "FHD · 1920x1080",
-        "nome": "Fonte 1 (FHD · 1920x1080)"
+        "nome": "Fonte 1: Record TV Oficial 1080p FHD (Nacional)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
+        "qualidade": "FHD · 1920x1080 (CORS Garantido)"
       },
       {
-        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
-        "qualidade": "HD · 1280x720",
-        "nome": "Fonte 2 (HD · 1280x720)"
+        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
+        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
+        "qualidade": "HD · 720p"
+      },
+      {
+        "nome": "Fonte 3: Record Sinal Direto",
+        "url": "http://138.204.86.4:8080/RECORD/index.m3u8",
+        "qualidade": "FHD · 1920x1080"
       }
     ],
     "uf": "BR",
