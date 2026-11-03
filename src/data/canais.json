@@ -365,58 +365,93 @@
   },
   {
     "id": "ch-23",
-    "nome": "Premiere 6",
+    "nome": "Premiere 6 HD",
     "categoria": "Esportes",
     "logo": "https://mondrian.claro.com.br/channels/inverse/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Premiere 6 Oficial HD)",
+        "nome": "Fonte 1: Premiere 6 Oficial HD",
         "url": "http://45.185.11.126:8000/play/a05j/index.m3u8",
-        "qualidade": "HD · 1280x720"
+        "qualidade": "HD · 1280x720 (Transmissão Direta)"
+      },
+      {
+        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p"
+      },
+      {
+        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
   {
     "id": "ch-24",
-    "nome": "Premiere 7",
+    "nome": "Premiere 7 HD",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Premiere 7 Oficial HD)",
+        "nome": "Fonte 1: Premiere 7 Oficial HD",
         "url": "http://45.185.11.126:8000/play/a05k/index.m3u8",
-        "qualidade": "HD · 1280x720"
+        "qualidade": "HD · 1280x720 (Transmissão Direta)"
+      },
+      {
+        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p"
+      },
+      {
+        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
   {
     "id": "ch-25",
-    "nome": "Premiere 8",
+    "nome": "Premiere 8 HD",
     "categoria": "Esportes",
     "logo": "https://mondrian.claro.com.br/channels/inverse/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Premiere 8 Oficial HD)",
+        "nome": "Fonte 1: Premiere 8 Oficial HD",
         "url": "http://45.185.11.126:8000/play/a05l/index.m3u8",
-        "qualidade": "HD · 1280x720"
+        "qualidade": "HD · 1280x720 (Transmissão Direta)"
+      },
+      {
+        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p"
+      },
+      {
+        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
   {
     "id": "ch-26",
-    "nome": "Premiere Clubes",
+    "nome": "Premiere Clubes HD",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Premiere Clubes Oficial HD)",
+        "nome": "Fonte 1: Premiere Clubes Oficial HD",
         "url": "http://45.185.11.126:8000/play/a06g/index.m3u8",
-        "qualidade": "HD · 1280x720"
+        "qualidade": "HD · 1280x720 (Transmissão Direta)"
       },
       {
-        "nome": "Fonte 2 (Premiere 6 HD)",
-        "url": "http://45.185.11.126:8000/play/a05j/index.m3u8",
-        "qualidade": "HD · 1280x720"
+        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p"
+      },
+      {
+        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
@@ -2902,53 +2937,93 @@
   },
   {
     "id": "ch-prem-2",
-    "nome": "Premiere 2",
+    "nome": "Premiere 2 HD",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Premiere 2 Oficial HD)",
+        "nome": "Fonte 1: Premiere 2 Oficial HD",
         "url": "http://45.185.11.126:8000/play/a06h/index.m3u8",
-        "qualidade": "HD · 1280x720"
+        "qualidade": "HD · 1280x720 (Transmissão Direta)"
+      },
+      {
+        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p"
+      },
+      {
+        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
   {
     "id": "ch-prem-3",
-    "nome": "Premiere 3",
+    "nome": "Premiere 3 HD",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Premiere 3 Oficial HD)",
+        "nome": "Fonte 1: Premiere 3 Oficial HD",
         "url": "http://45.185.11.126:8000/play/a0av/index.m3u8",
-        "qualidade": "HD · 1280x720"
+        "qualidade": "HD · 1280x720 (Transmissão Direta)"
+      },
+      {
+        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p"
+      },
+      {
+        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
   {
     "id": "ch-prem-4",
-    "nome": "Premiere 4",
+    "nome": "Premiere 4 HD",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Premiere 4 Oficial HD)",
+        "nome": "Fonte 1: Premiere 4 Oficial HD",
         "url": "http://45.185.11.126:8000/play/a07b/index.m3u8",
-        "qualidade": "HD · 1280x720"
+        "qualidade": "HD · 1280x720 (Transmissão Direta)"
+      },
+      {
+        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p"
+      },
+      {
+        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
   {
     "id": "ch-prem-5",
-    "nome": "Premiere 5",
+    "nome": "Premiere 5 HD",
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (Premiere 5 Oficial HD)",
+        "nome": "Fonte 1: Premiere 5 Oficial HD",
         "url": "http://45.185.11.126:8000/play/a07c/index.m3u8",
-        "qualidade": "HD · 1280x720"
+        "qualidade": "HD · 1280x720 (Transmissão Direta)"
+      },
+      {
+        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p"
+      },
+      {
+        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
+        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },

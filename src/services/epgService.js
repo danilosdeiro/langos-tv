@@ -298,6 +298,37 @@ const CHANNEL_SCHEDULES = {
     { start: '19:00', end: '21:15', title: 'AO VIVO: Ceará x Coritiba (Castelão)' },
     { start: '21:15', end: '06:00', title: 'Compactos da Rodada da Série B' }
   ],
+  premiere_2: [
+    { start: '06:00', end: '12:00', title: 'Giro Brasileirão Série A: Melhores Momentos & Gols' },
+    { start: '12:00', end: '16:00', title: 'Especial Grandes Clássicos: Melhores Jogos do Bahia e São Paulo' },
+    { start: '16:00', end: '19:30', title: 'Pré-Jogo Premiere 2: Análise Tática dos Confrontos' },
+    { start: '19:30', end: '21:30', title: 'AO VIVO: São Paulo x Corinthians (Clássico Majestoso)' },
+    { start: '21:30', end: '23:45', title: 'AO VIVO: Cruzeiro x Bahia (Mineirão)' },
+    { start: '23:45', end: '06:00', title: 'Pós-Jogo: Entrevistas Coletivas e Melhores Lances' }
+  ],
+  premiere_3: [
+    { start: '06:00', end: '12:00', title: 'Especial Leão da Barra: Vitória no Brasileirão Série A' },
+    { start: '12:00', end: '16:30', title: 'Revista Premiere: Tática e Análises da Rodada' },
+    { start: '16:30', end: '19:30', title: 'Pré-Jogo: Chapecoense x Mirassol (Arena Condá)' },
+    { start: '19:30', end: '21:45', title: 'AO VIVO: Chapecoense x Mirassol (Brasileirão Série A)' },
+    { start: '21:45', end: '00:00', title: 'AO VIVO: Vitória x Fluminense (Barradão)' },
+    { start: '00:00', end: '06:00', title: 'Reprise Completa: Vitória x Fluminense' }
+  ],
+  premiere_4: [
+    { start: '06:00', end: '12:00', title: 'Gols da Rodada e Classificação do Brasileirão' },
+    { start: '12:00', end: '16:30', title: 'Compactos das Partidas da Semana' },
+    { start: '16:30', end: '19:30', title: 'Pré-Jogo Premiere 4: Athletico-PR x Vasco da Gama' },
+    { start: '19:30', end: '21:45', title: 'AO VIVO: Athletico-PR x Vasco (Ligga Arena)' },
+    { start: '21:45', end: '23:45', title: 'AO VIVO: Internacional x Coritiba (Beira-Rio)' },
+    { start: '23:45', end: '06:00', title: 'Compactos da Rodada e Melhores Lances' }
+  ],
+  premiere_5: [
+    { start: '06:00', end: '12:00', title: 'Grandes Jogos do Botafogo e Atlético-MG' },
+    { start: '12:00', end: '17:00', title: 'Aquecimento no Estádio: Noticiário dos Clubes' },
+    { start: '17:00', end: '21:30', title: 'Pré-Jogo Premiere 5: Botafogo x Atlético-MG no Nilton Santos' },
+    { start: '21:30', end: '23:45', title: 'AO VIVO: Botafogo x Atlético-MG (Brasileirão Série A)' },
+    { start: '23:45', end: '06:00', title: 'Pós-Jogo e Análise Tática da Rodada' }
+  ],
 
   // =========================================================================
   // --- FAMÍLIA ESPN (6 CANAIS COM LIGAS E MODALIDADES DIFERENCIADAS) ---
@@ -889,8 +920,12 @@ function resolveSchedule(channelName, category = '') {
     return CHANNEL_SCHEDULES.hbo;
   }
 
-  // 3. FAMÍLIA PREMIERE (TODOS OS 4 CANAIS DE JOGOS DISTINTOS)
+  // 3. FAMÍLIA PREMIERE (TODOS OS 8 CANAIS DE JOGOS DISTINTOS)
   if (name.includes('premiere')) {
+    if (name.includes('2')) return CHANNEL_SCHEDULES.premiere_2;
+    if (name.includes('3')) return CHANNEL_SCHEDULES.premiere_3;
+    if (name.includes('4')) return CHANNEL_SCHEDULES.premiere_4;
+    if (name.includes('5')) return CHANNEL_SCHEDULES.premiere_5;
     if (name.includes('6')) return CHANNEL_SCHEDULES.premiere_6;
     if (name.includes('7')) return CHANNEL_SCHEDULES.premiere_7;
     if (name.includes('8')) return CHANNEL_SCHEDULES.premiere_8;
