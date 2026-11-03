@@ -6,14 +6,14 @@
     "logo": "https://upload.wikimedia.org/wikipedia/pt/2/22/Logotipo_da_Caz%C3%A9TV.png",
     "fontes": [
       {
-        "nome": "Fonte 1 (CazéTV Transmissão Principal HD)",
+        "nome": "Fonte 1: CazéTV Oficial HD (Amagi Edge)",
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p"
+        "qualidade": "FHD · 1080p (Transmissão Direta)"
       },
       {
-        "nome": "Fonte 2 (FIFA+ Ao Vivo HD)",
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "HD · 720p"
+        "nome": "Fonte 2: Record TV Oficial Ao Vivo (1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
@@ -370,18 +370,18 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Premiere 6 Oficial HD",
-        "url": "http://45.185.11.126:8000/play/a05j/index.m3u8",
-        "qualidade": "HD · 1280x720 (Transmissão Direta)"
-      },
-      {
-        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "nome": "Fonte 1: CazéTV HD (Ao Vivo / Simulcast HD)",
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p"
+        "qualidade": "FHD · 1080p (Imediato & Sem Travamentos)"
       },
       {
-        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "nome": "Fonte 2: Premiere Oficial HD (Direto)",
+        "url": "http://45.185.11.126:8000/play/a05j/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 3: Record TV Oficial Ao Vivo (1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
         "qualidade": "FHD · 1080p"
       }
     ]
@@ -393,18 +393,18 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Premiere 7 Oficial HD",
-        "url": "http://45.185.11.126:8000/play/a05k/index.m3u8",
-        "qualidade": "HD · 1280x720 (Transmissão Direta)"
-      },
-      {
-        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "nome": "Fonte 1: CazéTV HD (Ao Vivo / Simulcast HD)",
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p"
+        "qualidade": "FHD · 1080p (Imediato & Sem Travamentos)"
       },
       {
-        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "nome": "Fonte 2: Premiere Oficial HD (Direto)",
+        "url": "http://45.185.11.126:8000/play/a05k/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 3: Record TV Oficial Ao Vivo (1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
         "qualidade": "FHD · 1080p"
       }
     ]
@@ -416,18 +416,18 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Premiere 8 Oficial HD",
-        "url": "http://45.185.11.126:8000/play/a05l/index.m3u8",
-        "qualidade": "HD · 1280x720 (Transmissão Direta)"
-      },
-      {
-        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "nome": "Fonte 1: CazéTV HD (Ao Vivo / Simulcast HD)",
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p"
+        "qualidade": "FHD · 1080p (Imediato & Sem Travamentos)"
       },
       {
-        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "nome": "Fonte 2: Premiere Oficial HD (Direto)",
+        "url": "http://45.185.11.126:8000/play/a05l/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 3: Record TV Oficial Ao Vivo (1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
         "qualidade": "FHD · 1080p"
       }
     ]
@@ -439,18 +439,18 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Premiere Clubes Oficial HD",
-        "url": "http://45.185.11.126:8000/play/a06g/index.m3u8",
-        "qualidade": "HD · 1280x720 (Transmissão Direta)"
-      },
-      {
-        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "nome": "Fonte 1: CazéTV HD (Ao Vivo / Simulcast HD)",
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p"
+        "qualidade": "FHD · 1080p (Imediato & Sem Travamentos)"
       },
       {
-        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "nome": "Fonte 2: Premiere Oficial HD (Direto)",
+        "url": "http://45.185.11.126:8000/play/a06g/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 3: Record TV Oficial Ao Vivo (1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
         "qualidade": "FHD · 1080p"
       }
     ]
@@ -2942,18 +2942,18 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Premiere 2 Oficial HD",
-        "url": "http://45.185.11.126:8000/play/a06h/index.m3u8",
-        "qualidade": "HD · 1280x720 (Transmissão Direta)"
-      },
-      {
-        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "nome": "Fonte 1: CazéTV HD (Ao Vivo / Simulcast HD)",
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p"
+        "qualidade": "FHD · 1080p (Imediato & Sem Travamentos)"
       },
       {
-        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "nome": "Fonte 2: Premiere Oficial HD (Direto)",
+        "url": "http://45.185.11.126:8000/play/a06h/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 3: Record TV Oficial Ao Vivo (1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
         "qualidade": "FHD · 1080p"
       }
     ]
@@ -2965,18 +2965,18 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Premiere 3 Oficial HD",
-        "url": "http://45.185.11.126:8000/play/a0av/index.m3u8",
-        "qualidade": "HD · 1280x720 (Transmissão Direta)"
-      },
-      {
-        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "nome": "Fonte 1: CazéTV HD (Ao Vivo / Simulcast HD)",
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p"
+        "qualidade": "FHD · 1080p (Imediato & Sem Travamentos)"
       },
       {
-        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "nome": "Fonte 2: Premiere Oficial HD (Direto)",
+        "url": "http://45.185.11.126:8000/play/a0av/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 3: Record TV Oficial Ao Vivo (1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
         "qualidade": "FHD · 1080p"
       }
     ]
@@ -2988,18 +2988,18 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Premiere 4 Oficial HD",
-        "url": "http://45.185.11.126:8000/play/a07b/index.m3u8",
-        "qualidade": "HD · 1280x720 (Transmissão Direta)"
-      },
-      {
-        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "nome": "Fonte 1: CazéTV HD (Ao Vivo / Simulcast HD)",
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p"
+        "qualidade": "FHD · 1080p (Imediato & Sem Travamentos)"
       },
       {
-        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "nome": "Fonte 2: Premiere Oficial HD (Direto)",
+        "url": "http://45.185.11.126:8000/play/a07b/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 3: Record TV Oficial Ao Vivo (1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
         "qualidade": "FHD · 1080p"
       }
     ]
@@ -3011,18 +3011,18 @@
     "logo": "https://img.faz-o-eli.online/premiere.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Premiere 5 Oficial HD",
-        "url": "http://45.185.11.126:8000/play/a07c/index.m3u8",
-        "qualidade": "HD · 1280x720 (Transmissão Direta)"
-      },
-      {
-        "nome": "Fonte 2: CazéTV HD (Simulcast Ao Vivo)",
+        "nome": "Fonte 1: CazéTV HD (Ao Vivo / Simulcast HD)",
         "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p"
+        "qualidade": "FHD · 1080p (Imediato & Sem Travamentos)"
       },
       {
-        "nome": "Fonte 3: GE TV HD (Globo Esporte)",
-        "url": "https://dfr80qz435crc.cloudfront.net/EFGH/Amagi/Globo/GE_Fast/master.m3u8",
+        "nome": "Fonte 2: Premiere Oficial HD (Direto)",
+        "url": "http://45.185.11.126:8000/play/a07c/index.m3u8",
+        "qualidade": "HD · 1280x720"
+      },
+      {
+        "nome": "Fonte 3: Record TV Oficial Ao Vivo (1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
         "qualidade": "FHD · 1080p"
       }
     ]
@@ -3038,22 +3038,17 @@
       {
         "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Oficial)"
+        "qualidade": "FHD · 1080p (CORS Garantido)"
       },
       {
         "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
         "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p"
+        "qualidade": "HD · 720p (Espelho Estável)"
       },
       {
-        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
-        "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
-        "qualidade": "HD · 720p (FAST)"
-      },
-      {
-        "nome": "Fonte 4: Câmera PPV Mosaico (Sinal Direto)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470067.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Redundância)"
       }
     ]
   },
@@ -3068,22 +3063,17 @@
       {
         "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Oficial)"
+        "qualidade": "FHD · 1080p (CORS Garantido)"
       },
       {
         "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
         "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p"
+        "qualidade": "HD · 720p (Espelho Estável)"
       },
       {
-        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
-        "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
-        "qualidade": "HD · 720p (FAST)"
-      },
-      {
-        "nome": "Fonte 4: Câmera PPV Principal (Sinal Direto)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470061.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Redundância)"
       }
     ]
   },
@@ -3098,22 +3088,17 @@
       {
         "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Oficial)"
+        "qualidade": "FHD · 1080p (CORS Garantido)"
       },
       {
         "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
         "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p"
+        "qualidade": "HD · 720p (Espelho Estável)"
       },
       {
-        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
-        "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
-        "qualidade": "HD · 720p (FAST)"
-      },
-      {
-        "nome": "Fonte 4: Câmera PPV Sede (Sinal Direto)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470062.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Redundância)"
       }
     ]
   },
@@ -3128,22 +3113,17 @@
       {
         "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Oficial)"
+        "qualidade": "FHD · 1080p (CORS Garantido)"
       },
       {
         "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
         "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p"
+        "qualidade": "HD · 720p (Espelho Estável)"
       },
       {
-        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
-        "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
-        "qualidade": "HD · 720p (FAST)"
-      },
-      {
-        "nome": "Fonte 4: Câmera PPV Baia (Sinal Direto)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470063.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Redundância)"
       }
     ]
   },
@@ -3158,22 +3138,17 @@
       {
         "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Oficial)"
+        "qualidade": "FHD · 1080p (CORS Garantido)"
       },
       {
         "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
         "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p"
+        "qualidade": "HD · 720p (Espelho Estável)"
       },
       {
-        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
-        "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
-        "qualidade": "HD · 720p (FAST)"
-      },
-      {
-        "nome": "Fonte 4: Câmera PPV Piscina (Sinal Direto)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470064.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Redundância)"
       }
     ]
   },
@@ -3188,22 +3163,17 @@
       {
         "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Oficial)"
+        "qualidade": "FHD · 1080p (CORS Garantido)"
       },
       {
         "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
         "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p"
+        "qualidade": "HD · 720p (Espelho Estável)"
       },
       {
-        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
-        "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
-        "qualidade": "HD · 720p (FAST)"
-      },
-      {
-        "nome": "Fonte 4: Câmera PPV Oficina (Sinal Direto)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470065.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Redundância)"
       }
     ]
   },
@@ -3218,22 +3188,17 @@
       {
         "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Oficial)"
+        "qualidade": "FHD · 1080p (CORS Garantido)"
       },
       {
         "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
         "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p"
+        "qualidade": "HD · 720p (Espelho Estável)"
       },
       {
-        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
-        "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
-        "qualidade": "HD · 720p (FAST)"
-      },
-      {
-        "nome": "Fonte 4: Câmera PPV Animais (Sinal Direto)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470066.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Redundância)"
       }
     ]
   },

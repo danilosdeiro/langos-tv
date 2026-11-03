@@ -339,7 +339,9 @@ export default function VideoPlayer({
       currentSource?.forceProxy || 
       (isPageHttps && rawUrl.startsWith('http://')) || 
       currentSource.referer || 
-      rawUrl.includes('.txt')
+      rawUrl.includes('.txt') ||
+      rawUrl.includes('amagi.tv') ||
+      rawUrl.includes('wurl.com')
     ) {
       return getProxyUrl(rawUrl, currentSource.referer);
     }

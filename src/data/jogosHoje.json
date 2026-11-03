@@ -1,12 +1,402 @@
 [
   {
-    "id": "match-401915311",
-    "campeonato": "UEFA Champions League • Fase de Liga",
-    "status": "TER 14:45",
+    "id": "match-401841304",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "HOJE 19:30",
     "tempo": "03/11 · Horário de Brasília",
     "isLive": false,
-    "estadio": "RAMS Park · Istanbul",
+    "matchDate": "2026-11-03T22:30Z",
+    "estadio": "Arena Condá · Chapecó",
     "destaque": true,
+    "mandante": {
+      "nome": "Chapecoense",
+      "sigla": "CHA",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9318.png"
+    },
+    "visitante": {
+      "nome": "Mirassol",
+      "sigla": "MIR",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9169.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-5",
+        "nome": "Premiere 5 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841301",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "HOJE 21:30",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "matchDate": "2026-11-04T00:30Z",
+    "estadio": "Estadio Beira-Rio · Porto Alegre",
+    "destaque": true,
+    "mandante": {
+      "nome": "Internacional",
+      "sigla": "INT",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/1936.png"
+    },
+    "visitante": {
+      "nome": "Coritiba",
+      "sigla": "CFC",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3456.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-4",
+        "nome": "Premiere 4 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841306",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "AMANHÃ 19:30",
+    "tempo": "04/11 · Horário de Brasília",
+    "isLive": false,
+    "matchDate": "2026-11-04T22:30Z",
+    "estadio": "Arena da Baixada · Curitiba",
+    "destaque": true,
+    "mandante": {
+      "nome": "Athletico-PR",
+      "sigla": "CAP",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3458.png"
+    },
+    "visitante": {
+      "nome": "Vasco da Gama",
+      "sigla": "VAS",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3454.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-4",
+        "nome": "Premiere 4 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841307",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "AMANHÃ 19:30",
+    "tempo": "04/11 · Horário de Brasília",
+    "isLive": false,
+    "matchDate": "2026-11-04T22:30Z",
+    "estadio": "Estadio do Maracana · Rio de Janeiro",
+    "destaque": true,
+    "mandante": {
+      "nome": "Flamengo",
+      "sigla": "FLA",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/819.png"
+    },
+    "visitante": {
+      "nome": "Grêmio",
+      "sigla": "GRE",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6273.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841305",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "AMANHÃ 21:30",
+    "tempo": "04/11 · Horário de Brasília",
+    "isLive": false,
+    "matchDate": "2026-11-05T00:30Z",
+    "estadio": "Joao Havelange Stadium · Rio de Janeiro",
+    "destaque": true,
+    "mandante": {
+      "nome": "Botafogo",
+      "sigla": "BOT",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6086.png"
+    },
+    "visitante": {
+      "nome": "Atlético-MG",
+      "sigla": "CAM",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/7632.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-5",
+        "nome": "Premiere 5 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841298",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "AMANHÃ 21:30",
+    "tempo": "04/11 · Horário de Brasília",
+    "isLive": false,
+    "matchDate": "2026-11-05T00:30Z",
+    "estadio": "Estádio Vila Belmiro (Urbano Caldeira) · Santos",
+    "destaque": true,
+    "mandante": {
+      "nome": "São Paulo",
+      "sigla": "SAO",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2026.png"
+    },
+    "visitante": {
+      "nome": "Corinthians",
+      "sigla": "COR",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/874.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-2",
+        "nome": "Premiere 2 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-31",
+        "nome": "SporTV 2 HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841300",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "QUI 19:30",
+    "tempo": "05/11 · Horário de Brasília",
+    "isLive": false,
+    "matchDate": "2026-11-05T22:30Z",
+    "estadio": "Allianz Parque · Sao Paulo",
+    "destaque": true,
+    "mandante": {
+      "nome": "Palmeiras",
+      "sigla": "PAL",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2029.png"
+    },
+    "visitante": {
+      "nome": "Remo",
+      "sigla": "REMO",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/4936.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841303",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "QUI 21:30",
+    "tempo": "05/11 · Horário de Brasília",
+    "isLive": false,
+    "matchDate": "2026-11-06T00:30Z",
+    "estadio": "Estadio Mineirão · Belo Horizonte",
+    "destaque": true,
+    "mandante": {
+      "nome": "Cruzeiro",
+      "sigla": "CRU",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2022.png"
+    },
+    "visitante": {
+      "nome": "Bahia",
+      "sigla": "BAH",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9967.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-2",
+        "nome": "Premiere 2 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841302",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "SEX 20:00",
+    "tempo": "06/11 · Horário de Brasília",
+    "isLive": false,
+    "matchDate": "2026-11-06T23:00Z",
+    "estadio": "Estadio Manoel Barradas · Salvador",
+    "destaque": true,
+    "mandante": {
+      "nome": "Vitória",
+      "sigla": "VIT",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3457.png"
+    },
+    "visitante": {
+      "nome": "Fluminense",
+      "sigla": "FLU",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3445.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-3",
+        "nome": "Premiere 3 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-31",
+        "nome": "SporTV 2 HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915311",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "leagueType": "inter",
+    "leaguePriority": 3,
+    "status": "HOJE 14:45",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "matchDate": "2026-11-03T17:45Z",
+    "estadio": "RAMS Park · Istanbul",
+    "destaque": false,
     "mandante": {
       "nome": "Galatasaray",
       "sigla": "GAL",
@@ -42,9 +432,12 @@
   {
     "id": "match-401915310",
     "campeonato": "UEFA Champions League • Fase de Liga",
-    "status": "TER 14:45",
+    "leagueType": "inter",
+    "leaguePriority": 3,
+    "status": "HOJE 14:45",
     "tempo": "03/11 · Horário de Brasília",
     "isLive": false,
+    "matchDate": "2026-11-03T17:45Z",
     "estadio": "Stamford Bridge · London",
     "destaque": false,
     "mandante": {
@@ -82,9 +475,12 @@
   {
     "id": "match-401915386",
     "campeonato": "UEFA Champions League • Fase de Liga",
-    "status": "TER 17:00",
+    "leagueType": "inter",
+    "leaguePriority": 3,
+    "status": "HOJE 17:00",
     "tempo": "03/11 · Horário de Brasília",
     "isLive": false,
+    "matchDate": "2026-11-03T20:00Z",
     "estadio": "Riyadh Air Metropolitano · Madrid",
     "destaque": false,
     "mandante": {
@@ -114,7 +510,7 @@
       },
       {
         "canalId": "ch-50",
-        "nome": "ESPN 4",
+        "nome": "ESPN 4 HD",
         "badge": "Opção 2"
       }
     ]
@@ -122,9 +518,12 @@
   {
     "id": "match-401915387",
     "campeonato": "UEFA Champions League • Fase de Liga",
-    "status": "TER 17:00",
+    "leagueType": "inter",
+    "leaguePriority": 3,
+    "status": "HOJE 17:00",
     "tempo": "03/11 · Horário de Brasília",
     "isLive": false,
+    "matchDate": "2026-11-03T20:00Z",
     "estadio": "Spotify Camp Nou · Barcelona",
     "destaque": true,
     "mandante": {
@@ -154,7 +553,7 @@
       },
       {
         "canalId": "ch-50",
-        "nome": "ESPN 4",
+        "nome": "ESPN 4 HD",
         "badge": "Opção 2"
       }
     ]
@@ -162,9 +561,12 @@
   {
     "id": "match-401915384",
     "campeonato": "UEFA Champions League • Fase de Liga",
-    "status": "TER 17:00",
+    "leagueType": "inter",
+    "leaguePriority": 3,
+    "status": "HOJE 17:00",
     "tempo": "03/11 · Horário de Brasília",
     "isLive": false,
+    "matchDate": "2026-11-03T20:00Z",
     "estadio": "Aspmyra Stadion · Bodø/Glimt",
     "destaque": false,
     "mandante": {
@@ -202,9 +604,12 @@
   {
     "id": "match-401915307",
     "campeonato": "UEFA Champions League • Fase de Liga",
-    "status": "TER 17:00",
+    "leagueType": "inter",
+    "leaguePriority": 3,
+    "status": "HOJE 17:00",
     "tempo": "03/11 · Horário de Brasília",
     "isLive": false,
+    "matchDate": "2026-11-03T20:00Z",
     "estadio": "De Kuip · Rotterdam",
     "destaque": false,
     "mandante": {
@@ -242,9 +647,12 @@
   {
     "id": "match-401915385",
     "campeonato": "UEFA Champions League • Fase de Liga",
-    "status": "TER 17:00",
+    "leagueType": "inter",
+    "leaguePriority": 3,
+    "status": "HOJE 17:00",
     "tempo": "03/11 · Horário de Brasília",
     "isLive": false,
+    "matchDate": "2026-11-03T20:00Z",
     "estadio": "Raiffeisen Arena (Linz) · Linz",
     "destaque": false,
     "mandante": {
@@ -282,9 +690,12 @@
   {
     "id": "match-401915308",
     "campeonato": "UEFA Champions League • Fase de Liga",
-    "status": "TER 17:00",
+    "leagueType": "inter",
+    "leaguePriority": 3,
+    "status": "HOJE 17:00",
     "tempo": "03/11 · Horário de Brasília",
     "isLive": false,
+    "matchDate": "2026-11-03T20:00Z",
     "estadio": "Old Trafford · Manchester",
     "destaque": false,
     "mandante": {
@@ -322,9 +733,12 @@
   {
     "id": "match-401915309",
     "campeonato": "UEFA Champions League • Fase de Liga",
-    "status": "TER 17:00",
+    "leagueType": "inter",
+    "leaguePriority": 3,
+    "status": "HOJE 17:00",
     "tempo": "03/11 · Horário de Brasília",
     "isLive": false,
+    "matchDate": "2026-11-03T20:00Z",
     "estadio": "Estadio de la Cerámica · Villarreal",
     "destaque": false,
     "mandante": {
@@ -360,373 +774,16 @@
     ]
   },
   {
-    "id": "match-401841304",
-    "campeonato": "Brasileirão Série A • 32ª Rodada",
-    "status": "TER 19:30",
-    "tempo": "03/11 · Horário de Brasília",
-    "isLive": false,
-    "estadio": "Arena Condá · Chapecó",
-    "destaque": false,
-    "mandante": {
-      "nome": "Chapecoense",
-      "sigla": "CHA",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9318.png"
-    },
-    "visitante": {
-      "nome": "Mirassol",
-      "sigla": "MIR",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9169.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-4",
-        "nome": "Premiere 4 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841301",
-    "campeonato": "Brasileirão Série A • 32ª Rodada",
-    "status": "TER 21:30",
-    "tempo": "03/11 · Horário de Brasília",
-    "isLive": false,
-    "estadio": "Estadio Beira-Rio · Porto Alegre",
-    "destaque": false,
-    "mandante": {
-      "nome": "Internacional",
-      "sigla": "INT",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/1936.png"
-    },
-    "visitante": {
-      "nome": "Coritiba",
-      "sigla": "CFC",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3456.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-4",
-        "nome": "Premiere 4 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841306",
-    "campeonato": "Brasileirão Série A • 32ª Rodada",
-    "status": "QUA 19:30",
-    "tempo": "04/11 · Horário de Brasília",
-    "isLive": false,
-    "estadio": "Arena da Baixada · Curitiba",
-    "destaque": false,
-    "mandante": {
-      "nome": "Athletico-PR",
-      "sigla": "CAP",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3458.png"
-    },
-    "visitante": {
-      "nome": "Vasco da Gama",
-      "sigla": "VAS",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3454.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-4",
-        "nome": "Premiere 4 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841307",
-    "campeonato": "Brasileirão Série A • 32ª Rodada",
-    "status": "QUA 19:30",
-    "tempo": "04/11 · Horário de Brasília",
-    "isLive": false,
-    "estadio": "Estadio do Maracana · Rio de Janeiro",
-    "destaque": true,
-    "mandante": {
-      "nome": "Flamengo",
-      "sigla": "FLA",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/819.png"
-    },
-    "visitante": {
-      "nome": "Grêmio",
-      "sigla": "GRE",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6273.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-26",
-        "nome": "Premiere Clubes",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-cazetv",
-        "nome": "CazéTV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841305",
-    "campeonato": "Brasileirão Série A • 32ª Rodada",
-    "status": "QUA 21:30",
-    "tempo": "04/11 · Horário de Brasília",
-    "isLive": false,
-    "estadio": "Joao Havelange Stadium · Rio de Janeiro",
-    "destaque": false,
-    "mandante": {
-      "nome": "Botafogo",
-      "sigla": "BOT",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6086.png"
-    },
-    "visitante": {
-      "nome": "Atlético-MG",
-      "sigla": "CAM",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/7632.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-4",
-        "nome": "Premiere 4 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841298",
-    "campeonato": "Brasileirão Série A • 32ª Rodada",
-    "status": "QUA 21:30",
-    "tempo": "04/11 · Horário de Brasília",
-    "isLive": false,
-    "estadio": "Estádio Vila Belmiro (Urbano Caldeira) · Santos",
-    "destaque": false,
-    "mandante": {
-      "nome": "São Paulo",
-      "sigla": "SAO",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2026.png"
-    },
-    "visitante": {
-      "nome": "Corinthians",
-      "sigla": "COR",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/874.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-2",
-        "nome": "Premiere 2 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-31",
-        "nome": "SporTV 2 HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-26",
-        "nome": "Premiere Clubes",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841300",
-    "campeonato": "Brasileirão Série A • 32ª Rodada",
-    "status": "QUI 19:30",
-    "tempo": "05/11 · Horário de Brasília",
-    "isLive": false,
-    "estadio": "Allianz Parque · Sao Paulo",
-    "destaque": false,
-    "mandante": {
-      "nome": "Palmeiras",
-      "sigla": "PAL",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2029.png"
-    },
-    "visitante": {
-      "nome": "Remo",
-      "sigla": "REMO",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/4936.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-26",
-        "nome": "Premiere Clubes",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-cazetv",
-        "nome": "CazéTV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841303",
-    "campeonato": "Brasileirão Série A • 32ª Rodada",
-    "status": "QUI 21:30",
-    "tempo": "05/11 · Horário de Brasília",
-    "isLive": false,
-    "estadio": "Estadio Mineirão · Belo Horizonte",
-    "destaque": false,
-    "mandante": {
-      "nome": "Cruzeiro",
-      "sigla": "CRU",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2022.png"
-    },
-    "visitante": {
-      "nome": "Bahia",
-      "sigla": "BAH",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9967.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-2",
-        "nome": "Premiere 2 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-cazetv",
-        "nome": "CazéTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841302",
-    "campeonato": "Brasileirão Série A • 32ª Rodada",
-    "status": "SEX 20:00",
-    "tempo": "06/11 · Horário de Brasília",
-    "isLive": false,
-    "estadio": "Estadio Manoel Barradas · Salvador",
-    "destaque": false,
-    "mandante": {
-      "nome": "Vitória",
-      "sigla": "VIT",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3457.png"
-    },
-    "visitante": {
-      "nome": "Fluminense",
-      "sigla": "FLU",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3445.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-3",
-        "nome": "Premiere 3 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-31",
-        "nome": "SporTV 2 HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-cazetv",
-        "nome": "CazéTV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
     "id": "match-401841299",
-    "campeonato": "Brasileirão Série A • 32ª Rodada",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
     "status": "ENCERRADO",
     "tempo": "Fim de Jogo",
     "isLive": false,
+    "matchDate": "2026-11-02T23:00Z",
     "estadio": "Estádio Municipal Cicero de Souza Marques · Bragança Paulista",
-    "destaque": false,
+    "destaque": true,
     "mandante": {
       "nome": "Red Bull Bragantino",
       "sigla": "BRA",
@@ -743,8 +800,8 @@
     },
     "transmissao": [
       {
-        "canalId": "ch-prem-4",
-        "nome": "Premiere 4 HD",
+        "canalId": "ch-prem-5",
+        "nome": "Premiere 5 HD",
         "badge": "Principal"
       },
       {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Play, Tv, Trophy, Clock, MapPin, Radio, Flame, Sparkles, Globe, Shield, RefreshCw, Search, X } from 'lucide-react';
 import INITIAL_JOGOS from '../data/jogosHoje.json';
+import { SportsService } from '../services/sportsService';
 
 const FEATURED_TEAMS = [
   { label: 'Todos', value: 'all' },
@@ -14,88 +15,32 @@ const FEATURED_TEAMS = [
 ];
 
 export default function LiveMatchesSection({ channels = [], onSelectChannel }) {
-  const [matches, setMatches] = useState(INITIAL_JOGOS);
+  const [matches, setMatches] = useState(() => SportsService.getCachedMatches() || INITIAL_JOGOS);
   const [activeMatchTab, setActiveMatchTab] = useState('todos'); // 'todos', 'aovivo', 'nacional', 'inter'
   const [teamFilter, setTeamFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [lastRefreshedAt, setLastRefreshedAt] = useState(null);
 
-  // Auto-refresh ESPN real-time scores every 60s
-  const checkLiveScores = async () => {
+  // Sincronização Dinâmica Diária Oficial (Brasileirão com Prioridade Máxima)
+  const refreshSportsSchedule = async () => {
     try {
       setIsRefreshing(true);
-      const [uclRes, braRes] = await Promise.allSettled([
-        fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard').then(r => r.json()),
-        fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard').then(r => r.json())
-      ]);
-
-      const liveEventsMap = new Map();
-
-      const addEvents = (data) => {
-        if (data && data.events) {
-          data.events.forEach(ev => {
-            liveEventsMap.set(ev.id, ev);
-          });
-        }
-      };
-
-      if (uclRes.status === 'fulfilled') addEvents(uclRes.value);
-      if (braRes.status === 'fulfilled') addEvents(braRes.value);
-
-      if (liveEventsMap.size > 0) {
-        setMatches(prevMatches => {
-          return prevMatches.map(m => {
-            const espnId = m.id.replace('match-', '');
-            const liveEv = liveEventsMap.get(espnId);
-            if (!liveEv) return m;
-
-            const comp = liveEv.competitions?.[0];
-            const home = comp?.competitors?.find(c => c.homeAway === 'home');
-            const away = comp?.competitors?.find(c => c.homeAway === 'away');
-            const statusType = liveEv.status?.type;
-            const isLive = statusType?.state === 'in';
-            const isPost = statusType?.state === 'post';
-
-            let updatedStatus = m.status;
-            let updatedTempo = m.tempo;
-
-            if (isLive) {
-              updatedStatus = 'AO VIVO';
-              updatedTempo = liveEv.status?.displayClock ? `${liveEv.status.displayClock}'` : 'Ao Vivo';
-            } else if (isPost) {
-              updatedStatus = 'ENCERRADO';
-              updatedTempo = 'Fim de Jogo';
-            }
-
-            return {
-              ...m,
-              isLive,
-              status: updatedStatus,
-              tempo: updatedTempo,
-              mandante: {
-                ...m.mandante,
-                gols: (isLive || isPost) ? parseInt(home?.score || 0, 10) : m.mandante.gols
-              },
-              visitante: {
-                ...m.visitante,
-                gols: (isLive || isPost) ? parseInt(away?.score || 0, 10) : m.visitante.gols
-              }
-            };
-          });
-        });
+      const updated = await SportsService.fetchLiveDailyMatches();
+      if (Array.isArray(updated) && updated.length > 0) {
+        setMatches(updated);
       }
       setLastRefreshedAt(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }));
     } catch (err) {
-      console.warn('Erro ao atualizar placares ao vivo:', err);
+      console.warn('Erro ao sincronizar jogos oficiais:', err);
     } finally {
       setIsRefreshing(false);
     }
   };
 
   useEffect(() => {
-    checkLiveScores();
-    const interval = setInterval(checkLiveScores, 60000);
+    refreshSportsSchedule();
+    const interval = setInterval(refreshSportsSchedule, 60000);
     return () => clearInterval(interval);
   }, []);
 
@@ -213,7 +158,7 @@ export default function LiveMatchesSection({ channels = [], onSelectChannel }) {
           {/* Botões de Ação Topo */}
           <div className="flex items-center gap-2 self-start sm:self-auto">
             <button
-              onClick={checkLiveScores}
+              onClick={refreshSportsSchedule}
               disabled={isRefreshing}
               data-tv-focus="true"
               className="px-3 py-1.5 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-white/5 text-xs font-bold transition flex items-center gap-1.5 active:scale-95"
