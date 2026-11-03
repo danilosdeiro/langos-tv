@@ -87,6 +87,11 @@
     "logo": "https://img.faz-o-eli.online/adultswim.png",
     "fontes": [
       {
+        "nome": "Fonte 1: South Park & Animação Adulta 24h",
+        "url": "https://jmp2.uk/plu-609ae66b359b270007869ff1.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a06m/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
@@ -99,6 +104,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/amc.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Filmes Suspense HD",
+        "url": "https://jmp2.uk/plu-5f171d3442a0500007362f22.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.185.11.126:8000/play/a06s/index.m3u8",
         "qualidade": "FHD · 1920x1080",
@@ -133,6 +143,11 @@
     "categoria": "Infantil",
     "logo": "https://img.faz-o-eli.online/cartoonnetwork.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Desenhos Clássicos HD",
+        "url": "https://jmp2.uk/plu-655e5c4d2c46f3000877a54b.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/CARTOON_NETWORK/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -170,6 +185,11 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/cnn-brasil-money.png",
     "fontes": [
       {
+        "nome": "Fonte 1: CNN Brasil Money HD",
+        "url": "https://d25usgadhphvwi.cloudfront.net/hls/stv-plus1920x1080/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/CNN_BRASIL/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
@@ -187,6 +207,11 @@
     "categoria": "Variedades",
     "logo": "https://commons.wikimedia.org/wiki/Special:FilePath/E%21_Logo_Flat_2012.svg?width=300",
     "fontes": [
+      {
+        "nome": "Fonte 1: E! Entertainment HD",
+        "url": "https://jmp2.uk/plu-61a528267e1b8b0007357920.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (UOL Oficial HLS)",
         "url": "https://video49.mais.uol.com.br/live/4503.m3u8",
@@ -234,6 +259,11 @@
     "logo": "https://img.faz-o-eli.online/globonews.png",
     "fontes": [
       {
+        "nome": "Fonte 1: CNN Brasil Notícias 24h (Simulcast)",
+        "url": "https://d25usgadhphvwi.cloudfront.net/hls/stv-plus1920x1080/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a08d/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 3 (FHD · 1920x1080)"
@@ -260,6 +290,11 @@
     "logo": "https://img.faz-o-eli.online/gnt.png",
     "fontes": [
       {
+        "nome": "Fonte 1: MasterChef & Culinária HD",
+        "url": "https://jmp2.uk/plu-6077045b6031bd00078de127.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a079/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
@@ -272,6 +307,11 @@
     "categoria": "Variedades",
     "logo": "https://img.faz-o-eli.online/multishow.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Comedy Central & Humor HD",
+        "url": "https://jmp2.uk/plu-5f357e91b18f0b00073583d2.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/8974.m3u8",
         "qualidade": "FHD · 1080p",
@@ -300,6 +340,11 @@
     "categoria": "Documentários",
     "logo": "https://img.faz-o-eli.online/history.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Pluto TV História HD",
+        "url": "https://jmp2.uk/plu-5f1ef1a8cec6be00072a7ac9.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://138.204.86.4:8080/HISTORY_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -351,6 +396,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/megapix.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Pluto Filmes Aventura HD",
+        "url": "https://jmp2.uk/plu-66c79a4262e5510008ff68a5.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.185.11.126:8000/play/a057/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -506,6 +556,11 @@
     "logo": "https://img.faz-o-eli.online/sonychannel.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Sony One Classics HD",
+        "url": "https://spt-sonyoneclassicas-1-br.samsung.wurl.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://170.83.16.50/SONY_CHANNEL/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
@@ -518,6 +573,11 @@
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/sportv2.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: CazéTV HD (Simulcast Ao Vivo)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (SporTV 2 Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a05f/index.m3u8",
@@ -537,6 +597,11 @@
     "logo": "https://img.faz-o-eli.online/sportv3.png",
     "fontes": [
       {
+        "nome": "Fonte 1: CazéTV HD (Simulcast Ao Vivo)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (SporTV 3 Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a06v/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -555,6 +620,11 @@
     "logo": "https://img.faz-o-eli.online/off.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Adrenalina Esportes Radicais HD",
+        "url": "https://jmp2.uk/plu-61b790b985706b00072cb797.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a07t/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
@@ -567,6 +637,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/telecineaction.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Pluto Filmes Ação HD",
+        "url": "https://jmp2.uk/plu-5f120f41b7d403000783a6d6.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (Telecine Action Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a058/index.m3u8",
@@ -581,6 +656,11 @@
     "logo": "https://img.faz-o-eli.online/telecinepipoca.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Pluto Cine Sucessos HD",
+        "url": "https://jmp2.uk/plu-5f120e94a5714d00074576a1.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (Telecine Pipoca Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08g/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -593,6 +673,11 @@
     "categoria": "TV Aberta",
     "logo": "https://mondrian.claro.com.br/channels/inverse/tv-brasil.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Brasil Oficial HD",
+        "url": "https://tvbrasil-stream.ebc.com.br/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/TV_BRASIL/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -615,6 +700,11 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/universal-premiere.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Universal Filmes HD",
+        "url": "https://jmp2.uk/plu-5f120e94a5714d00074576a1.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a08m/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
@@ -627,6 +717,11 @@
     "categoria": "Reality Shows",
     "logo": "https://mondrian.claro.com.br/channels/inverse/universal-reality.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: MTV Reality HD",
+        "url": "https://jmp2.uk/plu-6851bdfc9ac48fde5e07f5ae.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.185.11.126:8000/play/a08c/index.m3u8",
         "qualidade": "FHD · 1920x1080",
@@ -654,6 +749,11 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "FHD · 1080p",
         "nome": "Fonte 1 (Ao Vivo Principal)"
@@ -670,6 +770,11 @@
     "logo": "https://img.faz-o-eli.online/cartoonito.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Pluto TV Kids HD",
+        "url": "https://jmp2.uk/plu-5f1214a637c6fd00079c652f.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a0ae/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
@@ -682,6 +787,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/cinemax.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Pluto Cine Família HD",
+        "url": "https://jmp2.uk/plu-5f171f032cd22e0007f17f3d.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://138.204.86.4:8080/CINEMAX/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -701,6 +811,11 @@
     "logo": "https://img.faz-o-eli.online/discoverychannel.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Pluto TV Natureza HD",
+        "url": "https://jmp2.uk/plu-5f1213ba0ecebc00070e170f.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://138.204.86.4:8080/DISCOVERY_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
@@ -713,6 +828,11 @@
     "categoria": "Infantil",
     "logo": "https://img.faz-o-eli.online/discoverykids.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Pluto TV Kids Club HD",
+        "url": "https://jmp2.uk/plu-66c8cae7fed35b0008580ec0.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.185.11.126:8000/play/a0ad/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -732,6 +852,11 @@
     "logo": "https://img.faz-o-eli.online/discoverytheater.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Smithsonian Channel HD",
+        "url": "https://jmp2.uk/plu-6298bd10d88ef000073f16b7.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://138.204.86.4:8080/DISCOVERY_THEATER_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
@@ -749,6 +874,11 @@
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/espn.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: CazéTV HD (Simulcast Esportes)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/ESPN_BRASIL/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -773,6 +903,11 @@
     "logo": "https://img.faz-o-eli.online/espn2.png",
     "fontes": [
       {
+        "nome": "Fonte 1: CazéTV HD (Simulcast Esportes)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (ESPN 2 Oficial HD)",
         "url": "http://138.204.86.4:8080/ESPN2_HD/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -785,6 +920,11 @@
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/espn4.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: CazéTV HD (Simulcast Esportes)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/ESPN_4/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -814,6 +954,11 @@
     "logo": "https://img.faz-o-eli.online/espn5.png",
     "fontes": [
       {
+        "nome": "Fonte 1: CazéTV HD (Simulcast Esportes)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a05n/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
@@ -827,6 +972,11 @@
     "logo": "https://img.faz-o-eli.online/espn6.png",
     "fontes": [
       {
+        "nome": "Fonte 1: CazéTV HD (Simulcast Esportes)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a084/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
@@ -839,6 +989,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/hbo.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Pluto Séries Premium HD",
+        "url": "https://jmp2.uk/plu-65f060d84e01740008d7421f.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (HBO Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08n/index.m3u8",
@@ -858,6 +1013,11 @@
     "logo": "https://img.faz-o-eli.online/hbo2.png",
     "fontes": [
       {
+        "nome": "Fonte 1: CSI Séries HD",
+        "url": "https://jmp2.uk/plu-63eb9c5351f5d000085e8d7e.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (HBO2 Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08o/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -875,6 +1035,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/hbofamily.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Cine Família HD",
+        "url": "https://jmp2.uk/plu-5f171f032cd22e0007f17f3d.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (HBO Family Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08q/index.m3u8",
@@ -894,6 +1059,11 @@
     "logo": "https://img.faz-o-eli.online/hbomundi.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Cine Inspiração HD",
+        "url": "https://jmp2.uk/plu-5fa991b1f09e020007e78626.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (HBO Mundi Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a082/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -911,6 +1081,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/hboplus.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Cine Terror & Suspense HD",
+        "url": "https://jmp2.uk/plu-5f12111c9e6c2c00078ef3bb.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (HBO+ Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08p/index.m3u8",
@@ -930,6 +1105,11 @@
     "logo": "https://img.faz-o-eli.online/hbopop.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Comédia Romântica HD",
+        "url": "https://jmp2.uk/plu-62545ed3dab4380007582f7c.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (HBO Pop Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08s/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -948,6 +1128,11 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/hbo-signature.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Jornada nas Estrelas HD",
+        "url": "https://jmp2.uk/plu-69162ad79505d0f3b1ebf07d.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (HBO Signature Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08r/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -965,6 +1150,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://mondrian.claro.com.br/channels/inverse/hbo-xtreme.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Adrenalina Pura HD",
+        "url": "https://jmp2.uk/plu-61b790b985706b00072cb797.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (HBO Xtreme Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a083/index.m3u8",
@@ -1005,6 +1195,11 @@
     "logo": "https://img.faz-o-eli.online/space.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Pluto Filmes de Luta HD",
+        "url": "https://jmp2.uk/plu-6806d62369aec5b19cd628c0.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/SPACE/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
@@ -1022,6 +1217,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/tnt.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Pluto Cine Romance & Ação HD",
+        "url": "https://jmp2.uk/plu-5f171f988ab9780007fa95ea.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/TNT/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -1041,6 +1241,11 @@
     "logo": "https://img.faz-o-eli.online/tntseries.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Pluto Séries Ação HD",
+        "url": "https://jmp2.uk/plu-6474ab1da51cb80008bfb5f4.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/TNT/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
@@ -1054,6 +1259,11 @@
     "logo": "https://img.faz-o-eli.online/universaltv.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Pluto Cine Crime HD",
+        "url": "https://jmp2.uk/plu-6479ff764f5ba5000878dfe2.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a0af/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
@@ -1066,6 +1276,11 @@
     "categoria": "Documentários",
     "logo": "https://img.faz-o-eli.online/discoveryturbo.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Adrenalina & Motores HD",
+        "url": "https://jmp2.uk/plu-61b790b985706b00072cb797.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/DISCOVERY_TURBO/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -1090,6 +1305,11 @@
     "logo": "https://img.faz-o-eli.online/telecinefun.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Pluto Cine Comédia HD",
+        "url": "https://jmp2.uk/plu-5f12101f0b12f00007844c7c.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (Telecine Fun Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a059/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -1102,6 +1322,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/telecinecult.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Pluto Cine Clássicos HD",
+        "url": "https://jmp2.uk/plu-5fa1612a669ba0000702017b.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (Telecine Cult Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a05a/index.m3u8",
@@ -1116,6 +1341,11 @@
     "logo": "https://www.tvlogo.org/brazil/sony-movies-br.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Sony Movies HD",
+        "url": "https://spt-sonyoneclassicas-1-br.samsung.wurl.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/SONY_MOVIES/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
@@ -1128,6 +1358,11 @@
     "categoria": "TV Aberta",
     "logo": "https://mondrian.claro.com.br/channels/inverse/globo.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "FHD · 1080p",
@@ -1144,6 +1379,11 @@
     "categoria": "Infantil",
     "logo": "https://mondrian.claro.com.br/channels/inverse/tooncast.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Retro Cartoon HD",
+        "url": "https://stmv1.video.brstream.com.br/retrotv/retrotv/chunklist_w1069200121.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://170.83.16.50:80/TOONCAST/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -1171,6 +1411,11 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/arte1.png",
     "fontes": [
       {
+        "nome": "Fonte 1: TV Cultura Arte & Cultura",
+        "url": "https://player-tvcultura.stream.uol.com.br/live/tvcultura.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/ARTE1/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
@@ -1183,6 +1428,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/tntnovelas.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Globoplay Novelas HD",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/TNT/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -1197,6 +1447,11 @@
     "logo": "https://img.faz-o-eli.online/discoveryscience.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Ciência & Tecnologia HD",
+        "url": "https://jmp2.uk/plu-6298bd10d88ef000073f16b7.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://138.204.86.4:8080/DISCOVERY_SCIENCE_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
@@ -1209,6 +1464,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/axn.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: CSI Investigação HD",
+        "url": "https://jmp2.uk/plu-63eb9c5351f5d000085e8d7e.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://138.204.86.4:8080/AXN_HD/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -1233,6 +1493,11 @@
     "logo": "https://img.faz-o-eli.online/bandnews.png",
     "fontes": [
       {
+        "nome": "Fonte 1: BM&C News Notícias HD",
+        "url": "https://jmp2.uk/plu-666c9c60a7efd40008f552f0.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/BAND_NEWS/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
@@ -1245,6 +1510,11 @@
     "categoria": "Esportes",
     "logo": "https://img.faz-o-eli.online/bandsports.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Band Esportes HD",
+        "url": "https://vipwaytvcdn.multtv.tv.br:5444/TVThathi_Band/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/BAND_SPORTS/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -1268,6 +1538,11 @@
     "categoria": "TV Aberta",
     "logo": "https://www.tvlogo.org/brazil/rede-tv-br.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV A Crítica / RedeTV! HD",
+        "url": "https://cdn.jmvstream.com/w/LVW-9716/LVW9716_HbtQtezcaw/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/REDE_TV/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -1306,6 +1581,11 @@
     "logo": "https://www.tvlogo.org/brazil/terraviva-br.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Terra Viva Campo HD",
+        "url": "https://canaleducacao-stream.ebc.com.br/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/TERRAVIVA/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
@@ -1323,6 +1603,11 @@
     "categoria": "Esportes",
     "logo": "https://mondrian.claro.com.br/channels/inverse/woohoo.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Radical Sports & Surf HD",
+        "url": "https://jmp2.uk/plu-61b790b985706b00072cb797.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/WOOHOO/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -1342,6 +1627,11 @@
     "logo": "https://img.faz-o-eli.online/espn3.png",
     "fontes": [
       {
+        "nome": "Fonte 1: CazéTV HD (Simulcast Esportes)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (ESPN 3 Oficial HD)",
         "url": "http://138.204.86.4:8080/ESPN3_HD/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -1354,6 +1644,11 @@
     "categoria": "TV Aberta",
     "logo": "https://mondrian.claro.com.br/channels/inverse/tv-gazeta.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Gazeta Aberta HD",
+        "url": "https://player-tvcultura.stream.uol.com.br/live/tvcultura.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/GAZETA/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -1380,6 +1675,11 @@
     "categoria": "Notícias",
     "logo": "https://mondrian.claro.com.br/channels/inverse/recordnews.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Record News Oficial HD",
+        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/RECORD_NEWS/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -1419,6 +1719,11 @@
     "logo": "https://img.faz-o-eli.online/cancaonova.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Pai Eterno / Canção Nova HD",
+        "url": "https://video09.logicahost.com.br/paieterno/paieterno/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/CANCAO_NOVA/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
@@ -1434,6 +1739,11 @@
     "categoria": "TV Aberta",
     "logo": "https://mondrian.claro.com.br/channels/inverse/tv-aparecida.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Aparecida HD",
+        "url": "https://video09.logicahost.com.br/paieterno/paieterno/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/TV_APARECIDA/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -1487,6 +1797,11 @@
     "logo": "https://mondrian.claro.com.br/channels/inverse/investigacao-discovery.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Pluto TV Investigação HD",
+        "url": "https://jmp2.uk/plu-5f32cf37c9ff2b00082adbc8.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/DISCOVERY_ID/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
@@ -1504,6 +1819,11 @@
     "categoria": "Esportes",
     "logo": "https://mondrian.claro.com.br/channels/inverse/fish-tv.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Pluto Natureza & Pesca HD",
+        "url": "https://jmp2.uk/plu-5f1213ba0ecebc00070e170f.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/FISH_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -1523,6 +1843,11 @@
     "logo": "https://www.tvlogo.org/brazil/box-kids-tv-br.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Box Kids TV HD",
+        "url": "https://jmp2.uk/plu-5f1214a637c6fd00079c652f.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://170.83.49.66:8083/BOXKIDSHD/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (Box Kids Oficial HD)"
@@ -1540,6 +1865,11 @@
     "categoria": "Variedades",
     "logo": "https://img.faz-o-eli.online/musicboxbrazil.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: MTV Biggest Pop HD",
+        "url": "https://jmp2.uk/plu-6047fbdbbb776a0007e7f2ff.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (Trace Brasil Música HD)",
         "url": "http://45.185.11.126:8000/play/a08l/index.m3u8",
@@ -1564,6 +1894,11 @@
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/canal-rural-br.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Canal Agro & Campo HD",
+        "url": "https://canaleducacao-stream.ebc.com.br/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://170.83.49.66:8083/CANALRURALHD/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
@@ -1582,6 +1917,11 @@
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/agro-mais-br.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Agro Mais Brasil HD",
+        "url": "https://canaleducacao-stream.ebc.com.br/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/AGROMAIS/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
@@ -1594,6 +1934,11 @@
     "categoria": "TV Aberta",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/rede-cnt-br.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: ISTV Aberta Nacional HD",
+        "url": "https://video08.logicahost.com.br/istvnacional/srt.stream/istvnacional.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/CNT/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -1615,6 +1960,11 @@
     "categoria": "Variedades",
     "logo": "https://img.faz-o-eli.online/tvpaieterno.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Pai Eterno HD",
+        "url": "https://video09.logicahost.com.br/paieterno/paieterno/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/TV_PAI_ETERNO/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -1639,6 +1989,11 @@
     "logo": "https://i.imgur.com/Ikrj3lk.png",
     "fontes": [
       {
+        "nome": "Fonte 1: PlayTV Oficial HD",
+        "url": "https://isaocorp.cloudecast.com/playtv/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/PLAY_TV/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
@@ -1659,6 +2014,11 @@
     "categoria": "TV Aberta",
     "logo": "https://i.imgur.com/TXJKwzZ.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Rede Brasil Nacional HD",
+        "url": "https://video08.logicahost.com.br/istvnacional/srt.stream/istvnacional.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/ESPN_BRASIL/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -1712,6 +2072,11 @@
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/tv-camara-br.png",
     "fontes": [
       {
+        "nome": "Fonte 1: TV Câmara Oficial HD",
+        "url": "https://canaleducacao-stream.ebc.com.br/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/TV_CAMARA/index.m3u8",
         "qualidade": "SD · 718x480",
         "nome": "Fonte 1 (SD · 718x480)"
@@ -1733,6 +2098,11 @@
     "logo": "https://i.imgur.com/IrYR7Kp.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Sinal Evangelizar HD",
+        "url": "https://video09.logicahost.com.br/paieterno/paieterno/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/EVANGELIZAR/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
@@ -1750,6 +2120,11 @@
     "categoria": "TV Aberta",
     "logo": "https://mondrian.claro.com.br/channels/inverse/tv-justica.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Canal Gov / TV Justiça Oficial",
+        "url": "https://canalgov-stream.ebc.com.br/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/TV_JUSTICA/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -1771,6 +2146,11 @@
     "categoria": "Variedades",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/novo-tempo-br.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Novo Tempo HD",
+        "url": "https://redegospel-aovivo.nuvemplay.live/hls/stream.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/NOVO_TEMPO/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -1794,6 +2174,11 @@
     "categoria": "TV Aberta",
     "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/brazil/tv-senado-br.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Canal Educação / TV Senado Oficial",
+        "url": "https://canaleducacao-stream.ebc.com.br/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/TV_SENADO/index.m3u8",
         "qualidade": "SD · 718x480",
@@ -1839,6 +2224,11 @@
     "logo": "https://img.faz-o-eli.online/discoveryhh.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Vida Real & Saúde HD",
+        "url": "https://jmp2.uk/plu-61bb72a7bf8c520007a8fd27.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/DISCOVERY_H_H/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
@@ -1851,6 +2241,11 @@
     "categoria": "Variedades",
     "logo": "",
     "fontes": [
+      {
+        "nome": "Fonte 1: Canal Agro Brasil HD",
+        "url": "https://canaleducacao-stream.ebc.com.br/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/AGRO_CANAL/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -1888,6 +2283,11 @@
     "logo": "https://i.imgur.com/GrjGwKM.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Com Brasil Oficial HD",
+        "url": "https://br5093.streamingdevideo.com.br/abc/abc/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/ESPN_BRASIL/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
@@ -1910,6 +2310,11 @@
     "categoria": "TV Aberta",
     "logo": "https://i.imgur.com/Mu8O6CV.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Cultura / SESC TV Oficial",
+        "url": "https://player-tvcultura.stream.uol.com.br/live/tvcultura.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/SESC_TV/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -2015,6 +2420,11 @@
     "logo": "https://i.imgur.com/LgynEBC.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Canal Futura / Educação HD",
+        "url": "https://canaleducacao-stream.ebc.com.br/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/FUTURA/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
@@ -2075,6 +2485,11 @@
     "logo": "https://i.imgur.com/pVM5MhS.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Canal do Boi Agro HD",
+        "url": "https://canaleducacao-stream.ebc.com.br/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/CANAL_DO_BOI/index.m3u8",
         "qualidade": "HD · 1280x720",
         "nome": "Fonte 1 (HD · 1280x720)"
@@ -2109,6 +2524,11 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c0/DumDum_logo.svg",
     "fontes": [
       {
+        "nome": "Fonte 1: O Reino Infantil HD",
+        "url": "https://jmp2.uk/plu-5f5c216df68f920007888315.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a078/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
@@ -2131,6 +2551,11 @@
     "categoria": "TV Aberta",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Canal_Futura.png/960px-Canal_Futura.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Canal Futura / Educação HD",
+        "url": "https://canaleducacao-stream.ebc.com.br/index.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/FUTURA/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -2241,6 +2666,11 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Nicktoons_logo_%282023%29.svg/330px-Nicktoons_logo_%282023%29.svg.png",
     "fontes": [
       {
+        "nome": "Fonte 1: NickToons Kids HD",
+        "url": "https://jmp2.uk/plu-60f5fabf0721880007cd50e3.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/ESPN_BRASIL/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo FHD)"
@@ -2298,6 +2728,11 @@
     "logo": "https://i.imgur.com/ZJgD38F.png",
     "fontes": [
       {
+        "nome": "Fonte 1: TV A Crítica / RedeTV! HD",
+        "url": "https://cdn.jmvstream.com/w/LVW-9716/LVW9716_HbtQtezcaw/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.162.64.114/REDE_TV/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
         "nome": "Fonte 1 (Ao Vivo HD)"
@@ -2344,6 +2779,11 @@
     "categoria": "Variedades",
     "logo": "https://i.imgur.com/3tBJERH.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Travel Box Brazil HD",
+        "url": "https://jmp2.uk/plu-5f1213ba0ecebc00070e170f.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://170.83.49.66:8083/TRAVELBOXHD/index.m3u8",
         "qualidade": "HD · 1280x720",
@@ -2395,6 +2835,11 @@
     "logo": "http://www.fontedecanais.me/logos/canais/bis.png",
     "fontes": [
       {
+        "nome": "Fonte 1: MTV Classic & Shows HD",
+        "url": "https://jmp2.uk/plu-66a01dcb8561260008b0a41d.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a07w/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
@@ -2408,6 +2853,11 @@
     "logo": "https://img.faz-o-eli.online/foodnetwork.png",
     "fontes": [
       {
+        "nome": "Fonte 1: MasterChef Brasil 24h",
+        "url": "https://jmp2.uk/plu-6077045b6031bd00078de127.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://45.185.11.126:8000/play/a06j/index.m3u8",
         "qualidade": "FHD · 1920x1080",
         "nome": "Fonte 1 (FHD · 1920x1080)"
@@ -2420,6 +2870,11 @@
     "categoria": "Documentários",
     "logo": "https://img.faz-o-eli.online/discoveryworld.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Mundo & Natureza HD",
+        "url": "https://jmp2.uk/plu-5f1213ba0ecebc00070e170f.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "url": "http://45.162.64.114/DISCOVERY_WORLD/index.m3u8",
         "qualidade": "FHD · Ao Vivo",
@@ -2439,6 +2894,11 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (Rede Globo Ao Vivo)",
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -2454,6 +2914,11 @@
     "categoria": "TV Aberta",
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (Rede Globo Ao Vivo)",
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
@@ -2471,6 +2936,11 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (Rede Globo Ao Vivo)",
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -2486,6 +2956,11 @@
     "categoria": "TV Aberta",
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (Rede Globo Ao Vivo)",
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
@@ -2503,6 +2978,11 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (Rede Globo Ao Vivo)",
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -2518,6 +2998,11 @@
     "categoria": "TV Aberta",
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (Rede Globo Ao Vivo)",
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
@@ -2535,6 +3020,11 @@
     "logo": "https://img.faz-o-eli.online/globorj.png",
     "fontes": [
       {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "FHD · 1080p",
         "nome": "Fonte 1 (Ao Vivo Principal)"
@@ -2550,6 +3040,11 @@
     "categoria": "TV Aberta",
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (Rede Globo Ao Vivo)",
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
@@ -2567,6 +3062,11 @@
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
       {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (Rede Globo Ao Vivo)",
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -2582,6 +3082,11 @@
     "categoria": "TV Aberta",
     "logo": "https://img.faz-o-eli.online/globosp.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: TV Globo Oficial HD (Globoplay Edge)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (Rede Globo Ao Vivo)",
         "url": "http://138.204.86.4:8080/GLOBO_HD/index.m3u8",
@@ -2898,6 +3403,11 @@
     "logo": "https://img.faz-o-eli.online/sportv.png",
     "fontes": [
       {
+        "nome": "Fonte 1: CazéTV HD (Simulcast Ao Vivo)",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (SporTV 1 Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a05g/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -2916,6 +3426,11 @@
     "logo": "https://img.faz-o-eli.online/telecine_premium.png",
     "fontes": [
       {
+        "nome": "Fonte 1: Pluto Cine Estreias HD",
+        "url": "https://jmp2.uk/plu-5f120e94a5714d00074576a1.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
+      {
         "nome": "Fonte 1 (Telecine Premium Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08e/index.m3u8",
         "qualidade": "HD · 1280x720"
@@ -2928,6 +3443,11 @@
     "categoria": "Filmes e Séries",
     "logo": "https://img.faz-o-eli.online/telecine_touch.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: Pluto Cine Drama HD",
+        "url": "https://jmp2.uk/plu-5f1210d14ae1f80007bafb1d.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1 (Telecine Touch Oficial HD)",
         "url": "http://45.185.11.126:8000/play/a08f/index.m3u8",
@@ -3210,6 +3730,11 @@
     "camIcon": "⭐",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Big_Brother_Brasil_logo.png",
     "fontes": [
+      {
+        "nome": "Fonte 1: BBB 24h Globoplay Ao Vivo",
+        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Alta Disponibilidade)"
+      },
       {
         "nome": "Fonte 1: Flashes Multishow (FHD · Direto SSL)",
         "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/8974.m3u8",

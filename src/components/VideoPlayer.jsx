@@ -355,8 +355,13 @@ export default function VideoPlayer({
       (isPageHttps && rawUrl.startsWith('http://')) || 
       currentSource.referer || 
       rawUrl.includes('.txt') ||
+      rawUrl.includes('jmp2.uk') ||
+      rawUrl.includes('pluto.tv') ||
       rawUrl.includes('amagi.tv') ||
-      rawUrl.includes('wurl.com')
+      rawUrl.includes('wurl.com') ||
+      rawUrl.includes('wurl.tv') ||
+      rawUrl.includes('ottera.tv') ||
+      rawUrl.includes('otteravision.com')
     ) {
       return getProxyUrl(rawUrl, currentSource.referer);
     }
