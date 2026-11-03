@@ -51,11 +51,7 @@ export default function VideoPlayer({
   });
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isFloating, setIsFloating] = useState(false);
-  const [activeSourceIndex, setActiveSourceIndex] = useState(() => {
-    if (typeof window === 'undefined' || !item?.id) return 0;
-    const saved = sessionStorage.getItem(`langos_best_source_${item.id}`);
-    return saved !== null ? parseInt(saved, 10) : 0;
-  });
+  const [activeSourceIndex, setActiveSourceIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const [fallbackNotice, setFallbackNotice] = useState(null);
@@ -362,9 +358,7 @@ export default function VideoPlayer({
     const isDifferentAudio = prevAudioVersionRef.current !== audioVersion;
 
     if (isDifferentItem) {
-      const savedBest = (typeof window !== 'undefined' && item?.id) ? sessionStorage.getItem(`langos_best_source_${item.id}`) : null;
-      const initialIdx = savedBest !== null ? parseInt(savedBest, 10) : 0;
-      setActiveSourceIndex(initialIdx >= 0 ? initialIdx : 0);
+      setActiveSourceIndex(0);
       setForceProxyForCurrent(false);
       setErrorMessage(null);
       setFallbackNotice(null);
@@ -627,9 +621,6 @@ export default function VideoPlayer({
       setFallbackNotice(`Fonte ${curIdx + 1} oscilou (${reason}). Alternando para ${nextSourceName}...`);
       setForceProxyForCurrent(false);
       setActiveSourceIndex(nextIndex);
-      if (item?.id) {
-        try { sessionStorage.setItem(`langos_best_source_${item.id}`, nextIndex.toString()); } catch {}
-      }
     } else {
       setLoading(false);
       setErrorMessage(`Todas as ${allSources.length} fontes deste canal/vídeo estão temporariamente indisponíveis.`);
@@ -660,12 +651,12 @@ export default function VideoPlayer({
       clearTimeout(timeoutRef.current);
     }
 
-    // Timeout de conexão para fallback seguro (12s para buffering de fragmentos pesados FHD de 10s)
+    // Timeout de conexão para fallback seguro (18s para buffering de fragmentos pesados FHD de 10s)
     timeoutRef.current = setTimeout(() => {
       if (!isLoadedRef.current && (sourcesRef.current.length > 1 || !forceProxyForCurrent)) {
         handleFallback("Tempo limite de conexão");
       }
-    }, 12000);
+    }, 18000);
 
     // Detectar se o vídeo é MP4 ou HLS baseado na URL real da fonte
     const rawTarget = (currentSource?.url || '').toLowerCase();
@@ -730,11 +721,12 @@ export default function VideoPlayer({
         initialLiveManifestSize: 1, // Iniciar imediatamente com 1 playlist recebida
         liveSyncDurationCount: 3.5, // 3.5 fragmentos (~35s de margem sólida para streams de 10s como TV Bahia FHD)
         liveMaxLatencyDurationCount: 10,
-        manifestLoadingTimeOut: 10000,
-        manifestLoadingMaxRetry: 3,
-        levelLoadingTimeOut: 10000,
-        levelLoadingMaxRetry: 3,
-        fragLoadingTimeOut: 25000, // 25s de tolerância para fragmentos pesados de 10s (5.8MB)
+        manifestLoadingTimeOut: 18000,
+        manifestLoadingMaxRetry: 4,
+        manifestLoadingRetryDelay: 1000,
+        levelLoadingTimeOut: 18000,
+        levelLoadingMaxRetry: 4,
+        fragLoadingTimeOut: 30000,
         fragLoadingMaxRetry: 4,
         abrEwmaDefaultEstimate: 5000000,
         testBandwidth: false

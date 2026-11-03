@@ -2961,24 +2961,24 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Mosaico PPV (Multi-Telas) (FHD · Direto SSL)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470067.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Oficial)"
       },
       {
-        "nome": "Fonte 2: Mosaico PPV (Multi-Telas) (Mirror 2 · SSL)",
-        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470067.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
+        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
+        "qualidade": "HD · 720p"
       },
       {
-        "nome": "Record TV Oficial Ao Vivo (Sinal Nacional)",
-        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
-        "qualidade": "HD · 720p (Oficial)"
-      },
-      {
-        "nome": "Record News HD (Cobertura 24h & Flashes)",
+        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
         "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
         "qualidade": "HD · 720p (FAST)"
+      },
+      {
+        "nome": "Fonte 4: Câmera PPV Mosaico (Sinal Direto)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470067.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
@@ -2991,24 +2991,24 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Câmera Principal (Sinal 24h) (FHD · Direto SSL)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470061.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Oficial)"
       },
       {
-        "nome": "Fonte 2: Câmera Principal (Sinal 24h) (Mirror 2 · SSL)",
-        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470061.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
+        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
+        "qualidade": "HD · 720p"
       },
       {
-        "nome": "Record TV Oficial Ao Vivo (Sinal Nacional)",
-        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
-        "qualidade": "HD · 720p (Oficial)"
-      },
-      {
-        "nome": "Record News HD (Cobertura 24h & Flashes)",
+        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
         "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
         "qualidade": "HD · 720p (FAST)"
+      },
+      {
+        "nome": "Fonte 4: Câmera PPV Principal (Sinal Direto)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470061.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
@@ -3021,24 +3021,24 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Câmera 02 (A Sede) (FHD · Direto SSL)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470062.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Oficial)"
       },
       {
-        "nome": "Fonte 2: Câmera 02 (A Sede) (Mirror 2 · SSL)",
-        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470062.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
+        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
+        "qualidade": "HD · 720p"
       },
       {
-        "nome": "Record TV Oficial Ao Vivo (Sinal Nacional)",
-        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
-        "qualidade": "HD · 720p (Oficial)"
-      },
-      {
-        "nome": "Record News HD (Cobertura 24h & Flashes)",
+        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
         "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
         "qualidade": "HD · 720p (FAST)"
+      },
+      {
+        "nome": "Fonte 4: Câmera PPV Sede (Sinal Direto)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470062.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
@@ -3051,24 +3051,24 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Câmera 03 (A Baia) (FHD · Direto SSL)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470063.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Oficial)"
       },
       {
-        "nome": "Fonte 2: Câmera 03 (A Baia) (Mirror 2 · SSL)",
-        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470063.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
+        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
+        "qualidade": "HD · 720p"
       },
       {
-        "nome": "Record TV Oficial Ao Vivo (Sinal Nacional)",
-        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
-        "qualidade": "HD · 720p (Oficial)"
-      },
-      {
-        "nome": "Record News HD (Cobertura 24h & Flashes)",
+        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
         "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
         "qualidade": "HD · 720p (FAST)"
+      },
+      {
+        "nome": "Fonte 4: Câmera PPV Baia (Sinal Direto)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470063.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
@@ -3081,24 +3081,24 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Câmera 04 (Piscina & Área Externa) (FHD · Direto SSL)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470064.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Oficial)"
       },
       {
-        "nome": "Fonte 2: Câmera 04 (Piscina & Área Externa) (Mirror 2 · SSL)",
-        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470064.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
+        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
+        "qualidade": "HD · 720p"
       },
       {
-        "nome": "Record TV Oficial Ao Vivo (Sinal Nacional)",
-        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
-        "qualidade": "HD · 720p (Oficial)"
-      },
-      {
-        "nome": "Record News HD (Cobertura 24h & Flashes)",
+        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
         "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
         "qualidade": "HD · 720p (FAST)"
+      },
+      {
+        "nome": "Fonte 4: Câmera PPV Piscina (Sinal Direto)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470064.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
@@ -3111,24 +3111,24 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Câmera 05 (Oficina & Academia) (FHD · Direto SSL)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470065.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Oficial)"
       },
       {
-        "nome": "Fonte 2: Câmera 05 (Oficina & Academia) (Mirror 2 · SSL)",
-        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470065.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
+        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
+        "qualidade": "HD · 720p"
       },
       {
-        "nome": "Record TV Oficial Ao Vivo (Sinal Nacional)",
-        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
-        "qualidade": "HD · 720p (Oficial)"
-      },
-      {
-        "nome": "Record News HD (Cobertura 24h & Flashes)",
+        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
         "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
         "qualidade": "HD · 720p (FAST)"
+      },
+      {
+        "nome": "Fonte 4: Câmera PPV Oficina (Sinal Direto)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470065.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
@@ -3141,24 +3141,24 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Câmera 06 (Trato dos Animais) (FHD · Direto SSL)",
-        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470066.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
+        "qualidade": "FHD · 1080p (Oficial)"
       },
       {
-        "nome": "Fonte 2: Câmera 06 (Trato dos Animais) (Mirror 2 · SSL)",
-        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470066.m3u8",
-        "qualidade": "FHD · 1080p"
+        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
+        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
+        "qualidade": "HD · 720p"
       },
       {
-        "nome": "Record TV Oficial Ao Vivo (Sinal Nacional)",
-        "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/chunklist_w1168987890.m3u8",
-        "qualidade": "HD · 720p (Oficial)"
-      },
-      {
-        "nome": "Record News HD (Cobertura 24h & Flashes)",
+        "nome": "Fonte 3: Record News HD (Flashes & Cobertura 24h)",
         "url": "https://rnw-rn-samsungtvplus.otteravision.com/rnw/rn/rnw_rn.m3u8",
         "qualidade": "HD · 720p (FAST)"
+      },
+      {
+        "nome": "Fonte 4: Câmera PPV Animais (Sinal Direto)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470066.m3u8",
+        "qualidade": "FHD · 1080p"
       }
     ]
   },
