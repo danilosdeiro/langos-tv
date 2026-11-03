@@ -1,24 +1,665 @@
 [
   {
-    "id": "match-bavi",
-    "campeonato": "Clássico Ba-Vi • Campeonato Baiano / Copa do Nordeste",
-    "status": "AO VIVO",
-    "tempo": "2º Tempo · 34'",
-    "estadio": "Arena Fonte Nova · Salvador (BA)",
+    "id": "match-401915311",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "status": "TER 14:45",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "RAMS Park · Istanbul",
     "destaque": true,
     "mandante": {
-      "nome": "Bahia",
-      "sigla": "BAH",
-      "gols": 2,
-      "cor": "from-blue-600 to-red-600",
-      "escudo": "https://upload.wikimedia.org/wikipedia/pt/2/20/Esporte_Clube_Bahia_logo.png"
+      "nome": "Galatasaray",
+      "sigla": "GAL",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/432.png"
     },
     "visitante": {
-      "nome": "Vitória",
-      "sigla": "VIT",
-      "gols": 1,
+      "nome": "VfB Stuttgart",
+      "sigla": "VFB",
+      "gols": 0,
       "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://upload.wikimedia.org/wikipedia/pt/e/e0/Esporte_Clube_Vit%C3%B3ria_logo.png"
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915310",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "status": "TER 14:45",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Stamford Bridge · London",
+    "destaque": false,
+    "mandante": {
+      "nome": "Shakhtar Donetsk",
+      "sigla": "SHK",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/493.png"
+    },
+    "visitante": {
+      "nome": "Sporting CP",
+      "sigla": "SCP",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915386",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "status": "TER 17:00",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Riyadh Air Metropolitano · Madrid",
+    "destaque": false,
+    "mandante": {
+      "nome": "Atlético Madrid",
+      "sigla": "ATM",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png"
+    },
+    "visitante": {
+      "nome": "Bayern Munich",
+      "sigla": "MUN",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-50",
+        "nome": "ESPN 4",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915387",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "status": "TER 17:00",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Spotify Camp Nou · Barcelona",
+    "destaque": true,
+    "mandante": {
+      "nome": "Barcelona",
+      "sigla": "BAR",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png"
+    },
+    "visitante": {
+      "nome": "Aston Villa",
+      "sigla": "AVL",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-50",
+        "nome": "ESPN 4",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915384",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "status": "TER 17:00",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Aspmyra Stadion · Bodø/Glimt",
+    "destaque": false,
+    "mandante": {
+      "nome": "Bodo/Glimt",
+      "sigla": "BODO",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2980.png"
+    },
+    "visitante": {
+      "nome": "Lille",
+      "sigla": "LILL",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915307",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "status": "TER 17:00",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "De Kuip · Rotterdam",
+    "destaque": false,
+    "mandante": {
+      "nome": "Feyenoord Rotterdam",
+      "sigla": "FEY",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/142.png"
+    },
+    "visitante": {
+      "nome": "Internazionale",
+      "sigla": "INT",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915385",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "status": "TER 17:00",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Raiffeisen Arena (Linz) · Linz",
+    "destaque": false,
+    "mandante": {
+      "nome": "LASK Linz",
+      "sigla": "LAS",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/4411.png"
+    },
+    "visitante": {
+      "nome": "Slovan Bratislava",
+      "sigla": "SLB",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/521.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915308",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "status": "TER 17:00",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Old Trafford · Manchester",
+    "destaque": false,
+    "mandante": {
+      "nome": "Manchester United",
+      "sigla": "MAN",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png"
+    },
+    "visitante": {
+      "nome": "AS Roma",
+      "sigla": "ROMA",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-49",
+        "nome": "ESPN 2 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915309",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "status": "TER 17:00",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Estadio de la Cerámica · Villarreal",
+    "destaque": false,
+    "mandante": {
+      "nome": "Villarreal",
+      "sigla": "VIL",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/102.png"
+    },
+    "visitante": {
+      "nome": "Paris Saint-Germain",
+      "sigla": "PSG",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-49",
+        "nome": "ESPN 2 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841304",
+    "campeonato": "Brasileirão Série A • 32ª Rodada",
+    "status": "TER 19:30",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Arena Condá · Chapecó",
+    "destaque": false,
+    "mandante": {
+      "nome": "Chapecoense",
+      "sigla": "CHA",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9318.png"
+    },
+    "visitante": {
+      "nome": "Mirassol",
+      "sigla": "MIR",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9169.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-4",
+        "nome": "Premiere 4 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841301",
+    "campeonato": "Brasileirão Série A • 32ª Rodada",
+    "status": "TER 21:30",
+    "tempo": "03/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Estadio Beira-Rio · Porto Alegre",
+    "destaque": false,
+    "mandante": {
+      "nome": "Internacional",
+      "sigla": "INT",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/1936.png"
+    },
+    "visitante": {
+      "nome": "Coritiba",
+      "sigla": "CFC",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3456.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-4",
+        "nome": "Premiere 4 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841306",
+    "campeonato": "Brasileirão Série A • 32ª Rodada",
+    "status": "QUA 19:30",
+    "tempo": "04/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Arena da Baixada · Curitiba",
+    "destaque": false,
+    "mandante": {
+      "nome": "Athletico-PR",
+      "sigla": "CAP",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3458.png"
+    },
+    "visitante": {
+      "nome": "Vasco da Gama",
+      "sigla": "VAS",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3454.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-4",
+        "nome": "Premiere 4 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841307",
+    "campeonato": "Brasileirão Série A • 32ª Rodada",
+    "status": "QUA 19:30",
+    "tempo": "04/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Estadio do Maracana · Rio de Janeiro",
+    "destaque": true,
+    "mandante": {
+      "nome": "Flamengo",
+      "sigla": "FLA",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/819.png"
+    },
+    "visitante": {
+      "nome": "Grêmio",
+      "sigla": "GRE",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6273.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841305",
+    "campeonato": "Brasileirão Série A • 32ª Rodada",
+    "status": "QUA 21:30",
+    "tempo": "04/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Joao Havelange Stadium · Rio de Janeiro",
+    "destaque": false,
+    "mandante": {
+      "nome": "Botafogo",
+      "sigla": "BOT",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6086.png"
+    },
+    "visitante": {
+      "nome": "Atlético-MG",
+      "sigla": "CAM",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/7632.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-4",
+        "nome": "Premiere 4 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841298",
+    "campeonato": "Brasileirão Série A • 32ª Rodada",
+    "status": "QUA 21:30",
+    "tempo": "04/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Estádio Vila Belmiro (Urbano Caldeira) · Santos",
+    "destaque": false,
+    "mandante": {
+      "nome": "São Paulo",
+      "sigla": "SAO",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2026.png"
+    },
+    "visitante": {
+      "nome": "Corinthians",
+      "sigla": "COR",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/874.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-2",
+        "nome": "Premiere 2 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-31",
+        "nome": "SporTV 2 HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841300",
+    "campeonato": "Brasileirão Série A • 32ª Rodada",
+    "status": "QUI 19:30",
+    "tempo": "05/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Allianz Parque · Sao Paulo",
+    "destaque": false,
+    "mandante": {
+      "nome": "Palmeiras",
+      "sigla": "PAL",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2029.png"
+    },
+    "visitante": {
+      "nome": "Remo",
+      "sigla": "REMO",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/4936.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841303",
+    "campeonato": "Brasileirão Série A • 32ª Rodada",
+    "status": "QUI 21:30",
+    "tempo": "05/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Estadio Mineirão · Belo Horizonte",
+    "destaque": false,
+    "mandante": {
+      "nome": "Cruzeiro",
+      "sigla": "CRU",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2022.png"
+    },
+    "visitante": {
+      "nome": "Bahia",
+      "sigla": "BAH",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9967.png"
     },
     "transmissao": [
       {
@@ -35,191 +676,86 @@
         "canalId": "ch-sportv-1",
         "nome": "SporTV HD",
         "badge": "Opção 2"
-      },
-      {
-        "canalId": "ch-338",
-        "nome": "Globo Bahia",
-        "badge": "Sinal Aberto"
       }
     ]
   },
   {
-    "id": "match-fla-pal",
-    "campeonato": "Brasileirão Série A • Rodada Decisiva",
-    "status": "HOJE 18:30",
-    "tempo": "Pré-Jogo",
-    "estadio": "Maracanã · Rio de Janeiro (RJ)",
+    "id": "match-401841302",
+    "campeonato": "Brasileirão Série A • 32ª Rodada",
+    "status": "SEX 20:00",
+    "tempo": "06/11 · Horário de Brasília",
+    "isLive": false,
+    "estadio": "Estadio Manoel Barradas · Salvador",
     "destaque": false,
     "mandante": {
-      "nome": "Flamengo",
-      "sigla": "FLA",
+      "nome": "Vitória",
+      "sigla": "VIT",
       "gols": 0,
-      "cor": "from-red-700 to-zinc-950",
-      "escudo": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg"
-    },
-    "visitante": {
-      "nome": "Palmeiras",
-      "sigla": "PAL",
-      "gols": 0,
-      "cor": "from-emerald-700 to-emerald-950",
-      "escudo": "https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-26",
-        "nome": "Premiere Clubes",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-cazetv",
-        "nome": "CazéTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-rma-bar",
-    "campeonato": "Champions League / La Liga • El Clásico",
-    "status": "HOJE 21:00",
-    "tempo": "Hoje à Noite",
-    "estadio": "Santiago Bernabéu · Madrid",
-    "destaque": false,
-    "mandante": {
-      "nome": "Real Madrid",
-      "sigla": "RMA",
-      "gols": 0,
-      "cor": "from-amber-400 to-indigo-900",
-      "escudo": "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg"
-    },
-    "visitante": {
-      "nome": "Barcelona",
-      "sigla": "BAR",
-      "gols": 0,
-      "cor": "from-blue-700 to-red-700",
-      "escudo": "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-48",
-        "nome": "ESPN HD",
-        "badge": "Exclusivo"
-      },
-      {
-        "canalId": "ch-50",
-        "nome": "ESPN 4",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-sao-cor",
-    "campeonato": "Paulistão / Copa do Brasil • Clássico Majestoso",
-    "status": "HOJE 20:00",
-    "tempo": "Hoje à Noite",
-    "estadio": "MorumBIS · São Paulo (SP)",
-    "destaque": false,
-    "mandante": {
-      "nome": "São Paulo",
-      "sigla": "SAO",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg"
-    },
-    "visitante": {
-      "nome": "Corinthians",
-      "sigla": "COR",
-      "gols": 0,
-      "cor": "from-zinc-900 to-zinc-700",
-      "escudo": "https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-3",
-        "nome": "Premiere 3 HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-record-ba",
-        "nome": "Record TV",
-        "badge": "Sinal Aberto"
-      }
-    ]
-  },
-  {
-    "id": "match-ars-mci",
-    "campeonato": "Premier League • Duelo Pela Liderança",
-    "status": "HOJE 17:30",
-    "tempo": "Hoje à Tarde",
-    "estadio": "Emirates Stadium · Londres",
-    "destaque": false,
-    "mandante": {
-      "nome": "Arsenal",
-      "sigla": "ARS",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg"
-    },
-    "visitante": {
-      "nome": "Manchester City",
-      "sigla": "MCI",
-      "gols": 0,
-      "cor": "from-sky-500 to-indigo-900",
-      "escudo": "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-48",
-        "nome": "ESPN HD",
-        "badge": "Exclusivo"
-      },
-      {
-        "canalId": "ch-49",
-        "nome": "ESPN 2",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-vas-flu",
-    "campeonato": "Cariocão / Brasileirão • Clássico dos Gigantes",
-    "status": "HOJE 19:00",
-    "tempo": "Hoje à Noite",
-    "estadio": "São Januário · Rio de Janeiro (RJ)",
-    "destaque": false,
-    "mandante": {
-      "nome": "Vasco",
-      "sigla": "VAS",
-      "gols": 0,
-      "cor": "from-zinc-950 to-zinc-700",
-      "escudo": "https://upload.wikimedia.org/wikipedia/pt/a/ac/CRVascodaGama.png"
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3457.png"
     },
     "visitante": {
       "nome": "Fluminense",
       "sigla": "FLU",
       "gols": 0,
-      "cor": "from-emerald-800 to-red-800",
-      "escudo": "https://upload.wikimedia.org/wikipedia/pt/a/a3/FFC_shield.svg"
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3445.png"
     },
     "transmissao": [
       {
-        "canalId": "ch-cazetv",
-        "nome": "CazéTV HD",
+        "canalId": "ch-prem-3",
+        "nome": "Premiere 3 HD",
         "badge": "Principal"
       },
       {
-        "canalId": "ch-prem-4",
-        "nome": "Premiere 4 HD",
+        "canalId": "ch-31",
+        "nome": "SporTV 2 HD",
         "badge": "Ao Vivo"
       },
       {
-        "canalId": "ch-band-ba",
-        "nome": "Band HD",
-        "badge": "Sinal Aberto"
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841299",
+    "campeonato": "Brasileirão Série A • 32ª Rodada",
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "estadio": "Estádio Municipal Cicero de Souza Marques · Bragança Paulista",
+    "destaque": false,
+    "mandante": {
+      "nome": "Red Bull Bragantino",
+      "sigla": "BRA",
+      "gols": 2,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6079.png"
+    },
+    "visitante": {
+      "nome": "Santos",
+      "sigla": "SAN",
+      "gols": 1,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2674.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-4",
+        "nome": "Premiere 4 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-10",
+        "nome": "GE TV HD",
+        "badge": "Opção 2"
       }
     ]
   }
