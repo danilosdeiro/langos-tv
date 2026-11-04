@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Tv, Film, Clapperboard, Star, Settings, Search, X, 
-  DownloadCloud, MapPin, Calendar, Sparkles, Flame 
+  DownloadCloud, MapPin, Calendar, Sparkles, Flame, Activity 
 } from 'lucide-react';
 
 export default function Header({ 
@@ -12,6 +12,7 @@ export default function Header({
   favoritesCount = 0,
   onOpenSettings,
   onOpenInstallTv,
+  onOpenHealthModal,
   isTvMode = false,
   onToggleTvMode,
   userState = 'BA',
@@ -25,17 +26,20 @@ export default function Header({
   const [isInstallable, setIsInstallable] = useState(false);
   const searchInputRef = useRef(null);
 
-  // Atalho global Ctrl+K ou / para focar a busca
+  // Atalhos globais: Ctrl+K para busca e Alt+S para Saúde dos Canais
   useEffect(() => {
     const handleKeyDown = (e) => {
       if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && document.activeElement?.tagName !== 'INPUT')) {
         e.preventDefault();
         searchInputRef.current?.focus();
+      } else if ((e.altKey && (e.key === 's' || e.key === 'S')) || (e.ctrlKey && e.shiftKey && (e.key === 'H' || e.key === 'h'))) {
+        e.preventDefault();
+        if (onOpenHealthModal) onOpenHealthModal();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [onOpenHealthModal]);
 
   // Capturar evento de instalação do PWA
   useEffect(() => {
@@ -147,6 +151,19 @@ export default function Header({
               >
                 <Flame size={14} className={isOnlyReleases ? 'text-black fill-current' : 'text-amber-400'} />
                 <span className="hidden md:inline">Lançamentos</span>
+              </button>
+            )}
+
+            {/* Botão de Verificação de Saúde dos Canais (Quick Verification) */}
+            {onOpenHealthModal && (
+              <button
+                onClick={onOpenHealthModal}
+                data-tv-focus="true"
+                className="px-2.5 py-1.5 rounded-xl text-xs font-bold border transition flex items-center gap-1.5 shrink-0 bg-emerald-950/40 hover:bg-emerald-900/50 border-emerald-500/30 text-emerald-300 shadow-sm active:scale-95"
+                title="Diagnóstico de Saúde dos Canais em Tempo Real (Atalho: Alt+S)"
+              >
+                <Activity size={14} className="text-emerald-400" />
+                <span className="hidden sm:inline">Saúde</span>
               </button>
             )}
 

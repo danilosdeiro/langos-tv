@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  X, RefreshCw, Download, Database, Check, AlertCircle, Trash2, Globe, ShieldCheck, MapPin 
+  X, RefreshCw, Download, Database, Check, AlertCircle, Trash2, Globe, ShieldCheck, MapPin, Activity 
 } from 'lucide-react';
 import { CatalogService } from '../services/catalogService';
 
@@ -10,7 +10,8 @@ export default function SettingsModal({
   channels, 
   onChannelsUpdated,
   userState = 'BA',
-  onUserStateChange
+  onUserStateChange,
+  onOpenHealthModal
 }) {
   const [customUrl, setCustomUrl] = useState(
     () => localStorage.getItem('langos_custom_channels_url') || 'https://canais-saimo.pages.dev/catalogo.txt'
@@ -174,6 +175,35 @@ export default function SettingsModal({
                 <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
                 {loading ? 'Buscando...' : 'Atualizar'}
               </button>
+            </div>
+          </div>
+
+          {/* Diagnóstico de Saúde dos Canais (Quick Verification) */}
+          <div className="bg-emerald-950/20 border border-emerald-500/20 p-5 rounded-2xl">
+            <div className="flex items-start gap-3.5">
+              <div className="p-2.5 bg-emerald-600 text-white rounded-xl mt-0.5 shadow-md shadow-emerald-500/20">
+                <Activity size={18} />
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-2">
+                  <h4 className="text-white font-bold text-sm">Saúde dos Canais (Quick Verification)</h4>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold uppercase">
+                    Ao Vivo
+                  </span>
+                </div>
+                <p className="text-zinc-400 text-xs mt-1 leading-relaxed">
+                  Realize um teste expresso em tempo real no seu navegador para medir latência (ms) e validar o streaming de todos os canais.
+                </p>
+                <button
+                  onClick={() => {
+                    onClose();
+                    if (onOpenHealthModal) onOpenHealthModal();
+                  }}
+                  className="mt-3.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-2 shadow-lg active:scale-95"
+                >
+                  <Activity size={14} /> Abrir Diagnóstico de Saúde
+                </button>
+              </div>
             </div>
           </div>
 

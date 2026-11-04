@@ -9,6 +9,7 @@ import SettingsModal from './components/SettingsModal';
 import EpgModal from './components/EpgModal';
 import EpgTimelineGrid from './components/EpgTimelineGrid';
 import InstallTvModal from './components/InstallTvModal';
+import ChannelHealthModal from './components/ChannelHealthModal';
 import HeroBanner from './components/HeroBanner';
 import LiveMatchesSection from './components/LiveMatchesSection';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -108,6 +109,7 @@ export default function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isInstallTvOpen, setIsInstallTvOpen] = useState(false);
   const [isEpgGridOpen, setIsEpgGridOpen] = useState(false);
+  const [isHealthModalOpen, setIsHealthModalOpen] = useState(false);
 
   // Controle de Visualização e Rolagem de Categorias
   const [isCategoryGridExpanded, setIsCategoryGridExpanded] = useState(false);
@@ -139,7 +141,9 @@ export default function App() {
   // Gerenciador de Botão Voltar para Controle Remoto de BTV e TV Box
   useEffect(() => {
     const unregister = TvNavigation.registerBackHandler(() => {
-      if (isEpgGridOpen) {
+      if (isHealthModalOpen) {
+        setIsHealthModalOpen(false);
+      } else if (isEpgGridOpen) {
         setIsEpgGridOpen(false);
       } else if (isInstallTvOpen) {
         setIsInstallTvOpen(false);
@@ -154,15 +158,18 @@ export default function App() {
       }
     });
     return unregister;
-  }, [isEpgGridOpen, isInstallTvOpen, isSettingsOpen, selectedChannelForEpg, selectedSeriesForEpisodes, activeItem]);
+  }, [isHealthModalOpen, isEpgGridOpen, isInstallTvOpen, isSettingsOpen, selectedChannelForEpg, selectedSeriesForEpisodes, activeItem]);
 
-  // Tecla de atalho global G para abrir a Grade EPG em Linha do Tempo
+  // Teclas de atalho globais: G para Grade EPG e V para Verificação/Saúde dos Canais
   useEffect(() => {
     const handleGlobalKey = (e) => {
       if (['input', 'textarea'].includes(document.activeElement?.tagName?.toLowerCase())) return;
       if (e.key === 'g' || e.key === 'G') {
         e.preventDefault();
         setIsEpgGridOpen(prev => !prev);
+      } else if (e.key === 'v' || e.key === 'V') {
+        e.preventDefault();
+        setIsHealthModalOpen(prev => !prev);
       }
     };
     window.addEventListener('keydown', handleGlobalKey);
@@ -559,6 +566,7 @@ export default function App() {
         favoritesCount={favorites.length}
         onOpenSettings={() => setIsSettingsOpen(true)}
         onOpenInstallTv={() => setIsInstallTvOpen(true)}
+        onOpenHealthModal={() => setIsHealthModalOpen(true)}
         isTvMode={isTvMode}
         onToggleTvMode={() => setIsTvMode(!isTvMode)}
         userState={userState}
@@ -1375,6 +1383,18 @@ export default function App() {
         onChannelsUpdated={() => setChannels(CatalogService.getChannels())}
         userState={userState}
         onUserStateChange={handleSelectState}
+        onOpenHealthModal={() => {
+          setIsSettingsOpen(false);
+          setIsHealthModalOpen(true);
+        }}
+      />
+
+      {/* Modal de Diagnóstico e Saúde dos Canais (Quick Verification) */}
+      <ChannelHealthModal
+        isOpen={isHealthModalOpen}
+        onClose={() => setIsHealthModalOpen(false)}
+        channels={channels}
+        onSelectChannel={(ch) => handleSelectItem(ch)}
       />
 
       {/* Modal de Guia de Instalação no BTV e Smart TV Box */}
