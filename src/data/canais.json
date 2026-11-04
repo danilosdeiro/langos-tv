@@ -3556,19 +3556,19 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "nome": "Fonte 1: Câmera Mosaico (Multi-Telas PPV 24h)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470067.m3u8",
+        "qualidade": "FHD · 1080p (Sinal PPV Oficial)"
+      },
+      {
+        "nome": "Fonte 2: Câmera Mosaico (Multi-Telas PPV 24h) (Mirror Alternativo)",
+        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470067.m3u8",
+        "qualidade": "HD · 720p (Backup PPV)"
+      },
+      {
+        "nome": "Fonte 3: Record TV (Transmissão Aberta / Apoio)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (CORS Garantido)"
-      },
-      {
-        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
-        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p (Espelho Estável)"
-      },
-      {
-        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Alta Redundância)"
+        "qualidade": "FHD · 1080p (Sinal Aberto Nacional)"
       }
     ]
   },
@@ -3581,19 +3581,19 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "nome": "Fonte 1: Câmera Principal (Ao Vivo 24h PPV)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470061.m3u8",
+        "qualidade": "FHD · 1080p (Sinal PPV Oficial)"
+      },
+      {
+        "nome": "Fonte 2: Câmera Principal (Ao Vivo 24h PPV) (Mirror Alternativo)",
+        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470061.m3u8",
+        "qualidade": "HD · 720p (Backup PPV)"
+      },
+      {
+        "nome": "Fonte 3: Record TV (Transmissão Aberta / Apoio)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (CORS Garantido)"
-      },
-      {
-        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
-        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p (Espelho Estável)"
-      },
-      {
-        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Alta Redundância)"
+        "qualidade": "FHD · 1080p (Sinal Aberto Nacional)"
       }
     ]
   },
@@ -3606,19 +3606,19 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "nome": "Fonte 1: Câmera 02 — A Sede (Ao Vivo 24h PPV)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470062.m3u8",
+        "qualidade": "FHD · 1080p (Sinal PPV Oficial)"
+      },
+      {
+        "nome": "Fonte 2: Câmera 02 — A Sede (Ao Vivo 24h PPV) (Mirror Alternativo)",
+        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470062.m3u8",
+        "qualidade": "HD · 720p (Backup PPV)"
+      },
+      {
+        "nome": "Fonte 3: Record TV (Transmissão Aberta / Apoio)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (CORS Garantido)"
-      },
-      {
-        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
-        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p (Espelho Estável)"
-      },
-      {
-        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Alta Redundância)"
+        "qualidade": "FHD · 1080p (Sinal Aberto Nacional)"
       }
     ]
   },
@@ -3631,19 +3631,19 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "nome": "Fonte 1: Câmera 03 — A Baia (Ao Vivo 24h PPV)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470063.m3u8",
+        "qualidade": "FHD · 1080p (Sinal PPV Oficial)"
+      },
+      {
+        "nome": "Fonte 2: Câmera 03 — A Baia (Ao Vivo 24h PPV) (Mirror Alternativo)",
+        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470063.m3u8",
+        "qualidade": "HD · 720p (Backup PPV)"
+      },
+      {
+        "nome": "Fonte 3: Record TV (Transmissão Aberta / Apoio)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (CORS Garantido)"
-      },
-      {
-        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
-        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p (Espelho Estável)"
-      },
-      {
-        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Alta Redundância)"
+        "qualidade": "FHD · 1080p (Sinal Aberto Nacional)"
       }
     ]
   },
@@ -3656,19 +3656,19 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "nome": "Fonte 1: Câmera 04 — Piscina & Área Externa (Ao Vivo 24h PPV)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470064.m3u8",
+        "qualidade": "FHD · 1080p (Sinal PPV Oficial)"
+      },
+      {
+        "nome": "Fonte 2: Câmera 04 — Piscina & Área Externa (Ao Vivo 24h PPV) (Mirror Alternativo)",
+        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470064.m3u8",
+        "qualidade": "HD · 720p (Backup PPV)"
+      },
+      {
+        "nome": "Fonte 3: Record TV (Transmissão Aberta / Apoio)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (CORS Garantido)"
-      },
-      {
-        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
-        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p (Espelho Estável)"
-      },
-      {
-        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Alta Redundância)"
+        "qualidade": "FHD · 1080p (Sinal Aberto Nacional)"
       }
     ]
   },
@@ -3681,19 +3681,19 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "nome": "Fonte 1: Câmera 05 — Oficina & Academia (Ao Vivo 24h PPV)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470065.m3u8",
+        "qualidade": "FHD · 1080p (Sinal PPV Oficial)"
+      },
+      {
+        "nome": "Fonte 2: Câmera 05 — Oficina & Academia (Ao Vivo 24h PPV) (Mirror Alternativo)",
+        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470065.m3u8",
+        "qualidade": "HD · 720p (Backup PPV)"
+      },
+      {
+        "nome": "Fonte 3: Record TV (Transmissão Aberta / Apoio)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (CORS Garantido)"
-      },
-      {
-        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
-        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p (Espelho Estável)"
-      },
-      {
-        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Alta Redundância)"
+        "qualidade": "FHD · 1080p (Sinal Aberto Nacional)"
       }
     ]
   },
@@ -3706,19 +3706,19 @@
     "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Logo_A_Fazenda_-_Atual.png",
     "fontes": [
       {
-        "nome": "Fonte 1: Sinal Oficial Ao Vivo (Record TV 1080p FHD)",
+        "nome": "Fonte 1: Câmera 06 — Trato dos Animais (Ao Vivo 24h PPV)",
+        "url": "https://governosptx.org/live/3llohwk4g9/kwf099q30o/2470066.m3u8",
+        "qualidade": "FHD · 1080p (Sinal PPV Oficial)"
+      },
+      {
+        "nome": "Fonte 2: Câmera 06 — Trato dos Animais (Ao Vivo 24h PPV) (Mirror Alternativo)",
+        "url": "https://acaidopt.org/live/3llohwk4g9/kwf099q30o/2470066.m3u8",
+        "qualidade": "HD · 720p (Backup PPV)"
+      },
+      {
+        "nome": "Fonte 3: Record TV (Transmissão Aberta / Apoio)",
         "url": "https://video07.logicahost.com.br/portaltropicalrn/portaltropicalrn/playlist.m3u8",
-        "qualidade": "FHD · 1080p (CORS Garantido)"
-      },
-      {
-        "nome": "Fonte 2: Transmissão Alternativa HD (JMV CDN)",
-        "url": "https://cdn.jmvstream.com/w/LVW-10842/LVW10842_513N26MDBL/chunklist.m3u8",
-        "qualidade": "HD · 720p (Espelho Estável)"
-      },
-      {
-        "nome": "Fonte 3: Sinal Nacional de Backup (CazéTV HD)",
-        "url": "https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8",
-        "qualidade": "FHD · 1080p (Alta Redundância)"
+        "qualidade": "FHD · 1080p (Sinal Aberto Nacional)"
       }
     ]
   },

@@ -51,8 +51,8 @@ export async function testSingleChannel(channel, timeoutMs = 4500) {
     };
   }
 
-  // Tentar Fonte 1 primeiro
-  for (let idx = 0; idx < Math.min(channel.fontes.length, 2); idx++) {
+  // Tenta as fontes disponíveis em ordem até encontrar uma funcional
+  for (let idx = 0; idx < channel.fontes.length; idx++) {
     const fonte = channel.fontes[idx];
     const rawUrl = fonte.url;
     if (!rawUrl) continue;
@@ -93,8 +93,8 @@ export async function testSingleChannel(channel, timeoutMs = 4500) {
         }
       }
     } catch (err) {
-      // Se a Fonte 1 falhou com timeout ou erro de rede, tenta Fonte 2 se existir
-      if (idx === 0 && channel.fontes.length > 1) {
+      // Se falhou e ainda existem fontes sobressalentes, tenta a próxima
+      if (idx < channel.fontes.length - 1) {
         continue;
       }
       
