@@ -1,268 +1,10 @@
 [
   {
-    "id": "match-401841304",
-    "campeonato": "Brasileirão Série A • Rodada Decisiva",
-    "leagueType": "nacional",
-    "leaguePriority": 1,
-    "status": "HOJE 19:30",
-    "tempo": "03/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-03T22:30Z",
-    "estadio": "Arena Condá · Chapecó",
-    "destaque": true,
-    "mandante": {
-      "nome": "Chapecoense",
-      "sigla": "CHA",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9318.png"
-    },
-    "visitante": {
-      "nome": "Mirassol",
-      "sigla": "MIR",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9169.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-5",
-        "nome": "Premiere 5 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841301",
-    "campeonato": "Brasileirão Série A • Rodada Decisiva",
-    "leagueType": "nacional",
-    "leaguePriority": 1,
-    "status": "HOJE 21:30",
-    "tempo": "03/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-04T00:30Z",
-    "estadio": "Estadio Beira-Rio · Porto Alegre",
-    "destaque": true,
-    "mandante": {
-      "nome": "Internacional",
-      "sigla": "INT",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/1936.png"
-    },
-    "visitante": {
-      "nome": "Coritiba",
-      "sigla": "CFC",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3456.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-4",
-        "nome": "Premiere 4 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-cazetv",
-        "nome": "CazéTV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841306",
-    "campeonato": "Brasileirão Série A • Rodada Decisiva",
-    "leagueType": "nacional",
-    "leaguePriority": 1,
-    "status": "AMANHÃ 19:30",
-    "tempo": "04/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-04T22:30Z",
-    "estadio": "Arena da Baixada · Curitiba",
-    "destaque": true,
-    "mandante": {
-      "nome": "Athletico-PR",
-      "sigla": "CAP",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3458.png"
-    },
-    "visitante": {
-      "nome": "Vasco da Gama",
-      "sigla": "VAS",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3454.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-4",
-        "nome": "Premiere 4 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-cazetv",
-        "nome": "CazéTV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841307",
-    "campeonato": "Brasileirão Série A • Rodada Decisiva",
-    "leagueType": "nacional",
-    "leaguePriority": 1,
-    "status": "AMANHÃ 19:30",
-    "tempo": "04/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-04T22:30Z",
-    "estadio": "Estadio do Maracana · Rio de Janeiro",
-    "destaque": true,
-    "mandante": {
-      "nome": "Flamengo",
-      "sigla": "FLA",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/819.png"
-    },
-    "visitante": {
-      "nome": "Grêmio",
-      "sigla": "GRE",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6273.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-26",
-        "nome": "Premiere Clubes HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-cazetv",
-        "nome": "CazéTV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841305",
-    "campeonato": "Brasileirão Série A • Rodada Decisiva",
-    "leagueType": "nacional",
-    "leaguePriority": 1,
-    "status": "AMANHÃ 21:30",
-    "tempo": "04/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-05T00:30Z",
-    "estadio": "Joao Havelange Stadium · Rio de Janeiro",
-    "destaque": true,
-    "mandante": {
-      "nome": "Botafogo",
-      "sigla": "BOT",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6086.png"
-    },
-    "visitante": {
-      "nome": "Atlético-MG",
-      "sigla": "CAM",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/7632.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-5",
-        "nome": "Premiere 5 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401841298",
-    "campeonato": "Brasileirão Série A • Rodada Decisiva",
-    "leagueType": "nacional",
-    "leaguePriority": 1,
-    "status": "AMANHÃ 21:30",
-    "tempo": "04/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-05T00:30Z",
-    "estadio": "Estádio Vila Belmiro (Urbano Caldeira) · Santos",
-    "destaque": true,
-    "mandante": {
-      "nome": "São Paulo",
-      "sigla": "SAO",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2026.png"
-    },
-    "visitante": {
-      "nome": "Corinthians",
-      "sigla": "COR",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/874.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-prem-2",
-        "nome": "Premiere 2 HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-31",
-        "nome": "SporTV 2 HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-26",
-        "nome": "Premiere Clubes HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
     "id": "match-401841300",
     "campeonato": "Brasileirão Série A • Rodada Decisiva",
     "leagueType": "nacional",
     "leaguePriority": 1,
-    "status": "QUI 19:30",
+    "status": "AMANHÃ 19:30",
     "tempo": "05/11 · Horário de Brasília",
     "isLive": false,
     "matchDate": "2026-11-05T22:30Z",
@@ -305,7 +47,7 @@
     "campeonato": "Brasileirão Série A • Rodada Decisiva",
     "leagueType": "nacional",
     "leaguePriority": 1,
-    "status": "QUI 21:30",
+    "status": "AMANHÃ 21:30",
     "tempo": "05/11 · Horário de Brasília",
     "isLive": false,
     "matchDate": "2026-11-06T00:30Z",
@@ -387,163 +129,34 @@
     ]
   },
   {
-    "id": "match-401915311",
-    "campeonato": "UEFA Champions League • Fase de Liga",
-    "leagueType": "inter",
-    "leaguePriority": 3,
-    "status": "HOJE 14:45",
-    "tempo": "03/11 · Horário de Brasília",
+    "id": "match-401841304",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
     "isLive": false,
-    "matchDate": "2026-11-03T17:45Z",
-    "estadio": "RAMS Park · Istanbul",
-    "destaque": false,
-    "mandante": {
-      "nome": "Galatasaray",
-      "sigla": "GAL",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/432.png"
-    },
-    "visitante": {
-      "nome": "VfB Stuttgart",
-      "sigla": "VFB",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-48",
-        "nome": "ESPN HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-86",
-        "nome": "ESPN 3 HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401915310",
-    "campeonato": "UEFA Champions League • Fase de Liga",
-    "leagueType": "inter",
-    "leaguePriority": 3,
-    "status": "HOJE 14:45",
-    "tempo": "03/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-03T17:45Z",
-    "estadio": "Stamford Bridge · London",
-    "destaque": false,
-    "mandante": {
-      "nome": "Shakhtar Donetsk",
-      "sigla": "SHK",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/493.png"
-    },
-    "visitante": {
-      "nome": "Sporting CP",
-      "sigla": "SCP",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-48",
-        "nome": "ESPN HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-86",
-        "nome": "ESPN 3 HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401915386",
-    "campeonato": "UEFA Champions League • Fase de Liga",
-    "leagueType": "inter",
-    "leaguePriority": 3,
-    "status": "HOJE 17:00",
-    "tempo": "03/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-03T20:00Z",
-    "estadio": "Riyadh Air Metropolitano · Madrid",
-    "destaque": false,
-    "mandante": {
-      "nome": "Atlético Madrid",
-      "sigla": "ATM",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png"
-    },
-    "visitante": {
-      "nome": "Bayern Munich",
-      "sigla": "MUN",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-48",
-        "nome": "ESPN HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-cazetv",
-        "nome": "CazéTV HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-50",
-        "nome": "ESPN 4 HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401915387",
-    "campeonato": "UEFA Champions League • Fase de Liga",
-    "leagueType": "inter",
-    "leaguePriority": 3,
-    "status": "HOJE 17:00",
-    "tempo": "03/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-03T20:00Z",
-    "estadio": "Spotify Camp Nou · Barcelona",
+    "matchDate": "2026-11-03T22:30Z",
+    "estadio": "Arena Condá · Chapecó",
     "destaque": true,
     "mandante": {
-      "nome": "Barcelona",
-      "sigla": "BAR",
-      "gols": 0,
+      "nome": "Chapecoense",
+      "sigla": "CHA",
+      "gols": 1,
       "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png"
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9318.png"
     },
     "visitante": {
-      "nome": "Aston Villa",
-      "sigla": "AVL",
-      "gols": 0,
+      "nome": "Mirassol",
+      "sigla": "MIR",
+      "gols": 2,
       "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png"
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/9169.png"
     },
     "transmissao": [
       {
-        "canalId": "ch-48",
-        "nome": "ESPN HD",
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes HD",
         "badge": "Principal"
       },
       {
@@ -552,170 +165,41 @@
         "badge": "Ao Vivo"
       },
       {
-        "canalId": "ch-50",
-        "nome": "ESPN 4 HD",
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
         "badge": "Opção 2"
       }
     ]
   },
   {
-    "id": "match-401915384",
-    "campeonato": "UEFA Champions League • Fase de Liga",
-    "leagueType": "inter",
-    "leaguePriority": 3,
-    "status": "HOJE 17:00",
-    "tempo": "03/11 · Horário de Brasília",
+    "id": "match-401841301",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
     "isLive": false,
-    "matchDate": "2026-11-03T20:00Z",
-    "estadio": "Aspmyra Stadion · Bodø/Glimt",
-    "destaque": false,
+    "matchDate": "2026-11-04T00:30Z",
+    "estadio": "Estadio Beira-Rio · Porto Alegre",
+    "destaque": true,
     "mandante": {
-      "nome": "Bodo/Glimt",
-      "sigla": "BODO",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2980.png"
-    },
-    "visitante": {
-      "nome": "Lille",
-      "sigla": "LILL",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-48",
-        "nome": "ESPN HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-86",
-        "nome": "ESPN 3 HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401915307",
-    "campeonato": "UEFA Champions League • Fase de Liga",
-    "leagueType": "inter",
-    "leaguePriority": 3,
-    "status": "HOJE 17:00",
-    "tempo": "03/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-03T20:00Z",
-    "estadio": "De Kuip · Rotterdam",
-    "destaque": false,
-    "mandante": {
-      "nome": "Feyenoord Rotterdam",
-      "sigla": "FEY",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/142.png"
-    },
-    "visitante": {
-      "nome": "Internazionale",
+      "nome": "Internacional",
       "sigla": "INT",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-48",
-        "nome": "ESPN HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-86",
-        "nome": "ESPN 3 HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401915385",
-    "campeonato": "UEFA Champions League • Fase de Liga",
-    "leagueType": "inter",
-    "leaguePriority": 3,
-    "status": "HOJE 17:00",
-    "tempo": "03/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-03T20:00Z",
-    "estadio": "Raiffeisen Arena (Linz) · Linz",
-    "destaque": false,
-    "mandante": {
-      "nome": "LASK Linz",
-      "sigla": "LAS",
-      "gols": 0,
+      "gols": 1,
       "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/4411.png"
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/1936.png"
     },
     "visitante": {
-      "nome": "Slovan Bratislava",
-      "sigla": "SLB",
+      "nome": "Coritiba",
+      "sigla": "CFC",
       "gols": 0,
       "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/521.png"
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3456.png"
     },
     "transmissao": [
       {
-        "canalId": "ch-48",
-        "nome": "ESPN HD",
-        "badge": "Principal"
-      },
-      {
-        "canalId": "ch-86",
-        "nome": "ESPN 3 HD",
-        "badge": "Ao Vivo"
-      },
-      {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
-        "badge": "Opção 2"
-      }
-    ]
-  },
-  {
-    "id": "match-401915308",
-    "campeonato": "UEFA Champions League • Fase de Liga",
-    "leagueType": "inter",
-    "leaguePriority": 3,
-    "status": "HOJE 17:00",
-    "tempo": "03/11 · Horário de Brasília",
-    "isLive": false,
-    "matchDate": "2026-11-03T20:00Z",
-    "estadio": "Old Trafford · Manchester",
-    "destaque": false,
-    "mandante": {
-      "nome": "Manchester United",
-      "sigla": "MAN",
-      "gols": 0,
-      "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png"
-    },
-    "visitante": {
-      "nome": "AS Roma",
-      "sigla": "ROMA",
-      "gols": 0,
-      "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png"
-    },
-    "transmissao": [
-      {
-        "canalId": "ch-49",
-        "nome": "ESPN 2 HD",
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes HD",
         "badge": "Principal"
       },
       {
@@ -724,29 +208,287 @@
         "badge": "Ao Vivo"
       },
       {
-        "canalId": "ch-86",
-        "nome": "ESPN 3 HD",
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
         "badge": "Opção 2"
       }
     ]
   },
   {
-    "id": "match-401915309",
-    "campeonato": "UEFA Champions League • Fase de Liga",
-    "leagueType": "inter",
-    "leaguePriority": 3,
-    "status": "HOJE 17:00",
-    "tempo": "03/11 · Horário de Brasília",
+    "id": "match-401841306",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
     "isLive": false,
-    "matchDate": "2026-11-03T20:00Z",
-    "estadio": "Estadio de la Cerámica · Villarreal",
-    "destaque": false,
+    "matchDate": "2026-11-04T22:30Z",
+    "estadio": "Arena da Baixada · Curitiba",
+    "destaque": true,
     "mandante": {
-      "nome": "Villarreal",
-      "sigla": "VIL",
+      "nome": "Athletico-PR",
+      "sigla": "CAP",
+      "gols": 1,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3458.png"
+    },
+    "visitante": {
+      "nome": "Vasco da Gama",
+      "sigla": "VAS",
+      "gols": 3,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/3454.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841307",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-11-04T22:30Z",
+    "estadio": "Estadio do Maracana · Rio de Janeiro",
+    "destaque": true,
+    "mandante": {
+      "nome": "Flamengo",
+      "sigla": "FLA",
+      "gols": 3,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/819.png"
+    },
+    "visitante": {
+      "nome": "Grêmio",
+      "sigla": "GRE",
+      "gols": 1,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6273.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841305",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-11-05T00:30Z",
+    "estadio": "Joao Havelange Stadium · Rio de Janeiro",
+    "destaque": true,
+    "mandante": {
+      "nome": "Botafogo",
+      "sigla": "BOT",
+      "gols": 1,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6086.png"
+    },
+    "visitante": {
+      "nome": "Atlético-MG",
+      "sigla": "CAM",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/7632.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401841298",
+    "campeonato": "Brasileirão Série A • Rodada Decisiva",
+    "leagueType": "nacional",
+    "leaguePriority": 1,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-11-05T00:30Z",
+    "estadio": "Estádio Vila Belmiro (Urbano Caldeira) · Santos",
+    "destaque": true,
+    "mandante": {
+      "nome": "São Paulo",
+      "sigla": "SAO",
       "gols": 0,
       "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/102.png"
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2026.png"
+    },
+    "visitante": {
+      "nome": "Corinthians",
+      "sigla": "COR",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/874.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-prem-2",
+        "nome": "Premiere 2 HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-31",
+        "nome": "SporTV 2 HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401912521",
+    "campeonato": "Copa Libertadores da América",
+    "leagueType": "nacional",
+    "leaguePriority": 2,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-10-23T00:30Z",
+    "estadio": "Estadio do Maracana · Rio de Janeiro",
+    "destaque": true,
+    "mandante": {
+      "nome": "Flamengo",
+      "sigla": "FLA",
+      "gols": 0,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/819.png"
+    },
+    "visitante": {
+      "nome": "Estudiantes de La Plata",
+      "sigla": "EST",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/8.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401913956",
+    "campeonato": "Copa Sul-Americana",
+    "leagueType": "nacional",
+    "leaguePriority": 3,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-10-21T22:00Z",
+    "estadio": "Estadio Centenario · Montevideo",
+    "destaque": false,
+    "mandante": {
+      "nome": "Montevideo City Torque",
+      "sigla": "MCT",
+      "gols": 2,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/19002.png"
+    },
+    "visitante": {
+      "nome": "Atlético-MG",
+      "sigla": "CAM",
+      "gols": 0,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/7632.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-26",
+        "nome": "Premiere Clubes HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-cazetv",
+        "nome": "CazéTV HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-sportv-1",
+        "nome": "SporTV HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-735958",
+    "campeonato": "Mundial de Clubes FIFA",
+    "leagueType": "nacional",
+    "leaguePriority": 4,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2025-07-13T19:00Z",
+    "estadio": "MetLife Stadium · East Rutherford, New Jersey",
+    "destaque": false,
+    "mandante": {
+      "nome": "Chelsea",
+      "sigla": "CHE",
+      "gols": 3,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png"
     },
     "visitante": {
       "nome": "Paris Saint-Germain",
@@ -758,12 +500,12 @@
     "transmissao": [
       {
         "canalId": "ch-49",
-        "nome": "ESPN 2 HD",
+        "nome": "TNT HD",
         "badge": "Principal"
       },
       {
-        "canalId": "ch-cazetv",
-        "nome": "CazéTV HD",
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
         "badge": "Ao Vivo"
       },
       {
@@ -774,44 +516,388 @@
     ]
   },
   {
-    "id": "match-401841299",
-    "campeonato": "Brasileirão Série A • Rodada Decisiva",
-    "leagueType": "nacional",
-    "leaguePriority": 1,
+    "id": "match-401915383",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "leagueType": "inter",
+    "leaguePriority": 5,
     "status": "ENCERRADO",
     "tempo": "Fim de Jogo",
     "isLive": false,
-    "matchDate": "2026-11-02T23:00Z",
-    "estadio": "Estádio Municipal Cicero de Souza Marques · Bragança Paulista",
-    "destaque": true,
+    "matchDate": "2026-11-04T17:45Z",
+    "estadio": "OPAP Arena · Athens",
+    "destaque": false,
     "mandante": {
-      "nome": "Red Bull Bragantino",
-      "sigla": "BRA",
+      "nome": "AEK Athens",
+      "sigla": "AEK",
       "gols": 2,
       "cor": "from-blue-600 to-indigo-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/6079.png"
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/887.png"
     },
     "visitante": {
-      "nome": "Santos",
-      "sigla": "SAN",
-      "gols": 1,
+      "nome": "Real Madrid",
+      "sigla": "RMA",
+      "gols": 3,
       "cor": "from-red-600 to-zinc-900",
-      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2674.png"
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png"
     },
     "transmissao": [
       {
-        "canalId": "ch-prem-5",
-        "nome": "Premiere 5 HD",
+        "canalId": "ch-49",
+        "nome": "TNT HD",
         "badge": "Principal"
       },
       {
-        "canalId": "ch-sportv-1",
-        "nome": "SporTV HD",
+        "canalId": "ch-75",
+        "nome": "Space HD",
         "badge": "Ao Vivo"
       },
       {
-        "canalId": "ch-10",
-        "nome": "GE TV HD",
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915382",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "leagueType": "inter",
+    "leaguePriority": 5,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-11-04T17:45Z",
+    "estadio": "Şükrü Saracoğlu Stadium · Istanbul",
+    "destaque": false,
+    "mandante": {
+      "nome": "Fenerbahce",
+      "sigla": "FEN",
+      "gols": 3,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/436.png"
+    },
+    "visitante": {
+      "nome": "Liverpool",
+      "sigla": "LIV",
+      "gols": 2,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-49",
+        "nome": "TNT HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915304",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "leagueType": "inter",
+    "leaguePriority": 5,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-11-04T20:00Z",
+    "estadio": "Signal Iduna Park · Aue",
+    "destaque": false,
+    "mandante": {
+      "nome": "Borussia Dortmund",
+      "sigla": "DOR",
+      "gols": 2,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/124.png"
+    },
+    "visitante": {
+      "nome": "Real Betis",
+      "sigla": "BET",
+      "gols": 1,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/244.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-49",
+        "nome": "TNT HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915301",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "leagueType": "inter",
+    "leaguePriority": 5,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-11-04T20:00Z",
+    "estadio": "Estádio do Dragão · Porto",
+    "destaque": false,
+    "mandante": {
+      "nome": "FC Porto",
+      "sigla": "FCP",
+      "gols": 4,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png"
+    },
+    "visitante": {
+      "nome": "Napoli",
+      "sigla": "NAP",
+      "gols": 1,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/114.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-49",
+        "nome": "TNT HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915305",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "leagueType": "inter",
+    "leaguePriority": 5,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-11-04T20:00Z",
+    "estadio": "Stade Bollaert-Delelis · Lens",
+    "destaque": false,
+    "mandante": {
+      "nome": "Lens",
+      "sigla": "RCL",
+      "gols": 1,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png"
+    },
+    "visitante": {
+      "nome": "Como",
+      "sigla": "COMO",
+      "gols": 9,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-49",
+        "nome": "TNT HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915303",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "leagueType": "inter",
+    "leaguePriority": 5,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-11-04T20:00Z",
+    "estadio": "Philips Stadion · Eindhoven",
+    "destaque": false,
+    "mandante": {
+      "nome": "PSV Eindhoven",
+      "sigla": "PSV",
+      "gols": 1,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png"
+    },
+    "visitante": {
+      "nome": "Club Brugge",
+      "sigla": "BRU",
+      "gols": 2,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-49",
+        "nome": "TNT HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915306",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "leagueType": "inter",
+    "leaguePriority": 5,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-11-04T20:00Z",
+    "estadio": "Red Bull Arena · Leipzig",
+    "destaque": false,
+    "mandante": {
+      "nome": "RB Leipzig",
+      "sigla": "RBL",
+      "gols": 2,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png"
+    },
+    "visitante": {
+      "nome": "Manchester City",
+      "sigla": "MNC",
+      "gols": 3,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-49",
+        "nome": "TNT HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915381",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "leagueType": "inter",
+    "leaguePriority": 5,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-11-04T20:00Z",
+    "estadio": "Fortuna Arena · Prague",
+    "destaque": false,
+    "mandante": {
+      "nome": "Slavia Prague",
+      "sigla": "SLP",
+      "gols": 1,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/494.png"
+    },
+    "visitante": {
+      "nome": "Arsenal",
+      "sigla": "ARS",
+      "gols": 2,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-49",
+        "nome": "TNT HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
+        "badge": "Opção 2"
+      }
+    ]
+  },
+  {
+    "id": "match-401915302",
+    "campeonato": "UEFA Champions League • Fase de Liga",
+    "leagueType": "inter",
+    "leaguePriority": 5,
+    "status": "ENCERRADO",
+    "tempo": "Fim de Jogo",
+    "isLive": false,
+    "matchDate": "2026-11-04T20:00Z",
+    "estadio": "Viking Stadion · Stavanger",
+    "destaque": false,
+    "mandante": {
+      "nome": "Viking FK",
+      "sigla": "VFK",
+      "gols": 4,
+      "cor": "from-blue-600 to-indigo-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/510.png"
+    },
+    "visitante": {
+      "nome": "Sabah FK",
+      "sigla": "SAB",
+      "gols": 1,
+      "cor": "from-red-600 to-zinc-900",
+      "escudo": "https://a.espncdn.com/i/teamlogos/soccer/500/21922.png"
+    },
+    "transmissao": [
+      {
+        "canalId": "ch-49",
+        "nome": "TNT HD",
+        "badge": "Principal"
+      },
+      {
+        "canalId": "ch-48",
+        "nome": "ESPN HD",
+        "badge": "Ao Vivo"
+      },
+      {
+        "canalId": "ch-86",
+        "nome": "ESPN 3 HD",
         "badge": "Opção 2"
       }
     ]

@@ -10,9 +10,19 @@
  */
 
 import INITIAL_JOGOS from '../data/jogosHoje.json';
+import { getProxyUrl } from './proxyService';
 
 const CACHE_KEY = 'langos_daily_sports_v2';
 const CACHE_TTL_MS = 15 * 60 * 1000; // 15 minutos de cache
+
+// Busca com suporte a proxy para contornar bloqueios de CORS do navegador
+function safeFetchJson(url) {
+  const isWeb = typeof window !== 'undefined' && !window.IS_NATIVE_ANDROID;
+  const targetUrl = isWeb ? getProxyUrl(url) : url;
+  return fetch(targetUrl)
+    .then(r => r.ok ? r.json() : null)
+    .catch(() => null);
+}
 
 // Mapeia canais de transmissão para confrontos nacionais e internacionais
 export function getBroadcastChannels(homeName, awayName, leagueId) {
@@ -154,22 +164,19 @@ export const SportsService = {
 
       // 2. Disparar buscas em paralelo para ESPN API
       const braPromises = dateStrings.map(dateStr => 
-        fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=${dateStr}`)
-          .then(r => r.ok ? r.json() : null)
-          .catch(() => null)
+        safeFetchJson(`https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=${dateStr}`)
       );
 
-      const uclPromise = fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard')
-        .then(r => r.ok ? r.json() : null)
-        .catch(() => null);
+      const uclPromise = safeFetchJson('https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard');
+      const libPromise = safeFetchJson('https://site.api.espn.com/apis/site/v2/sports/soccer/conmebol.libertadores/scoreboard');
+      const sudaPromise = safeFetchJson('https://site.api.espn.com/apis/site/v2/sports/soccer/conmebol.sudamericana/scoreboard');
+      const cwcPromise = safeFetchJson('https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.cwc/scoreboard');
 
-      const libPromise = fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/conmebol.libertadores/scoreboard')
-        .then(r => r.ok ? r.json() : null)
-        .catch(() => null);
-
-      const [uclData, libData, ...braDataResults] = await Promise.all([
+      const [uclData, libData, sudaData, cwcData, ...braDataResults] = await Promise.all([
         uclPromise,
         libPromise,
+        sudaPromise,
+        cwcPromise,
         ...braPromises
       ]);
 
@@ -203,14 +210,40 @@ export const SportsService = {
         });
       }
 
-      // C) UEFA Champions League
+      // C) Copa Sul-Americana
+      if (sudaData?.events) {
+        sudaData.events.forEach(ev => {
+          rawEvents.push({
+            ...ev,
+            leagueId: 'conmebol.sudamericana',
+            leagueName: 'Copa Sul-Americana',
+            leaguePriority: 3,
+            leagueType: 'nacional'
+          });
+        });
+      }
+
+      // D) Mundial de Clubes FIFA
+      if (cwcData?.events) {
+        cwcData.events.forEach(ev => {
+          rawEvents.push({
+            ...ev,
+            leagueId: 'fifa.cwc',
+            leagueName: 'Mundial de Clubes FIFA',
+            leaguePriority: 4,
+            leagueType: 'nacional'
+          });
+        });
+      }
+
+      // E) UEFA Champions League
       if (uclData?.events) {
         uclData.events.forEach(ev => {
           rawEvents.push({
             ...ev,
             leagueId: 'uefa.champions',
             leagueName: 'UEFA Champions League • Fase de Liga',
-            leaguePriority: 3,
+            leaguePriority: 5,
             leagueType: 'inter'
           });
         });
