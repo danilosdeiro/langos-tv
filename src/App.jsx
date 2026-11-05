@@ -100,7 +100,19 @@ export default function App() {
   const [continueWatchingList, setContinueWatchingList] = useState([]);
 
   // Estado do Player
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const p = new URLSearchParams(window.location.search);
+        const chId = p.get('ch') || p.get('channel');
+        if (chId) {
+          const found = CatalogService.getChannels().find(c => c.id === chId);
+          if (found) return found;
+        }
+      } catch {}
+    }
+    return null;
+  });
   const playerSectionRef = useRef(null);
 
   // Modais

@@ -195,6 +195,7 @@ export default function VideoPlayer({
 
   const handleSelectCamera = (cam) => {
     if (!cam || cam.id === item?.id) return;
+    setShowInfoBanner(false);
     if (onSelectChannel) {
       onSelectChannel(cam);
       showOsd(`📹 ${cam.camShort || cam.nome.split('(')[0].trim()}`);
@@ -413,7 +414,14 @@ export default function VideoPlayer({
         }
       } else {
         setResumePrompt(null);
-        triggerInfoBanner();
+        // Não disparar o banner gigante se for apenas alternância de câmera do mesmo reality
+        const isRealityCamSwitch = prevItemIdRef.current && (
+          (prevItemIdRef.current.startsWith('ch-fazenda') && item?.id?.startsWith('ch-fazenda')) ||
+          (prevItemIdRef.current.startsWith('ch-bbb') && item?.id?.startsWith('ch-bbb'))
+        );
+        if (!isRealityCamSwitch) {
+          triggerInfoBanner();
+        }
       }
     } else if (isDifferentAudio) {
       // Mesma série/filme, apenas trocando idioma do áudio: reter posição atual
@@ -1214,7 +1222,11 @@ export default function VideoPlayer({
       {/* TV Broadcast Info Banner (Mini EPG ao trocar canal ou pressionar Tecla INFO / OK) */}
       {!isVOD && showInfoBanner && (
         <div 
-          className="absolute bottom-16 inset-x-4 sm:inset-x-8 md:inset-x-12 z-30 bg-zinc-950/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl animate-fadeIn pointer-events-none"
+          className={`absolute ${
+            showControls 
+              ? (realityCameras.length > 1 ? 'bottom-44 md:bottom-48' : 'bottom-28 md:bottom-32') 
+              : 'bottom-16'
+          } inset-x-4 sm:inset-x-8 md:inset-x-12 z-20 bg-zinc-950/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl animate-fadeIn pointer-events-none transition-all duration-300`}
         >
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
             {/* Informações do Canal */}
@@ -1771,7 +1783,7 @@ export default function VideoPlayer({
 
       {/* Controles Inferiores */}
       <div 
-        className={`absolute bottom-0 inset-x-0 p-3 md:p-4 bg-gradient-to-t from-black/95 via-black/60 to-transparent z-20 flex flex-col gap-2.5 transition-opacity duration-300 ${
+        className={`absolute bottom-0 inset-x-0 p-3 md:p-4 bg-gradient-to-t from-black/95 via-black/60 to-transparent z-30 flex flex-col gap-2.5 transition-opacity duration-300 ${
           showControls || !isPlaying ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       >
